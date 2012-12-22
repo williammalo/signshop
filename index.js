@@ -571,7 +571,12 @@ for(i in a){
 	t[i]="<a href='http://www.payloadz.com/go/?id="+i+"' target='_blank'><img src='t/"+a[i]+".jpg'><br>"+p[i]+"</a>"
 }
 
-onkeyup=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
+onkeyup=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
+document.getElementById("fo").onsubmit=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
+document.getElementById("sf").oninput=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
+document.getElementById("sf").onchange=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
+document.getElementById("sf").onfocus=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
+document.getElementById("sf").onblur=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
 
 var displayresults=function(s){
 	var i,c=[],text="";
