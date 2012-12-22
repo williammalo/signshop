@@ -25,4 +25,4 @@ a{color:rgba(255,255,255,0.7)}
 #models a{color:#26b0ec}
 small{color:rgba(0,0,0,0.4)}
 @media (max-width:1200px){#bg{opacity:.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=40);filter:alpha(opacity=40)}
-}#close{height:48px;padding:12px;opacity:.2;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=20);filter:alpha(opacity=20);vertical-align:bottom;display:none}
+}#close{height:48px;padding:12px;opacity:0;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);filter:alpha(opacity=0);vertical-align:bottom;position:absolute}

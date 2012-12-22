@@ -575,9 +575,9 @@ onkeyup=function(){displayresults(document.getElementById("sf").value.toLowerCas
 document.getElementById("fo").onsubmit=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
 document.getElementById("sf").oninput=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
 document.getElementById("sf").onchange=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
-document.getElementById("sf").onfocus=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.display="inline-block"};
-document.getElementById("sf").onblur=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.display="none"};
-document.getElementById("close").onclick=function(){document.getElementById("sf").value="";displayresults(document.getElementById("sf").value.toLowerCase())}
+document.getElementById("sf").onfocus=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.opacity="0.2"};
+document.getElementById("sf").onblur=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.opacity="0"};
+document.getElementById("close").onclick=function(){document.getElementById("sf").value="";displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("sf").focus()}
 
 var displayresults=function(s){
 	var i,c=[],text="";
