@@ -568,7 +568,24 @@ for(i in a){
 		.replace("vw ","volkswagen ")
 }
 for(i in a){
-	t[i]="<a href='http://www.payloadz.com/go/?id="+i+"' target='_blank'><img src='t/"+a[i]+".jpg'><br>"+p[i]+"</a>"
+	t[i]="<a href='http://www.payloadz.com/go/?id="+i+"' target='_blank'><img data-src='t/"+a[i]+".jpg'><br>"+p[i]+"</a>"
+}
+
+
+var imgupdate=function(){
+	var elementInViewport=function(el) {
+		if(el.getBoundingClientRect==undefined){
+			return false
+		}
+    	var rect = el.getBoundingClientRect()
+	    return (
+	        rect.bottom >= window.pageYOffset &&
+	        rect.top <= (window.innerHeight+window.pageYOffset)
+	        )
+	}
+	var i;
+	var list=document.getElementById("models").getElementsByTagName("img");
+	for(i in list){if(elementInViewport(list[i])){list[i].src=list[i].getAttribute("data-src")}}
 }
 
 onkeyup=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
@@ -588,6 +605,10 @@ var displayresults=function(s){
 	//combine html for every car model
 	for(i in c) text+=t[i];
 	//update document
-	document.getElementById("models").innerHTML=text
+	document.getElementById("models").innerHTML=text;
+	imgupdate();
 };
 displayresults("");
+
+window.onscroll=imgupdate
+
