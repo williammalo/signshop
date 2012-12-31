@@ -1,4 +1,6 @@
-var popupState="closed"
+document.getElementById("sf").value=localStorage.getItem("tb")||""
+
+var popupState="closed";
 document.getElementById("plink").onclick=function(a,b,c){
 	b=document.getElementById("popup").style
 	c=document.getElementById("plink")
@@ -590,7 +592,7 @@ var imgupdate=function(){
 var oldval=document.getElementById("sf").value
 onkeyup=function(){if(document.getElementById("sf").value!=oldval){displayresults(document.getElementById("sf").value.toLowerCase());oldval=document.getElementById("sf").value}return false};
 document.getElementById("fo").onsubmit=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
-document.getElementById("sf").oninput=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
+document.getElementById("sf").oninput=function(){displayresults(document.getElementById("sf").value.toLowerCase());localStorage.setItem("tb", document.getElementById("sf").value);};
 document.getElementById("sf").onfocus=function(){document.getElementById("close").style.opacity="0.2";document.getElementById("sf").placeholder=""};
 document.getElementById("sf").onblur=function(){document.getElementById("close").style.opacity="0"};
 document.getElementById("close").onclick=function(){document.getElementById("sf").value="";displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("sf").focus()}
@@ -607,7 +609,7 @@ var displayresults=function(s){
 	document.getElementById("models").innerHTML=text;
 	imgupdate();
 };
-displayresults("");
+displayresults(document.getElementById("sf").value.toLowerCase());
 
 window.onscroll=imgupdate
 
