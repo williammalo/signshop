@@ -587,13 +587,12 @@ var imgupdate=function(){
 	var list=document.getElementById("models").getElementsByTagName("img");
 	for(i in list){if(elementInViewport(list[i])){list[i].src=list[i].getAttribute("data-src")}}
 }
-
-onkeyup=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
+var oldval=document.getElementById("sf").value
+onkeyup=function(){if(document.getElementById("sf").value!=oldval){displayresults(document.getElementById("sf").value.toLowerCase());oldval=document.getElementById("sf").value}return false};
 document.getElementById("fo").onsubmit=function(){displayresults(document.getElementById("sf").value.toLowerCase());return false};
 document.getElementById("sf").oninput=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
-document.getElementById("sf").onchange=function(){displayresults(document.getElementById("sf").value.toLowerCase())};
-document.getElementById("sf").onfocus=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.opacity="0.2";document.getElementById("sf").placeholder=""};
-document.getElementById("sf").onblur=function(){displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("close").style.opacity="0"};
+document.getElementById("sf").onfocus=function(){document.getElementById("close").style.opacity="0.2";document.getElementById("sf").placeholder=""};
+document.getElementById("sf").onblur=function(){document.getElementById("close").style.opacity="0"};
 document.getElementById("close").onclick=function(){document.getElementById("sf").value="";displayresults(document.getElementById("sf").value.toLowerCase());document.getElementById("sf").focus()}
 
 var displayresults=function(s){
