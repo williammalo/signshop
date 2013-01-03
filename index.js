@@ -562,6 +562,7 @@ for(i in a){
 		.replace(" crew c "," crew cab ")
 		.replace(" ext c "," extended cab ")
 		.replace(" c c "," crew cab ")
+		.replace(" c cab "," crew cab ")
 		.replace(" ext cab "," extended cab ")
 		.replace(" quad c "," quad cab ")
 		.replace(" s dr "," swing door ")
