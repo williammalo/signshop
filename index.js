@@ -4,7 +4,7 @@ var popupState="closed";
 document.getElementById("plink").onclick=function(a,b,c){
 	b=document.getElementById("popup").style
 	c=document.getElementById("plink")
-	if(popupState=="closed"){b.height="auto";popupState="open";c.innerHTML="Less..."}
+	if(popupState=="closed"){b.height="300px";popupState="open";c.innerHTML="Less..."}
 	else{b.height="0px";popupState="closed";c.innerHTML="More..."}
 	return false
 }
