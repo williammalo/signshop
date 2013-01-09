@@ -1,0 +1,121 @@
+@import '../lib/nib/'
+@import 'bits'
+
+*
+	position:relative
+	box-sizing:border-box
+	text-rendering:optimizeLegibility
+
+html
+	display:table
+	text-align:center
+	width:100%
+	height:100%
+	background:#444
+	font-family:Ubuntu, sans-serif
+	overflow:hidden
+
+body
+	display:table-cell
+	vertical-align:middle
+	min-width:650px
+	overflow:hidden
+
+a
+	display:inline-block
+	width:240px
+	height:240px
+	margin:2%
+	border-radius:20px
+	box-shadow:0 5px 20px #000
+	line-height:520px
+	text-decoration:none
+	color:white
+	font-size:20px
+	text-shadow:0 5px 20px #000
+	transform:scale3d(0.9,0.9,1)
+	-webkit-transition: -webkit-transform .4s
+	-moz-transition: -moz-transform .4s
+	-ms-transition: -ms-transform .4s
+	-o-transition: -o-transform .4s
+	@media(max-width:1180px)
+		width:200px
+		height:200px
+		background-size:200px 200px !important
+		line-height:440px
+	@media(max-width:980px)
+		width:160px
+		height:160px
+		background-size:160px 160px !important
+		line-height:360px
+		font-size:16px
+	@media(max-width:780px)
+		width:120px
+		height:120px
+		background-size:120px 120px !important
+		line-height:270px
+		font-size:12px
+	&:before
+		content:""
+		display:block
+		position:absolute
+		width:100%
+		height:50%
+		background:rgba(255,255,255,0.2)
+		top:0
+		left:0
+		border-bottom-left-radius:50% 20px
+		border-bottom-right-radius:50% 20px
+		border-top-left-radius:20px
+		border-top-right-radius:20px
+	&:hover
+		transform:scale3d(1,1,1)
+
+	&.highdpi
+		background-size:240px 240px
+
+.l1
+	background:brand1 url(ico1.png)
+	border-top:solid 1px lighten(brand1,10%)
+
+.l1.highdpi
+	background-image:url(ico1-2x.png)
+
+.l2
+	background:brand2 url(ico2.png)
+	border-top:solid 1px lighten(brand2,10%)
+
+.l2.highdpi
+	background-image:url(ico2-2x.png)
+
+.l3
+	background:brand3 url(ico3.png)
+	border-top:solid 1px lighten(brand3,40%)
+
+.l3.highdpi
+	background-image:url(ico3-2x.png)
+
+.l4
+	background:brand4 url(ico4.png)
+	border-top:solid 1px lighten(brand4,40%)
+
+.l4.highdpi
+	background-image:url(ico4-2x.png)
+
+iframe
+	position:absolute
+	width:100%
+	height:100%
+	top:100%
+	left:0
+	//-webkit-transform:translate(0,100%)
+	pointer-events:none
+	transition:1s
+	z-index:100
+	border:none
+
+iframe.go
+	pointer-events:auto
+	top:0 !important
+	//-webkit-transform:none
+	

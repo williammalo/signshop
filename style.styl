@@ -1,11 +1,20 @@
 @import '../lib/nib/'
-brand=#26b0ec
-*{position:relative;box-sizing:border-box;text-rendering:optimizeLegibility;line-height:1.5em}
-body{font-family: Ubuntu, Helvetica Neue,Helvetica,sans-serif;margin:0;color:rgba(0,0,0,0.7);background:desaturate(lighten(brand,80%),40%);padding-bottom:10px;min-width:650px}
+@import 'bits'
+brand=brand3
+*
+	position:relative
+	box-sizing:border-box
+	text-rendering:optimizeLegibility
+	line-height:1.5em
 
-a
-	color:white
-	color:rgba(white,0.7)
+body
+	font-family: Ubuntu, Helvetica Neue,Helvetica,sans-serif
+	margin:0
+	color:rgba(0,0,0,0.7)
+	background:desaturate(lighten(brand,80%),40%)
+	padding-bottom:10px
+	min-width:650px
+
 p
 	margin:0
 ul
@@ -25,6 +34,9 @@ header
 	background: linear-gradient(top, lighten(brand,40%) 0%,lighten(brand,20%) 10% ,brand 90% ,darken(brand,5%) 100%)
 	text-shadow:0 1px 0 rgba(255,255,255,0.2)
 	overflow:hidden
+	a
+		color:white
+		color:rgba(white,0.7)
 
 hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.4);margin:0}
@@ -43,15 +55,24 @@ h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(255,255,255,0.2)}
 		overflow:hidden
 		box-shadow:0 0 8px rgba(#000,0.3)
 		margin:0
+		transform:translateY(0)
+		-webkit-backface-visibility:hidden
+		-webkit-perspective:1000
 		&:before
 			content:""
 			display:block
 			padding-top:48%
+			transform:translateY(0)
+			-webkit-backface-visibility:hidden
+			-webkit-perspective:1000
 		img 
 			position:absolute
 			width:100%
 			top:0
 			transition:opacity 0.5s
+			transform:translateY(0)
+			-webkit-backface-visibility:hidden
+			-webkit-perspective:1000
 	article
 		padding-right:40px
 	h2
