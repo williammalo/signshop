@@ -9,16 +9,16 @@ document.getElementById("plink").onclick=function(a,b,c){
 	return false
 }
 
-index=0
-images=document.getElementById("slide").getElementsByTagName("img")
-slideshow=function(){
-for(i=images.length;i--;)images[i].style.opacity=0
-images[index].style.opacity=1
-if(ie){
-	for(i=images.length;i--;)images[i].style.visibility="hidden"
-	images[index].style.visibility="visible"
-}
-index=(index+1)%images.length
+var index=0
+var images=document.getElementById("slide").getElementsByTagName("img")
+var slideshow=function(){
+	for(i=images.length;i--;)images[i].style.opacity=0
+	images[index].style.opacity=1
+	if(ie){
+		for(i=images.length;i--;)images[i].style.visibility="hidden"
+		images[index].style.visibility="visible"
+	}
+	index=(index+1)%images.length
 }
 setInterval(slideshow,3000)
 
@@ -571,31 +571,11 @@ for(i in a){
 		.replace(/ (20\d{2})$/,"<br>$1")
 		.replace("vw ","volkswagen ")
 }
-/*
-for(i in a){
-	a[i][3]="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img data-src='t/"+a[i][1]+".jpg'>"+a[i][2]+"</a>"
-}
-*/
+
 for(i in a){
 	a[i][3]="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='t/"+a[i][1]+".jpg'>"+a[i][2]+"</a>"
 }
-/*
-var imgupdate=function(){
-	var elementInViewport=function(el) {
-		if(el.getBoundingClientRect==undefined){
-			return false
-		}
-    	var rect = el.getBoundingClientRect()
-	    return (
-	        rect.bottom >= window.pageYOffset &&
-	        rect.top <= (window.innerHeight+window.pageYOffset)
-	        )
-	}
-	var i;
-	var list=document.getElementById("models").getElementsByTagName("img");
-	for(i in list){if(elementInViewport(list[i])){list[i].src=list[i].getAttribute("data-src")}}
-}
-*/
+
 var textbox=document.getElementById("sf")
 var showall=false
 
@@ -621,7 +601,6 @@ if(!ie){
 		}
 		//update document
 		document.getElementById("models").innerHTML=text+(showall?"":i==11?"<a onclick='showall=true;displayresults()'>Show all...</a>":"");
-		//imgupdate();
 		showall=false
 	};
 	displayresults();
@@ -634,5 +613,4 @@ if(!ie){
 	})()
 }
 
-//window.onscroll=imgupdate
 

@@ -23,17 +23,17 @@ xlight4=lighten(light4,25%)
 
 g1()
 	background:light1
-	background: url(ico1-2x.png) top right no-repeat , linear-gradient(top, light1 0%,lighten(brand1,10%) 10% ,brand1 90% ,darken(brand1,5%) 100%)
-	background-size: 200px 200px , 100% 100%
+	background-image:linear-gradient(light1 0%,lighten(brand1,10%) 10% ,brand1 90% ,darken(brand1,5%) 100%)
+	-pie-background: @background-image
 g2()
 	background:light2
-	background: url(ico2-2x.png) top right no-repeat , linear-gradient(top, light2 0%,lighten(brand2,10%) 10% ,brand2 90% ,darken(brand2,5%) 100%)
-	background-size: 200px 200px , 100% 100%
+	background-image:linear-gradient(light2 0%,lighten(brand2,10%) 10% ,brand2 90% ,darken(brand2,5%) 100%)
+	-pie-background: @background-image
 g3()
 	background:light3
-	background: url(ico3-2x.png) top right no-repeat , linear-gradient(top, light3 0%,lighten(brand3,10%) 10% ,brand3 90% ,darken(brand3,5%) 100%)
-	background-size: 200px 200px , 100% 100%
+	background-image:linear-gradient(light3 0%,lighten(brand3,10%) 10% ,brand3 90% ,darken(brand3,5%) 100%)
+	-pie-background: @background-image
 g4()
 	background:light4
-	background: url(ico4-2x.png) top right no-repeat , linear-gradient(top, light4 0%,lighten(brand4,10%) 10% ,brand4 90% ,darken(brand4,5%) 100%)
-	background-size: 200px 200px , 100% 100%
+	background-image:linear-gradient(light4 0%,lighten(brand4,10%) 10% ,brand4 90% ,darken(brand4,5%) 100%)
+	-pie-background: @background-image

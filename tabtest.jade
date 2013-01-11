@@ -1,6 +1,7 @@
 <!doctype html>
 <meta charset="utf-8">
-<!--[if lt IE 9]><script src="ie9.js"></script><![endif]-->
+//if lt IE 9
+	script(src="ie9.js")
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel=stylesheet href="tabs.css">
@@ -36,7 +37,18 @@ script
 		a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t
 	}
 
-	onclick=function(e,d){
+	var clickHandler=function(e,d){
 		d=e.target.id
 		if(d[0]=="p")document.body.className=d
 	}
+	onclick=clickHandler
+
+//if IE 9
+	script(src="PIE.js")
+	script
+		PIE.attach(document.getElementsByTagName("header")[0])
+		onclick=function(e,d){
+			clickHandler(e,d)
+			PIE.detach(document.getElementsByTagName("header")[0])
+			PIE.attach(document.getElementsByTagName("header")[0])
+		}
