@@ -1,0 +1,129 @@
+@import '../lib/nib/'
+@import 'bits'
+
+*
+	position:relative
+	box-sizing:border-box
+	text-rendering:optimizeLegibility
+	line-height:1.5em
+
+body
+	font-family: Ubuntu, Helvetica Neue,Helvetica,sans-serif
+	margin:0
+	background:#575043
+	min-width:560px
+	color:rgba(#000,0.7)
+
+hgroup{padding:20px 20px 0 20px}
+hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
+h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.3);margin:0}
+h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(#444,.5)}
+
+nav{text-align:right;direction:rtl;}
+
+nav a
+	text-wrap:nowrap
+	text-align:left
+	width:210px
+	height:37px
+	direction:ltr
+	display:inline-block
+	vertical-align:top
+	padding:7px 1px 9px 1px
+	margin-right:17px
+	top:1px
+	border-top:solid 1px #000
+	font-size:20px
+	line-height:1em
+	text-shadow:0 -1px rgba(#000,0.1),0 1px rgba(#ff8,0.2)
+	@media (max-width:1030px)
+		width:auto
+
+.tab{transform:scale(0.6,0.6);transform-origin:0 0;position:absolute;top:0;right:-34px;}
+.tab:nth-child(3){left:-20px}
+.border{transform:scale(0.6,0.6);transform-origin:0 0;position:absolute;top:-1px;right:-35px;}
+.border:nth-child(1){left:-21px}
+svg path{stroke:none;}
+
+#p1{background:light1;border-top-color:xlight1;}
+#p1 .tab path{fill:light1;}
+#p1 .border path{fill:xlight1;}
+#p1:before{content:"Copyright Free "}
+
+#p2{background:light2;border-top-color:xlight2;}
+#p2 .tab path{fill:light2;}
+#p2 .border path{fill:xlight2;}
+#p2:before{content:"Sign "}
+
+#p3{background:light3;border-top-color:xlight3;}
+#p3 .tab path{fill:light3;}
+#p3 .border path{fill:xlight3;}
+#p3:before{content:"Vehicle "}
+
+#p4{background:light4;border-top-color:xlight4;}
+#p4 .tab path{fill:light4;}
+#p4 .border path{fill:xlight4;}
+
+@media (max-width:900px)
+	#p1:before{content:"© free "}
+@media (max-width:800px)
+	#p2:before{content:"";display:none}
+@media (max-width:720px)
+	#p3:before{content:"";display:none}
+@media (max-width:600px)
+	#p1:before{content:"";display:none}
+
+.p1 #p1,
+.p2 #p2,
+.p3 #p3,
+.p4 #p4
+	z-index:4
+	padding:8px 1px 8px 1px
+
+header
+	//height:200px
+	//z-index:3
+	box-shadow:0 0 40px #333
+	padding:20px
+	border-top:solid 1px light1
+	g1()
+	border-bottom:solid 1px darken(brand1,25%)
+	a
+		color:rgba(#fff,0.8)
+.p1 header
+	border-top:solid 1px light1
+	g1()
+	border-bottom:solid 1px darken(brand1,25%)
+.p2 header
+	border-top:solid 1px light2
+	g2()
+	border-bottom:solid 1px darken(brand2,25%)
+.p3 header
+	border-top:solid 1px light3
+	g3()
+	border-bottom:solid 1px darken(brand3,25%)
+.p4 header
+	border-top:solid 1px light4
+	g4()
+	border-bottom:solid 1px darken(brand4,25%)
+
+header footer
+	opacity:.6
+	position:absolute
+	bottom:0
+	left:20px
+	text-shadow:0 1px 0 rgba(#fff,0.2)
+	font-size:0.62em
+
+.content
+	min-height:500px
+	padding:20px
+.p1 .content
+	background:lighten(xlight1,50%)
+.p2 .content
+	background:#333
+.p3 .content
+	background:lighten(xlight3,50%)
+.p4 .content
+	background:lighten(xlight4,50%)
+

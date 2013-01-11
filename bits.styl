@@ -1,4 +1,39 @@
+@import '../lib/nib/'
+
 brand1=#83c61a
 brand2=#bd000c
 brand3=#2eb3ed
 brand4=#ee9908
+
+lb1=lighten(brand1,15%)
+lb2=lighten(brand2,15% )
+lb3=lighten(brand3,15%)
+lb4=lighten(brand4,15%)
+
+light1=rgb(red(lb1)+15,green(lb1),blue(lb1))
+light2=rgb(red(lb2),green(lb2)+15,blue(lb2))
+light3=rgb(red(lb3),green(lb3)+15,blue(lb3))
+light4=rgb(red(lb4),green(lb4)+15,blue(lb4))
+
+xlight1=lighten(light1,15%)
+xlight2=lighten(light2,6%)
+xlight3=lighten(light3,25%)
+xlight4=lighten(light4,25%)
+
+
+g1()
+	background:light1
+	background: url(ico1-2x.png) top right no-repeat , linear-gradient(top, light1 0%,lighten(brand1,10%) 10% ,brand1 90% ,darken(brand1,5%) 100%)
+	background-size: 200px 200px , 100% 100%
+g2()
+	background:light2
+	background: url(ico2-2x.png) top right no-repeat , linear-gradient(top, light2 0%,lighten(brand2,10%) 10% ,brand2 90% ,darken(brand2,5%) 100%)
+	background-size: 200px 200px , 100% 100%
+g3()
+	background:light3
+	background: url(ico3-2x.png) top right no-repeat , linear-gradient(top, light3 0%,lighten(brand3,10%) 10% ,brand3 90% ,darken(brand3,5%) 100%)
+	background-size: 200px 200px , 100% 100%
+g4()
+	background:light4
+	background: url(ico4-2x.png) top right no-repeat , linear-gradient(top, light4 0%,lighten(brand4,10%) 10% ,brand4 90% ,darken(brand4,5%) 100%)
+	background-size: 200px 200px , 100% 100%
