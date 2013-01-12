@@ -11,7 +11,7 @@ h1 small{font-size:.62em;color:#000;text-shadow:0 1px 0 rgba(255,255,255,0.2)}
 #popup figure,#popup article{width:50%;display:inline-block;vertical-align:middle}
 #popup figure{max-width:620px;background:#fff;overflow:hidden;-webkit-box-shadow:0 0 8px rgba(0,0,0,0.3);box-shadow:0 0 8px rgba(0,0,0,0.3);margin:0;-webkit-transform:translateY(0);-moz-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);-webkit-backface-visibility:hidden;-webkit-perspective:1000;}
 #popup figure:before{content:"";display:block;padding-top:48%;-webkit-transform:translateY(0);-moz-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);-webkit-backface-visibility:hidden;-webkit-perspective:1000}
-#popup figure img{position:absolute;width:100%;top:0;-webkit-transition:opacity .5s;-moz-transition:opacity .5s;-o-transition:opacity .5s;-ms-transition:opacity .5s;transition:opacity .5s;-webkit-transform:translateY(0);-moz-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);-webkit-backface-visibility:hidden;-webkit-perspective:1000}
+#popup figure img{position:absolute;width:100%;top:0;left:0;-webkit-transition:opacity .5s;-moz-transition:opacity .5s;-o-transition:opacity .5s;-ms-transition:opacity .5s;transition:opacity .5s;-webkit-transform:translateY(0);-moz-transform:translateY(0);-o-transform:translateY(0);-ms-transform:translateY(0);transform:translateY(0);-webkit-backface-visibility:hidden;-webkit-perspective:1000}
 #popup article{padding-right:40px}
 #popup h2{margin-bottom:0}
 footer{font-size:.62em;color:#000;color:rgba(0,0,0,0.4);margin-top:1em}

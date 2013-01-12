@@ -11,7 +11,7 @@ html
 	text-align:center
 	width:100%
 	height:100%
-	background:#444
+	background:#575043
 	font-family:Ubuntu, sans-serif
 	overflow:hidden
 
@@ -21,13 +21,23 @@ body
 	min-width:650px
 	overflow:hidden
 
+hgroup
+	padding:20px 20px 0 20px
+	-webkit-transition: -webkit-transform 1s
+	-moz-transition: -moz-transform 1s
+	-ms-transition: -ms-transform 1s
+	-o-transition: -o-transform 1s
+hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
+h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.3);margin:0}
+h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(#444,.5)}
+
 a
 	display:inline-block
 	width:240px
 	height:240px
 	margin:2%
 	border-radius:20px
-	box-shadow:0 5px 20px #000
+	box-shadow:0 5px 20px #333
 	line-height:520px
 	text-decoration:none
 	color:white
@@ -61,7 +71,7 @@ a
 		position:absolute
 		width:100%
 		height:50%
-		background:rgba(255,255,255,0.2)
+		background:rgba(255,255,255,0.15)
 		top:0
 		left:0
 		border-bottom-left-radius:50% 20px
@@ -74,33 +84,13 @@ a
 	&.highdpi
 		background-size:240px 240px
 
-.l1
-	background:brand1 url(ico1.png)
-	border-top:solid 1px lighten(brand1,10%)
+for i in 0 1 2 3
+	.l{i+1}
+		background:brand[i] url(s("ico%s.png",i+1))
+		border-top:solid 1px lighten(brand[i],10%)
 
-.l1.highdpi
-	background-image:url(ico1-2x.png)
-
-.l2
-	background:brand2 url(ico2.png)
-	border-top:solid 1px lighten(brand2,10%)
-
-.l2.highdpi
-	background-image:url(ico2-2x.png)
-
-.l3
-	background:brand3 url(ico3.png)
-	border-top:solid 1px lighten(brand3,40%)
-
-.l3.highdpi
-	background-image:url(ico3-2x.png)
-
-.l4
-	background:brand4 url(ico4.png)
-	border-top:solid 1px lighten(brand4,40%)
-
-.l4.highdpi
-	background-image:url(ico4-2x.png)
+	.l{i+1}.highdpi
+		background-image:url(s("ico%s-2x.png",i+1))
 
 iframe
 	position:absolute
@@ -113,6 +103,10 @@ iframe
 	transition:1s
 	z-index:100
 	border:none
+	transform:translateY(1)
+	-webkit-backface-visibility:hidden
+	-webkit-perspective:1000
+
 
 iframe.go
 	pointer-events:auto

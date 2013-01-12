@@ -3,7 +3,10 @@
 <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel=stylesheet href="tabs.css">
 <link rel=icon type="image/png" href="favicon.png">
-<body class="p1" ><hgroup><img src="logo.png"><h1>SIGNSHOP HELPER &nbsp;<small>by:</small><img src=gl.png style="height:60px;vertical-align:middle;margin-left:0.5em" ></h1></hgroup><nav><a id="p4">Auto Graphics</a><a id="p3">Templates</a><a id="p2">Elements</a><a id="p1">Logos</a></nav><header>Lorem ipsum dolor adipisicing esse non nulla magna dolor nostrud. <ul><li>Foo</li><li>Bar</li><li>Lorem</li><li>Ipsum</li></ul><footer>Copyright <script>document.write((new Date).getFullYear())</script>, Signshop Helper, Graphic Library.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website by: <a href="http://maloweb.com/en" target="_blank">maloweb.com</a></footer></header><div class="content"></div><script>var t,i,a=document.getElementsByTagName("nav")[0].getElementsByTagName("a")
+<body class="p1" ><div id="top"><hgroup><img src="logo.png"><h1>SIGNSHOP HELPER &nbsp;<small>by:</small><img src=gl.png style="height:60px;vertical-align:middle;margin-left:0.5em" ></h1></hgroup><nav><a id="p4" href="#">Auto Graphics</a><a id="p3" href="#">Templates</a><a id="p2" href="#">Elements</a><a id="p1" href="#">Logos</a></nav><header><article class="p1">Logos ipsum dolor adipisicing esse non nulla magna dolor nostrud.</article><article class="p2">Elements ipsum dolor adipisicing esse non nulla magna dolor nostrud.</article><article class="p3"><figure><img src="1.jpg"/><img src="2.jpg"/><img src="3.jpg"/><img src="4.jpg"/><img src="5.jpg"/><img src="6.jpg"/></figure>High quality 1:20 scale vehicle templates in .eps format. Only 15$ each. (checkout with paypal)<ul><li>Accuracy and precision of templates makes it easy to scale vehicles and make layouts. Try one for free!</li><li>Outlines for cars, trucks, SUV's, vans, trailers, and tractors.</li><li>Uses .eps, a reliable and easily imported file format.</li></ul></article><article class="p4">Stripes ipsum dolor adipisicing esse non nulla magna dolor nostrud.</article><footer>Copyright <script>document.write((new Date).getFullYear())</script>, Signshop Helper, Graphic Library.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contact us: <a href="mailto:info@graphik-link.com">info@graphik-link.com</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website by: <a href="http://maloweb.com/en" target="_blank">maloweb.com</a></footer></header></div><div class="content"></div><script>ie=false</script>
+<!--[if lt IE 9]>
+<script>ie=true</script>
+<![endif]--><script>var t,i,a=document.getElementsByTagName("nav")[0].getElementsByTagName("a");
 for(i in a){
  t=a[i].innerHTML
  a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t
@@ -12,8 +15,24 @@ for(i in a){
 var clickHandler=function(e,d){
  d=e.target.id
  if(d[0]=="p")document.body.className=d
+ e.preventDefault()
 }
+
 onclick=clickHandler
+
+var index=0
+var images=document.getElementsByTagName("figure")[0].getElementsByTagName("img")
+var slideshow=function(){
+ for(i=images.length;i--;)images[i].style.opacity=0
+ images[index].style.opacity=1
+ if(ie){
+  for(i=images.length;i--;)images[i].style.visibility="hidden"
+  images[index].style.visibility="visible"
+ }
+ index=(index+1)%images.length
+}
+slideshow()
+setInterval(slideshow,4000)
 </script><!--[if IE 9]><script src="PIE.js"></script><script>PIE.attach(document.getElementsByTagName("header")[0])
 onclick=function(e,d){
  clickHandler(e,d)

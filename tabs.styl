@@ -14,6 +14,13 @@ body
 	min-width:560px
 	color:rgba(#000,0.7)
 
+for i in 0 1 2 3
+	body.p{i+1}
+		background:lighten(xlight[i],50%)
+
+li
+	max-width:30em
+
 hgroup{padding:20px 20px 0 20px}
 hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.3);margin:0}
@@ -22,6 +29,8 @@ h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(#444,.5)}
 nav{text-align:right;direction:rtl;}
 
 nav a
+	color:rgba(#000,0.7)
+	text-decoration:none
 	text-wrap:nowrap
 	text-align:left
 	width:210px
@@ -35,7 +44,7 @@ nav a
 	border-top:solid 1px #000
 	font-size:20px
 	line-height:1em
-	text-shadow:0 -1px rgba(#000,0.1),0 1px rgba(#ff8,0.2)
+	text-shadow:0 -1px rgba(#000,0.1),0 1px rgba(#ffe,0.2)
 	@media (max-width:1030px)
 		width:auto
 
@@ -45,49 +54,51 @@ nav a
 .border:nth-child(1){left:-21px}
 svg path{stroke:none;}
 
-#p1{background:light1;border-top-color:xlight1;}
-#p1 .tab path{fill:light1;}
-#p1 .border path{fill:xlight1;}
-#p1:before{content:"Copyright Free "}
+for i in 0 1 2 3
+	#p{i+1}
+		background:light[i]
+		border-top-color:xlight[i]
+	#p{i+1} .tab path
+		fill:light[i]
+	#p{i+1} .border path
+		fill:xlight[i]
 
-#p2{background:light2;border-top-color:xlight2;}
-#p2 .tab path{fill:light2;}
-#p2 .border path{fill:xlight2;}
-#p2:before{content:"Sign "}
+#p1:before
+	content:"Copyright Free "
+	@media (max-width:900px)
+		content:"© free "
+	@media (max-width:600px)
+		content:""
+		display:none
 
-#p3{background:light3;border-top-color:xlight3;}
-#p3 .tab path{fill:light3;}
-#p3 .border path{fill:xlight3;}
-#p3:before{content:"Vehicle "}
+#p2:before
+	content:"Sign "
+	@media (max-width:800px)
+		content:""
+		display:none
 
-#p4{background:light4;border-top-color:xlight4;}
-#p4 .tab path{fill:light4;}
-#p4 .border path{fill:xlight4;}
+#p3:before
+	content:"Vehicle "
+	@media (max-width:720px)
+		content:""
+		display:none
 
-@media (max-width:900px)
-	#p1:before{content:"© free "}
-@media (max-width:800px)
-	#p2:before{content:"";display:none}
-@media (max-width:720px)
-	#p3:before{content:"";display:none}
-@media (max-width:600px)
-	#p1:before{content:"";display:none}
 
 .p1 #p1,
 .p2 #p2,
 .p3 #p3,
 .p4 #p4
-	z-index:4
+	z-index:10
 	padding:8px 1px 8px 1px
 
+#top
+	overflow:hidden
+	background:#575043
+
 header
-	//height:200px
-	//z-index:3
 	box-shadow:0 0 40px #333
 	padding:20px
-	border-top:solid 1px light1
-	g1()
-	border-bottom:solid 1px darken(brand1,25%)
+	min-height:200px
 	a
 		color:rgba(#fff,0.8)
 	&:after
@@ -100,31 +111,16 @@ header
 		height:200px
 		background-size:200px 200px
 		opacity:.5
-.p1 header
-	border-top:solid 1px light1
-	g1()
-	border-bottom:solid 1px darken(brand1,25%)
-	&:after
-		background-image:url(ico1-2x.png)
-.p2 header
-	border-top:solid 1px light2
-	g2()
-	border-bottom:solid 1px darken(brand2,25%)
-	&:after
-		background-image:url(ico2-2x.png)
-		opacity:.9
-.p3 header
-	border-top:solid 1px light3
-	g3()
-	border-bottom:solid 1px darken(brand3,25%)
-	&:after
-		background-image:url(ico3-2x.png)
-.p4 header
-	border-top:solid 1px light4
-	g4()
-	border-bottom:solid 1px darken(brand4,25%)
-	&:after
-		background-image:url(ico4-2x.png)
+
+for i in 0 1 2 3
+	.p{i+1} header
+		border-top:solid 1px xlight[i]
+		background:light[i]
+		background-image:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
+		-pie-background: @background-image
+		border-bottom:solid 1px darken(brand[i],25%)
+		&:after
+			background-image:url(s("ico%s-2x.png",i+1))
 
 header footer
 	opacity:.6
@@ -135,14 +131,42 @@ header footer
 	font-size:0.62em
 
 .content
-	min-height:500px
 	padding:20px
-.p1 .content
-	background:lighten(xlight1,50%)
-.p2 .content
-	background:#f8a28d
-.p3 .content
-	background:lighten(xlight3,50%)
-.p4 .content
-	background:lighten(xlight4,50%)
 
+for i in 0 1 2 3
+	.p{i+1} .content
+		border-top:solid 1px lighten(xlight[i],70%)
+
+header article
+	display:none
+.p1 header .p1,
+.p2 header .p2,
+.p3 header .p3,
+.p4 header .p4
+	display:block
+
+
+figure
+	width:310px
+	display:inline-block
+	background:#fff
+	overflow:hidden
+	box-shadow:0 0 8px rgba(#000,0.3)
+	margin:0 20% 10px 20px
+	float:right
+	@media (max-width:1000px)
+		margin:0 200px 10px 20px
+	@media (max-width:730px)
+		display:block
+		float:none
+
+	&:before
+		content:""
+		display:block
+		padding-top:48%
+	img 
+		position:absolute
+		width:100%
+		top:0
+		left:0
+		transition:opacity 1s
