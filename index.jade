@@ -12,6 +12,7 @@ header
 	<img id=bg src=bg.png >
 	<hgroup><img src="logo.png"><h1>SIGNSHOP HELPER &nbsp;<small>by:</small><img src=gl.png style="height:60px;vertical-align:middle;margin-left:0.5em" ></h1></hgroup>
 	p High quality 1:20 scale vehicle templates in .eps format. Only 15$ each. (checkout with paypal)
+	p(style="color:#b00") <strong>NEW!</strong> 2012 models.
 	p: a#plink(href="#popup") More...
 	#popup(style="height:0px")
 		article
@@ -32,16 +33,37 @@ header
 			img(src="6.jpg")
 
 	footer Copyright <script>document.write((new Date).getFullYear())</script>, Signshop Helper, Graphic Library.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website by: <a href="http://maloweb.com/en" target="_blank">maloweb.com</a>
-form#fo
-	input(type='text',id='sf',placeholder='Search your model...')
-	img#close(src="cancel.png")
 
-#models
+.content
 
 <script>ie=false</script>
 <!--[if lt IE 9]>
 <script>ie=true</script>
 <![endif]-->
-<script>
+script
+	var popupState="closed";
+	document.getElementById("plink").onclick=function(a,b,c){
+		b=document.getElementById("popup").style
+		c=document.getElementById("plink")
+		if(popupState=="closed"){b.height="300px";popupState="open";c.innerHTML="Less..."}
+		else{b.height="0px";popupState="closed";c.innerHTML="More..."}
+		return false
+	}
+
+	var index=0
+	var images=document.getElementById("slide").getElementsByTagName("img")
+	var slideshow=function(){
+		for(i=images.length;i--;)images[i].style.opacity=0
+		images[index].style.opacity=1
+		if(ie){
+			for(i=images.length;i--;)images[i].style.visibility="hidden"
+			images[index].style.visibility="visible"
+		}
+		index=(index+1)%images.length
+	}
+	setInterval(slideshow,3000)
+
 include index-min.js
-</script>
+
+script
+	templates.setup()

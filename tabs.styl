@@ -21,12 +21,18 @@ for i in 0 1 2 3
 li
 	max-width:30em
 
-hgroup{padding:20px 20px 0 20px}
+hgroup{padding:20px 20px 0 20px;position:absolute}
 hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.3);margin:0}
 h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(#444,.5)}
 
-nav{text-align:right;direction:rtl;}
+nav
+	text-align:right
+	direction:rtl
+	padding-top:78px
+	@media(max-width:950px)
+		padding-top:83px
+
 
 nav a
 	color:rgba(#000,0.7)
@@ -45,7 +51,7 @@ nav a
 	font-size:20px
 	line-height:1em
 	text-shadow:0 -1px rgba(#000,0.1),0 1px rgba(#ffe,0.2)
-	@media (max-width:1030px)
+	@media (max-width:1440px)
 		width:auto
 
 .tab{transform:scale(0.6,0.6);transform-origin:0 0;position:absolute;top:0;right:-34px;}
@@ -65,21 +71,21 @@ for i in 0 1 2 3
 
 #p1:before
 	content:"Copyright Free "
-	@media (max-width:900px)
+	@media (max-width:1220px)
 		content:"© free "
-	@media (max-width:600px)
+	@media (max-width:1140px)
 		content:""
 		display:none
 
 #p2:before
 	content:"Sign "
-	@media (max-width:800px)
+	@media (max-width:1080px)
 		content:""
 		display:none
 
 #p3:before
 	content:"Vehicle "
-	@media (max-width:720px)
+	@media (max-width:1030px)
 		content:""
 		display:none
 
@@ -170,3 +176,78 @@ figure
 		top:0
 		left:0
 		transition:opacity 1s
+		transform:translateZ(1px);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//templates (p3) styles
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+body.p3
+	.content
+		form{padding:30px;text-align:center}
+
+		input[type=text]
+			font-size:1.4em
+			padding:5px 10px
+			width:300px
+			max-width:100%
+			border-radius:25px
+			box-shadow:inset 0 2px 11px #ccc,0 1px 0 #fff,0 -1px 0 rgba(#000,0.2)
+			border:none
+			background:#fff url(search.png) center right no-repeat
+			background-size:32px 24px
+			//fixes bug in chrome
+			font-family: Ubuntu
+
+		::-webkit-input-placeholder
+			color: rgba(#000,0.3)
+
+		:-moz-placeholder
+			color: rgba(#000,0.3)
+
+#close
+	height:48px
+	padding:12px
+	opacity:0
+	vertical-align:bottom
+	position:absolute
+
+#models
+	text-align:center
+#models img{height:90px;float:left;margin-right:10px;border:none}
+#models a
+	width:350px
+	display:inline-block
+	vertical-align:top
+	padding:10px
+	background:#fff
+	margin:10px
+	box-shadow:0 0 5px rgba(#000,0.1)
+	text-align:left
+	text-decoration:underline
+	color:brand[2]
+#showall
+	cursor:pointer
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//logos (p1) styles
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+body.p1 .content
+	a
+		display:inline-block
+		width:100%
+		background:white
+		margin-bottom:20px
+		padding:10px
+
+	img
+		width:100%
+
+	column-width:200px
+	column-gap:20px
+
+//var i,txt="";
+//for(i in a){
+//txt+="<a href='"+a[i][0]+"'><img src='logos/"+a[i][1]+".png'></a>"
+//}
+

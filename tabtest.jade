@@ -50,34 +50,45 @@
 <script>ie=true</script>
 <![endif]-->
 
-script
-	var t,i,a=document.getElementsByTagName("nav")[0].getElementsByTagName("a");
-	for(i in a){
-		t=a[i].innerHTML
-		a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t
-	}
+include index-min.js
 
-	var clickHandler=function(e,d){
-		d=e.target.id
-		if(d[0]=="p")document.body.className=d
+script
+	(function(){
+		var t,i,a=document.getElementsByTagName("nav")[0].getElementsByTagName("a");
+		for(i in a){
+			t=a[i].innerHTML
+			a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t
+		}
+	})()
+
+	;(function(){
+		var i,index=0,images=document.getElementsByTagName("figure")[0].getElementsByTagName("img")
+		,slideshow=function(){
+			for(i=images.length;i--;)images[i].style.opacity=0
+			images[index].style.opacity=1
+			if(ie){
+				for(i=images.length;i--;)images[i].style.visibility="hidden"
+				images[index].style.visibility="visible"
+			}
+			index=(index+1)%images.length
+		};
+		slideshow()
+		setInterval(slideshow,4000)
+	})()
+
+	var clickHandler=function(e,d,t){
+		t=e.target
+		d=t.id
+		if(d[0]=="p"){
+			document.body.className=d
+			if(d=="p3"){templates.setup()}else{
+				document.body.getElementsByClassName("content")[0].innerHTML=d;
+			}
+		}
 		e.preventDefault()
-	}
+	};
 
 	onclick=clickHandler
-
-	var index=0
-	var images=document.getElementsByTagName("figure")[0].getElementsByTagName("img")
-	var slideshow=function(){
-		for(i=images.length;i--;)images[i].style.opacity=0
-		images[index].style.opacity=1
-		if(ie){
-			for(i=images.length;i--;)images[i].style.visibility="hidden"
-			images[index].style.visibility="visible"
-		}
-		index=(index+1)%images.length
-	}
-	slideshow()
-	setInterval(slideshow,4000)
 
 //if IE 9
 	script(src="PIE.js")
