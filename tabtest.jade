@@ -51,6 +51,7 @@
 <![endif]-->
 
 include index-min.js
+include logos-min.js
 
 script
 	(function(){
@@ -81,11 +82,11 @@ script
 		d=t.id
 		if(d[0]=="p"){
 			document.body.className=d
-			if(d=="p3"){templates.setup()}else{
+			if(d=="p3"){templates.setup()}else if(d=="p1"){logos.setup()}else{
 				document.body.getElementsByClassName("content")[0].innerHTML=d;
 			}
+			e.preventDefault()
 		}
-		e.preventDefault()
 	};
 
 	onclick=clickHandler

@@ -183,7 +183,7 @@ figure
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 body.p3
 	.content
-		form{padding:30px;text-align:center}
+		form{padding:30px;padding-top:10px;text-align:center}
 
 		input[type=text]
 			font-size:1.4em
@@ -239,6 +239,8 @@ body.p1 .content
 		background:white
 		margin-bottom:20px
 		padding:10px
+		box-shadow:0 0 5px rgba(#000,0.1)
+		-webkit-transform:translateZ(1px) //fixes a rendering bug in webkit :)
 
 	img
 		width:100%
@@ -246,8 +248,4 @@ body.p1 .content
 	column-width:200px
 	column-gap:20px
 
-//var i,txt="";
-//for(i in a){
-//txt+="<a href='"+a[i][0]+"'><img src='logos/"+a[i][1]+".png'></a>"
-//}
 
