@@ -106,12 +106,15 @@ script
 			e.preventDefault()
 		}
 	};
-	if(/logos/.test(location.pathname)){setup("p1")}
-	else if(/elements/.test(location.pathname)){setup("p2")}
-	else if(/templates/.test(location.pathname)){setup("p3")}
-	else if(/graphics/.test(location.pathname)){setup("p4")}
-	else{setup("p1")}
 	onclick=clickHandler
+
+	onload=function(){
+		if(/logos/.test(location.pathname)){logos.setup()}
+		else if(/elements/.test(location.pathname)){elements.setup()}
+		else if(/templates/.test(location.pathname)){templates.setup()}
+		else if(/graphics/.test(location.pathname)){setup("p4")}
+		else{setup("p1")}
+	}
 
 //if IE 9
 	script(src="PIE.js")
