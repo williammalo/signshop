@@ -7,11 +7,6 @@ elements.setup=function(){
 	for(i in a){
 	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
 	}
-	if(Modernizr.history){
-		History.pushState("","","elements")
-	}else{
-			location="elements"
-	}
 	document.getElementsByClassName("content")[0].innerHTML=txt;
 }
 

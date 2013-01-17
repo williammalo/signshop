@@ -76,3 +76,4 @@ body.p3 .content :-moz-placeholder{color:rgba(0,0,0,0.3)}
 body.p1 .content,body.p2 .content{-webkit-column-width:200px;-moz-column-width:200px;column-width:200px;-webkit-column-gap:20px;-moz-column-gap:20px;column-gap:20px}
 body.p1 .content a,body.p2 .content a{display:inline-block;width:100%;background:#fff;margin-bottom:20px;padding:10px;-webkit-box-shadow:0 0 5px rgba(0,0,0,0.1);box-shadow:0 0 5px rgba(0,0,0,0.1);-webkit-transform:translateZ(1px)}
 body.p1 .content img,body.p2 .content img{width:100%}
+.ie body.p2 .content{width:200px}

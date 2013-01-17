@@ -61,11 +61,6 @@ templates.setup=function(){
 		textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
 
 		document.getElementById("close").onclick=function(){textbox.value="";textbox.focus();displayresults()}
-		if(Modernizr.history){
-			History.pushState("","","templates")
-		}else{
-			location="templates"
-		}
 		displayresults();
 	}else{
 		textbox.style.display="none";

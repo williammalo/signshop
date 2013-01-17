@@ -7,11 +7,6 @@ logos.setup=function(){
 	for(i in a){
 	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
 	}
-	if(Modernizr.history){
-		History.pushState("","","logos")
-	}else{
-			location="logos"
-	}
 	document.getElementsByClassName("content")[0].innerHTML=txt;
 }
 

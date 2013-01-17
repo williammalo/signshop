@@ -89,10 +89,13 @@ script
 	var setup=function(d){
 		document.body.className=d
 		if(d=="p3"){
+			History.pushState("","","templates")
 			templates.setup()
 		}else if(d=="p1"){
+			History.pushState("","","logos")
 			logos.setup()
 		}else if(d=="p2"){
+			History.pushState("","","elements")
 			elements.setup()
 		}else{
 			document.body.getElementsByClassName("content")[0].innerHTML=d;			
@@ -103,8 +106,10 @@ script
 		t=e.target
 		d=t.id
 		if(d[0]=="p"){
-			setup(d)
-			e.preventDefault()
+			if(Modernizr.history){
+				setup(d)
+				e.preventDefault()
+			}
 		}
 	};
 	onclick=clickHandler
