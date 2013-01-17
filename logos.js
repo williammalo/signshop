@@ -1,7 +1,6 @@
 var logos={};
 
 logos.setup=function(){
-	document.body.className="p1"
 	var a=[
 	 [1894630,"50s-12"]
 	,[1894629,"50s-11"]

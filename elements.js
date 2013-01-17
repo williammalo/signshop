@@ -1,7 +1,6 @@
 var elements={};
 
 elements.setup=function(){
-	document.body.className="p2"
 	var a=[
 	 [1895117,"slogan39"]
 	,[1895116,"slogan38"]
