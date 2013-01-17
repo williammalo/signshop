@@ -1,7 +1,21 @@
 var elements={};
 
 elements.setup=function(){
-	var a=[
+	var a=elements.list
+
+	var i,txt="";
+	for(i in a){
+	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
+	}
+	if(Modernizr.history){
+		History.pushState("","","elements")
+	}else{
+			location="elements"
+	}
+	document.getElementsByClassName("content")[0].innerHTML=txt;
+}
+
+elements.list=[
 	 [1895117,"slogan39"]
 	,[1895116,"slogan38"]
 	,[1895115,"slogan37"]
@@ -178,16 +192,3 @@ elements.setup=function(){
 	,[1894944,"5-3"]
 	,[1894943,"5-2"]
 	]
-
-	var i,txt="";
-	for(i in a){
-	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
-	}
-	if(Modernizr.history){
-		History.pushState("","","elements")
-	}else{
-			location="elements"
-	}
-	document.getElementsByClassName("content")[0].innerHTML=txt;
-}
-

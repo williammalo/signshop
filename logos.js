@@ -1,7 +1,21 @@
 var logos={};
 
 logos.setup=function(){
-	var a=[
+	var a=logos.list
+	
+	var i,txt="";
+	for(i in a){
+	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
+	}
+	if(Modernizr.history){
+		History.pushState("","","logos")
+	}else{
+			location="logos"
+	}
+	document.getElementsByClassName("content")[0].innerHTML=txt;
+}
+
+logos.list=[
 	 [1894630,"50s-12"]
 	,[1894629,"50s-11"]
 	,[1894628,"50s-10"]
@@ -370,16 +384,3 @@ logos.setup=function(){
 	,[1894265,"achitec2"]
 	,[1894264,"achitec"]
 	]
-	
-	var i,txt="";
-	for(i in a){
-	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
-	}
-	if(Modernizr.history){
-		History.pushState("","","logos")
-	}else{
-			location="logos"
-	}
-	document.getElementsByClassName("content")[0].innerHTML=txt;
-}
-
