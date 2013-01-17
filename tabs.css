@@ -77,4 +77,4 @@ body.p1 .content,body.p2 .content{-webkit-column-width:200px;-moz-column-width:2
 body.p1 .content a,body.p2 .content a{display:inline-block;width:100%;background:#fff;margin-bottom:20px;padding:10px;-webkit-box-shadow:0 0 5px rgba(0,0,0,0.1);box-shadow:0 0 5px rgba(0,0,0,0.1);-webkit-transform:translateZ(1px)}
 body.p1 .content img,body.p2 .content img{width:100%}
 .ie body.p1 .content,.ie body.p2 .content{text-align:center;}
-.ie body.p1 .content a,.ie body.p2 .content a{width:200px;margin-left:10px;margin-right:10px}
+.ie body.p1 .content a,.ie body.p2 .content a{vertical-align:middle;width:200px;margin-left:10px;margin-right:10px}
