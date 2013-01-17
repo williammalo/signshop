@@ -23,10 +23,6 @@ body
 
 hgroup
 	padding:20px 20px 0 20px
-	-webkit-transition: -webkit-transform 1s
-	-moz-transition: -moz-transform 1s
-	-ms-transition: -ms-transform 1s
-	-o-transition: -o-transform 1s
 hgroup img{height:80px;margin-right:15px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#eee;text-shadow:3px 3px 5px rgba(#000,0.3);margin:0}
 h1 small{font-size:0.62em;color:#000;text-shadow:0 1px 0 rgba(#444,.5)}
@@ -95,21 +91,10 @@ for i in 0 1 2 3
 iframe
 	position:absolute
 	width:100%
-	height:100%
+	height:1px
 	top:100%
 	left:0
-	//-webkit-transform:translate(0,100%)
-	pointer-events:none
-	transition:1s
-	z-index:100
 	border:none
-	transform:translateY(1)
-	-webkit-backface-visibility:hidden
-	-webkit-perspective:1000
-
-
-iframe.go
-	pointer-events:auto
-	top:0 !important
-	//-webkit-transform:none
+	opacity:0.1
+	transform:translateY(1px)
 	

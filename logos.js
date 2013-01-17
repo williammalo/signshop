@@ -1,6 +1,7 @@
 var logos={};
 
 logos.setup=function(){
+	document.body.className="p1"
 	var a=[
 	 [1894630,"50s-12"]
 	,[1894629,"50s-11"]
@@ -368,12 +369,17 @@ logos.setup=function(){
 	,[1894267,"achitec4"]
 	,[1894266,"achitec3"]
 	,[1894265,"achitec2"]
-	,[1894264,"achitec.eps"]
+	,[1894264,"achitec"]
 	]
 	
 	var i,txt="";
 	for(i in a){
-	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='logos/"+a[i][1]+".png'></a>"
+	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
+	}
+	if(Modernizr.history){
+		History.pushState("","","logos")
+	}else{
+			location="logos"
 	}
 	document.getElementsByClassName("content")[0].innerHTML=txt;
 }
