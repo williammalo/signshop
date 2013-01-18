@@ -44,11 +44,11 @@ templates.setup=function(){
 			c=c.filter(function(element){
 				return RegExp(s,"i").test(element[2])
 			});
-			for(i=0;(showall?1:i<11)&&i<c.length;i++){
+			for(i=0;(showall?1:i<29)&&i<c.length;i++){
 				text+=c[i][3]
 			}
 			//update document
-			templateList.innerHTML=text+(showall?"":i==11?"<a id='showall'>Show all...</a>":"");
+			templateList.innerHTML=text+(showall?"":i==29?"<a id='showall'>Show all...</a>":"");
 			document.getElementById("showall").onclick=function(){showall=true;displayresults()}
 			showall=false;
 			localStorage.setItem("tb", s);

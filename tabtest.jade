@@ -18,7 +18,7 @@
 			<img src=gl.png style="height:60px;vertical-align:middle;margin-left:0.5em" >
 
 	nav
-		a#p4(href="#") Auto Graphics
+		a#p4(href="graphics") Auto Graphics
 		a#p3(href="templates") Templates
 		a#p2(href="elements") Elements
 		a#p1(href="logos") Logos
@@ -85,6 +85,7 @@ script
 include index-min.js
 include logos-min.js
 include elements-min.js
+include graphics-min.js
 
 script
 	(function(){
@@ -121,6 +122,9 @@ script
 		}else if(d=="p2"){
 			History.pushState("","","elements")
 			elements.setup()
+		}else if(d=="p4"){
+			History.pushState("","","graphics")
+			graphics.setup()
 		}else{
 			document.body.getElementsByClassName("content")[0].innerHTML=d;			
 		}
@@ -147,7 +151,7 @@ script
 		if(/logos/.test(location.pathname)){logos.setup()}
 		else if(/elements/.test(location.pathname)){elements.setup()}
 		else if(/templates/.test(location.pathname)){templates.setup()}
-		else if(/graphics/.test(location.pathname)){setup("p4")}
+		else if(/graphics/.test(location.pathname)){graphics.setup()}
 		else{setup("p1")}
 	}
 

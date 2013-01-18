@@ -235,8 +235,7 @@ body.p3
 //logos (p1,p2) styles
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-body.p1 .content,
-body.p2 .content
+#logs
 	a
 		display:inline-block
 		width:100%
@@ -249,14 +248,47 @@ body.p2 .content
 	img
 		width:100%
 
+	width:80%
 	column-width:200px
 	column-gap:20px
+	display:inline-block
+	vertical-align:top
+	padding-left:20px
 
-.ie body.p1 .content,
-.ie body.p2 .content
+.ie #logs
 	text-align:center
 	a
 		vertical-align:middle
 		width:200px
 		margin-left:10px
 		margin-right:10px
+
+#buts
+	button
+		display:inline-block
+		background:white
+		padding:5px
+		box-shadow:0 0 5px rgba(#000,0.1)
+		border:none
+		font-size:1em
+		text-decoration:underline
+		width:100%
+		cursor:pointer
+		text-align:left
+		-webkit-transform:translateZ(1px) //fixes a rendering bug in webkit :)
+	margin-bottom:20px
+	width:20%
+	display:inline-block
+	vertical-align:top
+	column-width:100px
+	column-gap:5px
+
+.p1 #buts button
+	color:brand[0]
+.p2 #buts button
+	color:brand[1]
+.p4 #buts button
+	color:brand[3]
+.p4 #logs
+	column-width:500px
+

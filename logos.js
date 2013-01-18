@@ -2,12 +2,49 @@ var logos={};
 
 logos.setup=function(){
 	var a=logos.list
+	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
+	"<button data-category='vacatio'>vacation</button>"+
+	"<button data-category='transp'>transport</button>"+
+	"<button data-category='touris'>tourism</button>"+
+	"<button data-category='sport'>sport</button>"+
+	"<button data-category='sign'>sign</button>"+
+	"<button data-category='print'>print</button>"+
+	"<button data-category='office'>office</button>"+
+	"<button data-category='music'>music</button>"+
+	"<button data-category='medical'>medical</button>"+
+	"<button data-category='home'>home</button>"+
+	"<button data-category='golf'>golf</button>"+
+	"<button data-category='food'>food</button>"+
+	"<button data-category='corp'>corp</button>"+
+	"<button data-category='const'>construction</button>"+
+	"<button data-category='compute'>computers</button>"+
+	"<button data-category='clothe'>clothing</button>"+
+	"<button data-category='car'>car</button>"+
+	"<button data-category='art'>art</button>"+
+	"<button data-category='achitec'>architecture</button>"+
+	"<button data-category='antique'>antique</button>"+
+	"<button data-category='animal'>animals</button>"+
+	"<button data-category='50'>50\'s</button>"+
+	"<button data-reverse='' data-category='vacatio|transp|touris|sport|sign|print|achitec|office|music|50|medical|home|golf|food|corp|const|compute|clothe|car|art|antique|animal'>other</button>"+
+	"<button data-category=''>all</button>"+
+	"</div><div id='logs'></div>"
 	
-	var i,txt="";
-	for(i in a){
-	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
+	document.getElementById("buts").onclick=function(e){
+		if(!e){e={};e.target=event.srcElement}
+		if(e.target.hasAttribute("data-category")){
+			list(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
+		}
 	}
-	document.getElementsByClassName("content")[0].innerHTML=txt;
+
+	var list=function(q,n){
+		var i,txt="";
+		for(i in a){
+		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1]))
+			txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
+		}
+		document.getElementById("logs").innerHTML=txt;
+	}
+	list("transpo")
 }
 
 logos.list=[

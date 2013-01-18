@@ -2,12 +2,30 @@ var elements={};
 
 elements.setup=function(){
 	var a=elements.list
-
-	var i,txt="";
-	for(i in a){
-	txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
+	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
+	"<button data-category='slogan'>slogans</button>"+
+	"<button data-category='iso'>iso</button>"+
+	"<button data-category='dotcom'>website</button>"+
+	"<button data-category='^\\d'>anniversary</button>"+
+	"<button data-category=''>all</button>"+
+	"</div><div id='logs'></div>"
+	
+	document.getElementById("buts").onclick=function(e){
+		if(!e){e={};e.target=event.srcElement}
+		if(e.target.hasAttribute("data-category")){
+			list(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
+		}
 	}
-	document.getElementsByClassName("content")[0].innerHTML=txt;
+
+	var list=function(q,n){
+		var i,txt="";
+		for(i in a){
+		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1]))
+			txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
+		}
+		document.getElementById("logs").innerHTML=txt;
+	}
+	list("slogan")
 }
 
 elements.list=[
