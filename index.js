@@ -1,6 +1,7 @@
 var templates={};
 
 templates.setup=function(){
+	document.body.className="p3"
 	document.getElementsByClassName("content")[0].innerHTML="<form id='fo'><input type='text' id='sf' value='"+(window.localStorage.getItem("tb")||"")+"' placeholder='Search your model...'><img id='close' src='cancel.png' alt='clear'></form><div id='models'></div>"
 	var a=templates.list
 	

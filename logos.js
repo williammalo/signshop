@@ -1,6 +1,7 @@
 var logos={};
 
 logos.setup=function(){
+	document.body.className="p1"
 	var a=logos.list
 	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
 	"<button data-category='vacatio'>vacation</button>"+

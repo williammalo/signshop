@@ -1,6 +1,7 @@
 var graphics={};
 
 graphics.setup=function(){
+	document.body.className="p4"
 	var a=graphics.list
 	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
 	"<button data-category='ky'>kentucky</button>"+

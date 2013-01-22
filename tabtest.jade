@@ -99,6 +99,7 @@ include elements-min.js
 include graphics-min.js
 
 script
+	//tabs
 	(function(){
 		var t,i,a=document.getElementsByTagName("nav")[0].getElementsByTagName("a");
 		for(i in a){
@@ -106,7 +107,7 @@ script
 			a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t
 		}
 	})()
-
+	//slideshow
 	;(function(){
 		var i,index=0,images=document.getElementsByTagName("figure")[0].getElementsByTagName("img")
 		,slideshow=function(){
@@ -121,51 +122,21 @@ script
 		slideshow()
 		setInterval(slideshow,4000)
 	})()
-
-	var setup=function(d){
-		document.body.className=d
-		if(d=="p3"){
-			History.pushState("","","templates")
-			templates.setup()
-		}else if(d=="p1"){
-			History.pushState("","","logos")
-			logos.setup()
-		}else if(d=="p2"){
-			History.pushState("","","elements")
-			elements.setup()
-		}else if(d=="p4"){
-			History.pushState("","","graphics")
-			graphics.setup()
-		}else{
-			document.body.getElementsByClassName("content")[0].innerHTML=d;			
-		}
-	}
-
-	var clickHandler=function(e,d,t){
+	//click event
+	onclick=function(e,d,t){
 		t=e.target
 		d=t.id
-		if(d[0]=="p"){
-			if(Modernizr.history){
-				setup(d)
-				e.preventDefault()
-			}
+		if(d[0]=="p"&&Modernizr.history){
+			var pageName=[,"logos","elements","templates","graphics"][d[1]]
+			History.pushState("","",pageName)
+			window[pageName].setup()
+			e.preventDefault()
 		}
 	};
-	onclick=clickHandler
-
-	if(/logos/.test(location.pathname)){document.body.className="p1"}
-	else if(/elements/.test(location.pathname)){document.body.className="p2"}
-	else if(/templates/.test(location.pathname)){document.body.className="p3"}
-	else if(/graphics/.test(location.pathname)){document.body.className="p4"}
-
-	onload=function(){
-		if(/logos/.test(location.pathname)){logos.setup()}
-		else if(/elements/.test(location.pathname)){elements.setup()}
-		else if(/templates/.test(location.pathname)){templates.setup()}
-		else if(/graphics/.test(location.pathname)){graphics.setup()}
-		else{setup("p1")}
-	}
-
+	//load event
+	var pageName=/signshop/.test(location.pathname)?location.pathname.split("/signshop/")[1]:location.pathname.split("/")[1];
+	pageName=window[pageName]?pageName:"templates"
+	window[pageName].setup()
 //if IE 9
 	script(src="PIE.js")
 	script

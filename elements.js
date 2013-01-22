@@ -1,6 +1,7 @@
 var elements={};
 
 elements.setup=function(){
+	document.body.className="p2"
 	var a=elements.list
 	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
 	"<button data-category='slogan'>slogans</button>"+
