@@ -7,6 +7,8 @@
 	text-rendering:optimizeLegibility
 	line-height:1.5em
 
+html
+	overflow-y: scroll
 body
 	font-family: Ubuntu, Helvetica Neue,Helvetica,sans-serif
 	margin:0
@@ -14,13 +16,18 @@ body
 	min-width:560px
 	color:rgba(#000,0.7)
 
+a
+	text-decoration:underline
+
 img
 	border:none
 
 for i in 0 1 2 3
 	body.p{i+1}
 		background:lighten(xlight[i],50%)
-
+ul
+	margin:1.5em 0
+	padding-left:1em
 li
 	max-width:30em
 
@@ -105,21 +112,25 @@ for i in 0 1 2 3
 	background:#575043
 
 header
+	display:inline-block
+	width:100%
 	box-shadow:0 0 40px #333
 	padding:20px
-	min-height:200px
 	a
 		color:rgba(#fff,0.8)
 	&:after
 		content:""
 		display:block
 		position:absolute
-		top:0
+		bottom:0
 		right:0
 		width:200px
-		height:200px
-		background-size:200px 200px
+		height:100%
+		background-position:bottom right
+		background-repeat:no-repeat
+		background-size:contain
 		opacity:.5
+		display:none
 
 for i in 0 1 2 3
 	.p{i+1} header
@@ -128,8 +139,8 @@ for i in 0 1 2 3
 		background-image:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
 		-pie-background: @background-image
 		border-bottom:solid 1px darken(brand[i],25%)
-		&:after
-			background-image:url(s("ico%s-2x.png",i+1))
+	.p{i+1} header:after
+		background-image:url(s("ico%s-2x.png",i+1))
 
 header footer
 	opacity:.6
@@ -181,6 +192,42 @@ figure
 		transition:opacity 1s
 		transform:translateZ(1px);
 
+.p4 figure
+	width:605px
+	margin:0 180px 10px 20px
+	&:before
+		padding-top:24%
+
+.p1 figure
+	width:367px
+	//margin:0 180px 10px 20px
+	&:before
+		padding-top:41%
+
+.p2 figure
+	width:277px
+	//margin:0 180px 10px 20px
+	&:before
+		padding-top:54%
+
+
+.more
+	cursor:pointer
+	display:block
+.more:after
+	content:"More..."
+.popup
+	display:none
+
+
+.show
+	.more:after
+		content:"Less..."
+	.popup
+		display:block
+
+.ie8 .more
+	display:none
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //templates (p3) styles
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -275,8 +322,8 @@ body.p3
 		width:100%
 		cursor:pointer
 		text-align:left
+		margin-bottom:5px
 		-webkit-transform:translateZ(1px) //fixes a rendering bug in webkit :)
-	margin-bottom:20px
 	width:20%
 	display:inline-block
 	vertical-align:top
