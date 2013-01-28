@@ -157,6 +157,7 @@ script
 			if(g.contains("show"))g.remove("show");
 			var pageName=[,"logos","elements","templates","graphics"][d[1]]
 			History.pushState("","",pageName)
+			_gaq.push(['_trackPageview', '/'+pageName]);
 			window[pageName].setup()
 			e.preventDefault()
 		}
