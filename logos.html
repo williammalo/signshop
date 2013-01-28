@@ -162,12 +162,12 @@ for(fignum=(document.getElementsByTagName("figure")).length;fignum--;){
   setInterval(slideshow,4000)
  })()
 }
+var g=document.getElementsByTagName("header")[0].classList
 //click event
 onclick=function(e,d,t){
  if(!e){e={};e.target=event.srcElement}
  t=e.target
  d=t.id
- var g=document.getElementsByTagName("header")[0].classList
  if(d[0]=="p"&&Modernizr.history){
   if(g.contains("show"))g.remove("show");
   var pageName=[,"logos","elements","templates","graphics"][d[1]]
@@ -175,10 +175,21 @@ onclick=function(e,d,t){
   window[pageName].setup()
   e.preventDefault()
  }
+};
+onmousedown=function(e,t){
+ if(!e){e={};e.target=event.srcElement}
+ t=e.target
  if(t.className=="more"){
   if(g.contains("show"))g.remove("show");else g.add("show")
  }
-};
+}
+ontouchstart=function(e,t){
+ if(!e){e={};e.target=event.srcElement}
+ t=e.target
+ if(t.className=="more"){
+  if(g.contains("show"))g.remove("show");else g.add("show")
+ }
+}
 //load event
 var pageName=/signshop/.test(location.pathname)?location.pathname.split("/signshop/")[1]:location.pathname.split("/")[1];
 pageName=window[pageName]?pageName:"templates"
