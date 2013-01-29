@@ -4,7 +4,8 @@ doctype html
 meta(charset="utf-8")
 <title>SIGNSHOP HELPER</title>
 //if lt IE 9
-	script(src="ie9.js")
+	script(src="//html5shim.googlecode.com/svn/trunk/html5.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js")
 //if IE
 	script
 		if (!document.getElementsByClassName) {
@@ -92,6 +93,8 @@ include tabs.css
 						a(href="chrysler-pacifica-2004-2008.eps") Try one for free!
 					li Vehicle outlines for cars, trucks, SUV's, vans, trailers, and tractors.
 					li Uses .eps, a reliable and easily imported file format.
+					li
+						a(href="faq",targe="_blank") FAQ's
 		article.p4
 			| Vehicle graphics in .eps format. Only 5$ each. (checkout with paypal) 
 			a.more
