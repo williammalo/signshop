@@ -170,16 +170,16 @@ script
 		t=e.target
 		if(t.className=="more"){
 			if(g.contains("show"))g.remove("show");else g.add("show")
+			e.preventDefault()
 		}
-		e.preventDefault()
 	}
 	ontouchstart=function(e,t){
 		if(!e){e={};e.target=event.srcElement}
 		t=e.target
 		if(t.className=="more"){
 			if(g.contains("show"))g.remove("show");else g.add("show")
+			e.preventDefault()
 		}
-		e.preventDefault()
 	}
 	//load event
 	var pageName=/signshop/.test(location.pathname)?location.pathname.split("/signshop/")[1]:location.pathname.split("/")[1];
