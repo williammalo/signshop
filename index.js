@@ -1,75 +1,86 @@
 var templates={};
 
-templates.setup=function(){
-	document.body.className="p3"
-	document.getElementsByClassName("content")[0].innerHTML="<form id='fo'><input type='text' id='sf' value='"+(window.localStorage.getItem("tb")||"")+"' placeholder='Search your model...'><img id='close' src='cancel.png' alt='clear'></form><div id='models'></div>"
+templates.start=function(){
+	var content=查(".content")
 	var a=templates.list
-	
-	var i;
-	for(i=a.length;i--;){
-		a[i][2]=a[i][1]
-			.replace("uptodate",(new Date).getFullYear())
-			.replace(/-/g," ")
-			.replace("chev ","chevrolet ")
-			.replace("rendez vous","rendez-vous")
-			.replace(" hb "," hatchback ")
-			.replace(" 2 dr "," 2dr ")
-			.replace(" 2dr "," two-door ")
-			.replace(" 4 dr "," 4dr ")
-			.replace(" 4dr "," 4-door ")
-			.replace(" 5 dr "," 5dr ")
-			.replace(" 5dr "," 5-door ")
-			.replace(" crew c "," crew cab ")
-			.replace(" ext c "," extended cab ")
-			.replace(" c c "," crew cab ")
-			.replace(" c cab "," crew cab ")
-			.replace(" ext cab "," extended cab ")
-			.replace(" quad c "," quad cab ")
-			.replace(" s dr "," swing door ")
-			.replace(" swing dr "," swing door ")
-			.replace(/(20\d{2}) (20\d{2})/,"<br>$1-$2")
-			.replace(/ (20\d{2})$/,"<br>$1")
-			.replace("vw ","volkswagen ")
-		a[i][3]="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='t/"+a[i][1]+".jpg'>"+a[i][2]+"</a>"
-	}
 
-	var textbox=document.getElementById("sf")
 	var showall=false
-	var templateList=document.getElementById("models")
 	var displayresults;
 
+	var form=document.createElement("form")
+	form.id="fo"
+	var textbox=document.createElement("input")
+	textbox.type="text"
+	textbox.id="sf"
+	textbox.value=window.localStorage.getItem("tb")||""
+	textbox.placeholder="Search your model..."
+	form.appendChild(textbox)
+	var close=document.createElement("img")
+	close.id="close"
+	close.src="cancel.png"
+	close.alt="clear"
+	form.appendChild(close)
+	var templateList=document.createElement("div")
+	templateList.id="models"
 	if(!ie){
 		displayresults=function(){
-			var i,c=a,text="",s=textbox.value;
+			var i,c=a,text=document.createDocumentFragment(),s=textbox.value,tmp,tmp2;
 			//filter array
 			c=c.filter(function(element){
 				return RegExp(s,"i").test(element[2])
 			});
 			for(i=0;(showall?1:i<29)&&i<c.length;i++){
-				text+=c[i][3]
+				text.appendChild(c[i][3])
 			}
 			//update document
-			templateList.innerHTML=text+(showall?"":i==29?"<a id='showall'>Show all...</a>":"");
-			document.getElementById("showall").onclick=function(){showall=true;displayresults()}
+			if(showall){
+				tmp=document.createElement("a")
+				tmp.id='showall'
+				tmp.appendChild(document.createTextNode("Show all..."))
+				tmp.onclick=function(){showall=true;displayresults()}
+				text.appendChild(tmp)
+			}
+			var z;
+			while(z=templateList.firstChild){
+			templateList.removeChild(z)
+			}
+			templateList.appendChild(text)
 			showall=false;
 			localStorage.setItem("tb", s);
 			return false;
 		};
 
-		document.getElementById("fo").onsubmit=displayresults;
+		form.onsubmit=displayresults;
 		textbox.oninput=displayresults;
 		textbox.onfocus=function(){document.getElementById("close").style.opacity="0.2";textbox.placeholder=""};
 		textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
+		close.onclick=function(){textbox.value="";textbox.focus();displayresults()}
+		templateList.onclick=function(e){if(e.target.nodeName=="A")window.localStorage.setItem("tempClicked","1")}
+		templateList.className=(+window.localStorage.getItem("tempClicked"))?"tempClicked":"notClicked";
 
-		document.getElementById("close").onclick=function(){textbox.value="";textbox.focus();displayresults()}
-		displayresults();
-	}else{
-		textbox.style.display="none";
-		(function(){
-			var i,text=""
-			for(i in a)text+=a[i][3];
-			document.getElementById("models").innerHTML=text
-		})()
+	}
+	templates.setup=function(){
+		document.body.className="p3"
+		while(i=content.firstChild){
+			content.removeChild(i)
+		}
+		content.appendChild(form)
+		content.appendChild(templateList)
+
+		if(!ie){
+			displayresults();
+		}else{
+			textbox.style.display="none";
+			(function(){
+				var i,text=document.createDocumentFragment();
+				for(i in a)text.appendChild(a[i][3])
+				var z;
+				while(z=templateList.firstChild){
+					templateList.removeChild(z)
+				}
+				templateList.appendChild(text);
+			})()
+		}
 	}
 }
 
@@ -616,3 +627,43 @@ templates.list=[
 	,[1215144,"trailer-front-rear-dry-box"]
 	,[1215142,"trailer-front-rear-refer-box"]
 	];
+
+
+(function(){
+	var i,tmp;
+	for(i=templates.list.length;i--;){
+		templates.list[i][2]=templates.list[i][1]
+			.replace("uptodate",(new Date).getFullYear())
+			.replace(/-/g," ")
+			.replace("chev ","chevrolet ")
+			.replace("rendez vous","rendez-vous")
+			.replace(" hb "," hatchback ")
+			.replace(" 2 dr "," 2dr ")
+			.replace(" 2dr "," two-door ")
+			.replace(" 4 dr "," 4dr ")
+			.replace(" 4dr "," 4-door ")
+			.replace(" 5 dr "," 5dr ")
+			.replace(" 5dr "," 5-door ")
+			.replace(" crew c "," crew cab ")
+			.replace(" ext c "," extended cab ")
+			.replace(" c c "," crew cab ")
+			.replace(" c cab "," crew cab ")
+			.replace(" ext cab "," extended cab ")
+			.replace(" quad c "," quad cab ")
+			.replace(" s dr "," swing door ")
+			.replace(" swing dr "," swing door ")
+			.replace(/(20\d{2}) (20\d{2})/,"\n$1-$2")
+			.replace(/ (20\d{2})$/,"\n$1")
+			.replace("vw ","volkswagen ")
+		templates.list[i][3]=document.createElement("a")
+		templates.list[i][3].href="http://www.payloadz.com/go/?id="+templates.list[i][0]
+		templates.list[i][3].target="_blank"
+		tmp=document.createElement("img")
+		tmp.src="t/"+templates.list[i][1]+".jpg"
+		templates.list[i][3].appendChild(tmp)
+		tmp=document.createTextNode(templates.list[i][2])
+		templates.list[i][3].appendChild(tmp)
+	}
+})()
+
+templates.start()

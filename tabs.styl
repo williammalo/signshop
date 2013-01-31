@@ -31,11 +31,34 @@ ul
 li
 	max-width:30em
 
+.paypal
+	height:25px
+	vertical-align:middle
+
 hgroup{padding:15px 20px 0 20px;position:absolute}
 hgroup img{height:80px;margin-right:14px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(#000,0.2);margin:0}
 h1 small{font-size:0.62em}
 h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,0.2));-webkit-transform:translateZ(1px)}
+
+#cart
+	position:absolute
+	top:0
+	right:0
+	padding:5px
+	font-size:0.6em
+	color:#fff
+	z-index:1
+	img
+		width:16px
+		height:16px
+		margin-left:5px
+		vertical-align:bottom
+	span
+		top:-20px
+		transition:top .3s
+	&:hover span
+		top:0 !important
 
 nav
 	text-align:right
@@ -107,6 +130,7 @@ for i in 0 1 2 3
 .p4 #p4
 	z-index:10
 	padding:8px 1px 8px 1px
+	cursor:default
 
 #top
 	overflow:hidden
@@ -265,18 +289,25 @@ body.p3
 
 #models
 	text-align:center
-#models img{height:90px;float:left;margin-right:10px;border:none}
+#models img{height:90px;width:auto !important;float:left;margin-right:10px;border:none}
 #models a
 	width:350px
 	display:inline-block
 	vertical-align:top
 	padding:10px
-	background:#fff
+	background:#fff url(add.gif) 219px 74px no-repeat
 	margin:10px
 	box-shadow:0 0 5px rgba(#000,0.1)
 	text-align:left
 	text-decoration:underline
 	color:brand[2]
+	white-space:pre-wrap
+	transition:all .3s
+.tempClicked a
+	background-position:219px 111px !important
+	&:hover
+		background-position:219px 74px !important
+
 #showall
 	cursor:pointer
 

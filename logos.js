@@ -2,51 +2,21 @@ var logos={};
 
 logos.setup=function(){
 	document.body.className="p1"
-	var a=logos.list
-	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
-	"<button data-category='vacatio'>vacation</button>"+
-	"<button data-category='transp'>transport</button>"+
-	"<button data-category='touris'>tourism</button>"+
-	"<button data-category='sport'>sport</button>"+
-	"<button data-category='sign'>sign</button>"+
-	"<button data-category='print'>print</button>"+
-	"<button data-category='office'>office</button>"+
-	"<button data-category='music'>music</button>"+
-	"<button data-category='medical'>medical</button>"+
-	"<button data-category='home'>home</button>"+
-	"<button data-category='golf'>golf</button>"+
-	"<button data-category='food'>food</button>"+
-	"<button data-category='corp'>corp</button>"+
-	"<button data-category='const'>construction</button>"+
-	"<button data-category='compute'>computers</button>"+
-	"<button data-category='clothe'>clothing</button>"+
-	"<button data-category='car'>car</button>"+
-	"<button data-category='art'>art</button>"+
-	"<button data-category='achitec'>architecture</button>"+
-	"<button data-category='antique'>antique</button>"+
-	"<button data-category='animal'>animals</button>"+
-	"<button data-category='50'>50\'s</button>"+
-	"<button data-reverse='' data-category='vacatio|transp|touris|sport|sign|print|achitec|office|music|50|medical|home|golf|food|corp|const|compute|clothe|car|art|antique|animal'>other</button>"+
-	"<button data-category=''>all</button>"+
-	"</div><div id='logs'></div>"
 	
-	document.getElementById("buts").onclick=function(e){
-		if(!e){e={};e.target=event.srcElement}
-		if(e.target.hasAttribute("data-category")){
-			list(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-		}
+	logos.philter("transp")
+
+	var i,content=查(".content");
+	while(i=content.firstChild){
+		content.removeChild(i)
 	}
 
-	var list=function(q,n){
-		var i,txt="";
-		for(i in a){
-		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1]))
-			txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='l/"+a[i][1]+".png'></a>"
-		}
-		document.getElementById("logs").innerHTML=txt;
-	}
-	list("transpo")
+	var frag=document.createDocumentFragment()
+	frag.appendChild(logos.buts)
+	frag.appendChild(logos.logs)
+	content.appendChild(frag)
 }
+
+
 
 logos.list=[
 	 [1894630,"50s-12"]
@@ -417,3 +387,95 @@ logos.list=[
 	,[1894265,"achitec2"]
 	,[1894264,"achitec"]
 	]
+
+
+	logos.logs=document.createElement("div")
+	logos.logs.id="logs"
+
+	logos.philter=function(q,n){
+		var i,frag=document.createDocumentFragment(),temp,tempimg,a=logos.list;
+		for(i=a.length;i--;){
+		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1])){
+			temp=document.createElement("a");
+			temp.href="http://www.payloadz.com/go/?id="+a[i][0]
+			temp.target="_blank"
+			tempimg=document.createElement("img")
+			tempimg.src="l/"+a[i][1]+".png"
+			temp.appendChild(tempimg)
+			frag.appendChild(temp)
+		}
+		}
+		var z;
+		while(z=logos.logs.firstChild){
+		logos.logs.removeChild(z)
+		}
+		logos.logs.appendChild(frag);
+	}
+
+
+	logos.buts=document.createElement("div")
+	logos.buts.id="buts"
+	logos.butlist=[
+		["vacatio|transp|touris|sport|sign|print|achitec|office|music|50|medical|home|golf|food|corp|const|compute|clothe|car|art|antique|animal","other",true]
+		,["vacatio","vacation"]
+		,["transp","transport"]
+		,["touris","tourism"]
+		,["sport","sport"]
+		,["sign","sign"]
+		,["print","print"]
+		,["office","office"]
+		,["music","music"]
+		,["medical","medical"]
+		,["home","home"]
+		,["golf","golf"]
+		,["food","food"]
+		,["corp","corp"]
+		,["const","construction"]
+		,["compute","computers"]
+		,["clothe","clothing"]
+		,["car","car"]
+		,["art","art"]
+		,["achitec","architecture"]
+		,["antique","antique"]
+		,["animal","animals"]
+		,["50","50\'s"]
+		,["","all"]
+	]
+
+;(function(){
+	var i,frag=document.createDocumentFragment(),tmp,tmptxt,butlist=logos.butlist;
+	for(i=butlist.length;i--;){
+		tmp=document.createElement("button")
+		tmp.setAttribute("data-category",butlist[i][0])
+		tmptxt=document.createTextNode(butlist[i][1])
+		tmp.appendChild(tmptxt)
+		if(butlist[i][2]){
+			tmp.setAttribute("data-reverse"," ")
+		}
+		frag.appendChild(tmp)
+	}
+	logos.buts.appendChild(frag);
+})()
+
+
+logos.event=function(e){
+	if(!e){e={};e.target=event.srcElement}
+	if(e.target.hasAttribute("data-category")){
+		logos.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
+			
+		var i,content=查(".content");
+		
+		while(i=content.firstChild){
+			content.removeChild(i)
+		}
+
+		var frag=document.createDocumentFragment()
+		frag.appendChild(logos.buts)
+		frag.appendChild(logos.logs)
+		content.appendChild(frag)
+		console.log("clicked"+e.target.getAttribute("data-category"))
+	}
+}
+
+logos.buts.onmousedown=logos.event
+logos.buts.ontouchstart=logos.event

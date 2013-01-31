@@ -2,34 +2,18 @@ var graphics={};
 
 graphics.setup=function(){
 	document.body.className="p4"
-	var a=graphics.list
-	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
-	"<button data-category='ky'>kentucky</button>"+
-	"<button data-category='y2k'>y2k</button>"+
-	"<button data-category='x-trim'>x-trim</button>"+
-	"<button data-category='power'>flower power</button>"+
-	"<button data-category='pin'>pinstripe</button>"+
-	"<button data-category='mozart'>mozart</button>"+
-	"<button data-reverse='' data-category='ky|y2k|x-trim|power|pin|mozart'>other</button>"+
-	"<button data-category=''>all</button>"+
-	"</div><div id='logs'></div>"
 	
-	document.getElementById("buts").onclick=function(e){
-		if(!e){e={};e.target=event.srcElement}
-		if(e.target.hasAttribute("data-category")){
-			list(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-		}
+	graphics.philter("ky")
+
+	var i,content=查(".content");
+	while(i=content.firstChild){
+		content.removeChild(i)
 	}
 
-	var list=function(q,n){
-		var i,txt="";
-		for(i in a){
-		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1]))
-			txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='g/"+a[i][1]+".png'></a>"
-		}
-		document.getElementById("logs").innerHTML=txt;
-	}
-	list("ky")
+	var frag=document.createDocumentFragment()
+	frag.appendChild(graphics.buts)
+	frag.appendChild(graphics.logs)
+	content.appendChild(frag)
 }
 
 graphics.list=[
@@ -604,3 +588,84 @@ graphics.list=[
 	//,[1895515,"3d-gr_2"]
 	//,[1895514,"3d-gr_1"]
 ]
+
+
+
+	graphics.logs=document.createElement("div")
+	graphics.logs.id="logs"
+
+	graphics.philter=function(q,n){
+		var i,frag=document.createDocumentFragment(),temp,tempimg,a=graphics.list;
+		var retina=(window.devicePixelRatio||1)>1
+		for(i=a.length;i--;){
+		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1])){
+			temp=document.createElement("a");
+			temp.href="http://www.payloadz.com/go/?id="+a[i][0]
+			temp.target="_blank"
+			tempimg=document.createElement("img")
+			tempimg.src="g/"+a[i][1]+(retina?".png":"_500.png")
+			temp.appendChild(tempimg)
+			frag.appendChild(temp)
+		}
+		}
+		var z;
+		while(z=graphics.logs.firstChild){
+		graphics.logs.removeChild(z)
+		}
+		graphics.logs.appendChild(frag);
+	}
+
+
+	graphics.buts=document.createElement("div")
+	graphics.buts.id="buts"
+	graphics.butlist=[
+		["ky|y2k|x-trim|power|pin|mozart","other"]
+		,["y2k","y2k"]
+		,["x-trim","x-trim"]
+		,["pin","pinstripe"]
+		,["mozart","mozart"]
+		,["ky","kentucky"]
+		,["power","flower power"]
+		,["","all"]
+	]
+
+
+
+
+;(function(){
+	var i,frag=document.createDocumentFragment(),tmp,tmptxt,butlist=graphics.butlist;
+	for(i=butlist.length;i--;){
+		tmp=document.createElement("button")
+		tmp.setAttribute("data-category",butlist[i][0])
+		tmptxt=document.createTextNode(butlist[i][1])
+		tmp.appendChild(tmptxt)
+		if(butlist[i][2]){
+			tmp.setAttribute("data-reverse"," ")
+		}
+		frag.appendChild(tmp)
+	}
+	graphics.buts.appendChild(frag);
+})()
+
+
+graphics.event=function(e){
+	if(!e){e={};e.target=event.srcElement}
+	if(e.target.hasAttribute("data-category")){
+		graphics.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
+			
+		var i,content=查(".content");
+		
+		while(i=content.firstChild){
+			content.removeChild(i)
+		}
+
+		var frag=document.createDocumentFragment()
+		frag.appendChild(graphics.buts)
+		frag.appendChild(graphics.logs)
+		content.appendChild(frag)
+		console.log("clicked"+e.target.getAttribute("data-category"))
+	}
+}
+
+graphics.buts.onmousedown=graphics.event
+graphics.buts.ontouchstart=graphics.event

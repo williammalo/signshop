@@ -2,32 +2,20 @@ var elements={};
 
 elements.setup=function(){
 	document.body.className="p2"
-	var a=elements.list
-	document.getElementsByClassName("content")[0].innerHTML="<div id=buts>"+
-	"<button data-category='slogan'>slogans</button>"+
-	"<button data-category='iso'>iso</button>"+
-	"<button data-category='dotcom'>website</button>"+
-	"<button data-category='^\\d'>anniversary</button>"+
-	"<button data-category=''>all</button>"+
-	"</div><div id='logs'></div>"
 	
-	document.getElementById("buts").onclick=function(e){
-		if(!e){e={};e.target=event.srcElement}
-		if(e.target.hasAttribute("data-category")){
-			list(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-		}
+	elements.philter("slogan")
+
+	var i,content=查(".content");
+	while(i=content.firstChild){
+		content.removeChild(i)
 	}
 
-	var list=function(q,n){
-		var i,txt="";
-		for(i in a){
-		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1]))
-			txt+="<a href='http://www.payloadz.com/go/?id="+a[i][0]+"' target='_blank'><img src='e/"+a[i][1]+".png'></a>"
-		}
-		document.getElementById("logs").innerHTML=txt;
-	}
-	list("slogan")
+	var frag=document.createDocumentFragment()
+	frag.appendChild(elements.buts)
+	frag.appendChild(elements.logs)
+	content.appendChild(frag)
 }
+
 
 elements.list=[
 	 [1895117,"slogan39"]
@@ -206,3 +194,78 @@ elements.list=[
 	,[1894944,"5-3"]
 	,[1894943,"5-2"]
 	]
+
+	elements.logs=document.createElement("div")
+	elements.logs.id="logs"
+
+	elements.philter=function(q,n){
+		var i,frag=document.createDocumentFragment(),temp,tempimg,a=elements.list;
+		for(i=a.length;i--;){
+		if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1])){
+			temp=document.createElement("a");
+			temp.href="http://www.payloadz.com/go/?id="+a[i][0]
+			temp.target="_blank"
+			tempimg=document.createElement("img")
+			tempimg.src="e/"+a[i][1]+".png"
+			temp.appendChild(tempimg)
+			frag.appendChild(temp)
+		}
+		}
+		var z;
+		while(z=elements.logs.firstChild){
+		elements.logs.removeChild(z)
+		}
+		elements.logs.appendChild(frag);
+	}
+
+
+	elements.buts=document.createElement("div")
+	elements.buts.id="buts"
+	elements.butlist=[
+		["dotcom","website"]
+		,["slogan","slogans"]
+		,["iso","iso"]
+		,["^\\d","anniversary"]
+		,["","all"]
+	]
+
+	
+
+
+;(function(){
+	var i,frag=document.createDocumentFragment(),tmp,tmptxt,butlist=elements.butlist;
+	for(i=butlist.length;i--;){
+		tmp=document.createElement("button")
+		tmp.setAttribute("data-category",butlist[i][0])
+		tmptxt=document.createTextNode(butlist[i][1])
+		tmp.appendChild(tmptxt)
+		if(butlist[i][2]){
+			tmp.setAttribute("data-reverse"," ")
+		}
+		frag.appendChild(tmp)
+	}
+	elements.buts.appendChild(frag);
+})()
+
+
+elements.event=function(e){
+	if(!e){e={};e.target=event.srcElement}
+	if(e.target.hasAttribute("data-category")){
+		elements.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
+			
+		var i,content=document.getElementsByClassName("content")[0];
+		
+		while(i=content.firstChild){
+			content.removeChild(i)
+		}
+
+		var frag=document.createDocumentFragment()
+		frag.appendChild(elements.buts)
+		frag.appendChild(elements.logs)
+		content.appendChild(frag)
+		console.log("clicked"+e.target.getAttribute("data-category"))
+	}
+}
+
+elements.buts.onmousedown=elements.event
+elements.buts.ontouchstart=elements.event
