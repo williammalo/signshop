@@ -49,8 +49,6 @@ templates.start=function(){
 		textbox.onfocus=function(){document.getElementById("close").style.opacity="0.2";textbox.placeholder=""};
 		textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
 		close.onclick=function(){textbox.value="";textbox.focus();displayresults()}
-		templateList.onclick=function(e){if(e.target.nodeName==="A")window.localStorage.setItem("tempClicked","1")}
-		templateList.className=(+window.localStorage.getItem("tempClicked"))?"tempClicked":"notClicked";
 
 	}else{
 		displayresults=function(){
