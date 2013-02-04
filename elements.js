@@ -2,17 +2,12 @@ var elements={};
 
 elements.setup=function(){
 	document.body.className="p2"
-	
-	elements.philter("slogan")
+	content.clear()
 
-	var i,content=查(".content");
-	while(i=content.firstChild){
-		content.removeChild(i)
-	}
-
+	this.philter("slogan")
 	var frag=document.createDocumentFragment()
-	frag.appendChild(elements.buts)
-	frag.appendChild(elements.logs)
+	frag.appendChild(this.buts)
+	frag.appendChild(this.logs)
 	content.appendChild(frag)
 }
 
@@ -211,10 +206,8 @@ elements.list=[
 			frag.appendChild(temp)
 		}
 		}
-		var z;
-		while(z=elements.logs.firstChild){
-		elements.logs.removeChild(z)
-		}
+		
+		elements.logs.clear()
 		elements.logs.appendChild(frag);
 	}
 
@@ -251,19 +244,13 @@ elements.list=[
 elements.event=function(e){
 	if(!e){e={};e.target=event.srcElement}
 	if(e.target.hasAttribute("data-category")){
+		content.clear()
 		elements.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-			
-		var i,content=document.getElementsByClassName("content")[0];
-		
-		while(i=content.firstChild){
-			content.removeChild(i)
-		}
 
 		var frag=document.createDocumentFragment()
 		frag.appendChild(elements.buts)
 		frag.appendChild(elements.logs)
 		content.appendChild(frag)
-		console.log("clicked"+e.target.getAttribute("data-category"))
 	}
 }
 

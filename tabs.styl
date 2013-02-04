@@ -34,6 +34,33 @@ li
 .paypal
 	height:25px
 	vertical-align:middle
+.cover
+	z-index:100
+	background:rgba(0,0,0,.4)
+	position:fixed
+	width:100%
+	height:100%
+	top:0
+	left:0
+	&:before
+		content:""
+		background:url(cancelw.png) center no-repeat
+		background-size:32px 32px 
+		width:32px
+		height:32px
+		display:block
+		position:absolute
+		bottom:80%
+		left:80%
+	iframe
+		background:#fff
+		border:none
+		position:absolute
+		width:60%
+		height:60%
+		top:20%
+		left:20%
+		box-shadow:0 0 40px rgba(0,0,0,.5)
 
 hgroup{padding:15px 20px 0 20px;position:absolute}
 hgroup img{height:80px;margin-right:14px;padding-bottom:10px;vertical-align:middle}

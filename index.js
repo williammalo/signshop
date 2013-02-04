@@ -1,7 +1,6 @@
 var templates={};
 
 templates.start=function(){
-	var content=查(".content")
 	var a=templates.list
 
 	var showall=false
@@ -22,32 +21,27 @@ templates.start=function(){
 	form.appendChild(close)
 	var templateList=document.createElement("div")
 	templateList.id="models"
+	var showallLink=document.createElement("a")
+	showallLink.id='showall'
+	showallLink.appendChild(document.createTextNode("Show all..."))
+	showallLink.onclick=function(){showall=true;displayresults()}
 	if(!ie){
 		displayresults=function(){
-			var i,c=a,text=document.createDocumentFragment(),s=textbox.value,tmp,tmp2;
+			var i,c=a,frag=document.createDocumentFragment(),s=textbox.value;
 			//filter array
 			c=c.filter(function(element){
 				return RegExp(s,"i").test(element[2])
 			});
 			for(i=0;(showall?1:i<29)&&i<c.length;i++){
-				text.appendChild(c[i][3])
+				c[i][3].firstChild.src="t/"+c[i][1]+".jpg"
+				frag.appendChild(c[i][3])
 			}
 			//update document
-			if(showall){
-				tmp=document.createElement("a")
-				tmp.id='showall'
-				tmp.appendChild(document.createTextNode("Show all..."))
-				tmp.onclick=function(){showall=true;displayresults()}
-				text.appendChild(tmp)
-			}
-			var z;
-			while(z=templateList.firstChild){
-			templateList.removeChild(z)
-			}
-			templateList.appendChild(text)
+			if(!showall)frag.appendChild(showallLink)
+			templateList.clear()
+			templateList.appendChild(frag)
 			showall=false;
 			localStorage.setItem("tb", s);
-			return false;
 		};
 
 		form.onsubmit=displayresults;
@@ -55,32 +49,29 @@ templates.start=function(){
 		textbox.onfocus=function(){document.getElementById("close").style.opacity="0.2";textbox.placeholder=""};
 		textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
 		close.onclick=function(){textbox.value="";textbox.focus();displayresults()}
-		templateList.onclick=function(e){if(e.target.nodeName=="A")window.localStorage.setItem("tempClicked","1")}
+		templateList.onclick=function(e){if(e.target.nodeName==="A")window.localStorage.setItem("tempClicked","1")}
 		templateList.className=(+window.localStorage.getItem("tempClicked"))?"tempClicked":"notClicked";
 
+	}else{
+		displayresults=function(){
+				textbox.style.display="none";
+				var i,frag=document.createDocumentFragment();
+				for(i in a){
+					a[i][3].firstChild.src="t/"+a[i][1]+".jpg"
+					frag.appendChild(a[i][3])
+				}
+				templateList.clear()
+				templateList.appendChild(frag);
+		}
 	}
 	templates.setup=function(){
 		document.body.className="p3"
-		while(i=content.firstChild){
-			content.removeChild(i)
-		}
+		content.clear()
+
+		displayresults();
+
 		content.appendChild(form)
 		content.appendChild(templateList)
-
-		if(!ie){
-			displayresults();
-		}else{
-			textbox.style.display="none";
-			(function(){
-				var i,text=document.createDocumentFragment();
-				for(i in a)text.appendChild(a[i][3])
-				var z;
-				while(z=templateList.firstChild){
-					templateList.removeChild(z)
-				}
-				templateList.appendChild(text);
-			})()
-		}
 	}
 }
 
@@ -659,7 +650,7 @@ templates.list=[
 		templates.list[i][3].href="http://www.payloadz.com/go/?id="+templates.list[i][0]
 		templates.list[i][3].target="_blank"
 		tmp=document.createElement("img")
-		tmp.src="t/"+templates.list[i][1]+".jpg"
+		//tmp.src="t/"+templates.list[i][1]+".jpg"
 		templates.list[i][3].appendChild(tmp)
 		tmp=document.createTextNode(templates.list[i][2])
 		templates.list[i][3].appendChild(tmp)

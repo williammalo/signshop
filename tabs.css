@@ -10,6 +10,9 @@ body.p4{background:#fde5ae}
 ul{margin:1.5em 0;padding-left:1em}
 li{max-width:30em}
 .paypal{height:25px;vertical-align:middle}
+.cover{z-index:100;background:rgba(0,0,0,0.4);position:fixed;width:100%;height:100%;top:0;left:0;}
+.cover:before{content:"";background:url("cancelw.png") center no-repeat;-webkit-background-size:32px 32px;-moz-background-size:32px 32px;background-size:32px 32px;width:32px;height:32px;display:block;position:absolute;bottom:80%;left:80%}
+.cover iframe{background:#fff;border:none;position:absolute;width:60%;height:60%;top:20%;left:20%;-webkit-box-shadow:0 0 40px rgba(0,0,0,0.5);box-shadow:0 0 40px rgba(0,0,0,0.5)}
 hgroup{padding:15px 20px 0 20px;position:absolute}
 hgroup img{height:80px;margin-right:14px;padding-bottom:10px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(0,0,0,0.2);margin:0}

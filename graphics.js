@@ -2,17 +2,12 @@ var graphics={};
 
 graphics.setup=function(){
 	document.body.className="p4"
-	
-	graphics.philter("ky")
+	content.clear()
 
-	var i,content=查(".content");
-	while(i=content.firstChild){
-		content.removeChild(i)
-	}
-
+	this.philter("ky")
 	var frag=document.createDocumentFragment()
-	frag.appendChild(graphics.buts)
-	frag.appendChild(graphics.logs)
+	frag.appendChild(this.buts)
+	frag.appendChild(this.logs)
 	content.appendChild(frag)
 }
 
@@ -608,10 +603,7 @@ graphics.list=[
 			frag.appendChild(temp)
 		}
 		}
-		var z;
-		while(z=graphics.logs.firstChild){
-		graphics.logs.removeChild(z)
-		}
+		graphics.logs.clear()
 		graphics.logs.appendChild(frag);
 	}
 
@@ -651,19 +643,13 @@ graphics.list=[
 graphics.event=function(e){
 	if(!e){e={};e.target=event.srcElement}
 	if(e.target.hasAttribute("data-category")){
+		content.clear()
 		graphics.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-			
-		var i,content=查(".content");
-		
-		while(i=content.firstChild){
-			content.removeChild(i)
-		}
 
 		var frag=document.createDocumentFragment()
 		frag.appendChild(graphics.buts)
 		frag.appendChild(graphics.logs)
 		content.appendChild(frag)
-		console.log("clicked"+e.target.getAttribute("data-category"))
 	}
 }
 

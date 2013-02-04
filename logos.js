@@ -2,17 +2,12 @@ var logos={};
 
 logos.setup=function(){
 	document.body.className="p1"
+	content.clear()
 	
-	logos.philter("transp")
-
-	var i,content=查(".content");
-	while(i=content.firstChild){
-		content.removeChild(i)
-	}
-
+	this.philter("transp")
 	var frag=document.createDocumentFragment()
-	frag.appendChild(logos.buts)
-	frag.appendChild(logos.logs)
+	frag.appendChild(this.buts)
+	frag.appendChild(this.logs)
 	content.appendChild(frag)
 }
 
@@ -405,10 +400,7 @@ logos.list=[
 			frag.appendChild(temp)
 		}
 		}
-		var z;
-		while(z=logos.logs.firstChild){
-		logos.logs.removeChild(z)
-		}
+		logos.logs.clear()
 		logos.logs.appendChild(frag);
 	}
 
@@ -461,19 +453,13 @@ logos.list=[
 logos.event=function(e){
 	if(!e){e={};e.target=event.srcElement}
 	if(e.target.hasAttribute("data-category")){
+		content.clear()
 		logos.philter(e.target.getAttribute("data-category"),e.target.hasAttribute("data-reverse"))
-			
-		var i,content=查(".content");
-		
-		while(i=content.firstChild){
-			content.removeChild(i)
-		}
 
 		var frag=document.createDocumentFragment()
 		frag.appendChild(logos.buts)
 		frag.appendChild(logos.logs)
 		content.appendChild(frag)
-		console.log("clicked"+e.target.getAttribute("data-category"))
 	}
 }
 
