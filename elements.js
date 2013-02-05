@@ -5,7 +5,7 @@ elements.setup=function(){
 	content.clear()
 
 	this.philter("slogan")
-	var frag=document.createDocumentFragment()
+	var frag=document.createDocumentFragment();
 	frag.appendChild(this.buts)
 	frag.appendChild(this.logs)
 	content.appendChild(frag)

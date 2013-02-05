@@ -175,25 +175,29 @@ header
 		content:""
 		display:block
 		position:absolute
-		bottom:0
-		right:0
-		width:200px
-		height:100%
-		background-position:bottom right
+		top:5px
+		right:5px
+		width:750px
+		height:82px
+		background-position:top right
 		background-repeat:no-repeat
 		background-size:contain
 		opacity:.5
+		pointer-events:none
+		cursor:default
 		display:none
 
 for i in 0 1 2 3
 	.p{i+1} header
 		border-top:solid 1px xlight[i]
 		background:light[i]
-		background-image:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
-		-pie-background: @background-image
+		background:url(s("bak%s.png",i+1)) center right no-repeat ,linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
+		//-pie-background: @background-image
 		border-bottom:solid 1px darken(brand[i],25%)
+		background-size:auto 82px, 100% 100%
 	.p{i+1} header:after
-		background-image:url(s("ico%s-2x.png",i+1))
+		background-image:url(s("bak%s.png",i+1))
+
 
 header footer
 	opacity:.6
