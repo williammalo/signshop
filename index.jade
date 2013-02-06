@@ -89,7 +89,9 @@ script
 
 //if !IE
 	<!-->
-	script(src="history.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.7.1/bundled/html5/native.history.js")
+	script
+		if(!window.History)window.History=window.history
 	<!--
 
 //if IE
