@@ -13,6 +13,7 @@
 }
 if(window.location.hash=="#subscribed"){
 	找("#mail").innerHTML="<span>We sent you an email to validate your subscription.</span>"
+	History.pushState("","",(localStorage.getItem("oldpage")||"templates"))
 	window[localStorage.getItem("oldpage")||"templates"].setup()
 }
 //tabs
