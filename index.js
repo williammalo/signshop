@@ -6,6 +6,10 @@
 
 //reset
 //window.localStorage.setItem("cartClicked","0");window.localStorage.setItem("tempClicked","0")
+//formsubmit
+找("#mail").onclick=function(){this.classList.add("clicked")}
+if(window.location.hash=="#subscribed")
+找("#mail").innerHTML="<span>We sent you an email to validate your subscription.</span>"
 //tabs
 ;(function(){
 	var t, i, a=找("nav a");

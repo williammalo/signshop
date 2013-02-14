@@ -18,10 +18,19 @@ hgroup img{height:80px;margin-right:14px;padding-bottom:10px;vertical-align:midd
 h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(0,0,0,0.2);margin:0}
 h1 small{font-size:.62em}
 h1 img{height:62px;vertical-align:middle;margin-left:.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,0.2));-webkit-transform:translateZ(1px)}
-#cart{position:absolute;top:0;right:0;padding:5px;font-size:.6em;color:#fff;z-index:1;}
+#cart,#mail{position:absolute;font-size:.6em;color:#fff;z-index:1}
+#cart{position:absolute;top:0;right:0;padding:5px;}
 #cart img{width:16px;height:16px;margin-left:5px;vertical-align:bottom}
 #cart span{top:-20px;-webkit-transition:top .3s;-moz-transition:top .3s;-o-transition:top .3s;-ms-transition:top .3s;transition:top .3s}
 #cart:hover span{top:0 !important}
+#mail{top:0;right:74px;}
+#mail .link{text-decoration:underline;cursor:pointer}
+#mail span{padding:7px;display:inline-block}
+#mail input[type=email]{border:none;-webkit-border-radius:5px;border-radius:5px;padding:1px 5px;font-family:Ubuntu}
+#mail input[type=submit]{border:none;-webkit-border-radius:5px;border-radius:5px;padding:1px 5px;background:#2eb3ed;color:#fff;font-family:Ubuntu;cursor:pointer}
+#mail input{display:none}
+#mail.clicked input{display:inline-block}
+#mail.clicked span{display:none}
 nav{text-align:right;direction:rtl;padding-top:60px;}
 @media (max-width:950px){nav{padding-top:83px}
 }nav a{color:rgba(0,0,0,0.7);text-decoration:none;text-wrap:nowrap;text-align:left;width:210px;height:37px;margin-right:17px;direction:ltr;display:inline-block;vertical-align:top;padding:7px 1px 9px 1px;top:1px;border-top:solid 1px #000;font-size:20px;line-height:1em;text-shadow:0 -1px rgba(0,0,0,0.1),0 1px rgba(255,255,238,0.2);}

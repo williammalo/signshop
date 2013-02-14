@@ -18,6 +18,13 @@ include tabs.css
 	a#cart(href="http://www.payloadz.com/go/view_cart.asp?id_user=132628",target="_blank")
 		span View Cart
 		img(src="cart.png")
+	
+	form#mail(action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae", method="post", name="mc-embedded-subscribe-form", novalidate)
+		span.link Subscribe to our mailing list!
+		//label(for="mce-EMAIL") Email Address: 
+		input(type="email", value="", name="EMAIL", placeholder="Your email...")
+		input#formsubmit(type="submit", value="Subscribe", name="subscribe")
+
 
 	hgroup
 		<img src="logo.png">

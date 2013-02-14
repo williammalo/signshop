@@ -68,14 +68,16 @@ h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px
 h1 small{font-size:0.62em}
 h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,0.2));-webkit-transform:translateZ(1px)}
 
+#cart,#mail
+	position:absolute
+	font-size:0.6em
+	color:#fff
+	z-index:1
 #cart
 	position:absolute
 	top:0
 	right:0
 	padding:5px
-	font-size:0.6em
-	color:#fff
-	z-index:1
 	img
 		width:16px
 		height:16px
@@ -86,6 +88,36 @@ h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;
 		transition:top .3s
 	&:hover span
 		top:0 !important
+#mail
+	top:0
+	right:74px
+	.link
+		text-decoration:underline
+		cursor:pointer
+	span
+		padding:7px
+		display:inline-block
+	input[type=email]
+		border:none
+		border-radius:5px
+		padding:1px 5px
+		font-family: Ubuntu
+	input[type=submit]
+		border:none
+		border-radius:5px
+		padding:1px 5px
+		background:brand[2]
+		color:#fff
+		font-family: Ubuntu
+		cursor:pointer
+	input
+		display:none
+#mail.clicked
+	input
+		display:inline-block
+	span
+		display:none
+
 
 nav
 	text-align:right
