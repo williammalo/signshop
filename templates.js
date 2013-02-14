@@ -55,7 +55,7 @@ templates.start=function(){
 				textbox.style.display="none";
 				var i,frag=document.createDocumentFragment();
 				for(i in a){
-					a[i][3].firstChild.src="t/"+a[i][1]+".jpg"
+					a[i][3].firstChild.src=filePath+"t/"+a[i][1]+".jpg"
 					frag.appendChild(a[i][3])
 				}
 				templateList.clear()

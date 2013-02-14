@@ -20,7 +20,7 @@ include tabs.css
 		img(src="cart.png")
 	
 	form#mail(action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae", method="post", name="mc-embedded-subscribe-form", novalidate)
-		span.link Subscribe to our mailing list!
+		span.link Subscribe to our mailing list and get a free graphic!
 		//label(for="mce-EMAIL") Email Address: 
 		input#mailinput(type="email", value="", name="EMAIL", placeholder="Your email...")
 		input#formsubmit(type="submit", value="Subscribe", name="subscribe")
@@ -112,6 +112,8 @@ script
 	//custom
 	var 找=function(s){var q=document.querySelectorAll(s);return q.length>1?q:q[0]},content=找(".content");
 	Element.prototype.clear=function(i){while(i=this.firstChild)this.removeChild(i)}
+	//var filePath="https://googledrive.com/host/0B-G_7jBwApzgVXVzdVROZnpOSjA/";
+	var filePath="";
 
 include index-min.js
 

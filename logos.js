@@ -395,7 +395,7 @@ logos.list=[
 			temp.href="http://www.payloadz.com/go/?id="+a[i][0]
 			temp.target="_blank"
 			tempimg=document.createElement("img")
-			tempimg.src="l/"+a[i][1]+".png"
+			tempimg.src=filePath+"l/"+a[i][1]+".png"
 			temp.appendChild(tempimg)
 			frag.appendChild(temp)
 		}
