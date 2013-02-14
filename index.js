@@ -8,9 +8,12 @@
 //window.localStorage.setItem("cartClicked","0");window.localStorage.setItem("tempClicked","0")
 //formsubmit
 找("#mail").onclick=function(){this.classList.add("clicked")}
+找("#formsubmit").onclick=function(){
+	window.localStorage.setItem("oldpage",/signshop/.test(location.pathname)?location.pathname.split("/signshop/")[1]:location.pathname.split("/")[1]);
+}
 if(window.location.hash=="#subscribed"){
 	找("#mail").innerHTML="<span>We sent you an email to validate your subscription.</span>"
-	window.location.hash=""
+	window[localStorage.getItem("oldpage")||"templates"].setup()
 }
 //tabs
 ;(function(){
