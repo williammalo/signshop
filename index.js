@@ -8,6 +8,13 @@
 //window.localStorage.setItem("cartClicked","0");window.localStorage.setItem("tempClicked","0")
 //formsubmit
 找("#mail").onclick=function(){this.classList.add("clicked")}
+找("#formsubmit").onclick=function(e){
+	req=new XMLHttpRequest;
+	req.open("POST","http://api.maloweb.com/sshchimp.php",true);
+	req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	req.send("EMAIL="+找("#mailinput").value+"&subscribe=Subscribe");
+	e.preventDefault()
+}
 if(window.location.hash=="#subscribed"){
 	找("#mail").innerHTML="<span>We sent you an email to validate your subscription.</span>"
 	window.location.hash=""
