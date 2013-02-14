@@ -17,7 +17,7 @@ if(window.location.hash=="#subscribed"){
 		History.pushState("","",(localStorage.getItem("oldpage")||"templates"))
 		window[localStorage.getItem("oldpage")||"templates"].setup()
 	}else{
-		window.location=(localStorage.getItem("oldpage")||"templates")
+		window.location=(localStorage.getItem("oldpage")||"templates")+"#subscribed"
 	}
 }
 //tabs
