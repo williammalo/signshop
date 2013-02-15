@@ -290,7 +290,7 @@ templates.list=[
 	,[1210201,"ford-edge-2007-2010"]
 	,[1417084,"ford-edge-2011-uptodate"]
 	,[1210199,"ford-escape-2004-2007"]
-	,[1210198,"ford-escape-2008-uptodate"]
+	,[1210198,"ford-escape-2008-2012"]
 	,[1210405,"ford-expedition-2004-2006"]
 	,[1210404,"ford-expedition-2008-uptodate"]
 	,[1210403,"ford-expedition-el-2008-uptodate"]
@@ -452,7 +452,7 @@ templates.list=[
 	,[1417104,"nissan-juke-2011-uptodate"]
 	,[1212263,"nissan-murano-2003-uptodate"]
 	,[1212262,"nissan-pathfinder-2003-2004"]
-	,[1212260,"nissan-pathfinder-2005-uptodate"]
+	,[1212260,"nissan-pathfinder-2005-2012"]
 	,[1212259,"nissan-quest-2004-2010"]
 	,[1417105,"nissan-quest-2011-uptodate"]
 	,[1212257,"nissan-xterra-2003-2004"]
@@ -634,7 +634,7 @@ templates.list=[
 	var i,tmp;
 	for(i=templates.list.length;i--;){
 		templates.list[i][2]=templates.list[i][1]
-			.replace("uptodate",(new Date).getFullYear())
+			.replace(/uptodate/i,(new Date).getFullYear())
 			.replace(/-/g," ")
 			.replace("chev ","chevrolet ")
 			.replace("rendez vous","rendez-vous")
@@ -656,6 +656,7 @@ templates.list=[
 			.replace(/(20\d{2}) (20\d{2})/,"\n$1-$2")
 			.replace(/ (20\d{2})$/,"\n$1")
 			.replace("vw ","volkswagen ")
+			.replace("2013-2013","2013")
 		templates.list[i][3]=document.createElement("a")
 		templates.list[i][3].href="http://www.payloadz.com/go/?id="+templates.list[i][0]
 		templates.list[i][3].target="_blank"
