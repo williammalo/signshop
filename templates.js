@@ -74,7 +74,7 @@ templates.start=function(){
 }
 
 templates.list=[
-	 [1901353,"toyoya-rav-4-2013-uptodate"]
+	 [1901353,"toyota-rav-4-2013-uptodate"]
 	,[1901352,"toyota-prius-c-2013-uptodate"]
 	,[1901351,"subaru-xv-2013-uptodate"]
 	,[1901350,"nissan-pathfinder-2013-uptodate"]
@@ -549,7 +549,7 @@ templates.list=[
 	,[1214131,"toyota-highlander-2003-2007"]
 	,[1214130,"toyota-highlander-2008-uptodate"]
 	,[1214129,"toyota-rav4-2003-2005"]
-	,[1214128,"toyota-rav4-2006-uptodate"]
+	,[1214128,"toyota-rav4-2006-2012"]
 	,[1214127,"toyota-sequoia-2003-2008"]
 	,[1214126,"toyota-sequoia-2009-uptodate"]
 	,[1214124,"toyota-sienna-2004-2010"]
