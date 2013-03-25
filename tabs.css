@@ -72,7 +72,7 @@ header:after{content:"";display:block;position:absolute;top:5px;right:5px;width:
 .p3 header:after{background-image:url("bak3.png")}
 .p4 header{border-top:solid 1px #facb5c;background:#f8b926;background:url("bak4.png") center right no-repeat,-webkit-gradient(linear, left top, left bottom, color-stop(0, #f8b926), color-stop(0.1, #f7a519), color-stop(0.9, #ee9908), color-stop(1, #e29108));background:url("bak4.png") center right no-repeat,-webkit-linear-gradient(top, #f8b926 0%, #f7a519 10%, #ee9908 90%, #e29108 100%);background:url("bak4.png") center right no-repeat,-moz-linear-gradient(top, #f8b926 0%, #f7a519 10%, #ee9908 90%, #e29108 100%);background:url("bak4.png") center right no-repeat,-o-linear-gradient(top, #f8b926 0%, #f7a519 10%, #ee9908 90%, #e29108 100%);background:url("bak4.png") center right no-repeat,-ms-linear-gradient(top, #f8b926 0%, #f7a519 10%, #ee9908 90%, #e29108 100%);background:url("bak4.png") center right no-repeat,linear-gradient(top, #f8b926 0%, #f7a519 10%, #ee9908 90%, #e29108 100%);border-bottom:solid 1px #b37306;-webkit-background-size:auto 82px,100% 100%;-moz-background-size:auto 82px,100% 100%;background-size:auto 82px,100% 100%}
 .p4 header:after{background-image:url("bak4.png")}
-header footer{opacity:.6;filter:alpha(opacity=60);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";position:absolute;bottom:0;left:20px;text-shadow:0 1px 0 rgba(255,255,255,0.2);font-size:.62em}
+header footer{opacity:.6;filter:alpha(opacity=60);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";position:absolute;bottom:0;left:20px;text-shadow:0 1px 0 rgba(255,255,255,0.2);font-size:9.92px}
 .content{padding:20px}
 .p1 .content{border-top:solid 1px #e9f8c8}
 .p2 .content{border-top:solid 1px #eac8f8}
