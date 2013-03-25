@@ -653,6 +653,8 @@ templates.list=[
 			.replace(" quad c "," quad cab ")
 			.replace(" s dr "," swing door ")
 			.replace(" swing dr "," swing door ")
+			.replace(/(20\d{2}) (20\d{2})/,"$1-$2")
+			.replace(/ (20\d{2})$/,"$1")
 			.replace("vw ","volkswagen ")
 			.replace("2013-2013","2013")
 		templates.list[i][3]=document.createElement("a")
