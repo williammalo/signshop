@@ -1,8 +1,8 @@
 
-//@codekit-prepend "templates-min.js"
-//@codekit-prepend "logos-min.js"
-//@codekit-prepend "elements-min.js"
-//@codekit-prepend "graphics-min.js"
+//@codekit-prepend "templates.js"
+//@codekit-prepend "logos.js"
+//@codekit-prepend "elements.js"
+//@codekit-prepend "graphics.js"
 
 //reset
 //window.localStorage.setItem("cartClicked","0");window.localStorage.setItem("tempClicked","0")
