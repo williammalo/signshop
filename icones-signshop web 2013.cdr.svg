@@ -204,17 +204,28 @@
      inkscape:window-height="811"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="0.53478109"
-     inkscape:cx="-1504.2165"
-     inkscape:cy="221.38527"
-     inkscape:window-x="129"
-     inkscape:window-y="14"
+     inkscape:zoom="0.33288145"
+     inkscape:cx="-1954.3071"
+     inkscape:cy="867.05936"
+     inkscape:window-x="341"
+     inkscape:window-y="79"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" /><g
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="Layer"
      style="display:inline"><rect
+       style="fill:#2db2ed;fill-opacity:1;stroke:none"
+       id="rect4462"
+       width="1123.5231"
+       height="1123.5231"
+       x="-3568.8379"
+       y="-650.22351"
+       ry="0"
+       rx="0"
+       inkscape:export-filename="/Users/william/Dropbox/web/signshop/apple-touch-icon-144.png"
+       inkscape:export-xdpi="11.535144"
+       inkscape:export-ydpi="11.535144" /><rect
        style="fill:#666666;fill-opacity:1;stroke:#000000;stroke-width:0.56156772;stroke-linecap:round;stroke-miterlimit:3.0623188;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect4066"
        width="2726.2014"
@@ -305,6 +316,7 @@
      sodipodi:role="line">outlines</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;display:inline;font-family:Sans;-inkscape-font-specification:Helvetica"
@@ -316,6 +328,7 @@
      id="tspan5910"
      x="704.41589"
      y="540.9845">logos</tspan></text>
+
 
 
 <text
@@ -331,6 +344,7 @@
      sodipodi:role="line">stripes</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;display:inline;font-family:Sans;-inkscape-font-specification:Helvetica"
@@ -342,6 +356,7 @@
      id="tspan8530"
      x="1204.951"
      y="540.06342">elements</tspan></text>
+
 
 
 </g><rect
@@ -374,7 +389,27 @@
        style="fill:none;fill-opacity:1;stroke:none"
        inkscape:export-filename="/Users/william/Dropbox/web/signshop/ico4png.png"
        inkscape:export-xdpi="45.225975"
-       inkscape:export-ydpi="45.225975" /></g><g
+       inkscape:export-ydpi="45.225975" /><path
+       style="fill:#f9f9f9;stroke:none"
+       d="M -3261.625 -582.40625 L -3259.7812 -582.3125 C -3391.7398 -582.3125 -3498.4686 -566.77738 -3498.4688 -547.46875 L -3498.4688 1.90625 C -3498.4686 21.21488 -3391.7398 36.75 -3259.7812 36.75 L -3261.625 36.84375 C -3129.6665 36.84375 -3022.9375 21.30864 -3022.9375 2 L -3022.9375 -547.5625 C -3022.9375 -566.87114 -3129.6665 -582.40625 -3261.625 -582.40625 z M -3435.1562 -88.46875 C -3424.3721 -88.46875 -3415.625 -72.985939 -3415.625 -53.90625 C -3415.625 -34.826561 -3424.3721 -19.375 -3435.1562 -19.375 C -3445.9404 -19.375 -3454.6875 -34.826561 -3454.6875 -53.90625 C -3454.6875 -72.985939 -3445.9404 -88.46875 -3435.1562 -88.46875 z M -3498.4688 13.90625 L -3498.4688 29.84375 C -3498.4688 43.427714 -3445.9617 55.150329 -3369.4062 60.875 L -3369.4062 202.5625 C -3369.4062 211.1204 -3353.8991 217.96875 -3334.6875 217.96875 L -3334.5312 217.96875 L -3329.0938 217.96875 L -3196.1562 217.96875 L -3196.1562 217.875 L -3186.7188 217.875 C -3167.4099 217.875 -3151.9688 211.02665 -3151.9688 202.46875 L -3151.9688 60.78125 C -3074.928 55.017767 -3022.9375 43.333965 -3022.9375 29.75 L -3022.9375 14 C -3022.9375 33.30864 -3129.6665 48.84375 -3261.625 48.84375 L -3259.7812 48.75 C -3391.7398 48.75 -3498.4686 33.21488 -3498.4688 13.90625 z M -3329.0938 226.96875 L -3329.0938 398.4375 L -3196.1562 267.46875 L -3196.1562 226.96875 L -3329.0938 226.96875 z "
+       id="path4448"
+       inkscape:export-filename="/Users/william/Dropbox/web/signshop/apple-touch-icon-144.png"
+       inkscape:export-xdpi="11.535144"
+       inkscape:export-ydpi="11.535144" /><text
+       xml:space="preserve"
+       style="font-size:313.24124146px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#f9f9f9;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Sans Bold"
+       x="-3083.2759"
+       y="399.66611"
+       id="text4464"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/Users/william/Dropbox/web/signshop/apple-touch-icon-144.png"
+       inkscape:export-xdpi="11.535144"
+       inkscape:export-ydpi="11.535144"><tspan
+         sodipodi:role="line"
+         id="tspan4466"
+         x="-3083.2759"
+         y="399.66611">SSH</tspan></text>
+</g><g
      id="g10"
      inkscape:groupmode="layer"
      inkscape:label="icones-signshop web 2013.cdr"
@@ -416,6 +451,7 @@
      style="font-size:12.7276001px;font-variant:normal;font-weight:900;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Humanist777BT;-inkscape-font-specification:Humanist777BT-BlackB">Outlines</tspan></text>
 
 
+
 </g><g
    id="g40"
    transform="matrix(0.29711322,0,0,0.29711322,-448.04372,-889.42289)"
@@ -443,6 +479,7 @@
      y="10.6463"
      x="0 4.8760891 9.7633877 16.444189 23.124992 26.577488 32.753868 40.219326 47.740833 55.206295"
      style="font-size:11.20940018px;font-variant:normal;font-weight:900;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Humanist777BT;-inkscape-font-specification:Humanist777BT-BlackB">free Logos</tspan></text>
+
 
 
 </g><g
@@ -474,6 +511,7 @@
      style="font-size:11.20940018px;font-variant:normal;font-weight:900;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Humanist777BT;-inkscape-font-specification:Humanist777BT-BlackB">Elements</tspan></text>
 
 
+
 </g><g
    id="g116"
    transform="matrix(0.29711322,0,0,0.29711322,-448.04372,-889.42289)"
@@ -501,6 +539,7 @@
      y="10.9078"
      x="0 8.5079346 13.395233 20.17692 27.832941 35.275982 38.773315 44.613411"
      style="font-size:11.20940018px;font-variant:normal;font-weight:900;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Humanist777BT;-inkscape-font-specification:Humanist777BT-BlackB">Graphics</tspan></text>
+
 
 
 </g><g
@@ -4546,6 +4585,7 @@
      id="tspan4897"
      sodipodi:role="line">logos</tspan></text>
 
+
 <text
    xml:space="preserve"
    style="font-size:55.22379303000000306px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Helvetica;opacity:0.81896552"
@@ -4558,6 +4598,7 @@
      id="tspan4893"
      x="1870.7592"
      y="345.4104">logos</tspan></text>
+
 
 <path
    inkscape:connector-curvature="0"
