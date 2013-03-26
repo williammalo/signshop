@@ -118,3 +118,4 @@ body.p3 .content :-moz-placeholder{color:rgba(0,0,0,0.3)}
 .p2 #buts button{color:#9f17d3}
 .p4 #buts button{color:#ee9908}
 .p4 #logs{-webkit-column-width:500px;-moz-column-width:500px;column-width:500px}
+[placeholder]:focus::-webkit-input-placeholder{-webkit-transition:opacity 1s ease;opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
