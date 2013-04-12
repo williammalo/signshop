@@ -12,14 +12,10 @@ html
 body
 	font-family: Ubuntu, Helvetica Neue,Helvetica,sans-serif
 	margin:0
-	background:#575043
 	min-width:700px
-	color:rgba(#000,0.7)
+	color:rgba(#000,.7)
 	font-size:16px //force font size in mobile webkit
 	-webkit-text-size-adjust: 100% //force font size in mobile webkit
-
-a
-	text-decoration:underline
 
 img
 	border:none
@@ -29,7 +25,7 @@ for i in 0 1 2 3
 		background:lighten(xlight[i],50%)
 ul
 	margin:1.5em 0
-	padding-left:1em
+	padding-left:1.1em
 li
 	max-width:30em
 
@@ -37,8 +33,8 @@ li
 	height:25px
 	vertical-align:middle
 .cover
-	z-index:100
-	background:rgba(0,0,0,.4)
+	z-index:10
+	background:rgba(#000,.4)
 	position:fixed
 	width:100%
 	height:100%
@@ -62,23 +58,32 @@ li
 		height:60%
 		top:20%
 		left:20%
-		box-shadow:0 0 40px rgba(0,0,0,.5)
 
 hgroup{padding:15px 20px 0 20px;position:absolute}
-hgroup img{height:80px;margin-right:14px;padding-bottom:10px;vertical-align:middle}
-h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(#000,0.2);margin:0}
-h1 small{font-size:0.62em}
-h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,0.2));-webkit-transform:translateZ(1px)}
+hgroup img{height:70px;margin-right:14px;padding-bottom:10px;vertical-align:middle}
+h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(#000,.2);margin:0}
+h1 small{font-size:.62em}
+h1 img{height:62px;vertical-align:middle;margin-left:.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,.2));-webkit-transform:translateZ(1px)}
 
-#cart,#mail
+#cart,#mail,#stoggle
 	position:absolute
-	font-size:0.6em
+	font-size:.62em
 	color:#fff
 	z-index:1
-#cart
+	cursor:pointer
+#stoggle:before
+	content:"S"
+	font-weight:bold
+	font-size:1.62em
+	padding:7px
+	display:inline-block
+#stoggle
 	position:absolute
 	top:0
 	right:0
+#cart
+	top:0
+	right:20px
 	padding:5px
 	img
 		width:16px
@@ -92,10 +97,9 @@ h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;
 		top:0 !important
 #mail
 	top:0
-	right:74px
+	right:94px
 	.link
 		text-decoration:underline
-		cursor:pointer
 	span
 		padding:7px
 		display:inline-block
@@ -124,13 +128,13 @@ h1 img{height:62px;vertical-align:middle;margin-left:0.35em;padding-bottom:14px;
 nav
 	text-align:right
 	direction:rtl
-	padding-top:60px
+	padding-top:50px
 	@media(max-width:950px)
-		padding-top:83px
+		padding-top:75px
 
 
 nav a
-	color:rgba(#000,0.7)
+	color:rgba(#000,.7)
 	text-decoration:none
 	text-wrap:nowrap
 	text-align:left
@@ -141,17 +145,16 @@ nav a
 	display:inline-block
 	vertical-align:top
 	padding:7px 1px 9px 1px
-	top:1px
 	border-top:solid 1px #000
 	font-size:20px
 	line-height:1em
-	text-shadow:0 -1px rgba(#000,0.1),0 1px rgba(#ffe,0.2)
+	text-shadow:0 -1px rgba(#000,.1),0 1px rgba(#ffe,.2)
 	@media (max-width:1440px)
 		width:auto
 
-.tab{transform:scale(0.6,0.6);transform-origin:0 0;position:absolute;top:0;right:-34px;}
+.tab{transform:scale(.6,.6);transform-origin:0 0;position:absolute;top:0;right:-34px;}
 .tab:nth-child(3){left:-20px}
-.border{transform:scale(0.6,0.6);transform-origin:0 0;position:absolute;top:-1px;right:-35px;}
+.border{transform:scale(.6,.6);transform-origin:0 0;position:absolute;top:-1px;right:-35px;}
 .border:nth-child(1){left:-21px}
 svg path{stroke:none;}
 
@@ -189,37 +192,22 @@ for i in 0 1 2 3
 .p2 #p2,
 .p3 #p3,
 .p4 #p4
-	z-index:10
+	z-index:2
 	padding:8px 1px 8px 1px
 	cursor:default
 
 #top
 	overflow:hidden
 	background:#575043
-	//background:rgb(133, 120, 97)
+	margin-bottom:-1px
 
 header
-	display:inline-block
 	width:100%
-	box-shadow:0 0 40px #333
 	padding:20px
+	box-shadow:0 -15px 15px -15px rgba(#000,.4)
 	a
-		color:rgba(#fff,0.8)
-	&:after
-		content:""
-		display:block
-		position:absolute
-		top:5px
-		right:5px
-		width:750px
-		height:82px
-		background-position:top right
-		background-repeat:no-repeat
-		background-size:contain
-		opacity:.5
-		pointer-events:none
-		cursor:default
-		display:none
+		color:rgba(#fff,.8)
+
 
 for i in 0 1 2 3
 	.p{i+1} header
@@ -229,8 +217,6 @@ for i in 0 1 2 3
 		//-pie-background: @background-image
 		border-bottom:solid 1px darken(brand[i],25%)
 		background-size:auto 82px, 100% 100%
-	.p{i+1} header:after
-		background-image:url(s("bak%s.png",i+1))
 
 
 header footer
@@ -238,11 +224,13 @@ header footer
 	position:absolute
 	bottom:0
 	left:20px
-	text-shadow:0 1px 0 rgba(#fff,0.2)
+	text-shadow:0 1px 0 rgba(#fff,.2)
 	font-size: .62em
 
 .content
 	padding:20px
+	z-index:1
+	transform:translateZ(1px)
 
 for i in 0 1 2 3
 	.p{i+1} .content
@@ -262,7 +250,7 @@ figure
 	display:inline-block
 	background:#fff
 	overflow:hidden
-	box-shadow:0 0 8px rgba(#000,0.3)
+	box-shadow:0 0 8px rgba(#000,.3)
 	margin:0 20% 10px 20px
 	float:right
 	@media (max-width:1000px)
@@ -308,14 +296,16 @@ figure
 .more:after
 	content:"More..."
 .popup
-	display:none
+	max-height:0px
+	overflow:hidden
+	transition:max-height .6s
 
 
 .show
 	.more:after
 		content:"Less..."
 	.popup
-		display:block
+		max-height:400px
 
 .ie8 .more
 	display:none
@@ -340,10 +330,10 @@ body.p3
 			font-family: Ubuntu
 
 		::-webkit-input-placeholder
-			color: rgba(#000,0.3)
+			color: rgba(#000,.3)
 
 		:-moz-placeholder
-			color: rgba(#000,0.3)
+			color: rgba(#000,.3)
 
 #close
 	height:48px
@@ -363,7 +353,7 @@ body.p3
 	border: solid 10px #fff
 	background:#fff url(add.png) 219px 74px no-repeat
 	margin:10px
-	box-shadow:0 0 5px rgba(#000,0.1)
+	box-shadow:0 0 5px rgba(#000,.1)
 	text-align:left
 	text-decoration:underline
 	color:brand[2]
@@ -388,7 +378,7 @@ body.p3
 		background:white
 		margin-bottom:20px
 		padding:10px
-		box-shadow:0 0 5px rgba(#000,0.1)
+		box-shadow:0 0 5px rgba(#000,.1)
 		-webkit-transform:translateZ(1px) //fixes a rendering bug in webkit :)
 
 	img
@@ -414,7 +404,7 @@ body.p3
 		display:inline-block
 		background:white
 		padding:5px
-		box-shadow:0 0 5px rgba(#000,0.1)
+		box-shadow:0 0 5px rgba(#000,.1)
 		border:none
 		font-size:1em
 		text-decoration:underline
@@ -442,3 +432,51 @@ body.p3
 	-webkit-transition: opacity 1s ease
 	opacity: 0
 }
+
+.simple
+	header article
+		display:none !important
+	header
+		padding-top:0 !important
+		background:none !important
+		border:none !important
+	.p1 header a
+		color:brand[0] !important
+	.p2 header a
+		color:brand[1] !important
+	.p3 header a
+		color:brand[2] !important
+	.p4 header a
+		color:brand[3] !important
+	.content
+		border:none !important
+
+	for i in 0 1 2 3
+		#p{i+1}
+			background:lighten(xlight[i],50%)
+			border-top-color:lighten(xlight[i],50%)
+			margin-bottom:-1px
+		#p{i+1} .tab path
+			fill:lighten(xlight[i],50%)
+		#p{i+1} .border path
+			fill:lighten(xlight[i],50%)
+
+	#mail
+		display:none
+
+	hgroup img, hgroup small
+		display:none
+	hgroup
+		padding-top:7px !important
+	nav
+		padding-top:27px
+
+	#cart span
+		display:none !important
+
+	#logs a,#buts button,#models a
+		box-shadow:none !important
+	#fo input
+		box-shadow:none
+	nav a:before
+		content:"" !important

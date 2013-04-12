@@ -273,7 +273,17 @@ cart.onclick=function(){window.localStorage.setItem("cartClicked","1")}
 	})()
 }})()
 
-
+//style
+if(window.localStorage.getItem("style")=="simple")document.documentElement.classList.add("simple");
+找("#stoggle").onclick=function(){
+	if(document.documentElement.classList.contains("simple")){
+		document.documentElement.classList.remove("simple")
+		window.localStorage.setItem("style","standard")
+	}else{
+		document.documentElement.classList.add("simple")
+		window.localStorage.setItem("style","simple")
+	}
+}
 
 //click event
 var headerClass=找("header").classList;
