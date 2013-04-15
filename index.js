@@ -119,7 +119,10 @@ graphics.start()
 		});
 
 		templates.list[i][3].appendChild(
-			document.createElement("img")
+			document.createElement("div")
+		);
+		templates.list[i][3].firstChild.appendChild(
+			new Image
 		);
 		templates.list[i][3].appendChild(
 			document.createTextNode(templates.list[i][2])
@@ -167,7 +170,7 @@ graphics.start()
 				return RegExp(s,"i").test(element[2])
 			});
 			for(i=0;(showall?1:i<29)&&i<c.length;i++){
-				c[i][3].firstChild.src="t/"+c[i][1]+".jpg"
+				c[i][3].firstChild.firstChild.src="t/"+c[i][1]+".jpg"
 				frag.appendChild(c[i][3])
 			}
 			//update document

@@ -59,11 +59,9 @@ li
 		top:20%
 		left:20%
 
-.hgroup{padding:15px 20px 0 20px;position:absolute}
-.hgroup img{height:70px;margin-right:14px;padding-bottom:10px;vertical-align:middle}
+.hgroup{padding:15px 20px 15px 20px;position:absolute}
+.hgroup img{height:62px;margin-right:13px;vertical-align:middle}
 h1{vertical-align:middle;display:inline-block;color:#fff;text-shadow:3px 3px 5px rgba(#000,.2);margin:0}
-h1 small{font-size:.62em}
-h1 img{height:62px;vertical-align:middle;margin-left:.35em;padding-bottom:14px;-webkit-filter:drop-shadow(6px 6px 10px rgba(0,0,0,.2));-webkit-transform:translateZ(1px)}
 
 #cart,#mail,#stoggle
 	position:absolute
@@ -104,20 +102,17 @@ h1 img{height:62px;vertical-align:middle;margin-left:.35em;padding-bottom:14px;-
 		padding:7px
 		display:inline-block
 	input[type=email]
-		border:none
-		border-radius:5px
-		padding:1px 5px
-		font-family: Ubuntu
+		background:#fff
 	input[type=submit]
-		border:none
-		border-radius:5px
-		padding:1px 5px
 		background:brand[2]
 		color:#fff
-		font-family: Ubuntu
 		cursor:pointer
 	input
+		border:none
 		display:none
+		border-radius:5px
+		padding:1px 5px
+		font-family: Ubuntu
 #mail.clicked
 	input
 		display:inline-block
@@ -169,21 +164,9 @@ for i in 0 1 2 3
 
 #p1:before
 	content:"Copyright Free "
-	@media (max-width:1220px)
-		content:"© free "
-	@media (max-width:1140px)
-		content:""
-		display:none
-
-#p2:before
-	content:"Sign "
 	@media (max-width:1080px)
-		content:""
-		display:none
-
-#p3:before
-	content:"Vehicle "
-	@media (max-width:1030px)
+		content:"© free "
+	@media (max-width:1000px)
 		content:""
 		display:none
 
@@ -345,12 +328,12 @@ body.p3
 
 #models
 	text-align:center
-#models img{height:90px;width:auto !important;float:left;margin-right:10px;margin-top:-12px;border:none}
+#models img{height:90px;width:auto !important;margin-top:-13px;margin-right:-1px}
 #models a
 	width:350px
 	display:inline-block
 	vertical-align:top
-	border: solid 10px #fff
+	padding: 10px
 	background:#fff url(add.png) 219px 74px no-repeat
 	margin:10px
 	//box-shadow:0 0 5px rgba(#000,.1)
@@ -359,10 +342,16 @@ body.p3
 	color:brand[2]
 	white-space:pre-wrap
 	transition:all .3s
-	background-position:219px 111px !important
+	background-position:220px 100px !important
 	overflow:hidden
 	&:hover
-		background-position:209px 51px !important
+		background-position:220px 63px !important
+	div
+		display:inline-block
+		float:left
+		overflow:hidden
+		margin-right:10px
+		height:76px
 
 #showall
 	cursor:pointer
@@ -441,7 +430,7 @@ body.p3
 		background:none !important
 		border:none !important
 	.p1 header a
-		color:brand[0] !important
+		color:brand[0] !importante
 	.p2 header a
 		color:brand[1] !important
 	.p3 header a
