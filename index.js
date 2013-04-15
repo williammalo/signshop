@@ -319,3 +319,9 @@ window[pageName].setup()
 
 //google analytics
 var _gaq=[['_setAccount','UA-37761254-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))
+
+//lazy images
+onload=function(){
+	var i,a=document.querySelectorAll("[data-src]");
+	for(i=a.length;i--;)a[i].src=a[i].getAttribute("data-src")
+}
