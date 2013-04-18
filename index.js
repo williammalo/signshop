@@ -12,30 +12,31 @@ catPages.setup=function(){
 	document.body.className=this.Bclass
 
 	this.philter(this.defaultCategory)
-	var frag=document.createDocumentFragment()
-	frag.appendChild(this.buts)
-	frag.appendChild(this.logs)
-	content.clear().appendChild(frag);
+	content
+		.clear()
+		.append(this.buts,this.logs)
 };
 
 catPages.philter=function(q,n){
-	var i,frag=document.createDocumentFragment(),temp,a=this.list;
+	var i,frag=document.createDocumentFragment(),a=this.list;
+	q=RegExp(q,"i");
 	for(i=a.length;i--;){
-	if(n?!RegExp(q,"i").test(a[i][1]):RegExp(q,"i").test(a[i][1])){
-		temp=document.createElement("a").prop({
-			href:"http://www.payloadz.com/go/?id="+a[i][0],
-			target:"_blank"
-		});
-
-		temp.appendChild(
-			document.createElement("img").prop({
-				src:this.getSource(a[i][1])
-			})
-		);
-		frag.appendChild(temp)
+		if(n?!q.test(a[i][1]):q.test(a[i][1])){
+			frag.appendChild(
+				document.createElement("a")
+					.prop({
+						href:"http://www.payloadz.com/go/?id="+a[i][0],
+						target:"_blank"
+					})
+					.append(
+						document.createElement("img").prop({
+							src:this.getSource(a[i][1])
+						})
+					)
+			)
+		}
 	}
-	}
-	this.logs.clear().appendChild(frag);
+	this.logs.clear().append(frag);
 }
 
 catPages.start=function(){
@@ -55,21 +56,22 @@ catPages.start=function(){
 
 	for(i=categories.length;i--;){
 		tmp=document.createElement("button")
-		tmp.setAttribute("data-category",categories[i][0])
-
-		tmp.appendChild(
-			document.createTextNode(categories[i][1])
-		);
+			.setAttribute("data-category",categories[i][0])
+			.append(
+				document.createTextNode(categories[i][1])
+			);
 		if(categories[i][2]){
 			tmp.setAttribute("data-reverse"," ")
 		}
 		frag.appendChild(tmp)
 	};
 	
-	this.logs=document.createElement("div").prop({id:"logs"});
+	this.logs=document.createElement("div")
+		.prop({id:"logs"});
 	
-	this.buts=document.createElement("div").prop({id:"buts",onclick:evt});
-	this.buts.appendChild(frag);
+	this.buts=document.createElement("div")
+		.prop({id:"buts",onclick:evt})
+		.append(frag);
 
 };
 
@@ -118,14 +120,10 @@ graphics.start()
 			target:"_blank"
 		});
 
-		templates.list[i][3].appendChild(
+		templates.list[i][3].append(
 			document.createElement("div")
-		);
-		templates.list[i][3].firstChild.appendChild(
-			new Image
-		);
-		templates.list[i][3].appendChild(
-			document.createTextNode(templates.list[i][2])
+				.append(new Image)
+			,document.createTextNode(templates.list[i][2])
 		);
 	}
 })();
@@ -149,18 +147,18 @@ graphics.start()
 		alt:"clear"
 	});
 	
-	var form=document.createElement("form").prop({id:"fo"})
-	form.appendChild(textbox);
-	form.appendChild(close);
+	var form=document.createElement("form")
+		.prop({id:"fo"})
+		.append(textbox,close);
 
 	var templateList=document.createElement("div").prop({id:"models"})
 
-	var showallLink=document.createElement("a").prop({
-		id:'showall',
-		onclick:function(){showall=true;displayresults()}
-	});
-
-	showallLink.appendChild(document.createTextNode("Show all..."))
+	var showallLink=document.createElement("a")
+		.prop({
+			id:'showall',
+			onclick:function(){showall=true;displayresults()}
+		})
+		.append(document.createTextNode("Show all..."));
 
 	if(!ie){
 		displayresults=function(){
@@ -199,13 +197,10 @@ graphics.start()
 		}
 	}
 	templates.setup=function(){
-		document.body.className="p3"
-		content.clear()
-
+		document.body.className="p3";
+		content.clear();
 		displayresults();
-
-		content.appendChild(form)
-		content.appendChild(templateList)
+		content.append(form,templateList);
 	}
 })();
 

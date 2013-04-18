@@ -104,6 +104,8 @@ script
 	//custom
 	var 找=function(s){var q=document.querySelectorAll(s);return q.length>1?q:q[0]},content=找(".content");
 	Element.prototype.clear=function(i){while(i=this.firstChild)this.removeChild(i);return this}
+	Element.prototype.append=function(){for(var i=0;i<arguments.length;i++)this.appendChild(arguments[i]);return this}
+
 	var filePath="";
 
 include index-ck.js
