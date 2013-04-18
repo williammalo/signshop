@@ -160,42 +160,31 @@ graphics.start()
 		})
 		.append(document.createTextNode("Show all..."));
 
-	if(!ie){
-		displayresults=function(){
-			var i,c=a,frag=document.createDocumentFragment(),s=textbox.value;
-			//filter array
-			c=c.filter(function(element){
-				return RegExp(s,"i").test(element[2])
-			});
-			for(i=0;(showall?1:i<29)&&i<c.length;i++){
-				c[i][3].firstChild.firstChild.src="t/"+c[i][1]+".jpg"
-				frag.appendChild(c[i][3])
-			}
-			//update document
-			if(!showall)frag.appendChild(showallLink)
-			
-			templateList.clear().appendChild(frag);
-			showall=false;
-			localStorage.setItem("tb", s);
-		};
-
-		form.onsubmit=displayresults;
-		textbox.oninput=displayresults;
-		textbox.onfocus=function(){document.getElementById("close").style.opacity="0.2";textbox.placeholder=""};
-		textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
-		close.onclick=function(){textbox.value="";textbox.focus();displayresults()}
-
-	}else{
-		displayresults=function(){
-				textbox.style.display="none";
-				var i,frag=document.createDocumentFragment();
-				for(i in a){
-					a[i][3].firstChild.src=filePath+"t/"+a[i][1]+".jpg"
-					frag.appendChild(a[i][3])
-				}
-				templateList.clear().appendChild(frag);
+	displayresults=function(){
+		var i,c=a,frag=document.createDocumentFragment(),s=textbox.value;
+		//filter array
+		c=c.filter(function(element){
+			return RegExp(s,"i").test(element[2])
+		});
+		for(i=0;(showall?1:i<29)&&i<c.length;i++){
+			c[i][3].firstChild.firstChild.src="t/"+c[i][1]+".jpg"
+			frag.appendChild(c[i][3])
 		}
-	}
+		//update document
+		if(!showall)frag.appendChild(showallLink)
+		
+		templateList.clear().appendChild(frag);
+		showall=false;
+		localStorage.setItem("tb", s);
+	};
+
+	form.onsubmit=displayresults;
+	textbox.oninput=displayresults;
+	textbox.onfocus=function(){document.getElementById("close").style.opacity="0.2";textbox.placeholder=""};
+	textbox.onblur=function(){document.getElementById("close").style.opacity="0"};
+	close.onclick=function(){textbox.value="";textbox.focus();displayresults()}
+
+
 	templates.setup=function(){
 		document.body.className="p3";
 		content.clear();
@@ -301,6 +290,7 @@ var clickevent=function(e,d,t){
 		window[pageName].setup()
 		e.preventDefault()
 	}
+	return false
 }
 ontouchstart=clickevent
 onmousedown=clickevent
