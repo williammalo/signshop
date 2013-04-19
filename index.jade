@@ -88,9 +88,8 @@ script
 
 //if !IE
 	<!-->
-	script(src="//cdnjs.cloudflare.com/ajax/libs/history.js/1.7.1/bundled/html5/native.history.js")
 	script
-		if(!window.History)window.History=window.history
+		window.History=window.history;
 	<!--
 
 script
@@ -110,3 +109,12 @@ script
 	Array.prototype.filter||(Array.prototype.filter=function(c,f){if(null==this)throw new TypeError("can't convert "+this+" to object");var b=Object(this),g=b.length>>>0;if("function"!=typeof c)throw new TypeError(c+" is not a function");for(var d=[],a=0,h=0;a<g;){if(a in b){var e=b[a];c.call(f,e,a,b)&&(d[h++]=e)}a++}return d});
 
 include index-ck.js
+
+//if !IE
+	<!-->
+	script
+		window.addEventListener("load",function(){
+			var s=document.createElement('script').prop({async:true,src:"//cdnjs.cloudflare.com/ajax/libs/history.js/1.7.1/bundled/html5/native.history.js"});
+			(document.getElementsByTagName('head')[0]).appendChild(s);
+		},!1);
+	<!--
