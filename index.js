@@ -288,9 +288,8 @@ var clickevent=function(e,d,t){
 		History.pushState("","",pageName)
 		_gaq.push(['_trackPageview', '/'+pageName]);
 		window[pageName].setup()
-		e.preventDefault()
+		e.preventDefault();
 	}
-	return false
 }
 ontouchstart=clickevent
 onmousedown=clickevent
