@@ -134,6 +134,7 @@ body.p3 .content :-moz-placeholder{color:rgba(0,0,0,0.3)}
 .simple #mail{display:none}
 .simple .hgroup img,.simple .hgroup small{display:none}
 .simple .hgroup{padding-top:7px !important}
-.simple nav{padding-top:27px}
-.simple #cart span{display:none !important}
+.simple nav{padding-top:27px;}
+@media (max-width:900px){.simple nav{padding-top:60px}
+}.simple #cart span{display:none !important}
 .simple nav a:before{content:"" !important}
