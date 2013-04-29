@@ -1,9 +1,7 @@
-This is the READ ME file for ©1996-2013 SIGNSHOP HELPER 2013
-3
-Please be sure to read this documentation
+#This is the READ ME file for ©1996-2013 SIGNSHOP HELPER 2013
 
      Copyright ©1996-2013 RFM Graphik-Link Corporation.
-                      Terrebonne (Quebec) CANADA
+               Terrebonne (Quebec) CANADA
 	              All rights reserved.
 
 This agreement governs your use of the  SIGNSHOP HELPER © FILES.
@@ -16,9 +14,8 @@ express written permission of RFM Graphik-Link Corporation.
 
 All graphic design and text are in .EPS format.  Adobe Illustrator 1.1. 
 and custom fills are in .jpg standard format.   
----------------------------------------------------------------------------
-WHY USE SIGNSHOP HELPER?
----------------------------------------------------------------------------
+
+### WHY USE SIGNSHOP HELPER?
 
 A logo is a mark or symbol created for a company that is represented into 
 a graphic image, therefore graphic logos become a major visual help for 
@@ -31,20 +28,14 @@ Feel free to use all the logos (or graphics) and modify the
 text or even stretch and color the logo designs, to create a personal 
 image for your customers depending on their needs.
 
-
----------------------------------------------------------------------------
-ADDITIONAL INFORMATION ON CASmatePro USERS
----------------------------------------------------------------------------
+### ADDITIONAL INFORMATION ON CASmatePro USERS
 
 To import from the SIGNSHOP HELPER CD ROM, please follow these steps : 
 Click FILE IMPORT, select EPS. Click OPTIONS then select "OUTLINE NON-FILLED" 
 (do not select the two other options). Then select your graphic or logo on 
 the CD and click OK.
 
-
----------------------------------------------------------------------------
-GERBER ADVANTAGE USERS
----------------------------------------------------------------------------
+###GERBER ADVANTAGE USERS
 
 To use the SIGNSHOP HELPER you must first convert from .EPS to .PLT. 
 To do so follow these steps: 
@@ -86,9 +77,7 @@ Then:
 4.-Right Click on the Pen Icon (pen with a red line tool) 
 Then send your design to the plotter. 
 
----------------------------------------------------------------------------
-GENERAL INFORMATION ON OTHER GRAPHIC SOFTWARE PROGRAMS
----------------------------------------------------------------------------
+### GENERAL INFORMATION ON OTHER GRAPHIC SOFTWARE PROGRAMS
 
 The Files and designs elements were created to be as smooth and clean 
 cut as possible. Note that all graphics that have text were transformed as 
@@ -96,9 +85,7 @@ curves and not as text. This should also be considered when importing or
 converting the text design (it is suggested that you use your own text font 
 of your graphic software).
 
----------------------------------------------------------------------------
-GENERAL INFORMATION ON © COLOR VEHICLE TEMPLATE LIBRARY
----------------------------------------------------------------------------
+###GENERAL INFORMATION ON © COLOR VEHICLE TEMPLATE LIBRARY
 
 Here is vital information on the new library of ©COLOR  VEHICLE  TEMPLATES.
   
@@ -117,18 +104,16 @@ size.  Gerber users:  RESIZE once by 1000%, then RESIZE again by 200%.
 To confirm the right scale always verify, as a guide, the wheel well measurement 
 on the template and compare. When finished, you may GROUP the whole template 
 so that the elements do not move by mistake when working on the template.
- 
----------------------------------------------------------------------------
-TRADEMARKS
----------------------------------------------------------------------------
+
+### TRADEMARKS
+
 All the company or product logos in the vehicle template collection are 
 trademarks or registered trademarks of their respective companies, and 
 are for their lawful use.
 
----------------------------------------------------------------------------
-CATALOG
----------------------------------------------------------------------------
-Available on the site www.signshophelper.com  you  will  find  all  the logos, 
+### CATALOG
+
+Available on the site signshophelper.com  you  will  find  all  the logos, 
 auto graphics, and vehicle templates in (EPS) format. Plus on the FAQ link
 you will find helpfull info on template scaling, wrap information importing and more.
 
@@ -139,10 +124,10 @@ All rights reserved.
 Adobe Illustrator 1.1 EPS, are registered trademarks of Adobe Systems Inc. 
 All rights reserved. 
 
-Thanks, and enjoy  www.signshophelper.com
+Thanks, and enjoy!
 
 Robert F. Malo
 Graphic Designer
 
 RFM Graphik-Link Corporation
-www.signshophelper.com
+http://signshophelper.com
