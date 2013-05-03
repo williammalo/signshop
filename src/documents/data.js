@@ -1738,23 +1738,19 @@ var process=function(a,f){
 		item[3].appendChild(
 			document.createTextNode(item[2]=f(item[1]))
 		);
-		item[4]="http://signshophelper.com/"+a.imagePrefix+"/"+item[1]+(a.imageSuffix||".png");
+		item[4]="http://api.maloweb.com/sshblob/"+item[1]+(a.imageSuffix||".png");
 		return item;
 	});
 	return a;
 };
 
 //data setup
-logos.imagePrefix="l";
 logos.defaultKeyword="car";
 
-elements.imagePrefix="e";
 elements.defaultKeyword="slogan";
 
-templates.imagePrefix="t";
 templates.imageSuffix=".jpg";
 
-graphics.imagePrefix="g";
 graphics.imageSuffix="_500.png";
 graphics.defaultKeyword="ky";
 if((window.devicePixelRatio||1)>1)graphics.imageSuffix=".png";
