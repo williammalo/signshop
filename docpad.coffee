@@ -53,7 +53,7 @@ docpadConfig = {
     # Out Path
     # Where should we put our generated website files?
     # If it is a relative path, it will have the resolved `rootPath` prepended to it
-    outPath: '.'  # default
+    outPath: 'out'  # default
 
     # Src Path
     # Where can we find our source website files?
