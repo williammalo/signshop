@@ -50,7 +50,14 @@ docpadConfig = {
     # has completed updating: in this case increase this value.
     regenerateDelay: 100    # default
 
+<<<<<<< HEAD
     outPath: 'out'
+=======
+    # Out Path
+    # Where should we put our generated website files?
+    # If it is a relative path, it will have the resolved `rootPath` prepended to it
+    outPath: '.'  # default
+>>>>>>> 235ff68ca401c67deba17e5d81501ad779a5271e
 
     # Src Path
     # Where can we find our source website files?
