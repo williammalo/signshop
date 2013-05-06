@@ -1738,7 +1738,7 @@ var process=function(a,f){
 		item[3].appendChild(
 			document.createTextNode(item[2]=f(item[1]))
 		);
-		item[4]="http://api.maloweb.com/sshblob/"+item[1]+(a.imageSuffix||".png");
+		item[4]="http://signshop.s3-website-us-east-1.amazonaws.com/"+item[1]+(a.imageSuffix||".png");
 		return item;
 	});
 	return a;

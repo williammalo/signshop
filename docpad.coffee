@@ -51,7 +51,7 @@ docpadConfig = {
     regenerateDelay: 100    # default
 
 
-    outPath: 'out'
+    outPath: '.'
 
     # Src Path
     # Where can we find our source website files?
