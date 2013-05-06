@@ -380,6 +380,7 @@ menu a {
 .graphics #container a {
   font-size: 0;
   text-decoration: none;
+  line-height: 0;
 }
 .templates #container {
   -webkit-column-width: 320px;
