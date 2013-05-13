@@ -180,14 +180,18 @@ input.more
 	visibility:hidden
 	margin:0
 	width:0
+	position:absolute
 label.more
 	cursor:pointer
 	display:block
-	&:before
-		content:"More"
-:checked+label.more
-	&:before
-		content:"Less"
+	text-decoration:none
+	img
+		width:16px
+		transition:.5s
+
+:checked~label.more
+	img
+		transform:rotate(45deg)
 
 .cover
 	z-index:10

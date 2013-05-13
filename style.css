@@ -273,16 +273,27 @@ input.more {
   visibility: hidden;
   margin: 0;
   width: 0;
+  position: absolute;
 }
 label.more {
   cursor: pointer;
   display: block;
+  text-decoration: none;
 }
-label.more:before {
-  content: "More";
+label.more img {
+  width: 16px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
 }
-:checked+label.more:before {
-  content: "Less";
+:checked~label.more img {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .cover {
   z-index: 10;
