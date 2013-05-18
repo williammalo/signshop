@@ -59,11 +59,6 @@ figure img {
   filter: alpha(opacity=0);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 }
-.ie .slide .img {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-}
 .slide img:nth-child(1) {
   -webkit-animation: s 24s infinite;
   -moz-animation: s 24s infinite;
