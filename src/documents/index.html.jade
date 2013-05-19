@@ -1,80 +1,67 @@
 <!doctype html><html class=templates><meta charset=utf-8>
+<meta http-equiv=X-UA-Compatible content="chrome=1"><!--ie stuff-->
+<meta name=viewport content="width=device-width">
 //
-	| 
-	|             _______       _________________________________________
-	|            /       \     | Hi there!                               |
-	|           /   O  O  \    | Want to improve the code of             |
-	|          |   _____   |   | this website or report a bug?           |
-	|           \  \___/  /    | Go to: github.com/williammalo/signshop  |
-	|            \_______/     |___  ____________________________________|
-	|                |             |/
-	|               /|\    /
-	|              / | \  /
-	|             /  |  \/
-	|            |   |   
-	|            |   |
-	|            |   |
-	|               /\
-	|              /  \
-	|             /    \
-	|            /      \
-	|           /        \
+	|  _________________________________________
+	| |                                         |
+	| | Want to improve the code of             |
+	| | this website or report a bug?           |
+	| | Go to: github.com/williammalo/signshop  |
+	| |___  ____________________________________|
+	|     |/
 	|  __  __   _   _    _____      _____ ___       ___ ___  __  __ 
 	| |  \/  | /_\ | |  / _ \ \    / / __| _ )     / __/ _ \|  \/  |
 	| | |\/| |/ _ \| |_| (_) \ \/\/ /| _|| _ \  _ | (_| (_) | |\/| |
 	| |_|  |_/_/ \_\____\___/ \_/\_/ |___|___/ (_) \___\___/|_|  |_|
 	| maloweb.com
 	| 
-	| 
-<meta http-equiv=X-UA-Compatible content="chrome=1"><!--ie stuff-->
-<meta name=viewport content="width=device-width">
+	|
 title SIGNSHOP HELPER
 meta(name="description",content="High quality 1:20 scale vehicle templates in .eps format. Only 15$ each.")
 base(href="/")
 //if IE
 	script(src="ie.js")
 link(rel="stylesheet",href="style.css")
-<link href='//fonts.googleapis.com/css?family=Ubuntu' rel=stylesheet type='text/css'>
-link(rel="icon",type="image/png".href="favicon.png")
-<body><!--ie stuff-->
+link(href="//fonts.googleapis.com/css?family=Ubuntu", rel="stylesheet")
+link(rel="icon",type="image/png",href="favicon.png")
+
+//if IE
+	<body class=ie>
 
 header#subscribed
 	a#cart(href="http://www.payloadz.com/go/view_cart.asp?id_user=132628",target="_blank")
-		img(src="cart.png")
+
 	form#mail(onmouseover="document.getElementById('mailinput').focus()",action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae", method="post", name="mc-embedded-subscribe-form", novalidate)
-		img(src="mail.png")
-		input#mailinput(type="email", value="", name="EMAIL", placeholder="Your email...")
+		input#mailinput(type="email", value="", name="EMAIL", placeholder="Your email…")
 		input#formsubmit(type="submit", value="Subscribe", name="subscribe")
 	h1
 		img(src="logo.png")
 		span SIGNSHOP HELPER
 	nav
-		a.graphics(href="graphics") Auto Graphics
-		a.templates(href="templates") Vehicle Templates
-		a.elements(href="elements") Sign Elements
-		a.logos(href="logos") Copyright Free Logos
-	script
-		//tabs
-		(function(){
-			var t, i, a=document.querySelectorAll("nav a");
-			for(i=a.length;i--;){
-				t=a[i].innerHTML;
-				a[i].innerHTML='<svg width="35" height="60" class=border><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=border><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg><svg width="35" height="60" class=tab><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg><svg width="35" height="60" class=tab><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>'+t;
-			};
-		})();
+		a(href="graphics") Auto Graphics
+		a(href="templates") Vehicle Templates
+		a(href="elements") Sign Elements
+		a(href="logos") Copyright Free Logos
+
+-pptxt=" <strong>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>"
+
 aside
-	.logos Vector Art Copyright free logos in .eps format. Only 5$ each. <strong>checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>
-	.elements Vector Art Sign Elements in .eps format. Only 5$ each. <strong>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>
+	.logos Vector Art Copyright free logos in .eps format. Only 5$ each.
+		!=pptxt
+	.elements Vector Art Sign Elements in .eps format. Only 5$ each.
+		!=pptxt
 	.templates
-		<input type=checkbox id=tmore class=more>High quality 1:20 scale vehicle templates in .eps format. Only 15$ each. <strong>Checkout&nbsp;with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>
+		input.more(type="checkbox", id="tmore")
+		|High quality 1:20 scale vehicle templates in .eps format. Only 15$ each.
+		!=pptxt
 		figure.slide.popup
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/1.jpg")
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/2.jpg")
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/3.jpg")
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/4.jpg")
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/5.jpg")
-			img(data-src="http://signshop.s3-website-us-east-1.amazonaws.com/6.jpg")
-		<label for=tmore class=more><img src=plus.png></label>
+			img(data-src="1.jpg")
+			img(data-src="2.jpg")
+			img(data-src="3.jpg")
+			img(data-src="4.jpg")
+			img(data-src="5.jpg")
+			img(data-src="6.jpg")
+		label.more(for="tmore")
 		ul.popup
 			li Vehicle outlines for cars, trucks, SUV's, vans, trailers, and tractors.
 			li Accuracy and precision of outlines makes it easy to scale vehicles and make layouts.
@@ -85,18 +72,24 @@ aside
 menu.logos
 menu.elements
 menu.templates
-	<input type=text id=input placeholder="Search Your Model…">
+	input(type="text", id="input", placeholder="Search Your Model…")
 menu.graphics
 #container
 footer 
-	.txt &copy; <script>document.write((new Date).getFullYear())</script>, Signshop Helper, Graphic Library.
-	.spacer
+	.txt © #{(new Date).getFullYear()}, Signshop Helper, Graphic Library.
 	.txt Contact us: <a href=mailto:info@graphik-link.com>info@graphik-link.com</a>
-	.spacer
 	.txt Website by: <a href="http://maloweb.com/en" target=_blank>maloweb.com</a>
+
 script
-	var ie=function(){for(var a=3,b=document.createElement("b"),c=b.all||[];b.innerHTML="<!--[if gt IE "+ ++a+"]><i><![endif]-->",c[0];);return 4<a?a:document.documentMode}();
-	if(ie)document.body.classList.add("ie")
-	if(ie==8)document.body.classList.add("ie8")
+	//tabs
+	(function(){
+		var t, i, a=document.querySelectorAll("nav a"),p='<svg width="35" height="60" class='
+		,s1='><path d="M 32,0 C 27,0 24,3 22,7 22,7 22,7 22,8 l 0,0 L 9,54 C 8,57 4,60 0,60 l 35,0 0,-60 -3,0 z"/></svg>'
+		,s2='><path d="m 3,0 c 4,0 8,3 9,7 0,0 0,1 0,1 l 0,0 L 26,54 C 27,57 31,60 35,60 L 0,60 0,0 3,0 z"/></svg>';
+		for(i=a.length;i--;){
+			t=a[i].innerHTML;
+			a[i].innerHTML=p+'border'+s1+p+'border'+s2+p+'tab'+s1+p+'tab'+s2+t;
+		};
+	})();
 
 script(src="index.js")

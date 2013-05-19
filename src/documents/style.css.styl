@@ -84,13 +84,17 @@ h1
 	cursor:pointer
 	color:#fff
 	line-height:1em
-	img
-		width:16px
+	min-width:16px
+	height:36px
 
 #cart
 	right:1em
+	background:url(cart.png) center no-repeat
+	background-size:16px 16px
 #mail
 	right:3.5em
+	background:url(mail.png) center no-repeat
+	background-size:16px 16px
 	input[type=submit],input[type=email]
 		border:none
 		border-radius:5px
@@ -104,8 +108,8 @@ h1
 		background:#fff
 #mail:hover input
 	display:inline-block
-#mail:hover img
-	display:none
+#mail:hover
+	background:none
 #mail:before
 	position:relative
 #mail:hover:before
@@ -145,10 +149,10 @@ nav
 .border:nth-child(1){left:-21px}
 svg path{stroke:none;}
 
-.logos nav .logos
-.elements nav .elements
-.templates nav .templates
-.graphics nav .graphics
+.logos nav [href=logos]
+.elements nav [href=elements]
+.templates nav [href=templates]
+.graphics nav [href=graphics]
 	z-index:1
 @media screen and (max-width: 1070px)
 	h1
@@ -184,13 +188,14 @@ label.more
 	cursor:pointer
 	display:block
 	text-decoration:none
-	img
-		width:16px
-		transition:.5s
+	width:16px
+	height:16px
+	background:url(plus.png) no-repeat
+	background-size:16px 16px
+	transition:.5s
 
 :checked~label.more
-	img
-		transform:rotate(45deg)
+	transform:rotate(45deg)
 
 .cover
 	z-index:10
@@ -305,12 +310,9 @@ footer
 	padding-bottom:1em
 	text-shadow:0 1px 0 rgba(#fff,.4)
 	color:rgba(#000,.6)
-	.spacer
-		width:4em
-		display:inline-block
-		padding-bottom:1em
 	.txt
 		display:inline-block
+		padding:0 2em
 		padding-bottom:1em
 	a
 		color:#fff
@@ -358,7 +360,7 @@ nav a
 	text-decoration:none
 	color:#000
 
-nav .logos
+nav [href=logos]
 	background:light[0]
 	border-top-color:xlight[0]
 	.tab path
@@ -366,7 +368,7 @@ nav .logos
 	.border path
 		fill:xlight[0]
 
-nav .elements
+nav [href=elements]
 	background:light[1]
 	border-top-color:xlight[1]
 	.tab path
@@ -374,7 +376,7 @@ nav .elements
 	.border path
 		fill:xlight[1]
 
-nav .templates
+nav [href=templates]
 	background:light[2]
 	border-top-color:xlight[2]
 	.tab path
@@ -382,7 +384,7 @@ nav .templates
 	.border path
 		fill:xlight[2]
 
-nav .graphics
+nav [href=graphics]
 	background:light[3]
 	border-top-color:xlight[3]
 	.tab path

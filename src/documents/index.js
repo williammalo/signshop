@@ -1847,10 +1847,10 @@ document.getElementsByTagName("nav")[0].addEventListener("click",function(e){
 	_gaq.push(['_trackPageview', '/'+page]);
 },false);
 
-//lazy images
+//s3 lazy images
 addEventListener("load",function(){
 	var i,a=document.querySelectorAll("[data-src]");
-	for(i=a.length;i--;)a[i].src=a[i].getAttribute("data-src");
+	for(i=a.length;i--;)a[i].src="http://signshop.s3-website-us-east-1.amazonaws.com/"+a[i].getAttribute("data-src");
 });
 
 //faq popup

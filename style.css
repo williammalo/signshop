@@ -124,16 +124,22 @@ h1 span {
   cursor: pointer;
   color: #fff;
   line-height: 1em;
-}
-#cart img,
-#mail img {
-  width: 16px;
+  min-width: 16px;
+  height: 36px;
 }
 #cart {
   right: 1em;
+  background: url("cart.png") center no-repeat;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
 }
 #mail {
   right: 3.5em;
+  background: url("mail.png") center no-repeat;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
 }
 #mail input[type=submit],
 #mail input[type=email] {
@@ -154,8 +160,8 @@ h1 span {
 #mail:hover input {
   display: inline-block;
 }
-#mail:hover img {
-  display: none;
+#mail:hover {
+  background: none;
 }
 #mail:before {
   position: relative;
@@ -228,10 +234,10 @@ nav a {
 svg path {
   stroke: none;
 }
-.logos nav .logos,
-.elements nav .elements,
-.templates nav .templates,
-.graphics nav .graphics {
+.logos nav [href=logos],
+.elements nav [href=elements],
+.templates nav [href=templates],
+.graphics nav [href=graphics] {
   z-index: 1;
 }
 @media screen and (max-width: 1070px) {
@@ -274,16 +280,19 @@ label.more {
   cursor: pointer;
   display: block;
   text-decoration: none;
-}
-label.more img {
   width: 16px;
+  height: 16px;
+  background: url("plus.png") no-repeat;
+  -webkit-background-size: 16px 16px;
+  -moz-background-size: 16px 16px;
+  background-size: 16px 16px;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -o-transition: 0.5s;
   -ms-transition: 0.5s;
   transition: 0.5s;
 }
-:checked~label.more img {
+:checked~label.more {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -423,13 +432,9 @@ footer {
   text-shadow: 0 1px 0 rgba(255,255,255,0.4);
   color: rgba(0,0,0,0.6);
 }
-footer .spacer {
-  width: 4em;
-  display: inline-block;
-  padding-bottom: 1em;
-}
 footer .txt {
   display: inline-block;
+  padding: 0 2em;
   padding-bottom: 1em;
 }
 footer a {
@@ -450,44 +455,44 @@ nav a {
   text-decoration: none;
   color: #000;
 }
-nav .logos {
+nav [href=logos] {
   background: #a9e328;
   border-top-color: #b6e748;
 }
-nav .logos .tab path {
+nav [href=logos] .tab path {
   fill: #a9e328;
 }
-nav .logos .border path {
+nav [href=logos] .border path {
   fill: #b6e748;
 }
-nav .elements {
+nav [href=elements] {
   background: #ba55ea;
   border-top-color: #be5feb;
 }
-nav .elements .tab path {
+nav [href=elements] .tab path {
   fill: #ba55ea;
 }
-nav .elements .border path {
+nav [href=elements] .border path {
   fill: #be5feb;
 }
-nav .templates {
+nav [href=templates] {
   background: #4dcdf0;
   border-top-color: #7adaf4;
 }
-nav .templates .tab path {
+nav [href=templates] .tab path {
   fill: #4dcdf0;
 }
-nav .templates .border path {
+nav [href=templates] .border path {
   fill: #7adaf4;
 }
-nav .graphics {
+nav [href=graphics] {
   background: #f8b926;
   border-top-color: #facb5c;
 }
-nav .graphics .tab path {
+nav [href=graphics] .tab path {
   fill: #f8b926;
 }
-nav .graphics .border path {
+nav [href=graphics] .border path {
   fill: #facb5c;
 }
 .logos aside {
