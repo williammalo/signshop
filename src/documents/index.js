@@ -1814,6 +1814,14 @@ showAllLink.addEventListener("click",function(e){
 	filterView(container,document.getElementById("input").value);
 });
 
+var area=((window.innerWidth*window.innerHeight)/(380*110))||25;
+
+addEventListener("resize",function(){
+	area=((window.innerWidth*window.innerHeight)/(380*110))||25;
+	if(view=="templates")filterView(container,input.value);
+});
+
+
 var filterView=function(container,keyword,reverse){
 	var fragment=document.createDocumentFragment();
 	if(keyword===undefined)keyword=views[view].defaultKeyword||"";
@@ -1821,12 +1829,12 @@ var filterView=function(container,keyword,reverse){
 	var nth=0;
 
 	views[view].forEach(function(item,index){
-		if( (keyword.test(item[2])^reverse)&&(view==="templates"&&(!showAll)?nth<25:true) )
+		if( (keyword.test(item[2])^reverse)&&(view==="templates"&&(!showAll)?nth<area:true) )
 			nth++,
 			item[3].firstChild.firstChild.src=item[4],
 			fragment.appendChild(item[3]);
 	});
-	if(view==="templates"&&(!showAll)&&nth>24){
+	if(view==="templates"&&(!showAll)&&nth>(area-1)){
 		fragment.appendChild(showAllLink);
 	};
 	showAll=false;
