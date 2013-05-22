@@ -609,6 +609,20 @@ html.graphics {
   background: -ms-linear-gradient(top, rgba(250,203,92,0) 0%, #f8b926 100%);
   background: linear-gradient(top, rgba(250,203,92,0) 0%, #f8b926 100%);
 }
+@media (-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi) {
+  label.more {
+    background-image: url("plusr.png");
+  }
+  #cart {
+    background-image: url("cartr.png");
+  }
+  #mail {
+    background-image: url("mailr.png");
+  }
+  #input {
+    background-image: url("searchr.png");
+  }
+}
 @-moz-keyframes s {
   0%, 22.67%, 100% {
     opacity: 0;
