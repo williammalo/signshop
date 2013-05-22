@@ -1801,7 +1801,8 @@ var views={
 //helper functions
 var container=document.getElementById("container");
 
-var clearNode=function(node,i){
+var clearNode=function(node){
+	var i;
 	while(i=node.firstChild)node.removeChild(i);
 };
 
@@ -1811,25 +1812,25 @@ showAllLink.appendChild(document.createTextNode("show all"));
 showAllLink.addEventListener("click",function(e){
 	e.preventDefault();
 	showAll=true;
-	filterView(container,document.getElementById("input").value);
+	filterView(document.getElementById("input").value);
 });
 
 var area=((window.innerWidth*window.innerHeight)/(380*110))||25;
 
 addEventListener("resize",function(){
 	area=((window.innerWidth*window.innerHeight)/(380*110))||25;
-	if(view=="templates")filterView(container,input.value);
+	if(view=="templates")filterView(input.value);
 });
 
 
-var filterView=function(container,keyword,reverse){
+var filterView=function(keyword,reverse){
 	var fragment=document.createDocumentFragment();
 	if(keyword===undefined)keyword=views[view].defaultKeyword||"";
 	keyword=new RegExp(keyword,"i");
 	var nth=0;
 
 	views[view].forEach(function(item,index){
-		if( (keyword.test(item[2])^reverse)&&(view==="templates"&&(!showAll)?nth<area:true) )
+		if( (keyword.test(item[2])^reverse)&&(view==="templates"&&(showAll||nth<area)) )
 			nth++,
 			item[3].firstChild.firstChild.src=item[4],
 			fragment.appendChild(item[3]);
@@ -1851,7 +1852,7 @@ document.getElementsByTagName("nav")[0].addEventListener("click",function(e){
 	document.documentElement.className=page;
 	history.pushState("","",page);
 	view=page;
-	filterView(container);
+	filterView();
 	_gaq.push(['_trackPageview', '/'+page]);
 },false);
 
@@ -1882,7 +1883,7 @@ var menuClick=function(e){
 	var c=e.target.hasAttribute("data-category");
 	var r=e.target.hasAttribute("data-reverse");
 	if(c)
-		filterView(container,e.target.getAttribute("data-category"),r);
+		filterView(e.target.getAttribute("data-category"),r);
 };
 
 var menuPop=function(list,element){
@@ -1905,7 +1906,7 @@ var menuPop=function(list,element){
 //template menu
 document.getElementById("input")
 	.addEventListener("input",function(){
-		filterView(container,input.value);
+		filterView(input.value);
 	},false);
 
 //page start
@@ -1917,7 +1918,7 @@ var view;
 })();
 
 document.documentElement.className=view;
-filterView(container);
+filterView();
 
 //google analytics
-var _gaq=[['_setAccount','UA-37761254-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s);}(document,'script'));
+var _gaq=[['_setAccount','UA-37761254-1'],['_trackPageview']];
