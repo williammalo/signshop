@@ -1731,7 +1731,7 @@ var process=function(a,f){
 	a.map(function(item){
 		item[3]=document.createElement("a");
 		item[3].href="http://www.payloadz.com/go/?id="+item[0];
-		item[3].target="_blank";
+		item[3].target="paypal";
 		var div=document.createElement("div");
 		div.appendChild(new Image);
 		item[3].appendChild(div);
