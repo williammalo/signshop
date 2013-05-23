@@ -1830,7 +1830,7 @@ var filterView=function(keyword,reverse){
 	var nth=0;
 
 	views[view].forEach(function(item,index){
-		if( (keyword.test(item[2])^reverse)&&(view==="templates"&&(showAll||nth<area)) )
+		if( (keyword.test(item[2])^reverse)&&(view==="templates"?(showAll||nth<area):true) )
 			nth++,
 			item[3].firstChild.firstChild.src=item[4],
 			fragment.appendChild(item[3]);
