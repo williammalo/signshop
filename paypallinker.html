@@ -1,0 +1,71 @@
+<body>
+<script>
+var toPaypal=function(params, itemList) {
+    var d=document;
+    var form = d.createElement("form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "https://www.paypal.com/cgi-bin/webscr");
+    var fields=[];
+
+    for(var i in params) {
+      if(params.hasOwnProperty(i)) {
+        fields[i] = d.createElement("input");
+        fields[i].setAttribute("type", "hidden");
+        fields[i].setAttribute("name", i);
+        fields[i].setAttribute("value", params[i]);
+
+        form.appendChild(fields[i]);
+       }
+    };
+    itemList.forEach(function(params,n){
+      for(var i in params) {
+        if(params.hasOwnProperty(i)) {
+          fields[i] = d.createElement("input");
+          fields[i].setAttribute("type", "hidden");
+          fields[i].setAttribute("name", i+"_"+(n+1));
+          fields[i].setAttribute("value", params[i]);
+
+          form.appendChild(fields[i]);
+         }
+      };
+    });
+
+    d.body.appendChild(form);
+    form.submit();
+};
+
+toPaypal(
+  {  cmd: "_cart"
+    ,upload: "1"
+    ,business: "info@graphik-link.com"
+    ,image_url: "payloadz"
+    ,no_shipping: "1"
+    ,'return': "https://www.payloadz.com/d1/default.aspx"
+    ,cancel_return: ""
+    ,no_note: "1"
+    ,currency_code: "USD"
+    ,add: "1"
+    ,notify_url: "http://www.payloadz.com/pay/index.asp"
+    ,rm: "2"
+    ,mrb: "R-5L192964UH642590D"
+    ,bn: "Payloadz_WPS_US"
+    ,pal: "QNV3YGA7EVCDE"
+    ,cbt: "Continue to Download"
+  }
+  ,[
+    {  item_name: "Vehicle Outlines"
+      ,item_number: "toyota-prius-c-2013-uptodate.eps"
+      ,amount: "15.00"
+      ,shipping: "0"
+      ,handling: "0"
+    }
+
+    ,{ item_name: "Vehicle Outlines"
+      ,item_number: "subaru-xv-2013-uptodate.eps"
+      ,amount: "15.00"
+      ,shipping: "0"
+      ,handling: "0"
+    }
+  ]
+);
+</script>
