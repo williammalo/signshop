@@ -81,6 +81,9 @@ footer
 	.txt Contact us: <a href=mailto:info@graphik-link.com>info@graphik-link.com</a>
 	.txt Website by: <a href="http://maloweb.com/en" target=_blank>maloweb.com</a>
 
+
+
+
 script
 	//tabs
 	(function(){
@@ -93,4 +96,9 @@ script
 		};
 	})();
 
+<!--[if !IE]><!-->
+script
+	(function(b,a){for(a in b=b.prototype)(function(c,d){b[a]=function(){d=c.apply(this,arguments);return d==undefined?this:d;};})(b[a]);})(Element);
+	(function(d){d.prototype.prop=function(a,c,b){if(void 0!==c)this[a]=c;else for(b in a)this[b]=a[b];return this;};})(Element);
+<!--<![endif]-->
 script(src="index.js")

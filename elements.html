@@ -73,5 +73,9 @@ maloweb.com
    };
   })();
   
-</script>
+</script><!--[if !IE]><!-->
+<script>
+  (function(b,a){for(a in b=b.prototype)(function(c,d){b[a]=function(){d=c.apply(this,arguments);return d==undefined?this:d;};})(b[a]);})(Element);
+  (function(d){d.prototype.prop=function(a,c,b){if(void 0!==c)this[a]=c;else for(b in a)this[b]=a[b];return this;};})(Element);
+</script><!--<![endif]-->
 <script src="index.js"></script>
