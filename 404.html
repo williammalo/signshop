@@ -22,7 +22,7 @@ maloweb.com
 <script src="ie.js"></script><![endif]-->
 <link rel="stylesheet" href="style.css"/>
 <link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
-<link rel="icon" type="image/png" href="favicon.png"/><script src=//google-analytics.com/ga.js async></script><!--[if IE]><body class=ie><![endif]-->
+<link rel="icon" type="image/png" href="favicon.png"/><script id=ga src=//google-analytics.com/ga.js async></script><!--[if IE]><body class=ie><![endif]-->
 <header id="subscribed"><a id="cart" href="http://www.payloadz.com/go/view_cart.asp?id_user=132628" target="_blank"></a>
   <form id="mail" onmouseover="document.getElementById('mailinput').focus()" action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae" method="post" name="mc-embedded-subscribe-form" novalidate="novalidate">
     <input id="mailinput" type="email" value="" name="EMAIL" placeholder="Your email…"/>
@@ -81,7 +81,6 @@ maloweb.com
   e.extend(c,b);return this},extend:function(a,b){return Chainvas.methods.prop.call(a,b)},global:function(a,b,c){typeof a==="string"&&(a=[a]);for(var d=a.length;d--;){var f=window[a[d]];f&&e.chainablize(f,c).helpers(f,b)}},methods:{prop:function(){if(arguments.length===1){var a=arguments[0],b;for(b in a)this[b]=a[b]}else arguments.length===2&&(this[arguments[0]]=arguments[1]);return this}},utils:{isFunction:function(a){var b=Object.prototype.toString.call(a);return b==="[object Function]"||b==="[object Object]"&&
   "call"in a&&"apply"in a&&/^\s*\bfunction\s+\w+\([\w,]*\) \{/.test(a+"")},hasOwnProperty:function(a,b){try{return a.hasOwnProperty(b)}catch(c){return b in a&&(!a.prototype||!(b in a.prototype)||a.prototype[b]!==a[b])}}}}})();
   (function(){var a=["CSSStyleDeclaration","DOMTokenList","Node","Element"];if(window.HTMLElement&&"addEventListener"in window.HTMLElement.prototype&&window.Components&&window.Components.interfaces)for(var p in Components.interfaces)if(p.match(/^nsIDOMHTML\w*Element$/)){var b=p.replace(/^nsIDOM/,"");window[b]&&a.push(b)}Chainvas.global(a)})();
-  
   
 </script>
 <script src="index.js"></script>

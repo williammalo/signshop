@@ -1922,4 +1922,7 @@ document.documentElement.className=view;
 filterView();
 
 //google analytics
-var _gaq=[['_setAccount','UA-37761254-1'],['_trackPageview']];
+var _gaq=[['_setAccount','UA-37761254-1']];
+document.getElementById("ga").onload=function(){
+	_gaq.push(['_trackPageview']);
+};
