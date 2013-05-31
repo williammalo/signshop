@@ -1808,8 +1808,8 @@ var clearNode=function(node){
 };
 
 var showAll=false;
-var showAllLink=document.createElement("a")
-	.addEventListener("click",function(e){
+var showAllLink=document.createElement("a");
+showAllLink.addEventListener("click",function(e){
 		e.preventDefault();
 		showAll=true;
 		filterView(document.getElementById("input").value);
@@ -1864,8 +1864,8 @@ addEventListener("load",function(){
 
 //faq popup
 var cover=document.createElement("div")
-	.prop({className:"cover"})
-	.addEventListener("click",function(e){
+	.prop({className:"cover"});
+cover.addEventListener("click",function(e){
 		document.body.removeChild(cover),e.preventDefault();
 	});
 cover.appendChild(
