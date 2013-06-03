@@ -1853,7 +1853,6 @@ document.getElementsByTagName("nav")[0].addEventListener("click",function(e){
 	history.pushState("","",page);
 	view=page;
 	filterView();
-	_gaq.push(['_trackPageview', '/'+page]);
 },false);
 
 //s3 lazy images
@@ -1920,9 +1919,3 @@ var view;
 
 document.documentElement.className=view;
 filterView();
-
-//google analytics
-var _gaq=[['_setAccount','UA-37761254-1']];
-document.getElementById("ga").onload=function(){
-	_gaq.push(['_trackPageview']);
-};
