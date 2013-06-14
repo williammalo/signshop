@@ -370,6 +370,7 @@ menu a {
 #container a {
   display: inline-block;
   background: #fff;
+  white-space: pre-wrap;
   border: solid 16px #fff;
   width: 100%;
   margin-bottom: 16px;
@@ -402,17 +403,11 @@ menu a {
   -moz-column-width: 320px;
   column-width: 320px;
 }
-.templates #container a img {
-  margin-top: -12px;
-  margin-bottom: -4px;
-  left: 1px;
-}
 .templates #container a div {
-  width: 180px;
+  width: 150px;
   float: left;
   overflow: hidden;
-  margin-right: 0.5em;
-  left: -1px;
+  margin-right: 1em;
 }
 .ie #container a {
   width: 200px;
@@ -450,6 +445,9 @@ h1 {
 }
 #mail input[type=submit] {
   background: #2eb3ed;
+}
+nav {
+  padding-right: 0.3em;
 }
 nav a {
   text-decoration: none;

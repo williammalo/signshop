@@ -56,7 +56,7 @@ figure img
 	19.67%,3%{opacity: 1}
 
 .slide img{opacity:0}
-.slide img:nth-child(1){animation:s 24s infinite}
+.slide img:nth-child(1){animation:s 24s    infinite}
 .slide img:nth-child(2){animation:s 24s 4s infinite}
 .slide img:nth-child(3){animation:s 24s 8s infinite}
 .slide img:nth-child(4){animation:s 24s 12s infinite}
@@ -261,6 +261,7 @@ menu a
 #container a
 	display:inline-block
 	background:#fff
+	white-space:pre-wrap
 	//border:solid 1rem #fff   ie!!!
 	border:solid 16px #fff
 	width:100%
@@ -284,16 +285,12 @@ menu a
 	line-height:0
 .templates #container
 	column-width:320px
-.templates #container a img
-	margin-top:-12px
-	margin-bottom:-4px
-	left:1px
+
 .templates #container a div
-	width:180px
+	width:150px
 	float:left
 	overflow:hidden
-	margin-right:.5em
-	left:-1px
+	margin-right:1em
 
 .ie #container a
 	width:200px
@@ -355,7 +352,8 @@ h1
 
 #mail input[type=submit]
 	background:brand[2]
-
+nav
+	padding-right:.3em
 nav a
 	text-decoration:none
 	color:#000
