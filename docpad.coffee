@@ -316,9 +316,9 @@ docpadConfig = {
     # Configure Plugins
     # Should contain the plugin short names on the left, and the configuration to pass the plugin on the right
     plugins:  # example
-        # Disable NIB within the Stylus Plugin
         stylus:
             useNib: true
+            compress: true
         jadeOptions:
             pretty: false
 
@@ -368,6 +368,8 @@ docpadConfig = {
             plugins:
                 cleanurls:
                     enabled: true
+                stylus:
+                    compress: true
 }
 
 # Export the DocPad Configuration
