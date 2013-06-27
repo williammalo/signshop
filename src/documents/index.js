@@ -1825,14 +1825,6 @@ showAllLink.appendChild(dom.createTextNode("show all"));
 
 
 var area=25;
-//responsive item ammount
-Object.defineProperty(window,"area",{get:function(){
-	return ((window.innerWidth*window.innerHeight)/(380*110))||25;
-}});
-
-addEventListener("resize",function(){
-	if(view=="templates")filterView(input.value);
-});
 
 var filterView=function(keyword,reverse){
 	var fragment=dom.createDocumentFragment();
