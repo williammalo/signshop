@@ -978,7 +978,6 @@ var templates=[
 ,[1210401,"Ford Explorer 2003-2010"]
 ,[1417087,"Ford Explorer 2011-uptodate"]
 ,[1210168,"Ford Explorer sport-trac 2003-uptodate"]
-,[1210153,"Ford Flex 2009-uptodate"]
 ,[1210399,"Ford Freestar 2004-2007"]
 ,[1210051,"Ford Freestyle 2005-2007"]
 ,[1210041,"Ford Taurus X 2008-2009"]
@@ -1727,38 +1726,53 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 ];
 
 //helper functions
+var path="http://signshop.s3-website-us-east-1.amazonaws.com/";
+
+Object.defineProperty(Object.prototype,"map",{
+	value:function(f){
+		var result={};
+		Object.keys(this).forEach(function(v){
+			result[v] = f.call(this, this[v], v, this); 
+		});
+		return result;
+	}
+});
+
+var linkTemplate=(function(){
+	var linkTemplate=document.createElement("a");
+	var div=document.createElement("div");
+	linkTemplate.target="paypal";
+	div.appendChild(new Image);
+	linkTemplate.appendChild(div);
+	linkTemplate.appendChild(
+		document.createTextNode("null")
+	);
+	return linkTemplate;
+})();
 
 var process=function(a,f){
-	a.map(function(item){
-		item[3]=document.createElement("a");
-		item[3].href="http://www.payloadz.com/go/?id="+item[0];
-		item[3].target="paypal";
-		var div=document.createElement("div");
-		div.appendChild(new Image);
-		item[3].appendChild(div);
-		item[3].appendChild(
-			document.createTextNode(item[2]=f(item[1]))
-		);
-		item[4]="http://signshop.s3-website-us-east-1.amazonaws.com/"+item[1]+(a.imageSuffix||".png");
-		return item;
+
+	f=a.processor||function(t){return t+"";};
+	a.map(function(i){
+
+		i[2]=f(i[1]); //pretty text
+
+		i[3]=linkTemplate.cloneNode(true);
+		i[3].href="http://www.payloadz.com/go/?id="+i[0];
+		i[3].lastChild.nodeValue=i[2];
+
+		i[4]=path+i[1]+(a.imageSuffix||".png");  //image url
+		return i;
 	});
 	return a;
 };
 
 //data setup
 logos.defaultKeyword="car";
-
 elements.defaultKeyword="slogan";
 
 templates.imageSuffix=".jpg";
-
-graphics.imageSuffix="_500.png";
-graphics.defaultKeyword="ky";
-if((window.devicePixelRatio||1)>1)graphics.imageSuffix=".png";
-
-logos=process(logos,function(t){return t+" ";});
-elements=process(elements,function(t){return t+" ";});
-templates=process(templates,function(t){
+templates.processor=function(t){
 	var r="replace",now=(new Date).getFullYear()+"";
 	return t[r](/uptodate/i,now)
 			[r](" slash "," / ")
@@ -1768,8 +1782,13 @@ templates=process(templates,function(t){
 			[r]("\n\n","\n")
 			[r]("Prius\nC","Prius C")
 			[r](now+"-"+now,now);
-});
-graphics=process(graphics,function(t){return t+" ";});
+};
+graphics.defaultKeyword="ky";
+
+graphics.imageSuffix=
+	(window.devicePixelRatio||1)>1
+		?".png"
+		:"_500.png";
 
 var views={
 	logos:logos,
@@ -1778,64 +1797,74 @@ var views={
 	graphics:graphics
 };
 
+views=views.map(process);
+
+//helper functions
+var  dom=document
+	,container=dom.getElementById("container")
+	,clearNode=function(node){
+		var i;
+		while(i=node.firstChild)node.removeChild(i);
+		return node;
+	};
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ACTUAL CODE
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//helper functions
-var container=document.getElementById("container");
-
-var clearNode=function(node){
-	var i;
-	while(i=node.firstChild)node.removeChild(i);
-	return node;
-};
-
 var showAll=false;
-var showAllLink=document.createElement("a");
+var showAllLink=dom.createElement("a");
 showAllLink.addEventListener("click",function(e){
 		e.preventDefault();
 		showAll=true;
-		filterView(document.getElementById("input").value);
+		filterView(dom.getElementById("input").value);
 	});
-showAllLink.appendChild(document.createTextNode("show all"));
+showAllLink.appendChild(dom.createTextNode("show all"));
 
-var area=((window.innerWidth*window.innerHeight)/(380*110))||25;
+//responsive item ammount
+Object.defineProperty(window,"area",{get:function(){
+	return ((window.innerWidth*window.innerHeight)/(380*110))||25;
+}});
 
 addEventListener("resize",function(){
-	area=((window.innerWidth*window.innerHeight)/(380*110))||25;
 	if(view=="templates")filterView(input.value);
 });
 
-
 var filterView=function(keyword,reverse){
-	var fragment=document.createDocumentFragment();
+	var fragment=dom.createDocumentFragment();
 	if(keyword===undefined)keyword=views[view].defaultKeyword||"";
 	keyword=new RegExp(keyword,"i");
-	var nth=0;
-
-	views[view].forEach(function(item,index){
-		if( (keyword.test(item[2])^reverse)&&(view==="templates"?(showAll||nth<area):true) )
-			nth++,
-			item[3].firstChild.firstChild.src=item[4],
-			fragment.appendChild(item[3]);
+	
+	var filteredArray=views[view].filter(function(item,index){
+		return keyword.test(item[2])^reverse;
 	});
-	if(view==="templates"&&(!showAll)&&nth>(area-1))
+
+	filteredArray=filteredArray.filter(function(item,index){
+		return view==="templates"?(showAll||index<area):true;
+	});
+
+	filteredArray.forEach(function(item,index){
+		item[3].firstChild.firstChild.src=item[4];
+		fragment.appendChild(item[3]);
+	});
+	
+	if(view==="templates"&&(!showAll)&&filteredArray.length>(area-1))
 		fragment.appendChild(showAllLink);
+	
 	showAll=false;
 	clearNode(container);
 	container.appendChild(fragment);
 };
 
 //page switching
-document.getElementsByTagName("nav")[0].addEventListener("click",function(e){
+dom.getElementsByTagName("nav")[0].addEventListener("click",function(e){
 	var page=e.target.getAttribute("href");
 	if(!page)return true;
 	e.preventDefault();
 
-	document.documentElement.className=page;
+	dom.documentElement.className=page;
 	history.pushState("","",page);
 	view=page;
 	filterView();
@@ -1843,28 +1872,27 @@ document.getElementsByTagName("nav")[0].addEventListener("click",function(e){
 
 //s3 lazy images
 addEventListener("load",function(){
-	var i,a=document.querySelectorAll("[data-src]");
-	for(i=a.length;i--;)a[i].src="http://signshop.s3-website-us-east-1.amazonaws.com/"+a[i].getAttribute("data-src");
+	var i,a=dom.querySelectorAll("[data-src]");
+	for(i=a.length;i--;)a[i].src=path+a[i].getAttribute("data-src");
 });
 
 //faq popup
-var cover=document.createElement("div")
+var cover=dom.createElement("div")
 	.prop({className:"cover"});
 cover.addEventListener("click",function(e){
-		document.body.removeChild(cover),e.preventDefault();
+		dom.body.removeChild(cover),e.preventDefault();
 	});
 cover.appendChild(
-	document.createElement("iframe")
+	dom.createElement("iframe")
 		.prop({src:"faq"})
 );
 
-document.getElementById("faq").addEventListener("click",function(e){
+dom.getElementById("faq").addEventListener("click",function(e){
 	e.preventDefault();
-	document.body.appendChild(cover);
+	dom.body.appendChild(cover);
 });
 
 //menus
-
 var menuClick=function(e){
 	var c=e.target.hasAttribute("data-category");
 	var r=e.target.hasAttribute("data-reverse");
@@ -1874,34 +1902,33 @@ var menuClick=function(e){
 
 var menuPop=function(list,element){
 	list.forEach(function(a){
-		var link=document.createElement("a");
+		var link=dom.createElement("a");
 		link.setAttribute("data-category",a[0]);
 		if(a[2])link.setAttribute("data-reverse",true);
-		link.appendChild(document.createTextNode(a[1]));
+		link.appendChild(dom.createTextNode(a[1]));
 		element.appendChild(link);
 	});
 };
 
 //categorised menu pages
 ["logos","elements","graphics"].forEach(function(i){
-	views[i].menu=document.querySelector("menu."+i);
+	views[i].menu=dom.querySelector("menu."+i);
 	views[i].menu.addEventListener("click",menuClick);
 	menuPop(views[i].categories,views[i].menu);
 });
 
 //template menu
-document.getElementById("input")
-	.addEventListener("input",function(){
-		filterView(input.value);
-	});
+dom.getElementById("input").addEventListener("input",function(){
+	filterView(input.value);
+});
 
 //page start
 var view;
 
 (function(){
 	var t=window.location.pathname.substr(1);
-	view=t in views?t:"templates";
+	view=views[t]?t:"templates";
 })();
 
-document.documentElement.className=view;
+dom.documentElement.className=view;
 filterView();
