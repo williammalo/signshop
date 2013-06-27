@@ -1728,6 +1728,7 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 //helper functions
 var path="http://signshop.s3-website-us-east-1.amazonaws.com/";
 
+/*  when ie8 support isnt and issue do this
 Object.defineProperty(Object.prototype,"map",{
 	value:function(f){
 		var result={};
@@ -1737,6 +1738,15 @@ Object.defineProperty(Object.prototype,"map",{
 		return result;
 	}
 });
+*/
+
+Object.prototype.map=function(f){
+	var result={};
+	Object.keys(this).forEach(function(v){
+		result[v] = f.call(this, this[v], v, this); 
+	});
+	return result;
+};
 
 var linkTemplate=(function(){
 	var linkTemplate=document.createElement("a");
