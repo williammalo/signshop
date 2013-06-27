@@ -1823,6 +1823,8 @@ showAllLink.addEventListener("click",function(e){
 	});
 showAllLink.appendChild(dom.createTextNode("show all"));
 
+
+var area=25;
 //responsive item ammount
 Object.defineProperty(window,"area",{get:function(){
 	return ((window.innerWidth*window.innerHeight)/(380*110))||25;
