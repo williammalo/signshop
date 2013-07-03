@@ -1,3 +1,4 @@
+
 var elements=[
  [1895117,"slogan39"]
 ,[1895116,"slogan38"]
@@ -1725,10 +1726,102 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 ,["","all"]
 ];
 
-//helper functions
-var path="http://signshop.s3-website-us-east-1.amazonaws.com/";
+logos.defaultKeyword="car";
 
-/*  when ie8 support isnt and issue do this
+elements.defaultKeyword="slogan";
+
+templates.imageSuffix=".jpg";
+templates.processor=function(t){
+	var r="replace",now=(new Date).getFullYear()+"";
+	return t[r](/uptodate/i,now)
+			[r](" slash "," / ")
+			[r](/(20\d\d-20\d\d)/,"\n$1")
+			[r](/( 20\d\d)/,"\n$1")
+			[r](/^(\S*) (\S*) /,"$1 $2\n")
+			[r]("\n\n","\n")
+			[r]("Prius\nC","Prius C")
+			[r](now+"-"+now,now);
+};
+
+graphics.defaultKeyword="ky";
+graphics.imageSuffix=
+	(window.devicePixelRatio||1)>1
+		?".png"
+		:"_500.png";
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//LIBRARY
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+(function(){
+
+	var dom=document;
+
+	var constr=function(a){
+		a.on=function(a,b,c){
+			this.addEventListener(a,b,c);
+			return this;
+		};
+		a.clear=function(){
+			var i;
+			while(i=this.firstChild)this.removeChild(i);
+			return this;
+		};
+		return a;
+	};
+
+	dom.query=function(s){
+		var a=dom.querySelector(s);
+		return constr(a);
+	};
+	dom.queryAll=dom.querySelectorAll;
+
+	dom.fragment=dom.createDocumentFragment;
+
+	var removeEmptyTextNodes=function f(elem){
+		var  i
+			,child
+			,a = elem.childNodes
+			,l = a.length
+		;
+		for(i=0; i < l; i++){
+			child=a[i];
+
+		if(child.nodeType == 3&&/^\s*$/.test(child.nodeValue))
+			elem.removeChild(child),
+			i--,
+			l--;
+
+		if(child.nodeType == 1)
+			f(child);
+		};
+	};
+
+	dom.parse=function(e){
+		var  d=document
+			,i
+			,a=d.createElement("div")
+			,b=d.fragment();
+		a.innerHTML=e;
+		removeEmptyTextNodes(a);
+		
+		while(i=a.firstChild)
+			b.appendChild(i);
+
+		if(b.childNodes.length===1)
+			b=b.firstChild,
+			b=constr(b);
+		return b;
+	};
+
+	window.dom=dom;
+
+})();
+
+/*  when ie8 support isnt an issue do this
 Object.defineProperty(Object.prototype,"map",{
 	value:function(f){
 		var result={};
@@ -1748,75 +1841,73 @@ Object.prototype.map=function(f){
 	return result;
 };
 
-var linkTemplate=(function(){
-	var linkTemplate=document.createElement("a");
-	var div=document.createElement("div");
-	linkTemplate.target="paypal";
-	div.appendChild(new Image);
-	linkTemplate.appendChild(div);
-	linkTemplate.appendChild(
-		document.createTextNode("null")
-	);
-	return linkTemplate;
-})();
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//VARIABLE
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var process=function(a,f){
 
-	f=a.processor||function(t){return t+"";};
-	a.map(function(i){
+var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
+	,buyPath   = "http://www.payloadz.com/go/?id="
+	,linkHTML  = dom.parse("   \
+		<a target=paypal>      \
+			<div>              \
+				<img>          \
+			</div>             \
+			foo                \
+		</a>                   \
+		")
+	,linkTemplate = function(link,text){
+			var a=linkHTML.cloneNode(true);
+			a.href = link;
+			a.lastChild.nodeValue = text;
+			return a;
+		}
+	,views={
+		logos:logos,
+		elements:elements,
+		templates:templates,
+		graphics:graphics
+	}
 
-		i[2]=f(i[1]); //pretty text
+	,input = dom.query("#input")
+	,container = dom.query("#container")
+	,view
 
-		i[3]=linkTemplate.cloneNode(true);
-		i[3].href="http://www.payloadz.com/go/?id="+i[0];
-		i[3].lastChild.nodeValue=i[2];
+	,showAll = false
+	,showAllLink =
+		dom.parse("<a>show all</a>")
+			.on("click",function(e){
+				e.preventDefault();
+				showAll=true;
+				filterView(input.value);
+			})
 
-		i[4]=path+i[1]+(a.imageSuffix||".png");  //image url
+	,area = 25;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PROCESS DATA
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+views=views.map(function(a,b){
+
+	f=a.processor||function(t){return t+"";};    //t=>t+""
+	a.map(function(i){                           //i=>{
+
+		i[2] = f(i[1]);                                 //pretty text
+		i[3] = linkTemplate( buyPath+i[0], i[2] );      //dom node
+		i[4] = imagePath+i[1]+(a.imageSuffix||".png");  //image url
+		
 		return i;
 	});
+
+	a.menu=dom.query("menu."+b);
+	
 	return a;
-};
-
-//data setup
-logos.defaultKeyword="car";
-elements.defaultKeyword="slogan";
-
-templates.imageSuffix=".jpg";
-templates.processor=function(t){
-	var r="replace",now=(new Date).getFullYear()+"";
-	return t[r](/uptodate/i,now)
-			[r](" slash "," / ")
-			[r](/(20\d\d-20\d\d)/,"\n$1")
-			[r](/( 20\d\d)/,"\n$1")
-			[r](/^(\S*) (\S*) /,"$1 $2\n")
-			[r]("\n\n","\n")
-			[r]("Prius\nC","Prius C")
-			[r](now+"-"+now,now);
-};
-graphics.defaultKeyword="ky";
-
-graphics.imageSuffix=
-	(window.devicePixelRatio||1)>1
-		?".png"
-		:"_500.png";
-
-var views={
-	logos:logos,
-	elements:elements,
-	templates:templates,
-	graphics:graphics
-};
-
-views=views.map(process);
-
-//helper functions
-var  dom=document
-	,container=dom.getElementById("container")
-	,clearNode=function(node){
-		var i;
-		while(i=node.firstChild)node.removeChild(i);
-		return node;
-	};
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1824,115 +1915,110 @@ var  dom=document
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var showAll=false;
-var showAllLink=dom.createElement("a");
-showAllLink.addEventListener("click",function(e){
-		e.preventDefault();
-		showAll=true;
-		filterView(dom.getElementById("input").value);
-	});
-showAllLink.appendChild(dom.createTextNode("show all"));
-
-
-var area=25;
+//functions
+var sanitize=function(f){
+	return function(keyword,reverse){
+		if(keyword===undefined)
+			keyword = views[view].defaultKeyword||"";
+		keyword = new RegExp(keyword,"i");
+		reverse |= 0;
+		return f(keyword,reverse);
+	};
+};
 
 var filterView=function(keyword,reverse){
-	var fragment=dom.createDocumentFragment();
-	if(keyword===undefined)keyword=views[view].defaultKeyword||"";
-	keyword=new RegExp(keyword,"i");
-	
-	var filteredArray=views[view].filter(function(item,index){
-		return keyword.test(item[2])^reverse;
-	});
 
-	filteredArray=filteredArray.filter(function(item,index){
-		return view==="templates"?(showAll||index<area):true;
-	});
+	var fragment=dom.fragment();
+	
+	var filteredArray=views[view]
+		.filter(function(item,index){
+			return keyword.test(item[2])^reverse;
+		})
+		.filter(function(item,index){
+			return view==="templates"?(showAll||index<area):true;
+		});
 
 	filteredArray.forEach(function(item,index){
-		item[3].firstChild.firstChild.src=item[4];
-		fragment.appendChild(item[3]);
+		item[3].firstChild.firstChild.src=item[4];  //add image src
+		fragment.appendChild(item[3]);              //add element to fragment
 	});
 	
-	if(view==="templates"&&(!showAll)&&filteredArray.length>(area-1))
+	if( view==="templates"
+		&&(!showAll)
+		&&filteredArray.length>(area-1)
+	)
 		fragment.appendChild(showAllLink);
 	
 	showAll=false;
-	clearNode(container);
-	container.appendChild(fragment);
+	container
+		.clear()
+		.appendChild(fragment);
 };
 
-//page switching
-dom.getElementsByTagName("nav")[0].addEventListener("click",function(e){
+filterView=sanitize(filterView);
+
+var switchPage=function(page){
+	dom.documentElement.className=page;
+	view=page;
+	filterView();
+};
+
+//nav
+dom.query("nav").on("click",function(e){
 	var page=e.target.getAttribute("href");
 	if(!page)return true;
 	e.preventDefault();
 
-	dom.documentElement.className=page;
 	history.pushState("","",page);
-	view=page;
-	filterView();
+	switchPage(page);
 },false);
 
 //s3 lazy images
 addEventListener("load",function(){
-	var i,a=dom.querySelectorAll("[data-src]");
-	for(i=a.length;i--;)a[i].src=path+a[i].getAttribute("data-src");
+	var i,a=dom.queryAll("[data-src]");
+	for(i=a.length;i--;)a[i].src=imagePath+a[i].getAttribute("data-src");
 });
 
-//faq popup
-var cover=dom.createElement("div")
-	.prop({className:"cover"});
-cover.addEventListener("click",function(e){
-		dom.body.removeChild(cover),e.preventDefault();
-	});
-cover.appendChild(
-	dom.createElement("iframe")
-		.prop({src:"faq"})
-);
+//faq cover
+var cover=dom.parse("<div class=cover><iframe src=faq></iframe></div>");
 
-dom.getElementById("faq").addEventListener("click",function(e){
+cover.on("click",function(e){
+	e.preventDefault();
+	dom.body.removeChild(cover);
+});
+
+dom.query("#faq").on("click",function(e){
 	e.preventDefault();
 	dom.body.appendChild(cover);
 });
 
-//menus
-var menuClick=function(e){
-	var c=e.target.hasAttribute("data-category");
-	var r=e.target.hasAttribute("data-reverse");
-	if(c)
-		filterView(e.target.getAttribute("data-category"),r);
-};
-
-var menuPop=function(list,element){
-	list.forEach(function(a){
-		var link=dom.createElement("a");
-		link.setAttribute("data-category",a[0]);
-		if(a[2])link.setAttribute("data-reverse",true);
-		link.appendChild(dom.createTextNode(a[1]));
-		element.appendChild(link);
-	});
-};
-
 //categorised menu pages
-["logos","elements","graphics"].forEach(function(i){
-	views[i].menu=dom.querySelector("menu."+i);
-	views[i].menu.addEventListener("click",menuClick);
-	menuPop(views[i].categories,views[i].menu);
+["logos","elements","graphics"].forEach(function(foo){
+	
+	foo=views[foo];
+
+	foo.categories.forEach(function(a){
+		var link = dom.parse("<a "+(a[2]?"data-reverse":"")+" data-category="+a[0]+">"+a[1]+"</a>");  //`<a ${a[2]?"data-reverse":""} data-category=${a[0]}>${a[1]}</a>`
+		foo.menu.appendChild(link);
+	});
+	foo.menu.on("click",function(e){
+		var t=e.target;
+		var c=t.hasAttribute("data-category");
+		var r=t.hasAttribute("data-reverse");
+		if(c)
+			filterView(t.getAttribute("data-category"),r);
+	});
 });
 
 //template menu
-dom.getElementById("input").addEventListener("input",function(){
+input.on("input",function(){
 	filterView(input.value);
 });
 
-//page start
-var view;
-
+//page setup
 (function(){
 	var t=window.location.pathname.substr(1);
-	view=views[t]?t:"templates";
-})();
+	var page=views[t]?t:"templates";
 
-dom.documentElement.className=view;
-filterView();
+	switchPage(page);
+})();
