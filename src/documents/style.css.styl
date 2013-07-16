@@ -209,6 +209,19 @@ label.more
 :checked~label.more
 	transform:rotate(45deg)
 
+@keyframes zoom
+	from
+		transform:scale3D(0,0,1)
+		opacity:0
+	to
+		transform:scale3D(1,1,1)
+		opacity:1
+@keyframes fade
+	from
+		opacity:0
+	to
+		opacity:1
+
 .cover
 	z-index:10
 	background:rgba(#000,.4)
@@ -217,6 +230,7 @@ label.more
 	height:100%
 	top:0
 	left:0
+	animation:fade .5s
 	iframe
 		background:#fff
 		border:none
@@ -225,6 +239,7 @@ label.more
 		height:60%
 		top:20%
 		left:20%
+		animation:zoom .5s
 
 body>menu
 	display:none

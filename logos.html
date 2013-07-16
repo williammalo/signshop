@@ -73,8 +73,8 @@ aside div{display:none}
 input.more{visibility:hidden;margin:0;width:0;position:absolute}
 label.more{cursor:pointer;display:block;text-decoration:none;width:16px;height:16px;background:url("plus.png") no-repeat;-webkit-background-size:16px 16px;-moz-background-size:16px 16px;background-size:16px 16px;-webkit-transition:.5s;-moz-transition:.5s;-o-transition:.5s;-ms-transition:.5s;transition:.5s}
 :checked~label.more{-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
-.cover{z-index:10;background:rgba(0,0,0,0.4);position:fixed;width:100%;height:100%;top:0;left:0;}
-.cover iframe{background:#fff;border:none;position:absolute;width:60%;height:60%;top:20%;left:20%}
+.cover{z-index:10;background:rgba(0,0,0,0.4);position:fixed;width:100%;height:100%;top:0;left:0;-webkit-animation:fade .5s;-moz-animation:fade .5s;-o-animation:fade .5s;-ms-animation:fade .5s;animation:fade .5s;}
+.cover iframe{background:#fff;border:none;position:absolute;width:60%;height:60%;top:20%;left:20%;-webkit-animation:zoom .5s;-moz-animation:zoom .5s;-o-animation:zoom .5s;-ms-animation:zoom .5s;animation:zoom .5s}
 body>menu{display:none;padding:0 1em}
 .logos menu.logos,.elements menu.elements,.templates menu.templates,.graphics menu.graphics{display:block}
 .templates menu{text-align:center}
@@ -143,6 +143,26 @@ html.graphics{background:#fdeabe}
 19.67%,3%{opacity:1;-ms-filter:none;filter:none}
 }@keyframes s{0%,22.67%,100%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
 19.67%,3%{opacity:1;-ms-filter:none;filter:none}
+}@-moz-keyframes zoom{0%{-webkit-transform:scale3D(0,0,1);-moz-transform:scale3D(0,0,1);-o-transform:scale3D(0,0,1);-ms-transform:scale3D(0,0,1);transform:scale3D(0,0,1);opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{-webkit-transform:scale3D(1,1,1);-moz-transform:scale3D(1,1,1);-o-transform:scale3D(1,1,1);-ms-transform:scale3D(1,1,1);transform:scale3D(1,1,1);opacity:1;-ms-filter:none;filter:none}
+}@-webkit-keyframes zoom{0%{-webkit-transform:scale3D(0,0,1);-moz-transform:scale3D(0,0,1);-o-transform:scale3D(0,0,1);-ms-transform:scale3D(0,0,1);transform:scale3D(0,0,1);opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{-webkit-transform:scale3D(1,1,1);-moz-transform:scale3D(1,1,1);-o-transform:scale3D(1,1,1);-ms-transform:scale3D(1,1,1);transform:scale3D(1,1,1);opacity:1;-ms-filter:none;filter:none}
+}@-o-keyframes zoom{0%{-webkit-transform:scale3D(0,0,1);-moz-transform:scale3D(0,0,1);-o-transform:scale3D(0,0,1);-ms-transform:scale3D(0,0,1);transform:scale3D(0,0,1);opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{-webkit-transform:scale3D(1,1,1);-moz-transform:scale3D(1,1,1);-o-transform:scale3D(1,1,1);-ms-transform:scale3D(1,1,1);transform:scale3D(1,1,1);opacity:1;-ms-filter:none;filter:none}
+}@-ms-keyframes zoom{0%{-webkit-transform:scale3D(0,0,1);-moz-transform:scale3D(0,0,1);-o-transform:scale3D(0,0,1);-ms-transform:scale3D(0,0,1);transform:scale3D(0,0,1);opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{-webkit-transform:scale3D(1,1,1);-moz-transform:scale3D(1,1,1);-o-transform:scale3D(1,1,1);-ms-transform:scale3D(1,1,1);transform:scale3D(1,1,1);opacity:1;-ms-filter:none;filter:none}
+}@keyframes zoom{0%{-webkit-transform:scale3D(0,0,1);-moz-transform:scale3D(0,0,1);-o-transform:scale3D(0,0,1);-ms-transform:scale3D(0,0,1);transform:scale3D(0,0,1);opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{-webkit-transform:scale3D(1,1,1);-moz-transform:scale3D(1,1,1);-o-transform:scale3D(1,1,1);-ms-transform:scale3D(1,1,1);transform:scale3D(1,1,1);opacity:1;-ms-filter:none;filter:none}
+}@-moz-keyframes fade{0%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-webkit-keyframes fade{0%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-o-keyframes fade{0%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@-ms-keyframes fade{0%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{opacity:1;-ms-filter:none;filter:none}
+}@keyframes fade{0%{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
+100%{opacity:1;-ms-filter:none;filter:none}
 }</style>
 <!--link(href="//fonts.googleapis.com/css?family=Ubuntu", rel="stylesheet")--><link rel="dns-prefetch" href="http://signshop.s3-website-us-east-1.amazonaws.com">
 <link rel="icon" type="image/png" href="favicon.png"/><!--[if IE]><body class=ie><![endif]-->
