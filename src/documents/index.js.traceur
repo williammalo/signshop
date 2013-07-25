@@ -1817,7 +1817,7 @@ graphics.imageSuffix=
 		return b;
 	};
 
-	dom.on=(...a)=>addEventListener(...a)
+	dom.on=(a,b,c)=>addEventListener(a,b,c)
 
 	window.dom=dom;
 

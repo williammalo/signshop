@@ -67,9 +67,8 @@ graphics.imageSuffix = (window.devicePixelRatio || 1) > 1 ? ".png": "_500.png";
     if (b.childNodes.length === 1) b = b.firstChild, b = constr(b);
     return b;
   };
-  dom.on = (function() {
-    for (var a = [], $__0 = 0; $__0 < arguments.length; $__0++) a[$__0] = arguments[$__0];
-    return addEventListener.apply(null, $__toObject(a));
+  dom.on = (function(a, b, c) {
+    return addEventListener(a, b, c);
   });
   window.dom = dom;
 })();
