@@ -81,9 +81,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,area = 25
 	,linkTemplate = (link,text)=>
 		dom("a",{target:"paypal",href:buyPath+link}
-			,dom("div"
-				,dom("img")
-			)
+			,dom("img")
 			,text
 		)
 
@@ -127,8 +125,8 @@ var filterView=sanitize((keyword,reverse)=>{
 		.filter( (item,index)=>view==="templates"?(showAll||index<area):true )
 		.map(
 			(item,index)=>(
-			item[3].firstChild.firstChild.src=item[4]   //add image src
-			,fragment.append(item[3])              //add element to fragment
+			item[3].firstChild.src=item[4]   //add image src
+			,fragment.append(item[3])        //add element to fragment
 			,item)
 		)
 	

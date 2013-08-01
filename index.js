@@ -142,7 +142,7 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/", buyPath =
   return dom("a", {
     target: "paypal",
     href: buyPath + link
-  }, dom("div", dom("img")), text);
+  }, dom("img"), text);
 });
 views = mapObject(views, (function(a, b) {
   f = a.processor || ((function(t) {
@@ -171,7 +171,7 @@ var filterView = sanitize((function(keyword, reverse) {
   })).filter((function(item, index) {
     return view === "templates" ? (showAll || index < area): true;
   })).map((function(item, index) {
-    return (item[3].firstChild.firstChild.src = item[4], fragment.append(item[3]), item);
+    return (item[3].firstChild.src = item[4], fragment.append(item[3]), item);
   }));
   if (view === "templates" && (!showAll) && filteredArray.length > (area - 1)) fragment.append(showAllLink);
   showAll = false;
