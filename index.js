@@ -129,9 +129,9 @@ var dom;
 })();
 mapObject = function(o, f) {
   var result = {};
-  Object.keys(o).forEach(function(v) {
+  Object.keys(o).forEach((function(v) {
     result[v] = f.call(o, o[v], v, o);
-  });
+  }));
   return result;
 };
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/", buyPath = "http://www.payloadz.com/go/?id=", input = dom.query("#input"), container = dom.query("#container"), showAll = false, showAllLink = dom("a", "show all").on("click", (function(e) {
@@ -141,7 +141,7 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/", buyPath =
 })), area = 25, linkTemplate = (function(link, text) {
   return dom("a", {
     target: "paypal",
-    href: buyPath + "link"
+    href: buyPath + link
   }, dom("div", dom("img")), text);
 });
 views = mapObject(views, (function(a, b) {
