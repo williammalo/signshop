@@ -778,7 +778,7 @@ var templates=[
 ,[1894174,"Ford Focus 4-door hatchback 2012-uptodate"]
 ,[1894175,"Honda CR-V 2012-uptodate"]
 ,[1894176,"Honda Civic coupe 2012-uptodate"]
-,[1894177,"Hyndai Accent 4-door hatchback 2012-uptodate"]
+,[1894177,"Hyundai Accent 4-door hatchback 2012-uptodate"]
 ,[1894178,"Hyundai Elantra 2012-uptodate"]
 ,[1894179,"Hyundai Veloster 2012-uptodate"]
 ,[1894180,"Mazda 5 2012-uptodate"]
