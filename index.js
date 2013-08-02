@@ -167,7 +167,9 @@ var sanitize = (function(f) {
 });
 var filterView = sanitize((function(keyword, reverse) {
   var fragment = dom.fragment(), filteredArray = views[view].filter((function(item, index) {
-    return (keyword.test(item[2])^reverse) && (view === "templates" ? (showAll || index < area): true);
+    return (keyword.test(item[2])^reverse);
+  })).filter((function(item, index) {
+    return (view === "templates" ? (showAll || index < area): true);
   })).map((function(item, index) {
     if (!item[5]) item[3].firstChild.src = item[4], item[5] = true;
     fragment.append(item[3]);

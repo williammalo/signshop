@@ -120,9 +120,8 @@ var sanitize=f=>{
 var filterView=sanitize((keyword,reverse)=>{
 	var fragment=dom.fragment()
 	   ,filteredArray=views[view]
-		.filter( (item,index)=>
-			(keyword.test(item[2])^reverse)
-			&&(view==="templates"?(showAll||index<area):true) )
+		.filter( (item,index)=> (keyword.test(item[2])^reverse)  )
+		.filter( (item,index)=> (view==="templates"?(showAll||index<area):true) )
 		.map((item,index)=>{
 			if(!item[5])                          //test if image is loaded (very important for perf!!!)
 				 item[3].firstChild.src=item[4]   //add image src
