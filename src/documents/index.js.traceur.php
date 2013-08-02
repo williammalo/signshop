@@ -56,10 +56,9 @@ var dom
 })();
 
 mapObject=function(o,f){
-	var result={}
 	Object.keys(o)
-		.forEach(v=>{result[v] = f.call(o, o[v], v, o)})
-	return result
+		.forEach(v=>{o[v] = f(o[v],v)})
+	return o
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,6 +97,7 @@ views=mapObject(views,(a,b)=>{
 		i[2] = f(i[1])                                  //pretty text
 		i[3] = linkTemplate( i[0], i[2] )               //construct dom node
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
+		i[5] = false                                    //image loaded (very important for perf!!!)
 	})
 	a.menu=dom.query(`menu.${b}`)
 	return a
@@ -118,18 +118,18 @@ var sanitize=f=>{
 	}
 }
 var filterView=sanitize((keyword,reverse)=>{
-
 	var fragment=dom.fragment()
 	   ,filteredArray=views[view]
-		.filter( (item,index)=>keyword.test(item[2])^reverse )
-		.filter( (item,index)=>view==="templates"?(showAll||index<area):true )
-		.map(
-			(item,index)=>(
-			item[3].firstChild.src=item[4]   //add image src
-			,fragment.append(item[3])        //add element to fragment
-			,item)
-		)
-	
+		.filter( (item,index)=>
+			(keyword.test(item[2])^reverse)
+			&&(view==="templates"?(showAll||index<area):true) )
+		.map((item,index)=>{
+			if(!item[5])                          //test if image is loaded (very important for perf!!!)
+				 item[3].firstChild.src=item[4]   //add image src
+				,item[5]=true
+			fragment.append(item[3])              //add element to fragment
+			return item
+		})
 	if( view==="templates"
 		&&(!showAll)
 		&&filteredArray.length>(area-1)

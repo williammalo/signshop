@@ -128,11 +128,10 @@ var dom;
   dom.body = document.body;
 })();
 mapObject = function(o, f) {
-  var result = {};
   Object.keys(o).forEach((function(v) {
-    result[v] = f.call(o, o[v], v, o);
+    o[v] = f(o[v], v);
   }));
-  return result;
+  return o;
 };
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/", buyPath = "http://www.payloadz.com/go/?id=", input = dom.query("#input"), container = dom.query("#container"), showAll = false, showAllLink = dom("a", "show all").on("click", (function(e) {
   e.preventDefault();
@@ -152,6 +151,7 @@ views = mapObject(views, (function(a, b) {
     i[2] = f(i[1]);
     i[3] = linkTemplate(i[0], i[2]);
     i[4] = imagePath + i[1] + (a.imageSuffix || ".png");
+    i[5] = false;
   }));
   a.menu = dom.query(("menu." + b));
   return a;
@@ -167,11 +167,11 @@ var sanitize = (function(f) {
 });
 var filterView = sanitize((function(keyword, reverse) {
   var fragment = dom.fragment(), filteredArray = views[view].filter((function(item, index) {
-    return keyword.test(item[2])^reverse;
-  })).filter((function(item, index) {
-    return view === "templates" ? (showAll || index < area): true;
+    return (keyword.test(item[2])^reverse) && (view === "templates" ? (showAll || index < area): true);
   })).map((function(item, index) {
-    return (item[3].firstChild.src = item[4], fragment.append(item[3]), item);
+    if (!item[5]) item[3].firstChild.src = item[4], item[5] = true;
+    fragment.append(item[3]);
+    return item;
   }));
   if (view === "templates" && (!showAll) && filteredArray.length > (area - 1)) fragment.append(showAllLink);
   showAll = false;
