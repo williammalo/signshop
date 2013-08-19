@@ -1,13 +1,13 @@
 @font-face{font-family:'Ubuntu';font-style:normal;font-weight:400;src:local('Ubuntu'),url("http://themes.googleusercontent.com/static/fonts/ubuntu/v4/vRvZYZlUaogOuHbBTT1SNevvDin1pK8aKteLpeZ5c0A.woff") format('woff')}
 @font-face{font-family:'Ubuntu';font-style:normal;font-weight:700;src:local('Ubuntu Bold'),local('Ubuntu-Bold'),url("http://themes.googleusercontent.com/static/fonts/ubuntu/v4/0ihfXUL2emPh0ROJezvraLO3LdcAZYWl9Si6vvxL-qU.woff") format('woff')}
-*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-rendering:optimizeLegibility;position:relative}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-rendering:optimizeLegibility}
 html{overflow-y:scroll;font-family:Ubuntu,sans-serif;color:rgba(0,0,0,0.7);line-height:1.4em;min-width:800px;font-size:16px;-webkit-text-size-adjust:100%}
 body{margin:0}
 html,body{min-height:100%}
 img{max-width:100%;border:none;height:auto}
 ul{margin:1em 0;padding-left:1.1em;max-width:35em}
 a{text-decoration:underline;cursor:pointer}
-figure{width:310px;display:inline-block;float:right;margin:0;overflow:hidden;background:#fff;}
+figure{width:310px;display:inline-block;float:right;margin:0;overflow:hidden;background:#fff;position:relative;}
 figure:before{content:"";display:block;padding-top:45%}
 figure img{position:absolute;width:100%;top:0;left:0}
 .slide img{opacity:0;filter:alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"}
@@ -34,7 +34,7 @@ h1 span{top:.1em}
 #subscribed:target #mail *{display:none}
 nav{position:absolute;bottom:-1px;right:0;direction:rtl;}
 nav a{margin-right:17px;display:inline-block;direction:ltr;padding:7px 1px 9px 1px;border-top:solid 1px #000;font-size:20px;line-height:1em}
-.tab{-webkit-transform:scale(.6,.6);-moz-transform:scale(.6,.6);-o-transform:scale(.6,.6);-ms-transform:scale(.6,.6);transform:scale(.6,.6);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-o-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;position:absolute;top:0;right:-34px}
+.tab{position:relative;-webkit-transform:scale(.6,.6);-moz-transform:scale(.6,.6);-o-transform:scale(.6,.6);-ms-transform:scale(.6,.6);transform:scale(.6,.6);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-o-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;position:absolute;top:0;right:-34px}
 .tab:nth-child(3){left:-20px}
 .border{-webkit-transform:scale(.6,.6);-moz-transform:scale(.6,.6);-o-transform:scale(.6,.6);-ms-transform:scale(.6,.6);transform:scale(.6,.6);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-o-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0;position:absolute;top:-1px;right:-35px}
 .border:nth-child(1){left:-21px}
@@ -61,7 +61,7 @@ menu a{display:inline-block;background:#fff;padding:.5em;margin-bottom:5px;margi
 #input::-ms-clear{display:none}
 ::-webkit-input-placeholder{color:rgba(0,0,0,0.3)}
 :-moz-placeholder{color:rgba(0,0,0,0.3)}
-#container a{display:inline-block;background:#fff;white-space:pre-wrap;border:solid 16px #fff;width:100%;margin-bottom:16px;overflow:hidden}
+#container a{display:inline-block;background:#fff;white-space:pre-wrap;padding:16px;width:100%;margin-bottom:16px;text-rendering:optimizeSpeed}
 #container{padding:0 1em;-webkit-column-width:200px;-moz-column-width:200px;column-width:200px;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em;margin-bottom:-3em}
 .graphics #container{-webkit-column-width:500px;-moz-column-width:500px;column-width:500px}
 .logos #container a,.elements #container a,.graphics #container a{font-size:0;text-decoration:none;line-height:0}
@@ -73,11 +73,11 @@ menu a{display:inline-block;background:#fff;padding:.5em;margin-bottom:5px;margi
 footer{text-align:center;padding:2em;padding-top:5em;padding-bottom:1em;text-shadow:0 1px 0 rgba(255,255,255,0.4);color:rgba(0,0,0,0.6);}
 footer .txt{display:inline-block;padding:0 2em;padding-bottom:1em}
 footer a{color:#fff;text-shadow:0 1px 0 rgba(255,255,255,0.1)}
-header{background:#575043}
+header{background:#575043;position:relative}
 h1{color:#eee;text-shadow:2px 2px 3px rgba(0,0,0,0.4)}
 #mail input[type=submit]{background:#2eb3ed}
 nav{padding-right:.3em}
-nav a{text-decoration:none;color:#000}
+nav a{position:relative;text-decoration:none;color:#000}
 nav [href=logos]{background:#a9e328;border-top-color:#b6e748;}
 nav [href=logos] .tab path{fill:#a9e328}
 nav [href=logos] .border path{fill:#b6e748}

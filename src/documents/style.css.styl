@@ -17,7 +17,6 @@ retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),
 *
 	box-sizing:     border-box
 	text-rendering: optimizeLegibility
-	position:       relative
 
 html
 	overflow-y: scroll
@@ -52,6 +51,7 @@ figure
 	margin:0
 	overflow:hidden
 	background:#fff
+	position:relative
 	&:before
 		content:""
 		display:block
@@ -151,6 +151,7 @@ nav
 		line-height:1em
 
 .tab
+	position:relative
 	transform:scale(.6,.6)
 	transform-origin:0 0
 	position:absolute
@@ -290,11 +291,11 @@ menu a
 	background:#fff
 	white-space:pre-wrap
 	//border:solid 1rem #fff   ie!!!
-	border:solid 16px #fff
+	padding:16px
 	width:100%
 	//margin-bottom:1rem ie!!!
 	margin-bottom:16px
-	overflow:hidden
+	text-rendering: optimizeSpeed
 #container
 	padding:0 1em
 	column-width:200px
@@ -371,6 +372,7 @@ brand=brand1 brand2 brand3 brand4
 
 header
 	background:#575043
+	position:relative
 
 h1
 	color:#eee
@@ -381,6 +383,7 @@ h1
 nav
 	padding-right:.3em
 nav a
+	position:relative
 	text-decoration:none
 	color:#000
 

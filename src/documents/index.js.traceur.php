@@ -61,6 +61,24 @@ mapObject=function(o,f){
 	return o
 };
 
+//https://github.com/addyosmani/memoize.js/blob/master/memoize.js
+
+(function (global) {
+    "use strict";
+    global.memoize = global.memoize || (typeof JSON === 'object' && typeof JSON.stringify === 'function' ?
+        function (func) {
+            var stringifyJson = JSON.stringify,
+                cache = {};
+
+            return function () {
+                var hash = stringifyJson(arguments);
+                return (hash in cache) ? cache[hash] : cache[hash] = func.apply(this, arguments);
+            };
+        } : function (func) {
+            return func;
+        });
+}(this));
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIABLE
@@ -98,6 +116,7 @@ views=mapObject(views,(a,b)=>{
 		i[3] = linkTemplate( i[0], i[2] )               //construct dom node
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
 		i[5] = false                                    //image loaded (very important for perf!!!)
+		i[6] = i[2].replace("\n"," ")                   //pretty text (no line breaks)
 	})
 	a.menu=dom.query(`menu.${b}`)
 	return a
@@ -108,37 +127,40 @@ views=mapObject(views,(a,b)=>{
 //ACTUAL CODE
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//functions
-var sanitize=f=>{
-	return (keyword=(views[view].defaultKeyword||""),reverse)=>{
-		keyword = new RegExp(keyword,"i")
-		reverse|= 0
-		return f(keyword,reverse)
-	}
-}
-var filterView=sanitize((keyword,reverse)=>{
-	var fragment=dom.fragment()
-	   ,filteredArray=views[view]
-		.filter( (item,index)=> (keyword.test(item[2])^reverse)  )
+var searchFilter=memoize((view,keyword,reverse)=>{
+	keyword = new RegExp(keyword,"i")
+	reverse|= 0
+	return array=views[view]
+		.filter( (item,index)=> (keyword.test(item[6])^reverse)  )
 		.filter( (item,index)=> (view==="templates"?(showAll||index<area):true) )
-		.map((item,index)=>{
-			if(!item[5])                          //test if image is loaded (very important for perf!!!)
-				 item[3].firstChild.src=item[4]   //add image src
-				,item[5]=true
-			fragment.append(item[3])              //add element to fragment
-			return item
-		})
+})
+
+var search=(view,keyword,reverse)=>{
+	var  array=searchFilter(view,keyword,reverse)
+		,fragment=dom.fragment()
+	array.forEach((item,index)=>{
+		if(!item[5])                          //test if image is loaded (very important for perf!!!)
+			 item[3].firstChild.src=item[4]   //add image src
+			,item[5]=true
+		fragment.append(item[3])              //add element to fragment
+	})
+	return{fragment,array}
+}
+
+var filterView=(keyword,reverse)=>{
+
+	container.clear()
+
+	var {fragment,array}=search(view,keyword,reverse)
 	if( view==="templates"
 		&&(!showAll)
-		&&filteredArray.length>(area-1)
+		&&array.length>(area-1)
 	)fragment.append(showAllLink)
 	
 	showAll=false
-	container
-		.clear()
-		.append(fragment)
-})
+
+	container.append(fragment)
+}
 
 var switchPage=page=>{ dom.html.className=view=page; filterView() }
 
@@ -183,6 +205,8 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 //template menu
 input.on("input",e=>filterView(input.value))
 
+
+//setup
 ;(t,page)=>{
 	t=window.location.pathname.substr(1)
 	page=views[t]?t:"templates"

@@ -133,6 +133,18 @@ mapObject = function(o, f) {
   }));
   return o;
 };
+(function(global) {
+  "use strict";
+  global.memoize = global.memoize || (typeof JSON === 'object' && typeof JSON.stringify === 'function' ? function(func) {
+    var stringifyJson = JSON.stringify, cache = {};
+    return function() {
+      var hash = stringifyJson(arguments);
+      return (hash in cache) ? cache[hash]: cache[hash] = func.apply(this, arguments);
+    };
+  }: function(func) {
+    return func;
+  });
+}(this));
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/", buyPath = "http://www.payloadz.com/go/?id=", input = dom.query("#input"), container = dom.query("#container"), showAll = false, showAllLink = dom("a", "show all").on("click", (function(e) {
   e.preventDefault();
   showAll = true;
@@ -152,33 +164,38 @@ views = mapObject(views, (function(a, b) {
     i[3] = linkTemplate(i[0], i[2]);
     i[4] = imagePath + i[1] + (a.imageSuffix || ".png");
     i[5] = false;
+    i[6] = i[2].replace("\n", " ");
   }));
   a.menu = dom.query(("menu." + b));
   return a;
 }));
-var sanitize = (function(f) {
-  return (function() {
-    var keyword = arguments[0] !== (void 0) ? arguments[0]: (views[view].defaultKeyword || "");
-    var reverse = arguments[1];
-    keyword = new RegExp(keyword, "i");
-    reverse |= 0;
-    return f(keyword, reverse);
-  });
-});
-var filterView = sanitize((function(keyword, reverse) {
-  var fragment = dom.fragment(), filteredArray = views[view].filter((function(item, index) {
-    return (keyword.test(item[2])^reverse);
+var searchFilter = memoize((function(view, keyword, reverse) {
+  keyword = new RegExp(keyword, "i");
+  reverse |= 0;
+  return array = views[view].filter((function(item, index) {
+    return (keyword.test(item[6])^reverse);
   })).filter((function(item, index) {
     return (view === "templates" ? (showAll || index < area): true);
-  })).map((function(item, index) {
+  }));
+}));
+var search = (function(view, keyword, reverse) {
+  var array = searchFilter(view, keyword, reverse), fragment = dom.fragment();
+  array.forEach((function(item, index) {
     if (!item[5]) item[3].firstChild.src = item[4], item[5] = true;
     fragment.append(item[3]);
-    return item;
   }));
-  if (view === "templates" && (!showAll) && filteredArray.length > (area - 1)) fragment.append(showAllLink);
+  return {
+    fragment: fragment,
+    array: array
+  };
+});
+var filterView = (function(keyword, reverse) {
+  container.clear();
+  var $__0 = search(view, keyword, reverse), fragment = $__0.fragment, array = $__0.array;
+  if (view === "templates" && (!showAll) && array.length > (area - 1)) fragment.append(showAllLink);
   showAll = false;
-  container.clear().append(fragment);
-}));
+  container.append(fragment);
+});
 var switchPage = (function(page) {
   dom.html.className = view = page;
   filterView();

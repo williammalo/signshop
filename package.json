@@ -7,7 +7,7 @@
     "npm": "1.2"
   },
   "dependencies": {
-    "docpad": "~6.45.1"
+    "docpad": "~6.49.1"
   },
   "main": "node_modules/docpad/bin/docpad-server",
   "scripts": {
