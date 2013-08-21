@@ -1739,7 +1739,8 @@ templates.processor=t=>{
 			[r](/^(\S*) (\S*) /,"$1 $2\n")
 			[r]("\n\n","\n")
 			[r]("Prius\nC","Prius C")
-			[r](now+"-"+now,now);
+			[r](now+"-"+now,now)
+			[r](/(20\d\d)-(20\d\d)/,"$1–$2");
 };
 
 graphics.defaultKeyword="ky";

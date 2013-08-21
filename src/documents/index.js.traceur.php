@@ -5,6 +5,8 @@
 //LIBRARY
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 /* dom 4 shim */
 ;(function(e){function t(e){return typeof e=="string"?i.createTextNode(e):e}function n(e){if(e.length===1)return t(e[0]);for(var n=i.createDocumentFragment(),r=u.call(e),s=0;s<e.length;s++)n.appendChild(t(r[s]));return n}for(var r,i=e.document,s=(e.Node||e.HTMLDocument||e.HTMLElement).prototype,o=["prepend",function(){var t=this.firstChild,r=n(arguments);t?this.insertBefore(r,t):this.appendChild(r)},"append",function(){this.appendChild(n(arguments))},"before",function(){var t=this.parentNode;t&&t.insertBefore(n(arguments),this)},"after",function(){var t=this.parentNode,r=this.nextSibling,i=n(arguments);t&&(r?t.insertBefore(i,r):t.appendChild(i))},"replace",function(){var t=this.parentNode;t&&t.replaceChild(n(arguments),this)},"remove",function(){var t=this.parentNode;t&&t.removeChild(this)}],u=o.slice,a=o.length;a;a-=2)r=o[a-2],r in s||(s[r]=o[a-1])})(window);
 //ie8 fix
@@ -79,6 +81,7 @@ mapObject=function(o,f){
         });
 }(this));
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIABLE
@@ -122,6 +125,7 @@ views=mapObject(views,(a,b)=>{
 	return a
 })
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ACTUAL CODE
@@ -162,7 +166,7 @@ var filterView=(keyword,reverse)=>{
 	container.append(fragment)
 }
 
-var switchPage=page=>{ dom.html.className=view=page; filterView() }
+var switchPage=page=>{ dom.html.className=view=page;filterView() }
 
 //nav
 dom.query("nav").on("click",e=>{
@@ -183,7 +187,9 @@ var cover=dom("div",{"class":"cover"}
 
 dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
+
 //categorised menu pages
+
 ;["logos","elements","graphics"].forEach(foo=>{
 	
 	foo=views[foo]
@@ -202,8 +208,10 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 	})
 })
 
+
 //template menu
 input.on("input",e=>filterView(input.value))
+
 
 
 //setup
@@ -213,3 +221,4 @@ input.on("input",e=>filterView(input.value))
 
 	switchPage(page)
 }()
+

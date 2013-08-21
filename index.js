@@ -23,7 +23,7 @@ elements.defaultKeyword = "slogan";
 templates.imageSuffix = ".jpg";
 templates.processor = (function(t) {
   var r = "replace", now = (new Date).getFullYear() + "";
-  return t[r](/uptodate/i, now)[r](" slash ", " / ")[r](/(20\d\d-20\d\d)/, "\n$1")[r](/( 20\d\d)/, "\n$1")[r](/^(\S*) (\S*) /, "$1 $2\n")[r]("\n\n", "\n")[r]("Prius\nC", "Prius C")[r](now + "-" + now, now);
+  return t[r](/uptodate/i, now)[r](" slash ", " / ")[r](/(20\d\d-20\d\d)/, "\n$1")[r](/( 20\d\d)/, "\n$1")[r](/^(\S*) (\S*) /, "$1 $2\n")[r]("\n\n", "\n")[r]("Prius\nC", "Prius C")[r](now + "-" + now, now)[r](/(20\d\d)-(20\d\d)/, "$1–$2");
 });
 graphics.defaultKeyword = "ky";
 graphics.imageSuffix = (window.devicePixelRatio || 1) > 1 ? ".png": "_500.png";
