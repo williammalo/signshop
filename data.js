@@ -921,7 +921,7 @@ var templates=[
 ,[1209081,"Dodge Sprinter cargo 144 high-roof 2008-uptodate"]
 ,[1210154,"Ford Fiesta hatchback 2010-uptodate"]
 ,[1210153,"Ford Flex 2009-uptodate"]
-,[1210053,"Ford Focus 4-door 2008-uptodate"]
+,[1210053,"Ford Focus 4-door 2008-2010"]
 ,[1210055,"Ford Focus coupe 2008-uptodate"]
 ,[1210052,"Ford Focus wagon 2003-2007"]
 ,[1210051,"Ford Freestyle 2005-2007"]
