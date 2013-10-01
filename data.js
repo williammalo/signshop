@@ -755,6 +755,7 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013-uptodate"]
+,[2373083,"Freightliner Cascadia Evolution"]
 ,[2237261,"Nissan NV200 2013-uptodate"]
 ,[1901352,"Toyota Prius C 2013-uptodate"]
 ,[1901351,"Subaru XV 2013-uptodate"]
