@@ -755,6 +755,8 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013-uptodate"]
+,[2377601,"Kenworth t680 2013-uptodate"]
+,[2377603,"Peterbilt 579"]
 ,[2373083,"Freightliner Cascadia Evolution"]
 ,[2237261,"Nissan NV200 2013-uptodate"]
 ,[1901352,"Toyota Prius C 2013-uptodate"]
@@ -920,6 +922,22 @@ var templates=[
 ,[1208708,"Dodge Sprinter passenger 170 2008-uptodate"]
 ,[1209082,"Dodge Sprinter cargo 144 2008-uptodate"]
 ,[1209081,"Dodge Sprinter cargo 144 high-roof 2008-uptodate"]
+
+
+,[1209080,"Mercedes Sprinter cargo 144 high-roof window 2008-uptodate"]
+,[1209079,"Mercedes Sprinter cargo 144 window 2008-uptodate"]
+,[1208721,"Mercedes Sprinter cargo 170 2008-uptodate"]
+,[1209084,"Mercedes Sprinter C extended-roof 170 2008-uptodate"]
+,[1208715,"Mercedes Sprinter chassis 144 2008-uptodate"]
+,[1208714,"Mercedes Sprinter chassis 170 2008-uptodate"]
+,[1209083,"Mercedes Sprinter C mega-roof 170 2008-uptodate"]
+,[1208713,"Mercedes Sprinter passenger 144 2008-uptodate"]
+,[1208709,"Mercedes Sprinter passenger 144 high-roof 2008-uptodate"]
+,[1208708,"Mercedes Sprinter passenger 170 2008-uptodate"]
+,[1209082,"Mercedes Sprinter cargo 144 2008-uptodate"]
+,[1209081,"Mercedes Sprinter cargo 144 high-roof 2008-uptodate"]
+
+
 ,[1210154,"Ford Fiesta hatchback 2010-uptodate"]
 ,[1210153,"Ford Flex 2009-uptodate"]
 ,[1210053,"Ford Focus 4-door 2008-2010"]
