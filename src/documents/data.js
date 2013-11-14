@@ -756,6 +756,7 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013-uptodate"]
+,[2410062,"Mitsubishi Outlander 2014"]
 ,[2377601,"Kenworth t680 2013-uptodate"]
 ,[2377603,"Peterbilt 579"]
 ,[2373083,"Freightliner Cascadia Evolution"]
@@ -1134,7 +1135,7 @@ var templates=[
 ,[1212203,"Mitsubishi Montero 2003-2006"]
 ,[1212202,"Mitsubishi Montero sport 2003-2004"]
 ,[1212200,"Mitsubishi Outlander 2004-2006"]
-,[1212199,"Mitsubishi Outlander 2007-uptodate"]
+,[1212199,"Mitsubishi Outlander 2007-2012"]
 ,[1212218,"Nissan Cube 2009-uptodate"]
 ,[1212217,"Nissan Versa 2007-uptodate"]
 ,[1212212,"Nissan Frontier extended-cab 2003-2004"]
