@@ -120,6 +120,7 @@ views=mapObject(views,(a,b)=>{
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
 		i[5] = false                                    //image loaded (very important for perf!!!)
 		i[6] = i[2].replace("\n"," ")                   //pretty text (no line breaks)
+		i[6] = i[6]+i[6].replace("-","")                //add no quote variant
 	})
 	a.menu=dom.query(`menu.${b}`)
 	return a
