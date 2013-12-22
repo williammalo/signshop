@@ -1,6 +1,7 @@
-<!doctype html><html class=templates><meta charset=utf-8>
-<meta http-equiv=X-UA-Compatible content="chrome=1"><!--ie stuff-->
-<meta name=viewport content="width=device-width">
+doctype html
+|<html class=templates><meta charset=utf-8>
+|<meta http-equiv=X-UA-Compatible content="chrome=1"><!--ie stuff-->
+|<meta name=viewport content="width=device-width">
 //
 	|  _________________________________________
 	| |                                         |
@@ -21,17 +22,18 @@ meta(name="description",content="High quality 1:20 scale vehicle templates in .e
 base(href="/")
 //if IE
 	script(src="ie.js")
-//link(rel="stylesheet",href="style.css")
+
+//link(rel="stylesheet", href="style.css")
 include ../../style.css
 //link(href="//fonts.googleapis.com/css?family=Ubuntu", rel="stylesheet")
-<link rel="dns-prefetch" href="http://signshop.s3-website-us-east-1.amazonaws.com">
-<link rel="dns-prefetch" href="http://www.payloadz.com">
-<link rel="dns-prefetch" href="https://www.payloadz.com">
-<link rel="dns-prefetch" href="http://s7.addthis.com">
+link(rel="dns-prefetch", href="http://signshop.s3-website-us-east-1.amazonaws.com")
+link(rel="dns-prefetch", href="http://www.payloadz.com")
+link(rel="dns-prefetch", href="https://www.payloadz.com")
+link(rel="dns-prefetch", href="http://s7.addthis.com")
 link(rel="icon",type="image/png",href="favicon.png")
 
 //if IE
-	<body class=ie>
+	|<body class=ie>
 
 header#subscribed
 	a#cart(href="http://www.payloadz.com/go/view_cart.asp?id_user=132628",target="_blank")
@@ -80,12 +82,12 @@ menu.templates
 	input(type="text", id="input", placeholder="Search Your Model…")
 menu.graphics
 #container
-footer 
+footer
 	.txt © #{(new Date).getFullYear()}, Signshop Helper, Graphic Library.
 	.txt Contact us: <a href=mailto:info@graphik-link.com>info@graphik-link.com</a>
 	.txt Website by: <a href="http://maloweb.com/en" target=_blank>maloweb.com</a>
 
-script
+script.
 	//tabs
 	(function(){
 		var t, i, a=document.querySelectorAll("nav a"),p='<svg width="35" height="60" class='
@@ -97,4 +99,5 @@ script
 		};
 	})();
 
-script(src="index.js")
+//script(src="index.js")
+include ../../index.js

@@ -47,7 +47,7 @@ var dom
 		var a=document.querySelector(s);
 		return constr(a);
 	};
-	dom.queryAll=a=>[...document.querySelectorAll(a)].map(a=>constr(a));
+	dom.queryAll=a=>Array.prototype.slice.call(document.querySelectorAll(a)).map(a=>constr(a));
 
 	dom.fragment=document.createDocumentFragment.bind(document)
 
@@ -80,6 +80,8 @@ mapObject=function(o,f){
             return func;
         });
 }(this));
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -211,15 +213,14 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
 
 //template menu
-input.on("input",e=>filterView(input.value))
-
+input.on("input",e=>filterView(input.value));
 
 
 //setup
-;(t,page)=>{
-	t=window.location.pathname.substr(1)
-	page=views[t]?t:"templates"
+(function(t,page){
+	t=window.location.pathname.substr(1);
+	page=views[t]?t:"templates";
 
-	switchPage(page)
-}()
+	switchPage(page);
+})();
 
