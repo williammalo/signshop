@@ -453,7 +453,7 @@
         }
       },
 
-      throw: function(x) {
+      zthrow: function(x) {
         switch (generator.GState) {
           case ST_EXECUTING:
             throw new Error('"throw" on executing generator');
