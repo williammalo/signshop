@@ -756,6 +756,7 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013"]
+,[2454965,"Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate"]
 ,[2410062,"Mitsubishi Outlander 2014"]
 ,[2377601,"Kenworth t680 2013-uptodate"]
 ,[2377603,"Peterbilt 579"]
