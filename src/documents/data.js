@@ -1240,7 +1240,7 @@ var templates=[
 ,[1213798,"Toyota Tundra crewmax 2008-2013"]
 ,[1213795,"Toyota Tundra regular-cab long 2007-2013"]
 ,[1213794,"Toyota Tundra regular-cab short 2007-2013"]
-,[1214138,"Scion XB 2004-2007"]
+,[1214138,"Scion XB slash BB 2004-2007"]
 ,[1214134,"Toyota 4Runner 2004-2009"]
 ,[1417109,"Toyota 4Runner 2010-uptodate"]
 ,[1214132,"Toyota FJ-Cruiser 2007-uptodate"]
