@@ -1048,7 +1048,7 @@ var templates=[
 ,[1211007,"Honda Accord crosstour 2010-uptodate"]
 ,[1211006,"Honda Civic coupe 2004-2005"]
 ,[1211004,"Honda Civic coupe 2006-2011"]
-,[1211003,"Honda Civic sedan 2006-uptodate"]
+,[1211003,"Honda Civic sedan 2006-2010"]
 ,[1211002,"Honda Civic SI 2003-2005"]
 ,[1211000,"Honda Civic SI 2006-2007"]
 ,[1417092,"Honda CR-Z 2011-uptodate"]
