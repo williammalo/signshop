@@ -755,6 +755,12 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013"]
+,[2484141,"Ford Transit Connect long cargo 2014-uptodate"]
+,[2484146,"Ford Transit Connect short cargo 2014-uptodate"]
+,[2484147,"Ford Transit Connect short wagon 2014-uptodate"]
+,[2484148,"Ford Transit Connect long wagon 2014-uptodate"]
+,[2484150,"GMC Sierra crew-cab regular-box 2014-uptodate"]
+,[2484150,"Chevrolet Silverado crew-cab regular-box 2014-uptodate"]
 ,[2480427,"Honda Civic sedan 2011-uptodate"]
 ,[2454965,"Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate"]
 ,[2463019,"Dodge Ram Promaster, 118 wheel base, standard roof, 2014-uptodate"]
