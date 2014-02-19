@@ -87,9 +87,6 @@ mapObject=function(o,f){
         });
 }(this));
 
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIABLE
@@ -127,8 +124,8 @@ views=mapObject(views,(a,b)=>{
 		i[3] = linkTemplate( i[0], i[2] )               //construct dom node
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
 		i[5] = false                                    //image loaded (very important for perf!!!)
-		i[6] = i[2].replace("\n"," ")                   //pretty text (no line breaks)
-		i[6] = i[6]+i[6].replace("-","")                //add no quote variant
+		i[6] = i[2].replace("\n"," ")                   //search text
+		i[6] = i[6]+i[6].replace("-","")+i[6].replace("-"," ") //add no dash variant
 	})
 	a.menu=dom.query(`menu.${b}`)
 	return a
@@ -147,8 +144,6 @@ var searchFilter = (view,keyword,reverse)=>{
 		.filter( (item,index)=> (keyword.test(item[6])^reverse)  )
 		.filter( (item,index)=> (view==="templates"?(showAll||index<area):true) )
 }
-
-searchFilter = memoize(searchFilter)
 
 var search=(...a)=>{
 	var  array=searchFilter(...a)
@@ -202,23 +197,25 @@ var cover=dom("div",{"class":"cover"}
 dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
 
-//categorised menu pages
+//categorised pages menu
 
 ;["logos","elements","graphics"].forEach(foo=>{
 	
-	foo=views[foo]
+	var viewI=views[foo]
 
-	foo.categories.forEach(b=>{
+	viewI.categories.forEach(b=>{
 		var a=dom("a",{"data-category":b[0]},b[1])
 		if(b[2])a.setAttribute("data-reverse","")
-		foo.menu.append(a)
+		viewI.menu.append(a)
 	})
-	foo.menu.on("click",e=>{
-		var  t=e.target
-			,c=t.hasAttribute("data-category")
-			,r=t.hasAttribute("data-reverse")
-		if(c)
-			filterView(t.getAttribute("data-category"),r)
+	viewI.menu.on("click",e=>{
+		var  t=e.target;
+
+		if(t.hasAttribute("data-category"))
+			filterView(
+				 t.getAttribute("data-category")
+				,t.hasAttribute("data-reverse")
+			)
 	})
 })
 

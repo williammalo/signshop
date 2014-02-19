@@ -190,7 +190,7 @@ views = mapObject(views, (function(a, b) {
     i[4] = imagePath + i[1] + (a.imageSuffix || ".png");
     i[5] = false;
     i[6] = i[2].replace("\n", " ");
-    i[6] = i[6] + i[6].replace("-", "");
+    i[6] = i[6] + i[6].replace("-", "") + i[6].replace("-", " ");
   }));
   a.menu = dom.query(("menu." + b));
   return a;
@@ -204,7 +204,6 @@ var searchFilter = (function(view, keyword, reverse) {
     return (view === "templates" ? (showAll || index < area): true);
   }));
 });
-searchFilter = memoize(searchFilter);
 var search = (function() {
   for (var a = [],
       $__0 = 0; $__0 < arguments.length; $__0++) a[$__0] = arguments[$__0];
@@ -251,17 +250,15 @@ dom.query("#faq").on("click", (function(e) {
 }));
 ;
 ["logos", "elements", "graphics"].forEach((function(foo) {
-  foo = views[foo];
-  foo.categories.forEach((function(b) {
+  var viewI = views[foo];
+  viewI.categories.forEach((function(b) {
     var a = dom("a", {"data-category": b[0]}, b[1]);
     if (b[2]) a.setAttribute("data-reverse", "");
-    foo.menu.append(a);
+    viewI.menu.append(a);
   }));
-  foo.menu.on("click", (function(e) {
-    var t = e.target,
-        c = t.hasAttribute("data-category"),
-        r = t.hasAttribute("data-reverse");
-    if (c) filterView(t.getAttribute("data-category"), r);
+  viewI.menu.on("click", (function(e) {
+    var t = e.target;
+    if (t.hasAttribute("data-category")) filterView(t.getAttribute("data-category"), t.hasAttribute("data-reverse"));
   }));
 }));
 input.on("input", (function(e) {
