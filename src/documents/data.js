@@ -756,6 +756,7 @@ var graphics=[
 
 var templates=[
  [1901353,"Toyota Rav-4 2013"]
+,[2512288,"Jeep Grand-Cherokee 2014-uptodate"]
 ,[2489839,"Buick Encore 2013-uptodate"]
 ,[2489835,"Toyota Highlander 2014-uptodate"]
 ,[2484141,"Ford Transit Connect long cargo 2014-uptodate"]
