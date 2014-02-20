@@ -1174,7 +1174,7 @@ var templates=[
 ,[1212281,"Chevrolet Impala police 2006-uptodate"]
 ,[1209087,"Dodge Charger 2007-uptodate"]
 ,[1209086,"Dodge Magnum 2006-2009"]
-,[1212286,"Ford Crown Victoria slash Grand Marquis police 2005-uptodate"]
+,[1212286,"Ford Crown Victoria slash Grand Marquis police 2005-2011"]
 ,[1212328,"Pontiac G6 2007"]
 ,[1212324,"Pontiac G6 2008-2009"]
 ,[1212323,"Pontiac GTO 2005-2006"]
