@@ -440,6 +440,9 @@ nav [href=graphics]
 	border-bottom:solid 1px darken(brand[i],25%)
 	background-size: auto 64px, 100% 100%
 	background-origin: content-box,padding-box
+	@media screen and (max-width: 1084px)
+		background:light[i]
+		background:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
 
 .graphics aside
 	i=3
