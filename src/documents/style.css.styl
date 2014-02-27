@@ -14,6 +14,27 @@ retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),
 	font-weight: 700;
 	src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v4/0ihfXUL2emPh0ROJezvraLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 
+
+@keyframes shake
+	0%
+		transform: translateX(0)
+		color:red
+	10%, 30%, 50%, 70%
+		transform: 	translateX(-10px)
+	20%, 40%, 60%
+		transform:	translateX(10px)
+	80%
+		transform: translateX(0)
+		color:red
+	100%
+		color:rgba(#000,.7)
+
+:checked~strong.popup
+	animation-name: shake
+	animation-duration: 1s
+	animation-fill-mode: both
+
+
 *
 	box-sizing:     border-box
 	text-rendering: optimizeLegibility
@@ -192,6 +213,8 @@ aside div
 	display:block
 :checked~figure
 	display:inline-block !important
+:checked~.popup
+	display:block
 input.more
 	visibility:hidden
 	margin:0
