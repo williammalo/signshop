@@ -959,7 +959,7 @@ var templates=[
 ,[1210052,"Ford Focus wagon 2003-2007"]
 ,[1210051,"Ford Freestyle 2005-2007"]
 ,[1210050,"Ford Fusion 2007-2009"]
-,[1417090,"Ford Fusion 2010-uptodate"]
+,[1417090,"Ford Fusion 2010-2012"]
 ,[1210047,"Ford Mustang 2004"]
 ,[1210045,"Ford Mustang 2005-uptodate"]
 ,[1210044,"Ford Focus SVT 2003-2006"]
