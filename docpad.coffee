@@ -369,7 +369,11 @@ docpadConfig = {
                 cleanurls:
                     enabled: true
                 stylus:
-                    compress: true
+                    stylusLibraries:
+                        nib: true
+                    stylusOptions:
+                        compress: true
+                        'include css': true
 }
 
 # Export the DocPad Configuration
