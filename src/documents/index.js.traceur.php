@@ -177,7 +177,7 @@ var switchPage=page=>{
 	filterView()
 }
 
-//nav
+//pjax nav
 dom.query("nav").on("click",e=>{
 	var page=e.target.getAttribute("href")
 	if(page)
@@ -197,7 +197,7 @@ var cover=dom("div",{"class":"cover"}
 dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
 
-//categorised pages menu
+//build categorised pages menu
 
 ;["logos","elements","graphics"].forEach(foo=>{
 	
