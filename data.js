@@ -1778,4 +1778,9 @@ graphics.imageSuffix=
 		?".png"
 		:"_500.png";
 
+logos.buyPath = "http://www.payloadz.com/go/?id="
+elements.buyPath = "http://www.payloadz.com/go/?id="
+templates.buyPath = "http://www.payloadz.com/go/?id="
+graphics.buyPath = "http://www.payloadz.com/go/?id="
+
 var views = { logos, elements, templates, graphics },view

@@ -19,6 +19,10 @@ templates.processor = (function(t) {
 });
 graphics.defaultKeyword = "ky";
 graphics.imageSuffix = (window.devicePixelRatio || 1) > 1 ? ".png": "_500.png";
+logos.buyPath = "http://www.payloadz.com/go/?id=";
+elements.buyPath = "http://www.payloadz.com/go/?id=";
+templates.buyPath = "http://www.payloadz.com/go/?id=";
+graphics.buyPath = "http://www.payloadz.com/go/?id=";
 var views = {
   logos: logos,
   elements: elements,
@@ -164,7 +168,6 @@ mapObject = function(o, f) {
   });
 }(this));
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
-    buyPath = "http://www.payloadz.com/go/?id=",
     input = dom.query("#input"),
     container = dom.query("#container"),
     showAll = false,
@@ -177,7 +180,7 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
     linkTemplate = (function(link, text) {
       return dom("a", {
         target: "paypal",
-        href: buyPath + link
+        href: link
       }, dom("img"), text);
     });
 views = mapObject(views, (function(a, b) {
@@ -186,7 +189,7 @@ views = mapObject(views, (function(a, b) {
   }));
   a.forEach((function(i) {
     i[2] = f(i[1]);
-    i[3] = linkTemplate(i[0], i[2]);
+    i[3] = linkTemplate(a.buyPath + i[0], i[2]);
     i[4] = imagePath + i[1] + (a.imageSuffix || ".png");
     i[5] = false;
     i[6] = i[2].replace("\n", " ");

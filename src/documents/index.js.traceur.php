@@ -95,7 +95,6 @@ mapObject=function(o,f){
 
 
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
-	,buyPath   = "http://www.payloadz.com/go/?id="
 	,input = dom.query("#input")
 	,container = dom.query("#container")
 	,showAll = false
@@ -105,7 +104,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 
 	,area = 25
 	,linkTemplate = (link,text)=>
-		dom("a",{target:"paypal",href:buyPath+link}
+		dom("a",{target:"paypal",href:link}
 			,dom("img")
 			,text
 		)
@@ -121,7 +120,7 @@ views=mapObject(views,(a,b)=>{
 	f=a.processor||(t=>t+"")
 	a.forEach(i=>{
 		i[2] = f(i[1])                                  //pretty text
-		i[3] = linkTemplate( i[0], i[2] )               //construct dom node
+		i[3] = linkTemplate( a.buyPath+i[0], i[2] )     //construct dom node
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
 		i[5] = false                                    //image loaded (very important for perf!!!)
 		i[6] = i[2].replace("\n"," ")                   //search text
