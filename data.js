@@ -755,6 +755,8 @@ var graphics=[
 
 var templates=[
  [2567723,"Toyota Rav-4 2014-uptodate"]
+,[2591971,"Ford Fusion 2013-uptodate"]
+,[2591970,"Jeep Cherokee 2014-uptodate"]
 ,[1901353,"Toyota Rav-4 2013"]
 ,[2512288,"Jeep Grand-Cherokee 2014-uptodate"]
 ,[2489839,"Buick Encore 2013-uptodate"]
@@ -1341,7 +1343,9 @@ var templates=[
 
 if(location.origin==="http://localhost:9005"){
 templates=[
- [2567723,"Toyota Rav-4 2014-uptodate"]
+ ["bohghozu","Toyota Rav-4 2014-uptodate"]
+,["uyahchey","Ford Fusion 2013-uptodate"]
+,[2591970,"Jeep Cherokee 2014-uptodate"]
 ,[1901353,"Toyota Rav-4 2013"]
 ,[2512288,"Jeep Grand-Cherokee 2014-uptodate"]
 ,[2489839,"Buick Encore 2013-uptodate"]
@@ -1914,7 +1918,7 @@ templates=[
 ,[1215073,"Western Star 4900 FA"]
 ,[1215071,"Western Star 4900 SA"]
 ,[1215070,"Western Star 6900 XD"]
-,[1215150,"45ft trailer"]
+,["wdeeghek","45ft trailer"]
 ,[1215146,"48ft trailer"]
 ,[1215149,"53ft trailer"]
 ,[1215144,"trailer front slash rear dry-box"]
@@ -2365,7 +2369,7 @@ logos.buyPath = "http://www.payloadz.com/go/?id="
 elements.buyPath = "http://www.payloadz.com/go/?id="
 templates.buyPath = "http://www.payloadz.com/go/?id="
 if(location.origin==="http://localhost:9005"){
-	templates.buyPath = "http://www.payloadz.com/go/?id="
+	templates.buyPath = "http://signshophelper.fetchapp.com/sell/"
 }
 graphics.buyPath = "http://www.payloadz.com/go/?id="
 
