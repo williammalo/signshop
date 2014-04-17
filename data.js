@@ -2356,7 +2356,8 @@ templates.processor=t=>{
 			[r]("\n\n","\n")                  //prevent duplicate newlines
 			[r]("Prius\nC","Prius C")		  //make sure multiple-word model names stay on the same line
 			[r](now+"-"+now,now)              //avoid range with duplicate years
-			[r](/(20\d\d)-(20\d\d)/,"$1–$2"); //use the right kind of unicode dashes
+			[r](/(20\d\d)-(20\d\d)/,"$1–$2")  //use the right kind of unicode dashes
+			[r](" econoline "," econoline e-350 ");
 };
 
 graphics.defaultKeyword="ky";
