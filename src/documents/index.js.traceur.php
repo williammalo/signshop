@@ -96,6 +96,7 @@ mapObject=function(o,f){
 
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,input = dom.query("#input")
+	,inputForm = dom.query("#inputform")
 	,container = dom.query("#container")
 	,showAll = false
 	,showAllLink =
@@ -221,7 +222,8 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
 
 //template menu
-input.on("input",e=>filterView(input.value));
+input.on("input",e=>{filterView(input.value)});
+inputForm.on("submit",e=>{history.pushState("","","?search="+input.value);e.preventDefault()});
 
 
 //setup
@@ -230,5 +232,9 @@ input.on("input",e=>filterView(input.value));
 	page=views[t]?t:"templates";
 
 	switchPage(page);
+	getQueryVariable = function(a){return RegExp("[&?]"+a+"=([^&]+)").exec(location)[1]};
+	var query=getQueryVariable("search")||"";
+	input.value=query;
+	filterView(query);
 })();
 
