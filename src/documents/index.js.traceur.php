@@ -121,7 +121,7 @@ views=mapObject(views,(a,b)=>{
 	f=a.processor||(t=>t+"")
 	a.forEach(i=>{
 		i[2] = f(i[1])                                  //pretty text
-		i[3] = linkTemplate( a.buyPath+i[0], i[2] )     //construct dom node
+		i[3] = linkTemplate(a.buyPath+i[0]+a.buySuffix,i[2])     //construct dom node
 		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
 		i[5] = false                                    //image loaded (very important for perf!!!)
 		i[6] = i[2].replace("\n"," ")                   //search text

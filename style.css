@@ -101,15 +101,11 @@ aside{-webkit-box-shadow:0 -5px 10px rgba(0,0,0,0.2);box-shadow:0 -5px 10px rgba
 aside,nav{text-shadow:0 1px 0 rgba(255,255,255,0.2)}
 aside a,aside .more{color:#fff;text-decoration:underline}
 figure{-webkit-box-shadow:0 1px 5px rgba(0,0,0,0.5);box-shadow:0 1px 5px rgba(0,0,0,0.5)}
-html.logos{background:#e2f5b6}
-html.elements{background:#e5bff7}
-html.templates{background:#caf0fb}
-html.graphics{background:#fdeabe}
+html.logos{background:#e2f5b6;background:#e2f5b6 -webkit-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:#e2f5b6 -moz-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:#e2f5b6 -o-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:#e2f5b6 -ms-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:#e2f5b6 linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%)}
+html.elements{background:#e5bff7;background:#e5bff7 -webkit-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:#e5bff7 -moz-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:#e5bff7 -o-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:#e5bff7 -ms-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:#e5bff7 linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%)}
+html.templates{background:#caf0fb;background:#caf0fb -webkit-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:#caf0fb -moz-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:#caf0fb -o-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:#caf0fb -ms-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:#caf0fb linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%)}
+html.graphics{background:#fdeabe;background:#fdeabe -webkit-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:#fdeabe -moz-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:#fdeabe -o-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:#fdeabe -ms-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:#fdeabe linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%)}
 .templates #container a{color:#2eb3ed}
-.logos footer{background:-webkit-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:-moz-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:-o-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:-ms-linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%);background:linear-gradient(rgba(182,231,72,0) 0%, #a9e328 100%)}
-.elements footer{background:-webkit-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:-moz-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:-o-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:-ms-linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%);background:linear-gradient(rgba(190,95,235,0) 0%, #ba55ea 100%)}
-.templates footer{background:-webkit-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:-moz-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:-o-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:-ms-linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%);background:linear-gradient(rgba(122,218,244,0) 0%, #4dcdf0 100%)}
-.graphics footer{background:-webkit-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:-moz-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:-o-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:-ms-linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%);background:linear-gradient(rgba(250,203,92,0) 0%, #f8b926 100%)}
 @media (-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi){label.more{background-image:url("plusr.png")}
 #cart{background-image:url("cartr.png")}
 #mail{background-image:url("mailr.png")}
