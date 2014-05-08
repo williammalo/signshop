@@ -1,4 +1,4 @@
-
+/*
 var elements=[
  [1895117,"slogan39"]
 ,[1895116,"slogan38"]
@@ -176,9 +176,9 @@ var elements=[
 ,[1894944,"5-3"]
 ,[1894943,"5-2"]
 ];
+*/
 
-
-
+/*
 var graphics=[
 // [1896083,"zx-2-2"]
 //,[1896082,"zx-2-1"]
@@ -751,7 +751,7 @@ var graphics=[
 //,[1895515,"3d-gr_2"]
 //,[1895514,"3d-gr_1"]
 ];
-
+*/
 
 /*
 var templates=[
@@ -1344,132 +1344,132 @@ var templates=[
 
 
 var templates=[
- ["bohghozu","Toyota Rav-4 2014-uptodate"]
-,["uyahchey","Ford Fusion 2013-uptodate"]
-,["mquiraep","Jeep Cherokee 2014-uptodate"]
-,["ohjesoth","Toyota Rav-4 2013"]
-,["shoghopi","Jeep Grand-Cherokee 2014-uptodate"]
-,["eifurogo","Buick Encore 2013-uptodate"]
-,["oothohki","Toyota Highlander 2014-uptodate"]
-,["akiwaeph","Ford Transit Connect long cargo 2014-uptodate"]
-,["eizivapo","Ford Transit Connect short cargo 2014-uptodate"]
-,["ahdeisuw","Ford Transit Connect short wagon 2014-uptodate"]
-,["aexiemab","Ford Transit Connect long wagon 2014-uptodate"]
-,["ungaizes","GMC Sierra crew-cab regular-box 2014-uptodate"]
-,["gchivait","Chevrolet Silverado crew-cab regular-box 2014-uptodate"]
-,["ichizaix","Honda Civic sedan 2011-uptodate"]
-,["soocufai","Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate"]
-,["oroocaph","Dodge Ram Promaster, 118 wheel base, standard roof, 2014-uptodate"]
-,["gothoxox","Dodge Ram Promaster, 136 wheel base, standard roof, 2014-uptodate"]
-,["aquefai","Nissan Murano 2014-uptodate"]
-,["engeivug","Mitsubishi Outlander 2014"]
-,["weephahz","Kenworth t680 2013-uptodate"]
-,["eitoocah","Peterbilt 579"]
-,["kiewiezu","Freightliner Cascadia Evolution"]
-,["ohyedunu","Nissan NV200 2013-uptodate"]
-,["ynegunoo","Toyota Prius C 2013-uptodate"]
-,["jahghies","Subaru XV 2013-uptodate"]
-,["ohkahroo","Nissan Pathfinder 2013-uptodate"]
-,["vquiegee","Mitsubishi Imiev 2012-uptodate"]
-,["bhrieyal","Mazda CX-5 2012-uptodate"]
-,["shashahf","Kia Rio hatchback 2013-uptodate"]
-,["ahhaevom","Kia Forte hatchback 2013-uptodate"]
-,["ahzeigah","Hyundai Santa-Fe 2013-uptodate"]
-,["highiefi","Ford Escape 2013-uptodate"]
-,["ireixein","Ford C-max 2012-uptodate"]
-,["ageejadi","Dodge Dart 2013-uptodate"]
-,["gahpooni","Chevrolet Orlando 2012-uptodate"]
-,["eidaveet","Chevrolet Sonic 2012-uptodate"]
-,["woongahc","Chevrolet Spark 2012-uptodate"]
-,["aeyothee","Chevrolet Volt 2011-uptodate"]
-,["etaiveid","Dodge Caravan 2012-uptodate"]
-,["xuxiegig","Dodge Charger 2011-uptodate"]
-,["ehahbohf","Dodge Durango 2012-uptodate"]
-,["ipeeghor","Fiat 2012-uptodate"]
-,["ieteking","Ford Focus 4-door hatchback 2012-uptodate"]
-,["oopofael","Honda CR-V 2012-uptodate"]
-,["aikeyaye","Honda Civic coupe 2012-uptodate"]
-,["ixaepohz","Hyundai Accent 4-door hatchback 2012-uptodate"]
-,["aiboogoh","Hyundai Elantra 2012-uptodate"]
-,["peiveelu","Hyundai Veloster 2012-uptodate"]
-,["chievahm","Mazda 5 2012-uptodate"]
-,["hoholier","Mitsubishi RVR 2010-uptodate"]
-,["jajoodee","Nissan NV high-roof 2012-uptodate"]
-,["gaicooju","Nissan NV low-roof 2012-uptodate"]
-,["eriejece","Scion IQ 2012-uptodate"]
-,["ibathief","Scion XB 2008-uptodate"]
-,["oleiquai","Volkswagen Beetle 2012-uptodate"]
-,["pemeiroh","Volkswagen Jetta 2011-uptodate"]
-,["umohrohz","Buick Enclave 2008-uptodate"]
-,["chaepaem","Buick Rainier 2004-2007"]
-,["ahnohyai","Buick Rendez-vous 2004-2007"]
-,["npbshoci","Chevrolet Aveo 4-door 2004-2011"]
-,["shooregh","Chevrolet Aveo 5-door 2004-2011"]
-,["thahhaed","Chevrolet Camaro 2009-uptodate"]
-,["eesijoth","Chevrolet Cavalier 2004-2005"]
-,["oohahnuw","Chevrolet Cobalt 4-door 2007-2009"]
-,["oonijaif","Chevrolet Cobalt coupe 2007-2009"]
-,["ehohcahk","Chevrolet Corvette 2006-2013"]
-,["yzathahy","Chevrolet Cruze 2011-uptodate"]
-,["abeedoon","Chrysler Aspen 2007-2009"]
-,["ighohnoh","Chevrolet Impala police 2005"]
-,["nxietoza","Chevrolet Impala 2008-2013"]
-,["weeguque","Chevrolet Malibu 2007"]
-,["ahshozai","Chevrolet Malibu 2008-uptodate"]
-,["fhshoroo","Chevrolet Malibu maxx 2007"]
-,["zecishol","Chevrolet SSR 2004-2006"]
-,["zaipegae","Chevrolet Express cube 16ft"]
-,["thijohni","GMC Savana slash Chevrolet Express cube 13ft"]
-,["ushohori","Chevrolet Avalanche 2003-2006"]
-,["lpooteel","Chevrolet Avalanche 2007-2013"]
-,["pleewees","Chevrolet Colorado crew-cab 2004-2012"]
-,["laruhohw","Chevrolet Colorado extended-cab 2004-2012"]
-,["vaiwiequ","Chevrolet Colorado regular 2004-2012"]
-,["ijaishan","Chevrolet S-10 crew-cab 2003-2004"]
-,["wpngeith","Chevrolet S-10 extended-cab 2003-2004"]
-,["rtfaevoh","Chevrolet S-10 regular 2003-2004"]
-,["wdeyohng","Chevrolet S-10 regular long 2003-2004"]
-,["eedusohb","Chevrolet Silverado 3500 crew-cab 2003-2006"]
-,["shoozequ","Chevrolet Silverado 3500 extended-cab long 2003-2006"]
-,["rgoochai","Chevrolet Silverado 3500 regular 2003-2006"]
-,["hdrasohc","Chevrolet Silverado crew-cab 2003-2006"]
-,["ihooxiqu","Chevrolet Silverado extended-cab 2003-2006"]
-,["obowoghi","Chevrolet Silverado extended-cab long 2003-2006"]
-,["naiceeka","Chevrolet Silverado regular long 2003-2006"]
-,["ciyohrie","Chevrolet Silverado regular short 2003-2006"]
-,["zohlohvo","Chevrolet Silverado crew-cab 2007-2013"]
-,["hfieghai","Chevrolet Silverado extended-cab regular 2007-2013"]
-,["rosietee","Chevrolet Silverado extended-cab long 2007-2013"]
-,["ohrewoox","Chevrolet Silverado long 2007-2013"]
-,["nohthaeg","Chevrolet Silverado regular 2007-2013"]
-,["sngurahl","Chevrolet Silverado 3500 crew-cab 2007"]
-,["thohseew","Chevrolet Silverado 3500 extended-cab long 2007"]
-,["sphohbai","Chevrolet Silverado 3500 regular 2007"]
-,["thaehaqu","Chevrolet Silverado crew-cab 2007"]
-,["quahliej","Chevrolet Silverado extended-cab 2007"]
-,["vtteiqui","Chevrolet Silverado extended-cab long 2007"]
-,["dlegecha","Chevrolet Silverado regular long 2007"]
-,["ixeehahh","Chevrolet Silverado regular short 2007"]
-,["toonooth","Chevrolet Astro cargo swing-door 2003-2005"]
-,["guraiche","Chevrolet Astro swing-door 2003-2005"]
-,["pohmaemu","Chevrolet Astro tailgate 2003-2005"]
-,["knyvahch","Chevrolet Blazer 2-door 2004-2005"]
-,["igefaemu","Chevrolet Blazer 4-door 2004-2005"]
-,["quisizee","Chevrolet Equinox 2004-2009"]
-,["aengawoo","Chevrolet Equinox 2010-uptodate"]
-,["ookijadi","Chevrolet Express long 2003-uptodate"]
-,["sajeshiw","Chevrolet Express long slide-door 2003-uptodate"]
-,["iepieyoo","Chevrolet Express long slide-door cargo 2003-uptodate"]
-,["kothepho","Chevrolet Express regular 2003-uptodate"]
-,["heenohch","Chevrolet Express regular cargo 2003-uptodate"]
-,["ajikaepi","Chevrolet Express regular slide-door 2003-uptodate"]
-,["zodienoh","Chevrolet Express regular slide-door cargo 2003-uptodate"]
-,["joovaesi","Chevrolet HHR 2007-2011"]
-,["eezohzax","Chevrolet HHR panel 2007-2011"]
-,["mohijohr","Chevrolet Suburban 2008-uptodate"]
-,["yrmiengo","Chevrolet Tahoe 2007-uptodate"]
-,["ijeefief","Chevrolet Tracker 2004"]
-,["geeragha","Chevrolet Trailblazer extended-length 2004-2006"]
+ ["bohghozu","Toyota Rav-4 2014-uptodate","suv"]
+,["uyahchey","Ford Fusion 2013-uptodate","car"]
+,["mquiraep","Jeep Cherokee 2014-uptodate","suv"]
+,["ohjesoth","Toyota Rav-4 2013","suv"]
+,["shoghopi","Jeep Grand-Cherokee 2014-uptodate","suv"]
+,["eifurogo","Buick Encore 2013-uptodate","suv"]
+,["oothohki","Toyota Highlander 2014-uptodate","suv"]
+,["akiwaeph","Ford Transit Connect long cargo 2014-uptodate","van"]
+,["eizivapo","Ford Transit Connect short cargo 2014-uptodate","van"]
+,["ahdeisuw","Ford Transit Connect short wagon 2014-uptodate","van"]
+,["aexiemab","Ford Transit Connect long wagon 2014-uptodate","van"]
+,["ungaizes","GMC Sierra crew-cab regular-box 2014-uptodate","pickup"]
+,["gchivait","Chevrolet Silverado crew-cab regular-box 2014-uptodate","pickup"]
+,["ichizaix","Honda Civic sedan 2011-uptodate","car"]
+,["soocufai","Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate","van"]
+,["oroocaph","Dodge Ram Promaster, 118 wheel base, standard roof, 2014-uptodate","van"]
+,["gothoxox","Dodge Ram Promaster, 136 wheel base, standard roof, 2014-uptodate","van"]
+,["aquefai","Nissan Murano 2014-uptodate","suv"]
+,["engeivug","Mitsubishi Outlander 2014","suv"]
+,["weephahz","Kenworth t680 2013-uptodate","tractor"]
+,["eitoocah","Peterbilt 579","tractor"]
+,["kiewiezu","Freightliner Cascadia Evolution","tractor"]
+,["ohyedunu","Nissan NV200 2013-uptodate","van"]
+,["ynegunoo","Toyota Prius C 2013-uptodate","car"]
+,["jahghies","Subaru XV 2013-uptodate","suv"]
+,["ohkahroo","Nissan Pathfinder 2013-uptodate",""]
+,["vquiegee","Mitsubishi Imiev 2012-uptodate",""]
+,["bhrieyal","Mazda CX-5 2012-uptodate",""]
+,["shashahf","Kia Rio hatchback 2013-uptodate",""]
+,["ahhaevom","Kia Forte hatchback 2013-uptodate",""]
+,["ahzeigah","Hyundai Santa-Fe 2013-uptodate",""]
+,["highiefi","Ford Escape 2013-uptodate",""]
+,["ireixein","Ford C-max 2012-uptodate",""]
+,["ageejadi","Dodge Dart 2013-uptodate",""]
+,["gahpooni","Chevrolet Orlando 2012-uptodate",""]
+,["eidaveet","Chevrolet Sonic 2012-uptodate",""]
+,["woongahc","Chevrolet Spark 2012-uptodate",""]
+,["aeyothee","Chevrolet Volt 2011-uptodate",""]
+,["etaiveid","Dodge Caravan 2012-uptodate",""]
+,["xuxiegig","Dodge Charger 2011-uptodate",""]
+,["ehahbohf","Dodge Durango 2012-uptodate",""]
+,["ipeeghor","Fiat 2012-uptodate",""]
+,["ieteking","Ford Focus 4-door hatchback 2012-uptodate",""]
+,["oopofael","Honda CR-V 2012-uptodate",""]
+,["aikeyaye","Honda Civic coupe 2012-uptodate",""]
+,["ixaepohz","Hyundai Accent 4-door hatchback 2012-uptodate",""]
+,["aiboogoh","Hyundai Elantra 2012-uptodate",""]
+,["peiveelu","Hyundai Veloster 2012-uptodate",""]
+,["chievahm","Mazda 5 2012-uptodate",""]
+,["hoholier","Mitsubishi RVR 2010-uptodate",""]
+,["jajoodee","Nissan NV high-roof 2012-uptodate",""]
+,["gaicooju","Nissan NV low-roof 2012-uptodate",""]
+,["eriejece","Scion IQ 2012-uptodate",""]
+,["ibathief","Scion XB 2008-uptodate",""]
+,["oleiquai","Volkswagen Beetle 2012-uptodate",""]
+,["pemeiroh","Volkswagen Jetta 2011-uptodate",""]
+,["umohrohz","Buick Enclave 2008-uptodate",""]
+,["chaepaem","Buick Rainier 2004-2007",""]
+,["ahnohyai","Buick Rendez-vous 2004-2007",""]
+,["npbshoci","Chevrolet Aveo 4-door 2004-2011",""]
+,["shooregh","Chevrolet Aveo 5-door 2004-2011",""]
+,["thahhaed","Chevrolet Camaro 2009-uptodate",""]
+,["eesijoth","Chevrolet Cavalier 2004-2005",""]
+,["oohahnuw","Chevrolet Cobalt 4-door 2007-2009",""]
+,["oonijaif","Chevrolet Cobalt coupe 2007-2009",""]
+,["ehohcahk","Chevrolet Corvette 2006-2013",""]
+,["yzathahy","Chevrolet Cruze 2011-uptodate",""]
+,["abeedoon","Chrysler Aspen 2007-2009",""]
+,["ighohnoh","Chevrolet Impala police 2005",""]
+,["nxietoza","Chevrolet Impala 2008-2013",""]
+,["weeguque","Chevrolet Malibu 2007",""]
+,["ahshozai","Chevrolet Malibu 2008-uptodate",""]
+,["fhshoroo","Chevrolet Malibu maxx 2007",""]
+,["zecishol","Chevrolet SSR 2004-2006",""]
+,["zaipegae","Chevrolet Express cube 16ft",""]
+,["thijohni","GMC Savana slash Chevrolet Express cube 13ft",""]
+,["ushohori","Chevrolet Avalanche 2003-2006",""]
+,["lpooteel","Chevrolet Avalanche 2007-2013",""]
+,["pleewees","Chevrolet Colorado crew-cab 2004-2012",""]
+,["laruhohw","Chevrolet Colorado extended-cab 2004-2012",""]
+,["vaiwiequ","Chevrolet Colorado regular 2004-2012",""]
+,["ijaishan","Chevrolet S-10 crew-cab 2003-2004",""]
+,["wpngeith","Chevrolet S-10 extended-cab 2003-2004",""]
+,["rtfaevoh","Chevrolet S-10 regular 2003-2004",""]
+,["wdeyohng","Chevrolet S-10 regular long 2003-2004",""]
+,["eedusohb","Chevrolet Silverado 3500 crew-cab 2003-2006",""]
+,["shoozequ","Chevrolet Silverado 3500 extended-cab long 2003-2006",""]
+,["rgoochai","Chevrolet Silverado 3500 regular 2003-2006",""]
+,["hdrasohc","Chevrolet Silverado crew-cab 2003-2006",""]
+,["ihooxiqu","Chevrolet Silverado extended-cab 2003-2006",""]
+,["obowoghi","Chevrolet Silverado extended-cab long 2003-2006",""]
+,["naiceeka","Chevrolet Silverado regular long 2003-2006",""]
+,["ciyohrie","Chevrolet Silverado regular short 2003-2006",""]
+,["zohlohvo","Chevrolet Silverado crew-cab 2007-2013",""]
+,["hfieghai","Chevrolet Silverado extended-cab regular 2007-2013",""]
+,["rosietee","Chevrolet Silverado extended-cab long 2007-2013",""]
+,["ohrewoox","Chevrolet Silverado long 2007-2013",""]
+,["nohthaeg","Chevrolet Silverado regular 2007-2013",""]
+,["sngurahl","Chevrolet Silverado 3500 crew-cab 2007",""]
+,["thohseew","Chevrolet Silverado 3500 extended-cab long 2007",""]
+,["sphohbai","Chevrolet Silverado 3500 regular 2007",""]
+,["thaehaqu","Chevrolet Silverado crew-cab 2007",""]
+,["quahliej","Chevrolet Silverado extended-cab 2007",""]
+,["vtteiqui","Chevrolet Silverado extended-cab long 2007",""]
+,["dlegecha","Chevrolet Silverado regular long 2007",""]
+,["ixeehahh","Chevrolet Silverado regular short 2007",""]
+,["toonooth","Chevrolet Astro cargo swing-door 2003-2005",""]
+,["guraiche","Chevrolet Astro swing-door 2003-2005",""]
+,["pohmaemu","Chevrolet Astro tailgate 2003-2005",""]
+,["knyvahch","Chevrolet Blazer 2-door 2004-2005",""]
+,["igefaemu","Chevrolet Blazer 4-door 2004-2005",""]
+,["quisizee","Chevrolet Equinox 2004-2009",""]
+,["aengawoo","Chevrolet Equinox 2010-uptodate",""]
+,["ookijadi","Chevrolet Express long 2003-uptodate",""]
+,["sajeshiw","Chevrolet Express long slide-door 2003-uptodate",""]
+,["iepieyoo","Chevrolet Express long slide-door cargo 2003-uptodate",""]
+,["kothepho","Chevrolet Express regular 2003-uptodate",""]
+,["heenohch","Chevrolet Express regular cargo 2003-uptodate",""]
+,["ajikaepi","Chevrolet Express regular slide-door 2003-uptodate",""]
+,["zodienoh","Chevrolet Express regular slide-door cargo 2003-uptodate",""]
+,["joovaesi","Chevrolet HHR 2007-2011",""]
+,["eezohzax","Chevrolet HHR panel 2007-2011",""]
+,["mohijohr","Chevrolet Suburban 2008-uptodate",""]
+,["yrmiengo","Chevrolet Tahoe 2007-uptodate",""]
+,["ijeefief","Chevrolet Tracker 2004",""]
+,["geeragha","Chevrolet Trailblazer extended-length 2004-2006",""]
 ,["zghohgie","Chevrolet Trailblazer LS 2004-2009"]
 ,["olieghae","Chevrolet Traverse 2009-uptodate"]
 ,["hepheish","Chevrolet Uplander ext 2005-2009"]
@@ -1926,7 +1926,7 @@ var templates=[
 ,["ohheghie","trailer front slash rear refer-box"]
 ];
 
-
+/*
 var logos=[
  [1894630,"50s-12"]
 ,[1894629,"50s-11"]
@@ -2296,8 +2296,9 @@ var logos=[
 ,[1894265,"achitec2"]
 ,[1894264,"achitec"]
 ];
+*/
 
-
+/*
 logos.categories=[["vacatio|transp|touris|sport|sign|print|achitec|office|music|50|medical|home|golf|food|corp|const|compute|clothe|car|art|antique|animal","other",1]
 ,["vacatio","vacation"]
 ,["transp","transport"]
@@ -2340,10 +2341,10 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 ,["power","flower power"]
 ,["","all"]
 ];
+*/
+//logos.defaultKeyword="car";
 
-logos.defaultKeyword="car";
-
-elements.defaultKeyword="slogan";
+//elements.defaultKeyword="slogan";
 
 templates.imageSuffix=".jpg";
 templates.processor=t=>{
@@ -2360,20 +2361,21 @@ templates.processor=t=>{
 			[r](" Econoline\n"," Econoline e-350\n");
 };
 
-graphics.defaultKeyword="ky";
-graphics.imageSuffix=
+//graphics.defaultKeyword="ky";
+//graphics.imageSuffix=
 	(window.devicePixelRatio||1)>1
 		?".png"
 		:"_500.png";
 
-logos.buyPath = "http://www.payloadz.com/go/sip?id="
-elements.buyPath = "http://www.payloadz.com/go/sip?id="
+//logos.buyPath = "http://www.payloadz.com/go/sip?id="
+//elements.buyPath = "http://www.payloadz.com/go/sip?id="
 templates.buyPath = "http://signshophelper.fetchapp.com/sell/"
-graphics.buyPath = "http://www.payloadz.com/go/sip?id="
+//graphics.buyPath = "http://www.payloadz.com/go/sip?id="
 
-logos.buySuffix = ""
-elements.buySuffix = ""
+//logos.buySuffix = ""
+//elements.buySuffix = ""
 templates.buySuffix = "/ppc"
-graphics.buySuffix = ""
+//graphics.buySuffix = ""
 
-var views = { logos, elements, templates, graphics },view
+//var views = { logos, elements, templates, graphics },view
+var views = { templates },view

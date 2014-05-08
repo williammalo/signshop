@@ -104,10 +104,12 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			.on("click", e=>{ e.preventDefault(); showAll=true; filterView(input.value) })
 
 	,area = 25
-	,linkTemplate = (link,text)=>
+	,linkTemplate = (link,text,tags)=>
 		dom("a",{target:"paypal",href:link}
 			,dom("img")
 			,text
+			,dom("br")
+			,dom("small",tags)
 		)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -118,15 +120,19 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 
 views=mapObject(views,(a,b)=>{
 
-	f=a.processor||(t=>t+"")
+	var textProcessor=a.processor||(t=>t+"")
 	a.forEach(i=>{
-		i[2] = f(i[1])                                  //pretty text
-		i[3] = linkTemplate(a.buyPath+i[0]+a.buySuffix,i[2])     //construct dom node
-		i[4] = imagePath+i[1]+(a.imageSuffix||".png")   //image url
-		i[5] = false                                    //image loaded (very important for perf!!!)
-		i[6] = i[2].replace("\n"," ")                   //search text
-		i[6] = i[6].replace(" Econoline "," Econoline E-350 ")
-		i[6] = i[6]+i[6].replace("-","")+i[6].replace("-"," ") //add no dash variant
+		var  rawURL=i[0]
+			,rawText=i[1]
+			,tags=i[2]||""
+			,buyURL=a.buyPath+rawURL+a.buySuffix;
+		i.prettyText = textProcessor(rawText)
+		i.node = linkTemplate(buyURL,i.prettyText,tags)
+		i.imageURL = imagePath+rawText+(a.imageSuffix||".png")
+		i.imageLoaded = false
+		i.searchText = i.prettyText.replace("\n"," ")
+		i.searchText = i.searchText+i.searchText.replace("-","")+i.searchText.replace("-"," ") //add no dash variant
+		i.searchText = i.searchText+" "+tags
 	})
 	a.menu=dom.query(`menu.${b}`)
 	return a
@@ -142,7 +148,7 @@ var searchFilter = (view,keyword,reverse)=>{
 	keyword = new RegExp(keyword,"i")
 	reverse|= 0
 	return array=views[view]
-		.filter( (item,index)=> (keyword.test(item[6])^reverse)  )
+		.filter( (item,index)=> (keyword.test(item.searchText)^reverse)  )
 		.filter( (item,index)=> (view==="templates"?(showAll||index<area):true) )
 }
 
@@ -150,10 +156,10 @@ var search=(...a)=>{
 	var  array=searchFilter(...a)
 		,fragment=dom.fragment()
 	array.forEach((item,index)=>{
-		if(!item[5])                          //test if image is loaded (very important for perf!!!)
-			 item[3].firstChild.src=item[4]   //add image src
-			,item[5]=true
-		fragment.append(item[3])              //add element to fragment
+		if(!item.imageLoaded)                          //test if image is loaded (very important for perf!!!)
+			 item.node.firstChild.src=item.imageURL   //add image src
+			,item.imageLoaded=true
+		fragment.append(item.node)              //add element to fragment
 	})
 	return{fragment,array}
 }
@@ -199,7 +205,7 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 
 
 //build categorised pages menu
-
+/*
 ;["logos","elements","graphics"].forEach(foo=>{
 	
 	var viewI=views[foo]
@@ -219,7 +225,7 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 			)
 	})
 })
-
+*/
 
 //template menu
 input.on("input",e=>{filterView(input.value)});
@@ -232,8 +238,8 @@ inputForm.on("submit",e=>{history.pushState("","","?search="+input.value);e.prev
 	page=views[t]?t:"templates";
 
 	switchPage(page);
-	getQueryVariable = function(a){return RegExp("[&?]"+a+"=([^&]+)").exec(location)[1]};
-	var query=getQueryVariable("search")||"";
+	getQueryVariable = function(a){return(RegExp("[&?]"+a+"=([^&]+)").exec(location)||["",""])[1]||""};
+	var query=getQueryVariable("search");
 	input.value=query;
 	filterView(query);
 })();

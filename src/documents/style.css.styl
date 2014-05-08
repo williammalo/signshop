@@ -44,7 +44,7 @@ html
 	font-family:Ubuntu,sans-serif
 	color:rgba(#000,.7)
 	line-height:1.4em
-	min-width:800px
+	min-width:700px
 	font-size:16px //force font size in mobile webkit
 	-webkit-text-size-adjust: 100% //force font size in mobile webkit
 
@@ -188,9 +188,11 @@ svg path{stroke:none;}
 .templates nav [href=templates]
 .graphics nav [href=graphics]
 	z-index:1
+/*
 @media screen and (max-width: 1070px)
 	h1
 		padding-bottom:30px
+*/
 aside
 	padding:1em
 
@@ -318,6 +320,11 @@ menu a
 	//margin-bottom:1rem ie!!!
 	margin-bottom:16px
 	text-rendering: optimizeSpeed
+	text-decoration:none !important
+	small
+		opacity:0.5
+		font-size:0.62em
+		display:none
 #container
 	padding:0 1em
 	column-width:200px
@@ -408,7 +415,7 @@ nav a
 	position:relative
 	text-decoration:none
 	color:#000
-
+/*
 nav [href=logos]
 	background:light[0]
 	border-top-color:xlight[0]
@@ -424,7 +431,7 @@ nav [href=elements]
 		fill:light[1]
 	.border path
 		fill:xlight[1]
-
+*/
 nav [href=templates]
 	background:light[2]
 	border-top-color:xlight[2]
@@ -432,7 +439,7 @@ nav [href=templates]
 		fill:light[2]
 	.border path
 		fill:xlight[2]
-
+/*
 nav [href=graphics]
 	background:light[3]
 	border-top-color:xlight[3]
@@ -440,7 +447,8 @@ nav [href=graphics]
 		fill:light[3]
 	.border path
 		fill:xlight[3]
-
+*/
+/*
 .logos aside
 	i=0
 	border-top:solid 1px xlight[i]
@@ -454,7 +462,7 @@ nav [href=graphics]
 	background:light[i]
 	background:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
 	border-bottom:solid 1px darken(brand[i],25%)
-
+*/
 .templates aside
 	i=2
 	border-top:solid 1px xlight[i]
@@ -466,14 +474,14 @@ nav [href=graphics]
 	@media screen and (max-width: 1084px)
 		background:light[i]
 		background:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
-
+/*
 .graphics aside
 	i=3
 	border-top:solid 1px xlight[i]
 	background:light[i]
 	background:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
 	border-bottom:solid 1px darken(brand[i],25%)
-
+*/
 aside
 	box-shadow:0 -5px 10px rgba(#000,.2)
 	position:relative
@@ -484,20 +492,22 @@ aside a,aside .more
 	text-decoration:underline
 figure
 	box-shadow:0 1px 5px rgba(#000,.5)
-
+/*
 html.logos
 	background:lighten(xlight[0],60%)
 	background:lighten(xlight[0],60%) linear-gradient(rgba(xlight[0],0) 0%,light[0] 100%)
 html.elements
 	background:lighten(xlight[1],60%)
 	background:lighten(xlight[1],60%) linear-gradient(rgba(xlight[1],0) 0%,light[1] 100%)
+*/
 html.templates
 	background:lighten(xlight[2],60%)
 	background:lighten(xlight[2],60%) linear-gradient(rgba(xlight[2],0) 0%,light[2] 100%)
+/*
 html.graphics
 	background:lighten(xlight[3],60%)
 	background:lighten(xlight[3],60%) linear-gradient(rgba(xlight[3],0) 0%,light[3] 100%)
-
+*/
 .templates #container a
 	color:brand[2]
 
