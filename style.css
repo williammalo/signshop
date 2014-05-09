@@ -62,7 +62,7 @@ menu a{display:inline-block;background:#fff;padding:.5em;margin-bottom:5px;margi
 #input::-ms-clear{display:none}
 ::-webkit-input-placeholder{color:rgba(0,0,0,0.3)}
 :-moz-placeholder{color:rgba(0,0,0,0.3)}
-#container a{display:inline-block;background:#fff;white-space:pre-wrap;padding:16px;width:100%;margin-bottom:16px;text-rendering:optimizeSpeed;text-decoration:none !important;}
+#container a{display:inline-block;background:#fff;white-space:pre-wrap;padding:1em;width:100%;margin-bottom:1em;text-rendering:optimizeSpeed;text-decoration:none;}
 #container a small{opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50);font-size:.62em;display:none}
 #container{padding:0 1em;-webkit-column-width:200px;-moz-column-width:200px;column-width:200px;-webkit-column-gap:1em;-moz-column-gap:1em;column-gap:1em;margin-bottom:-3em}
 .graphics #container{-webkit-column-width:500px;-moz-column-width:500px;column-width:500px}

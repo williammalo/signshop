@@ -769,9 +769,9 @@ var templates=[
 ,[2484150,"GMC Sierra crew-cab regular-box 2014-uptodate"]
 ,[2484150,"Chevrolet Silverado crew-cab regular-box 2014-uptodate"]
 ,[2480427,"Honda Civic sedan 2011-uptodate"]
-,[2454965,"Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate"]
-,[2463019,"Dodge Ram Promaster, 118 wheel base, standard roof, 2014-uptodate"]
-,[2463025,"Dodge Ram Promaster, 136 wheel base, standard roof, 2014-uptodate"]
+,[2454965,"Dodge Ram Promaster 159 wheel base, high roof 2014-uptodate"]
+,[2463019,"Dodge Ram Promaster 118 wheel base, standard roof 2014-uptodate"]
+,[2463025,"Dodge Ram Promaster 136 wheel base, standard roof 2014-uptodate"]
 ,[2463026,"Nissan Murano 2014-uptodate"]
 ,[2410062,"Mitsubishi Outlander 2014"]
 ,[2377601,"Kenworth t680 2013-uptodate"]
@@ -1358,10 +1358,10 @@ var templates=[
 ,["ungaizes","GMC Sierra crew-cab regular-box 2014-uptodate","pickup"]
 ,["gchivait","Chevrolet Silverado crew-cab regular-box 2014-uptodate","pickup"]
 ,["ichizaix","Honda Civic sedan 2011-uptodate","car"]
-,["soocufai","Dodge Ram Promaster, 159 wheel base, high roof, 2014-uptodate","van"]
-,["oroocaph","Dodge Ram Promaster, 118 wheel base, standard roof, 2014-uptodate","van"]
-,["gothoxox","Dodge Ram Promaster, 136 wheel base, standard roof, 2014-uptodate","van"]
-,["aquefai","Nissan Murano 2014-uptodate","suv"]
+,["soocufai","Dodge Ram Promaster 159 wheelbase, high-roof 2014-uptodate","van"]
+,["oroocaph","Dodge Ram Promaster 118 wheelbase, standard-roof 2014-uptodate","van"]
+,["gothoxox","Dodge Ram Promaster 136 wheelbase, standard-roof 2014-uptodate","van"]
+,["aquefaid","Nissan Murano 2014-uptodate","suv"]
 ,["engeivug","Mitsubishi Outlander 2014","suv"]
 ,["weephahz","Kenworth t680 2013-uptodate","tractor"]
 ,["eitoocah","Peterbilt 579","tractor"]
@@ -2358,7 +2358,11 @@ templates.processor=t=>{
 			[r]("Prius\nC","Prius C")		  //make sure multiple-word model names stay on the same line
 			[r](now+"-"+now,now)              //avoid range with duplicate years
 			[r](/(20\d\d)-(20\d\d)/,"$1–$2")  //use the right kind of unicode dashes
-			[r](" Econoline\n"," Econoline e-350\n");
+			[r](" Econoline\n"," Econoline e-350\n")
+			[r]("Ram\nPromaster","Ram Promaster\n")
+			[r]("Transit\nConnect ","Transit Connect\n")
+			[r]("\n ","\n")
+			[r](/-/g,"‑");
 };
 
 //graphics.defaultKeyword="ky";

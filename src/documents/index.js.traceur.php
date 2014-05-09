@@ -185,11 +185,13 @@ var switchPage=page=>{
 }
 
 //pjax nav
+/*
 dom.query("nav").on("click",e=>{
 	var page=e.target.getAttribute("href")
 	if(page)
 		e.preventDefault(), history.pushState("","",page), switchPage(page)
 },false)
+*/
 
 //s3 lazy images
 dom.on("load",()=>{
