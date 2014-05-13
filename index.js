@@ -138,28 +138,16 @@ mapObject = function(o, f) {
   }));
   return o;
 };
-(function(global) {
-  "use strict";
-  global.memoize = global.memoize || (typeof JSON === 'object' && typeof JSON.stringify === 'function' ? function(func) {
-    var stringifyJson = JSON.stringify,
-        cache = {};
-    return function() {
-      var hash = stringifyJson(arguments);
-      return (hash in cache) ? cache[hash]: cache[hash] = func.apply(this, arguments);
-    };
-  }: function(func) {
-    return func;
-  });
-}(this));
+getQueryVariable = function(a) {
+  return (RegExp("[&?]" + a + "=([^&]+)").exec(location) || ["", ""])[1] || "";
+};
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
-    input = dom.query("#input"),
-    inputForm = dom.query("#inputform"),
-    container = dom.query("#container"),
-    showAll = false,
+    inputElement = dom.query("#input"),
+    inputFormElement = dom.query("#inputform"),
+    containerElement = dom.query("#container"),
     showAllLink = dom("a", "show all").on("click", (function(e) {
       e.preventDefault();
-      showAll = true;
-      filterView(input.value);
+      filterView({showAll: true});
     })),
     area = 25,
     linkTemplate = (function(link, text, tags) {
@@ -168,65 +156,50 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
         href: link
       }, dom("img"), text, dom("br"), dom("small", tags));
     });
-views = mapObject(views, (function(a, b) {
-  var textProcessor = a.processor || ((function(t) {
-    return t + "";
-  }));
-  a.forEach((function(i) {
-    var rawURL = i[0],
-        rawText = i[1],
-        tags = i[2] || "",
-        buyURL = a.buyPath + rawURL + a.buySuffix;
-    i.prettyText = textProcessor(rawText);
-    i.node = linkTemplate(buyURL, i.prettyText, tags);
-    i.imageURL = imagePath + rawText + (a.imageSuffix || ".png");
-    i.imageLoaded = false;
-    i.searchText = i.prettyText.replace("\n", " ");
-    i.searchText = i.searchText + i.searchText.replace("-", "") + i.searchText.replace("-", " ");
-    i.searchText = i.searchText + " " + tags;
-  }));
-  a.menu = dom.query(("menu." + b));
-  return a;
+templates.forEach((function(item) {
+  var rawURL = item[0],
+      rawText = item[1],
+      tags = item[2] || "",
+      buyURL = templates.buyPath + rawURL + templates.buySuffix;
+  item.prettyText = templates.processor(rawText);
+  item.node = linkTemplate(buyURL, item.prettyText, tags);
+  item.imageURL = imagePath + rawText + (templates.imageSuffix || ".png");
+  item.imageLoaded = false;
+  item.searchText = item.prettyText.replace("\n", " ");
+  item.searchText = item.searchText + item.searchText.replace("-", "") + item.searchText.replace("-", " ");
+  item.searchText = item.searchText + " " + tags;
 }));
-var searchFilter = (function(view, keyword, reverse) {
+templates.menu = dom.query("menu.templates");
+var searchFilter = (function(keyword, reverse, showAll) {
   keyword = new RegExp(keyword, "i");
   reverse |= 0;
-  return array = views[view].filter((function(item, index) {
-    return (keyword.test(item.searchText)^reverse);
-  })).filter((function(item, index) {
-    return (view === "templates" ? (showAll || index < area): true);
-  }));
+  var filter = (function(i) {
+    return (keyword.test(i)^reverse);
+  });
+  var array = templates.filter(filter);
+  if (!showAll) array = array.slice(0, area);
+  return array;
 });
-var search = (function() {
-  for (var a = [],
-      $__0 = 0; $__0 < arguments.length; $__0++) a[$__0] = arguments[$__0];
-  var array = searchFilter.apply(null, $traceurRuntime.toObject(a)),
+var filterView = (function() {
+  var args = arguments[0] !== (void 0) ? arguments[0]: {};
+  var $__0 = args,
+      showAll = $__0.showAll,
+      keyword = $__0.keyword,
+      reverse = $__0.reverse;
+  keyword = keyword || inputElement.value;
+  var array = searchFilter(keyword, reverse, showAll),
       fragment = dom.fragment();
-  array.forEach((function(item, index) {
-    if (!item.imageLoaded) item.node.firstChild.src = item.imageURL, item.imageLoaded = true;
-    fragment.append(item.node);
+  array.forEach((function(i) {
+    if (i.imageLoaded === false) i.node.firstChild.src = i.imageURL, i.imageLoaded = true;
+    fragment.append(i.node);
   }));
-  return {
-    fragment: fragment,
-    array: array
-  };
-});
-var filterView = (function(keyword, reverse) {
-  container.clear();
-  var $__1 = search(view, keyword, reverse),
-      fragment = $__1.fragment,
-      array = $__1.array;
-  if (view === "templates" && (!showAll) && array.length > (area - 1)) fragment.append(showAllLink);
-  showAll = false;
-  container.append(fragment);
-});
-var switchPage = (function(page) {
-  dom.html.className = view = page;
-  filterView();
+  if (!showAll && array.length >= area) fragment.append(showAllLink);
+  containerElement.clear();
+  containerElement.append(fragment);
 });
 dom.on("load", (function() {
-  dom.queryAll("[data-src]").forEach((function(a) {
-    a.src = imagePath + a.getAttribute("data-src");
+  dom.queryAll("[data-src]").forEach((function(i) {
+    i.src = imagePath + i.getAttribute("data-src");
   }));
 }));
 var cover = dom("div", {"class": "cover"}, dom("iframe", {src: "faq"})).on("click", (function(e) {
@@ -237,21 +210,10 @@ dom.query("#faq").on("click", (function(e) {
   e.preventDefault();
   dom.body.append(cover);
 }));
-input.on("input", (function(e) {
-  filterView(input.value);
-}));
-inputForm.on("submit", (function(e) {
-  history.pushState("", "", "?search=" + input.value);
+inputElement.on("input", filterView);
+inputFormElement.on("submit", (function(e) {
+  history.pushState("", "", "?search=" + inputElement.value);
   e.preventDefault();
 }));
-(function(t, page) {
-  t = window.location.pathname.substr(1);
-  page = views[t] ? t: "templates";
-  switchPage(page);
-  getQueryVariable = function(a) {
-    return (RegExp("[&?]" + a + "=([^&]+)").exec(location) || ["", ""])[1] || "";
-  };
-  var query = getQueryVariable("search");
-  input.value = query;
-  filterView(query);
-})();
+inputElement.value = getQueryVariable("search");
+filterView();

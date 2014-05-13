@@ -69,23 +69,7 @@ mapObject=function(o,f){
 	return o
 };
 
-//https://github.com/addyosmani/memoize.js/blob/master/memoize.js
-
-(function (global) {
-    "use strict";
-    global.memoize = global.memoize || (typeof JSON === 'object' && typeof JSON.stringify === 'function' ?
-        function (func) {
-            var stringifyJson = JSON.stringify,
-                cache = {};
-
-            return function () {
-                var hash = stringifyJson(arguments);
-                return (hash in cache) ? cache[hash] : cache[hash] = func.apply(this, arguments);
-            };
-        } : function (func) {
-            return func;
-        });
-}(this));
+getQueryVariable = function(a){return(RegExp("[&?]"+a+"=([^&]+)").exec(location)||["",""])[1]||""};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,13 +79,12 @@ mapObject=function(o,f){
 
 
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
-	,input = dom.query("#input")
-	,inputForm = dom.query("#inputform")
-	,container = dom.query("#container")
-	,showAll = false
+	,inputElement     = dom.query("#input")
+	,inputFormElement = dom.query("#inputform")
+	,containerElement = dom.query("#container")
 	,showAllLink =
 		dom("a","show all")
-			.on("click", e=>{ e.preventDefault(); showAll=true; filterView(input.value) })
+			.on("click", e=>{ e.preventDefault(); filterView({showAll:true}) })
 
 	,area = 25
 	,linkTemplate = (link,text,tags)=>
@@ -118,92 +101,117 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-views=mapObject(views,(a,b)=>{
 
-	var textProcessor=a.processor||(t=>t+"")
-	a.forEach(i=>{
-		var  rawURL=i[0]
-			,rawText=i[1]
-			,tags=i[2]||""
-			,buyURL=a.buyPath+rawURL+a.buySuffix;
-		i.prettyText = textProcessor(rawText)
-		i.node = linkTemplate(buyURL,i.prettyText,tags)
-		i.imageURL = imagePath+rawText+(a.imageSuffix||".png")
-		i.imageLoaded = false
-		i.searchText = i.prettyText.replace("\n"," ")
-		i.searchText = i.searchText+i.searchText.replace("-","")+i.searchText.replace("-"," ") //add no dash variant
-		i.searchText = i.searchText+" "+tags
-	})
-	a.menu=dom.query(`menu.${b}`)
-	return a
+
+templates.forEach(item=>{
+
+	var  rawURL  = item[0]
+		,rawText = item[1]
+		,tags    = item[2]||""
+		,buyURL  = templates.buyPath+rawURL+templates.buySuffix;
+
+	item.prettyText	 = templates.processor(rawText)
+	item.node 		 = linkTemplate(buyURL,item.prettyText,tags)
+	item.imageURL 	 = imagePath+rawText+(templates.imageSuffix||".png")
+	item.imageLoaded = false
+	item.searchText  = item.prettyText.replace("\n"," ")
+	item.searchText  = item.searchText+item.searchText.replace("-","")+item.searchText.replace("-"," ")
+	item.searchText  = item.searchText+" "+tags
 })
 
+templates.menu = dom.query("menu.templates")
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//ACTUAL CODE
+//SEARCH SYSTEM
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var searchFilter = (view,keyword,reverse)=>{
+var searchFilter = (keyword,reverse,showAll)=>{
+
 	keyword = new RegExp(keyword,"i")
 	reverse|= 0
-	return array=views[view]
-		.filter( (item,index)=> (keyword.test(item.searchText)^reverse)  )
-		.filter( (item,index)=> (view==="templates"?(showAll||index<area):true) )
+	var filter = i=>(
+		keyword.test(i)^reverse
+	)
+	var array=templates.filter(filter)
+	if(!showAll)
+		array=array.slice(0,area)
+	return array
 }
 
-var search=(...a)=>{
-	var  array=searchFilter(...a)
-		,fragment=dom.fragment()
-	array.forEach((item,index)=>{
-		if(!item.imageLoaded)                          //test if image is loaded (very important for perf!!!)
-			 item.node.firstChild.src=item.imageURL   //add image src
-			,item.imageLoaded=true
-		fragment.append(item.node)              //add element to fragment
+var filterView=(args={})=>{
+
+	var{showAll,keyword,reverse}=args
+
+	keyword=keyword||inputElement.value
+
+	var  array    = searchFilter(keyword,reverse,showAll)
+		,fragment = dom.fragment()
+
+	array.forEach(i=>{
+
+		if(i.imageLoaded===false)               //test if image is loaded (very important for perf!!!)
+			 i.node.firstChild.src=i.imageURL   //add image src
+			,i.imageLoaded=true
+
+		fragment.append(i.node)              //add element to fragment
 	})
-	return{fragment,array}
+	if(!showAll&&array.length>=area)
+		fragment.append(showAllLink)
+
+	containerElement.clear()
+	containerElement.append(fragment)
 }
 
-var filterView=(keyword,reverse)=>{
-
-	container.clear()
-
-	var {fragment,array}=search(view,keyword,reverse)
-	if( view==="templates"
-		&&(!showAll)
-		&&array.length>(area-1)
-	)fragment.append(showAllLink)
-	
-	showAll=false
-
-	container.append(fragment)
-}
-
-var switchPage=page=>{
-	dom.html.className=view=page
-	filterView()
-}
-
-//pjax nav
-/*
-dom.query("nav").on("click",e=>{
-	var page=e.target.getAttribute("href")
-	if(page)
-		e.preventDefault(), history.pushState("","",page), switchPage(page)
-},false)
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//OTHER STUFF
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //s3 lazy images
 dom.on("load",()=>{
-	dom.queryAll("[data-src]").forEach( a=>{a.src=imagePath+a.getAttribute("data-src")} )
+	dom.queryAll("[data-src]")
+		.forEach(i=>{
+			i.src=imagePath+i.getAttribute("data-src")
+		})
 })
 
 //faq cover
-var cover=dom("div",{"class":"cover"}
-		,dom("iframe",{src:"faq"})
-	).on("click",e=>{ e.preventDefault(); cover.remove() } )
+var cover=dom(
+	 "div"
+	,{"class":"cover"}
+	,dom("iframe",{src:"faq"})
+)
+	.on("click",e=>{
+		e.preventDefault()
+		cover.remove()
+	})
 
-dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
+dom.query("#faq")
+	.on("click",e=>{
+		e.preventDefault()
+		dom.body.append(cover)
+	})
+
+//template menu
+
+inputElement
+	.on("input",filterView)
+
+inputFormElement
+	.on("submit",e=>{
+		history.pushState("","","?search="+inputElement.value);
+		e.preventDefault()
+	})
+
+//setup
+
+inputElement.value = getQueryVariable("search")
+filterView()
+
 
 
 //build categorised pages menu
@@ -228,21 +236,3 @@ dom.query("#faq").on("click",e=>{ e.preventDefault(); dom.body.append(cover) } )
 	})
 })
 */
-
-//template menu
-input.on("input",e=>{filterView(input.value)});
-inputForm.on("submit",e=>{history.pushState("","","?search="+input.value);e.preventDefault()});
-
-
-//setup
-(function(t,page){
-	t=window.location.pathname.substr(1);
-	page=views[t]?t:"templates";
-
-	switchPage(page);
-	getQueryVariable = function(a){return(RegExp("[&?]"+a+"=([^&]+)").exec(location)||["",""])[1]||""};
-	var query=getQueryVariable("search");
-	input.value=query;
-	filterView(query);
-})();
-
