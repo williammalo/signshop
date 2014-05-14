@@ -115,7 +115,7 @@ templates.forEach(item=>{
 	item.imageURL 	 = imagePath+rawText+(templates.imageSuffix||".png")
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n"," ")
-	item.searchText  = item.searchText+item.searchText.replace("-","")+item.searchText.replace("-"," ")
+	item.searchText  = item.searchText+item.searchText.replace(/‑/g,"")+item.searchText.replace(/‑/g," ")+item.searchText.replace(/‑/g,"-")
 	item.searchText  = item.searchText+" "+tags
 })
 
@@ -133,7 +133,7 @@ var searchFilter = (keyword,reverse,showAll)=>{
 	keyword = new RegExp(keyword,"i")
 	reverse|= 0
 	var filter = i=>(
-		keyword.test(i)^reverse
+		keyword.test(i.searchText)^reverse
 	)
 	var array=templates.filter(filter)
 	if(!showAll)
