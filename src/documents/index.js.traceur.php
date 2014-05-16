@@ -36,6 +36,7 @@ var dom
 	};
 
 	dom=function(a,b){
+	  if(a==="br")return document.createElement("br");//dumb ie bug fix
 	  var e=arguments, l=e.length, c, i=1,
 	  element = document.createElement(a)
 	  
@@ -108,15 +109,18 @@ templates.forEach(item=>{
 	var  rawURL  = item[0]
 		,rawText = item[1]
 		,tags    = item[2]||""
-		,buyURL  = templates.buyPath+rawURL+templates.buySuffix;
+		,buyURL  = templates.buyPath + rawURL + templates.buySuffix
 
 	item.prettyText	 = templates.processor(rawText)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags)
-	item.imageURL 	 = imagePath+rawText+(templates.imageSuffix||".png")
+	item.imageURL 	 = imagePath + rawText + (templates.imageSuffix||".png")
 	item.imageLoaded = false
-	item.searchText  = item.prettyText.replace("\n"," ")
-	item.searchText  = item.searchText+item.searchText.replace(/‑/g,"")+item.searchText.replace(/‑/g," ")+item.searchText.replace(/‑/g,"-")
-	item.searchText  = item.searchText+" "+tags
+	item.searchText  = item.prettyText.replace("\n", " ")
+	item.searchText  = item.searchText 
+					 + item.searchText.replace(/‑/g, "" )
+					 + item.searchText.replace(/‑/g, " ")
+					 + item.searchText.replace(/‑/g, "-")
+	item.searchText  = item.searchText + " " + tags
 })
 
 templates.menu = dom.query("menu.templates")
