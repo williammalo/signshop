@@ -45,7 +45,7 @@ var dom
 	      element.setAttribute(c, b[c])
 	    ,i=2
 
-	  for(;i<l;i++) element.append(e[i]) 
+	  for(;i<l;i++) element.append(e[i])
 
 	  return constr(element)
 	}
@@ -70,7 +70,15 @@ mapObject=function(o,f){
 	return o
 };
 
-getQueryVariable = function(a){return(RegExp("[&?]"+a+"=([^&]+)").exec(location)||["",""])[1]||""};
+getQueryVariable = function(a){
+	return unescape(
+		(
+			RegExp("[&?]"+a+"=([^&]+)")
+				.exec(location)
+				||["",""]
+		)[1]||""
+	)
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -80,14 +88,13 @@ getQueryVariable = function(a){return(RegExp("[&?]"+a+"=([^&]+)").exec(location)
 
 
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
+	,area 	   = 25
 	,inputElement     = dom.query("#input")
 	,inputFormElement = dom.query("#inputform")
 	,containerElement = dom.query("#container")
 	,showAllLink =
 		dom("a","show all")
 			.on("click", e=>{ e.preventDefault(); filterView({showAll:true}) })
-
-	,area = 25
 	,linkTemplate = (link,text,tags)=>
 		dom("a",{target:"paypal",href:link}
 			,dom("img")
@@ -132,41 +139,48 @@ templates.menu = dom.query("menu.templates")
 //SEARCH SYSTEM
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var searchFilter = (keyword,reverse,showAll)=>{
 
-	keyword = new RegExp(keyword,"i")
-	reverse|= 0
-	var filter = i=>(
-		keyword.test(i.searchText)^reverse
+var searchMatches = (keyword,target)=>{
+	var keywordList = keyword
+			.split(" ")
+			.map(a=>RegExp(a,"i"))
+
+	return keywordList.every(a=>a.test(target))
+}
+
+var searchFilter = (keyword,reverse,showAll)=>{
+	var array = templates.filter(
+		i=>searchMatches(keyword,i.searchText)^reverse
 	)
-	var array=templates.filter(filter)
+
 	if(!showAll)
-		array=array.slice(0,area)
+		array = array.slice(0,area)
+
 	return array
 }
 
-var filterView=(args={})=>{
+var filterView = (args={})=>{
+	var{showAll,keyword,reverse} = args
 
-	var{showAll,keyword,reverse}=args
-
-	keyword=keyword||inputElement.value
+	keyword = keyword||inputElement.value
 
 	var  array    = searchFilter(keyword,reverse,showAll)
 		,fragment = dom.fragment()
 
 	array.forEach(i=>{
-
-		if(i.imageLoaded===false)               //test if image is loaded (very important for perf!!!)
-			 i.node.firstChild.src=i.imageURL   //add image src
-			,i.imageLoaded=true
+		if(!i.imageLoaded)               //test if image is loaded (very important for perf!!!)
+			 i.node.firstChild.src = i.imageURL //load image
+			,i.imageLoaded 		   = true 		//cache that the image was loaded
 
 		fragment.append(i.node)              //add element to fragment
 	})
+
 	if(!showAll&&array.length>=area)
 		fragment.append(showAllLink)
 
-	containerElement.clear()
-	containerElement.append(fragment)
+	containerElement
+		.clear()
+		.append(fragment)
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -175,11 +189,11 @@ var filterView=(args={})=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//s3 lazy images
+//lazy images
 dom.on("load",()=>{
 	dom.queryAll("[data-src]")
 		.forEach(i=>{
-			i.src=imagePath+i.getAttribute("data-src")
+			i.src = imagePath+i.getAttribute("data-src")
 		})
 })
 
