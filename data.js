@@ -1,5 +1,6 @@
 var templates=[
  ["bohghozu","Toyota Rav-4 2014-uptodate","suv"]
+,["cmhoorae","Toyota Camry 2012-uptodate","car"] //SKU	00581
 ,["uyahchey","Ford Fusion 2013-uptodate","car"]
 ,["mquiraep","Jeep Cherokee 2014-uptodate","suv"]
 ,["ohjesoth","Toyota Rav-4 2013","suv"]
