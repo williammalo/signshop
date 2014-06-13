@@ -1,5 +1,5 @@
 
-var templates=[
+var SSHData=[
  ["bohghozu","Toyota Rav-4 2014-uptodate","suv"]
 ,["cmhoorae","Toyota Camry 2012-uptodate","car"] //SKU	00581
 ,["uyahchey","Ford Fusion 2013-uptodate","car"]
@@ -631,10 +631,10 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 
 //elements.defaultKeyword="slogan";
 
-templates.imageSuffix=".jpg";
-templates.processor=t=>{
+SSHData.imageSuffix=".jpg";
+SSHData.processor=t=>{
 	var r="replace",now=(new Date).getFullYear()+"";
-	return t[r](/uptodate/i,now)              //automatically update uptodate templates to current year
+	return t[r](/uptodate/i,now)              //automatically update uptodate template to current year
 			[r](" slash "," / ")              //add slashes
 			[r](/(20\d\d-20\d\d)/,"\n$1")     //put year range on newline
 			[r](/( 20\d\d)/,"\n$1")           //put lonely year on newline
@@ -658,13 +658,13 @@ templates.processor=t=>{
 
 //logos.buyPath = "http://www.payloadz.com/go/sip?id="
 //elements.buyPath = "http://www.payloadz.com/go/sip?id="
-templates.buyPath = "http://signshophelper.fetchapp.com/sell/"
+SSHData.buyPath = "http://signshophelper.fetchapp.com/sell/"
 //graphics.buyPath = "http://www.payloadz.com/go/sip?id="
 
 //logos.buySuffix = ""
 //elements.buySuffix = ""
-templates.buySuffix = "/ppc"
+SSHData.buySuffix = "/ppc"
 //graphics.buySuffix = ""
 
-//var views = { logos, elements, templates, graphics },view
-var views = { templates },view
+//var views = { logos, elements, SSHData, graphics },view
+var views = { SSHData },view

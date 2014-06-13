@@ -14,10 +14,10 @@ return Object(value)
 
 
 /* dom 4 shim */
-;(function(e){function t(e){return typeof e=="string"?i.createTextNode(e):e}function n(e){if(e.length===1)return t(e[0]);for(var n=i.createDocumentFragment(),r=u.call(e),s=0;s<e.length;s++)n.appendChild(t(r[s]));return n}for(var r,i=e.document,s=(e.Node||e.HTMLDocument||e.HTMLElement).prototype,o=["prepend",function(){var t=this.firstChild,r=n(arguments);t?this.insertBefore(r,t):this.appendChild(r)},"append",function(){this.appendChild(n(arguments))},"before",function(){var t=this.parentNode;t&&t.insertBefore(n(arguments),this)},"after",function(){var t=this.parentNode,r=this.nextSibling,i=n(arguments);t&&(r?t.insertBefore(i,r):t.appendChild(i))},"replace",function(){var t=this.parentNode;t&&t.replaceChild(n(arguments),this)},"remove",function(){var t=this.parentNode;t&&t.removeChild(this)}],u=o.slice,a=o.length;a;a-=2)r=o[a-2],r in s||(s[r]=o[a-1])})(window);
+   ;(function(e){function t(e){return typeof e=="string"?i.createTextNode(e):e}function n(e){if(e.length===1)return t(e[0]);for(var n=i.createDocumentFragment(),r=u.call(e),s=0;s<e.length;s++)n.appendChild(t(r[s]));return n}for(var r,i=e.document,s=(e.Node||e.HTMLDocument||e.HTMLElement).prototype,o=["prepend",function(){var t=this.firstChild,r=n(arguments);t?this.insertBefore(r,t):this.appendChild(r)},"append",function(){this.appendChild(n(arguments))},"before",function(){var t=this.parentNode;t&&t.insertBefore(n(arguments),this)},"after",function(){var t=this.parentNode,r=this.nextSibling,i=n(arguments);t&&(r?t.insertBefore(i,r):t.appendChild(i))},"replace",function(){var t=this.parentNode;t&&t.replaceChild(n(arguments),this)},"remove",function(){var t=this.parentNode;t&&t.removeChild(this)}],u=o.slice,a=o.length;a;a-=2)r=o[a-2],r in s||(s[r]=o[a-1])})(window);
 //ie8 fix
 if(!window.Node)
-	(function(e){function t(e){return typeof e=="string"?i.createTextNode(e):e}function n(e){if(e.length===1)return t(e[0]);for(var n=i.createDocumentFragment(),r=u.call(e),s=0;s<e.length;s++)n.appendChild(t(r[s]));return n}for(var r,i=e.document,s=(e.Element).prototype,o=["prepend",function(){var t=this.firstChild,r=n(arguments);t?this.insertBefore(r,t):this.appendChild(r)},"append",function(){this.appendChild(n(arguments))},"before",function(){var t=this.parentNode;t&&t.insertBefore(n(arguments),this)},"after",function(){var t=this.parentNode,r=this.nextSibling,i=n(arguments);t&&(r?t.insertBefore(i,r):t.appendChild(i))},"replace",function(){var t=this.parentNode;t&&t.replaceChild(n(arguments),this)},"remove",function(){var t=this.parentNode;t&&t.removeChild(this)}],u=o.slice,a=o.length;a;a-=2)r=o[a-2],r in s||(s[r]=o[a-1])})(window);
+	(function(e){function t(e){return typeof e=="string"?i.createTextNode(e):e}function n(e){if(e.length===1)return t(e[0]);for(var n=i.createDocumentFragment(),r=u.call(e),s=0;s<e.length;s++)n.appendChild(t(r[s]));return n}for(var r,i=e.document,s=(e.Element                            ).prototype,o=["prepend",function(){var t=this.firstChild,r=n(arguments);t?this.insertBefore(r,t):this.appendChild(r)},"append",function(){this.appendChild(n(arguments))},"before",function(){var t=this.parentNode;t&&t.insertBefore(n(arguments),this)},"after",function(){var t=this.parentNode,r=this.nextSibling,i=n(arguments);t&&(r?t.insertBefore(i,r):t.appendChild(i))},"replace",function(){var t=this.parentNode;t&&t.replaceChild(n(arguments),this)},"remove",function(){var t=this.parentNode;t&&t.removeChild(this)}],u=o.slice,a=o.length;a;a-=2)r=o[a-2],r in s||(s[r]=o[a-1])})(window);
 
 var dom
 ;(function(){
@@ -64,13 +64,14 @@ var dom
 
 })();
 
-mapObject=function(o,f){
+var mapObject=(o,ƒ)=>{
+	var n = {}
 	Object.keys(o)
-		.forEach(v=>{o[v] = f(o[v],v)})
-	return o
+		.forEach(v=>{n[v] = ƒ(o[v],v)})
+	return n
 };
 
-getQueryVariable = function(a){
+var getQueryVariable = function(a){
 	return unescape(
 		(
 			RegExp("[&?]"+a+"=([^&]+)")
@@ -79,6 +80,33 @@ getQueryVariable = function(a){
 		)[1]||""
 	)
 };
+
+var mergeObject=function(a,b){
+	for(var i in b)
+		a[i] = b[i]
+	return a
+};
+
+var addMethods = (a,b)=>{
+	for(var i in b)
+		a.prototype[i] = b[i]
+}
+
+Array.prototype.fastFilter = function(callback) {
+	var result = [];
+
+	var  index = -1
+		,length = this.length
+		,value
+
+	while (++index < length) {
+		value = this[index];
+		if (callback(value, index, this))
+			result.push(value)
+	  
+	}
+	return result
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -94,7 +122,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,containerElement = dom.query("#container")
 	,showAllLink =
 		dom("a","show all")
-			.on("click", e=>{ e.preventDefault(); filterView({showAll:true}) })
+			.on("click", e=>{ e.preventDefault(); SSHSearch({showAll:true}) })
 	,linkTemplate = (link,text,tags)=>
 		dom("a",{target:"paypal",href:link}
 			,dom("img")
@@ -109,18 +137,16 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-templates.forEach(item=>{
+SSHData.forEach(item=>{
 
 	var  rawURL  = item[0]
 		,rawText = item[1]
 		,tags    = item[2]||""
-		,buyURL  = templates.buyPath + rawURL + templates.buySuffix
+		,buyURL  = SSHData.buyPath + rawURL + SSHData.buySuffix
 
-	item.prettyText	 = templates.processor(rawText)
+	item.prettyText	 = SSHData.processor(rawText)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags)
-	item.imageURL 	 = imagePath + rawText + (templates.imageSuffix||".png")
+	item.imageURL 	 = imagePath + rawText + (SSHData.imageSuffix||".png")
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n", " ")
 	item.searchText  = item.searchText 
@@ -130,9 +156,7 @@ templates.forEach(item=>{
 	item.searchText  = item.searchText + " " + tags
 })
 
-templates.menu = dom.query("menu.templates")
-
-
+SSHData.menu = dom.query("menu.templates")
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +164,9 @@ templates.menu = dom.query("menu.templates")
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var searchMatches = (keyword,target)=>{
+var match = (keyword,target)=>{
+	if(keyword==="")
+		return true
 	var keywordList = keyword
 			.split(" ")
 			.map(a=>RegExp(a,"i"))
@@ -148,27 +174,24 @@ var searchMatches = (keyword,target)=>{
 	return keywordList.every(a=>a.test(target))
 }
 
-var searchFilter = (keyword,reverse,showAll)=>{
-	var array = templates.filter(
-		i=>searchMatches(keyword,i.searchText)^reverse
-	)
+var SSHFilter = (keyword,reverse,showAll)=>{
+	var  _match   = i=>match(keyword,i.searchText)^reverse
+		,array    = SSHData.fastFilter(_match) //fastFilter method is very important for perf
 
-	if(!showAll)
-		array = array.slice(0,area)
+	if(!showAll&&array.length>area)
+		array.length = area
 
 	return array
 }
 
-var filterView = (args={})=>{
-	var{showAll,keyword,reverse} = args
+var SSHSearch = (args={})=>{
+	var {showAll,keyword=inputElement.value,reverse} = args
 
-	keyword = keyword||inputElement.value
-
-	var  array    = searchFilter(keyword,reverse,showAll)
+	var  array    = SSHFilter(keyword,reverse,showAll)
 		,fragment = dom.fragment()
 
 	array.forEach(i=>{
-		if(!i.imageLoaded)               //test if image is loaded (very important for perf!!!)
+		if(!i.imageLoaded)               		//test if image is loaded (very important for perf!!!)
 			 i.node.firstChild.src = i.imageURL //load image
 			,i.imageLoaded 		   = true 		//cache that the image was loaded
 
@@ -190,14 +213,16 @@ var filterView = (args={})=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //lazy images
+
 dom.on("load",()=>{
 	dom.queryAll("[data-src]")
 		.forEach(i=>{
-			i.src = imagePath+i.getAttribute("data-src")
+			i.src = imagePath + i.getAttribute("data-src")
 		})
 })
 
 //faq cover
+
 var cover=dom(
 	 "div"
 	,{"class":"cover"}
@@ -217,7 +242,7 @@ dom.query("#faq")
 //template menu
 
 inputElement
-	.on("input",filterView)
+	.on("input",SSHSearch)
 
 inputFormElement
 	.on("submit",e=>{
@@ -228,29 +253,4 @@ inputFormElement
 //setup
 
 inputElement.value = getQueryVariable("search")
-filterView()
-
-
-
-//build categorised pages menu
-/*
-;["logos","elements","graphics"].forEach(foo=>{
-	
-	var viewI=views[foo]
-
-	viewI.categories.forEach(b=>{
-		var a=dom("a",{"data-category":b[0]},b[1])
-		if(b[2])a.setAttribute("data-reverse","")
-		viewI.menu.append(a)
-	})
-	viewI.menu.on("click",e=>{
-		var  t=e.target;
-
-		if(t.hasAttribute("data-category"))
-			filterView(
-				 t.getAttribute("data-category")
-				,t.hasAttribute("data-reverse")
-			)
-	})
-})
-*/
+SSHSearch()
