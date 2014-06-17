@@ -166,7 +166,7 @@ SSHData.menu = dom.query("menu.templates")
 
 var match = (keyword,target)=>{
 	if(keyword==="")
-		return true
+		return true  //for perf
 	var keywordList = keyword
 			.split(" ")
 			.map(a=>RegExp(a,"i"))
