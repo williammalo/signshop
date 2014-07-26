@@ -116,7 +116,7 @@ Array.prototype.fastFilter = function(callback) {
 
 
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
-	,area 	   = 25
+	,area 	   = 15
 	,inputElement     = dom.query("#input")
 	,inputFormElement = dom.query("#inputform")
 	,containerElement = dom.query("#container")
