@@ -156,8 +156,6 @@ SSHData.forEach(item=>{
 	item.searchText  = item.searchText + " " + tags
 })
 
-SSHData.menu = dom.query("menu.templates")
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //SEARCH SYSTEM
@@ -187,16 +185,17 @@ var SSHFilter = (keyword,reverse,showAll)=>{
 var SSHSearch = (args={})=>{
 	var {showAll,keyword=inputElement.value,reverse} = args
 
-	var  array    = SSHFilter(keyword,reverse,showAll)
-		,fragment = dom.fragment()
+	var  array       = SSHFilter(keyword,reverse,showAll)
+		,fragment    = dom.fragment()
+		,popFragment = i=>{
+			if(!i.imageLoaded)               		//test if image is loaded (very important for perf!!!)
+				 i.node.firstChild.src = i.imageURL //load image
+				,i.imageLoaded 		   = true 		//cache that the image was loaded
 
-	array.forEach(i=>{
-		if(!i.imageLoaded)               		//test if image is loaded (very important for perf!!!)
-			 i.node.firstChild.src = i.imageURL //load image
-			,i.imageLoaded 		   = true 		//cache that the image was loaded
-
-		fragment.append(i.node)              //add element to fragment
-	})
+			fragment.append(i.node)              	//add element to fragment
+		}
+	
+	array.forEach(popFragment)
 
 	if(!showAll&&array.length>=area)
 		fragment.append(showAllLink)
@@ -239,7 +238,7 @@ dom.query("#faq")
 		dom.body.append(cover)
 	})
 
-//template menu
+//searchbox
 
 inputElement
 	.on("input",SSHSearch)

@@ -3,43 +3,38 @@
 retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
 
 @font-face
-	font-family: 'Ubuntu';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Ubuntu'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v4/vRvZYZlUaogOuHbBTT1SNevvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+	font-family: Ubuntu
+	font-style: normal
+	font-weight: 400
+	src: local('Ubuntu'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v4/vRvZYZlUaogOuHbBTT1SNevvDin1pK8aKteLpeZ5c0A.woff) format('woff')
 
 @font-face
-	font-family: 'Ubuntu';
-	font-style: normal;
-	font-weight: 700;
-	src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v4/0ihfXUL2emPh0ROJezvraLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+	font-family: Ubuntu
+	font-style: normal
+	font-weight: 700
+	src: local('Ubuntu Bold'), local('Ubuntu-Bold'), url(http://themes.googleusercontent.com/static/fonts/ubuntu/v4/0ihfXUL2emPh0ROJezvraLO3LdcAZYWl9Si6vvxL-qU.woff) format('woff')
 
-
-@keyframes shake
-	0%
-		transform: translateX(0)
-		color:red
-	10%, 30%, 50%, 70%
-		transform: 	translateX(-10px)
-	20%, 40%, 60%
-		transform:	translateX(10px)
-	80%
-		transform: translateX(0)
-		color:red
-	100%
-		color:rgba(#000,.7)
-
-:checked~strong.popup
-	animation-name: shake
-	animation-duration: 1s
-	animation-fill-mode: both
-
-
-*
+*, :before, :after
 	box-sizing:     border-box
 	text-rendering: optimizeLegibility
+
+/* colors */
+
+sun(a,b)
+	rgb(red(a)+b,green(a)+b,blue(a))
+
+brand=#83c61a #bd000c #2eb3ed #ee9908
+
+brand[1]=lighten(desaturate(#9300cf,20%),20%)
+
+light=tint(sun(brand[0],8),15%) tint(sun(brand[1],8),15%) tint(sun(brand[2],8),15%) tint(sun(brand[3],8),15%)
+
+xlight=tint(sun(light[0],8),65%) tint(sun(light[1],8),65%) tint(sun(light[2],8),65%) tint(sun(light[3],8),65%)
+
+dark=(brand[0]*0.95) (brand[1]*0.95) (brand[2]*0.95) (brand[3]*0.95)
+
 html,input
-	font-family:Ubuntu,sans-serif
+	font-family:Ubuntu, Helvetica Neue, Helvetica, sans-serif
 html
 	color:rgba(#000,.7)
 	line-height:1.4em
@@ -47,12 +42,9 @@ html
 	font-size:16px //force font size in mobile webkit
 	-webkit-text-size-adjust: 100% //force font size in mobile webkit
 
-
 body
 	margin:0
 
-html,body
-	min-height: 100%
 .pad
 	display:inline-block
 	padding-right:3em
@@ -60,33 +52,26 @@ img
 	max-width: 100%
 	border: none
 ul
-	margin:1em 0
 	padding-left:1.1em
-	max-width:35em
 
 figure
 	width:310px
-	display:inline-block
+	height:151px
+	background:#fff
 	float:right
 	margin:0
-	overflow:hidden
-	background:#fff
 	position:relative
-	//box-shadow:0 1px 5px rgba(#000,.5)
-	&:before
-		content:""
-		display:block
-		padding-top:45%
 
 figure img
 	position:absolute
-	width:100%
 	top:0
 	left:0
 
 @keyframes s
-	0%,22.67%,100%{opacity: 0}
-	19.67%,3%{opacity: 1}
+	0%,22.67%,100%
+		opacity: 0
+	19.67%,3%
+		opacity: 1
 
 .slide img{opacity:0}
 .slide img:nth-child(1){animation:s 24s    infinite}
@@ -101,16 +86,15 @@ header
 	position:relative
 
 
-h1,#cart,#mail
+h1, #cart, #mail
 	color:#fff
 h1
 	margin:0
-	line-height:1em
 	//padding:.5rem 1rem ie!!!!
 	padding:7px 16px
-	//text-shadow:2px 2px 3px rgba(#000,.4)
 	img
 		width:26px
+		height:58px
 		margin-right:.4em
 		vertical-align:middle
 	span
@@ -121,9 +105,6 @@ h1
 	font-size:.62em
 	top:0
 	padding:1em 0
-	z-index:1
-	cursor:pointer
-	line-height:1em
 	min-width:16px
 	height:36px
 
@@ -151,17 +132,14 @@ h1
 	display:inline-block
 #mail:hover
 	background:none
-#mail:before
-	position:relative
 #mail:hover:before
 	content:"Subscribe to our newsletter for a free template!"
 	display:inline-block
 	padding-right:1em
+#subscribed:target #mail
+	background:none
 #subscribed:target #mail:before
 	content:"We sent you an email to validate your subscription."
-	display:inline-block
-	top:.4em
-	padding-right:0 !important
 #subscribed:target #mail *
 	display:none
 
@@ -173,12 +151,9 @@ nav
 	position:absolute
 	bottom:-1px
 	right:0
-	direction:rtl
-	padding-right:.3em
 	a
 		position:relative
 		margin-right:17px
-		//width:10em
 		display:inline-block
 		direction:ltr
 		padding:7px 1px 9px 1px
@@ -195,41 +170,27 @@ nav
 	top:0
 	right:-34px
 .tab:nth-child(1){left:-20px}
-svg path{stroke:none;}
 
-.logos nav [href=logos]
-.elements nav [href=elements]
-.templates nav [href=templates]
-.graphics nav [href=graphics]
-	z-index:1
+/* end nav */
+/* start infobox */
 
-/* end nav*/
-
-aside
+.infobox
 	padding:1em
-	//box-shadow:0 -5px 10px rgba(#000,.2)
-	position:relative
 
-aside a,aside .more,footer a
+.infobox a,.infobox .more
 	color:#fff
 
 .paypal
 	height:25px
+	width:98px
 	vertical-align:middle
 
 .popup
 	display:none
-:checked~ul
-	display:block
-:checked~figure
-	display:inline-block !important
-:checked~.popup
+#tmore:checked~div .popup
 	display:block
 input.more
-	visibility:hidden
-	margin:0
-	width:0
-	position:absolute
+	display:none
 label.more
 	cursor:pointer
 	display:block
@@ -237,10 +198,31 @@ label.more
 	height:16px
 	background:url(plus.png) no-repeat
 	background-size:16px 16px
+	transform:rotate(0deg)
 	transition:.5s
 
-:checked~label.more
+#tmore:checked~div label.more
 	transform:rotate(45deg)
+
+@keyframes shakered
+	0%
+		transform: translateX(0)
+		color:red
+	10%, 30%, 50%, 70%
+		transform: 	translateX(-10px)
+	20%, 40%, 60%
+		transform:	translateX(10px)
+	80%
+		transform: translateX(0)
+		color:red
+	100%
+		color:rgba(#000,.7)
+
+#tmore:checked~div .popup strong
+	animation: shakered 1s
+	display:block
+
+/* end infobox */
 
 @keyframes zoom
 	from
@@ -274,22 +256,45 @@ label.more
 		left:20%
 		animation:zoom .5s
 
-body>menu
-	display:block
-	text-align:center
-	padding:0
+@keyframes bounceIn
+	0%, 40%, 80%, 100%
+		transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000)
+	0%
+		opacity: 0
+		transform: scale3d(.3, .3, .3)
+	40%
+		transform: scale3d(1.1, 1.1, 1.1)
+	80%
+		transform: scale3d(1, 1, 1)
+	100%
+		opacity: 1
 
+#inputform
+	text-align:center
 #input
 	font-size:1.4em
 	padding:.3em .6em
 	width:12em
-	margin:1em 0
+	margin:2em 0
 	border-radius:1.1em
 	border:none
 	background:#fff url(search.png) center right no-repeat
 	background-size:32px 24px
+	outline: none
+	animation:bounceIn .5s
 #input::-ms-clear
 	display: none
+
+#input:focus
+	box-shadow: 0 0 0 .1em brand[2]
+#input:focus::-webkit-input-placeholder
+	color:dark[2]
+#input:focus:-moz-placeholder
+	color:dark[2]
+#input:focus::-moz-placeholder
+	color:dark[2]
+#input:focus:-ms-input-placeholder
+	color:dark[2]
 
 #container a
 	display:inline-block
@@ -306,94 +311,42 @@ body>menu
 	padding:0 1em
 	column-width:320px
 	column-gap:1em
-	margin-bottom:-3em
 
-.templates #container a img
+#container a img
 	width:150px
 	float:right
 	margin-left:1em
 
 .ie #container a
-	width:200px
-	margin-right:1em
-
-.templates .ie #container a
 	width:320px
-
-/*
-footer
-	text-align:center
-	padding:2em
-	padding-top:5em
-	padding-bottom:1em
-	.txt
-		display:inline-block
-		padding:0 2em
-		padding-bottom:1em
-*/
-
-brand1=#83c61a
-brand2=#bd000c
-brand3=#2eb3ed
-brand4=#ee9908
-
-brand2=lighten(desaturate(#9300cf,20%),20%)
-
-lb1=lighten(brand1,10%)
-lb2=lighten(brand2,10%)
-lb3=lighten(brand3,10%)
-lb4=lighten(brand4,10%)
-
-light1=rgb(red(lb1)+10,green(lb1),blue(lb1))
-light2=rgb(red(lb2),green(lb2)+10,blue(lb2))
-light3=rgb(red(lb3),green(lb3)+10,blue(lb3))
-light4=rgb(red(lb4),green(lb4)+10,blue(lb4))
-
-xlight1=lighten(light1,15%)
-xlight2=lighten(light2,6%)
-xlight3=lighten(light3,25%)
-xlight4=lighten(light4,25%)
-
-
-xlight=xlight1 xlight2 xlight3 xlight4
-light=light1 light2 light3 light4
-brand=brand1 brand2 brand3 brand4
+	margin-right:1em
 
 #mail input[type=submit]
 	background:brand[2]
 
 nav [href=templates]
 	background:light[2]
-	border-top-color:xlight[2]
 	.tab path
 		fill:light[2]
-	.border path
-		fill:xlight[2]
-nav [href=templates]
-	border:none
-	.border
-		display:none
 
-aside
+.infobox
 	i=2
-	//border-top:solid 1px xlight[i]
 	background:light[i]
-	//background:url(s("bak%s.png",i+1)) center right no-repeat ,linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
-	background:url(s("bak%s.png",i+1)) center right no-repeat ,linear-gradient(light[i] 0%, brand[i] 50% ,darken(brand[i],5%) 100%)
-	//border-bottom:solid 1px darken(brand[i],25%)
+	background:url(s("bak%s.png",i+1)) center right no-repeat ,linear-gradient(light[i] 0%, brand[i] 50% ,dark[i] 100%)
 	background-size: auto 64px, 100% 100%
 	background-origin: content-box,padding-box
 	@media screen and (max-width: 1084px)
 		background:light[i]
-		//background:linear-gradient(light[i] 0%,lighten(brand[i],10%) 10% ,brand[i] 90% ,darken(brand[i],5%) 100%)
-		background:linear-gradient(light[i] 0%, brand[i] 50% ,darken(brand[i],5%) 100%)
+		background:linear-gradient(light[i] 0%, brand[i] 50% ,dark[i] 100%)
+#tmore:checked~.infobox
+	background:light[2]
+	background:linear-gradient(light[2] 0%, brand[2] 50% ,dark[2] 100%)
 
 html
-	background:lighten(xlight[2],50%)
-	//background:lighten(xlight[2],60%) linear-gradient(rgba(xlight[2],0) 0%,light[2] 100%)
+	background:xlight[2]
 
 #container a
-	color:brand[2]
+	color:dark[2]
 
 @media retina
 	label.more

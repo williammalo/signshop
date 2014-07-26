@@ -24,9 +24,6 @@ base(href="/")
 	script(src="ie.js")
 
 link(rel="dns-prefetch", href="http://signshop.s3-website-us-east-1.amazonaws.com")
-//link(rel="dns-prefetch", href="http://www.payloadz.com")
-//link(rel="dns-prefetch", href="https://www.payloadz.com")
-//link(rel="dns-prefetch", href="http://s7.addthis.com")
 link(rel="dns-prefetch", href="http://signshophelper.fetchapp.com")
 link(rel="dns-prefetch", href="https://www.paypal.com")
 link(rel="dns-prefetch", href="http://themes.googleusercontent.com")
@@ -56,42 +53,34 @@ header#subscribed
 
 -pptxt=" <strong style='white-space:nowrap'>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>"
 
-aside
-	//.logos Vector Art Copyright free logos in .eps format. Only 5$ each.
-		!=pptxt
-	//.elements Vector Art Sign Elements in .eps format. Only 5$ each.
-		!=pptxt
-	.templates
-		input.more(type="checkbox", id="tmore")
-		|High quality 1:20 scale vehicle templates in .eps format. Only 17$ each.
-		!=pptxt
-		figure.slide.popup
-			img(data-src="1.jpg")
-			img(data-src="2.jpg")
-			img(data-src="3.jpg")
-			img(data-src="4.jpg")
-			img(data-src="5.jpg")
-			img(data-src="6.jpg")
-		label.more(for="tmore")
-		.popup
-			ul
-				li Vehicle outlines for cars, trucks, SUV's, vans, trailers, and tractors.
-				li Accuracy and precision of outlines makes it easy to scale vehicles and make layouts.
-				li Try one for free: <a href="http://signshop.s3-website-us-east-1.amazonaws.com/chrysler-pacifica-2004-2008.eps" download="chrysler-pacifica-2004-2008.eps">eps</a> / <a href="http://signshop.s3-website-us-east-1.amazonaws.com/chev-express-cube-16ft.pdf" download="chev-express-cube-16ft.pdf">pdf</a>
-				li
-					a(href="faq",target="_blank",id="faq") FAQ's
-			p: strong Always check the measurements of the vehicle. Before cutting or printing any final artwork<br>measure doors, windows and body side to verify graphic maximum size.
-			div
-				.pad © #{(new Date).getFullYear()}, Signshop Helper, Graphic Library.
-				.pad Contact us: <a href=mailto:info@graphik-link.com>info@graphik-link.com</a>
-				.pad Website by: <a href="http://maloweb.com/en" target=_blank>maloweb.com</a>
-	//.graphics Vehicle graphics in .eps format. Only 5$ each. <strong>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>
-//menu.logos
-//menu.elements
-menu.templates
-	form#inputform
-		input(type="text", id="input", placeholder="Search Your Model…")
-//menu.graphics
+input.more(type="checkbox", id="tmore")
+.infobox
+	|High quality 1:20 scale vehicle templates in .eps format. Only 17$ each.
+	!=pptxt
+	figure.slide.popup
+		img(data-src="1.jpg")
+		img(data-src="2.jpg")
+		img(data-src="3.jpg")
+		img(data-src="4.jpg")
+		img(data-src="5.jpg")
+		img(data-src="6.jpg")
+	label.more(for="tmore")
+	.popup
+		ul
+			li Vehicle outlines for cars, trucks, SUV's, vans, trailers, and tractors.
+			li Accuracy of outlines makes it easy to scale vehicles and make layouts.
+			li Try one for free: <a href="http://signshop.s3-website-us-east-1.amazonaws.com/chrysler-pacifica-2004-2008.eps" download="chrysler-pacifica-2004-2008.eps">eps</a> / <a href="http://signshop.s3-website-us-east-1.amazonaws.com/chev-express-cube-16ft.pdf" download="chev-express-cube-16ft.pdf">pdf</a>
+			li
+				a(href="faq",target="_blank",id="faq") FAQ's
+		p: strong Always check the measurements of the vehicle. Before cutting or printing any final artwork<br>measure doors, windows and body side to verify graphic maximum size.
+		div
+			.pad © #{(new Date).getFullYear()}, Signshop Helper, Graphic Library.
+			.pad Contact us: <a href=mailto:info@graphik-link.com>info@graphik-link.com</a>
+			.pad Website by: <a href="http://maloweb.com/en" target=_blank>maloweb.com</a>
+
+form#inputform
+	input(type="text", id="input", autofocus, placeholder="Search Your Model…")
+
 #container
 //footer
 	.txt © #{(new Date).getFullYear()}, Signshop Helper, Graphic Library.

@@ -189,7 +189,6 @@ SSHData.forEach((function(item) {
   item.searchText = item.searchText + item.searchText.replace(/‑/g, "") + item.searchText.replace(/‑/g, " ") + item.searchText.replace(/‑/g, "-");
   item.searchText = item.searchText + " " + tags;
 }));
-SSHData.menu = dom.query("menu.templates");
 var match = (function(keyword, target) {
   if (keyword === "") return true;
   var keywordList = keyword.split(" ").map((function(a) {
@@ -214,11 +213,12 @@ var SSHSearch = (function() {
       keyword = "keyword"in $__0 ? $__0.keyword: inputElement.value,
       reverse = $__0.reverse;
   var array = SSHFilter(keyword, reverse, showAll),
-      fragment = dom.fragment();
-  array.forEach((function(i) {
-    if (!i.imageLoaded) i.node.firstChild.src = i.imageURL, i.imageLoaded = true;
-    fragment.append(i.node);
-  }));
+      fragment = dom.fragment(),
+      popFragment = (function(i) {
+        if (!i.imageLoaded) i.node.firstChild.src = i.imageURL, i.imageLoaded = true;
+        fragment.append(i.node);
+      });
+  array.forEach(popFragment);
   if (!showAll && array.length >= area) fragment.append(showAllLink);
   containerElement.clear().append(fragment);
 });
