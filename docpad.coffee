@@ -370,7 +370,7 @@ docpadConfig = {
                     enabled: true
                 stylus:
                     stylusLibraries:
-                        nib: true
+                        nib: false
                     stylusOptions:
                         compress: true
                         'include css': true
