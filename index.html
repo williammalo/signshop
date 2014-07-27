@@ -36,11 +36,11 @@ maloweb.com
     <input id="formsubmit" type="submit" value="Subscribe" name="subscribe">
   </form>
   <h1><img src="logo.png"><span>SIGNSHOP HELPER</span></h1>
-  <nav>
-    <!--a(href="graphics") Auto Graphics--><a href="templates">Vehicle Templates</a>
-    <!--a(href="elements") Sign Elements-->
-    <!--a(href="logos") Copyright Free Logos-->
-  </nav>
+  <nav><a href="templates">
+       
+      <svg width="35" height="60" class="tab"><path d="m 35,0 0,60 -35,0 c 4,0 8,-3 9,-6 L 23,8 C 25,3 30,0 35,0 z"/></svg>
+      <svg width="35" height="60" class="tab"><path d="m 0,0 0,60 35,0 c -4,0 -8,-3 -9,-6 L 12,8 C 10,3 5,0 0,0 z"/></svg>
+      Vehicle Templates</a></nav>
 </header>
 <input type="checkbox" id="tmore" class="more">
 <div class="infobox">High quality 1:20 scale vehicle templates in .eps format. Only 17$ each. <strong style='white-space:nowrap'>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>
@@ -65,19 +65,6 @@ maloweb.com
   <input type="text" id="input" autofocus placeholder="Search Your Model…">
 </form>
 <div id="container"></div>
-<script>
-  //tabs
-  (function(){
-   var t, i, a=document.querySelectorAll("nav a"),p='<svg width="35" height="60" class='
-   ,s1='><path d="m 35,0 0,60 -35,0 c 4,0 8,-3 9,-6 L 23,8 C 25,3 30,0 35,0 z"/></svg>'
-   ,s2='><path d="m 0,0 0,60 35,0 c -4,0 -8,-3 -9,-6 L 12,8 C 10,3 5,0 0,0 z"/></svg>';
-   for(i=a.length;i--;){
-    t=a[i].innerHTML;
-    a[i].innerHTML=p+'tab'+s1+p+'tab'+s2+t;
-   };
-  })();
-  
-</script>
 <!--script(src="index.js")--><script type="text/javascript">
 var $traceurRuntime = {};
 $traceurRuntime.toObject = function(value) {
