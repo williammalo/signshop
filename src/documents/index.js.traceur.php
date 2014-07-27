@@ -123,9 +123,9 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,showAllLink =
 		dom("a","show all")
 			.on("click", e=>{ e.preventDefault(); SSHSearch({showAll:true}) })
-	,linkTemplate = (link,text,tags)=>
+	,linkTemplate = (link,text,tags,height)=>
 		dom("a",{target:"paypal",href:link}
-			,dom("img")
+			,dom("img",{style:"width:150px;height:"+height+"px"})
 			,text
 			//,dom("br")
 			//,dom("small",tags)
@@ -143,9 +143,10 @@ SSHData.forEach(item=>{
 		,rawText = item[1]
 		,tags    = item[2]||""
 		,buyURL  = SSHData.buyPath + rawURL + SSHData.buySuffix
+		,height  = item[3]
 
 	item.prettyText	 = SSHData.processor(rawText)
-	item.node 		 = linkTemplate(buyURL,item.prettyText,tags)
+	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
 	item.imageURL 	 = imagePath + rawText + (SSHData.imageSuffix||".png")
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n", " ")
