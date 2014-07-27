@@ -125,7 +125,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			.on("click", e=>{ e.preventDefault(); SSHSearch({showAll:true}) })
 	,linkTemplate = (link,text,tags,height)=>
 		dom("a",{target:"paypal",href:link}
-			,dom("img",{style:"width:150px;height:"+height+"px"})
+			,dom("img",{style:"height:"+height+"px"})
 			,text
 			//,dom("br")
 			//,dom("small",tags)

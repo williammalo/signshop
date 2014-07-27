@@ -174,7 +174,7 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
       return dom("a", {
         target: "paypal",
         href: link
-      }, dom("img", {style: "width:150px;height:" + height + "px"}), text);
+      }, dom("img", {style: "height:" + height + "px"}), text);
     });
 SSHData.forEach((function(item) {
   var rawURL = item[0],
