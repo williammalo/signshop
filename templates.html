@@ -222,10 +222,14 @@ Array.prototype.fastFilter = function(callback) {
   var result = [];
   var index = - 1,
       length = this.length,
-      value;
+      value,
+      resultLength = 0;
   while (++index < length) {
     value = this[index];
-    if (callback(value, index, this)) result.push(value);
+    if (callback(value, index, this)) {
+      result[resultLength] = value;
+      resultLength += 1;
+    }
   }
   return result;
 };

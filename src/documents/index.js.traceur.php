@@ -98,12 +98,14 @@ Array.prototype.fastFilter = function(callback) {
 	var  index = -1
 		,length = this.length
 		,value
+		,resultLength = 0
 
 	while (++index < length) {
 		value = this[index];
-		if (callback(value, index, this))
-			result.push(value)
-	  
+		if (callback(value, index, this)){
+			result[resultLength] = value
+			resultLength+=1
+	  	}
 	}
 	return result
 }
@@ -176,7 +178,7 @@ var match = (keyword,target)=>{
 var SSHFilter = (keyword,reverse,showAll)=>{
 	var  _match   = i=>match(keyword,i.searchText)^reverse
 		,array    = SSHData.fastFilter(_match) //fastFilter method is very important for perf
-
+	
 	if(!showAll&&array.length>area)
 		array.length = area
 
