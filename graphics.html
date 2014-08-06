@@ -147,22 +147,18 @@ if (!window.Node)(function(e) {
       u = o.slice,
       a = o.length; a; a -= 2) r = o[a - 2], r in s || (s[r] = o[a - 1]);
 })(window);
-var dom;
+Element.prototype.on = function(a, b, c) {
+  this.addEventListener(a, b, c);
+  return this;
+};
+Element.prototype.clear = function() {
+  var i;
+  while (i = this.firstChild) this.removeChild(i);
+  return this;
+};
 ;
 (function() {
-  var constr = function(a) {
-    a.on = function(a, b, c) {
-      this.addEventListener(a, b, c);
-      return this;
-    };
-    a.clear = function() {
-      var i;
-      while (i = this.firstChild) this.removeChild(i);
-      return this;
-    };
-    return a;
-  };
-  dom = function(a, b) {
+  window.dom = function(a, b) {
     if (a === "br") return document.createElement("br");
     var e = arguments,
         l = e.length,
@@ -171,16 +167,14 @@ var dom;
         element = document.createElement(a);
     if (b && b.constructor === Object) for (c in b) element.setAttribute(c, b[c]), i = 2;
     for (; i < l; i++) element.append(e[i]);
-    return constr(element);
+    return element;
   };
   dom.query = function(s) {
     var a = document.querySelector(s);
-    return constr(a);
+    return a;
   };
   dom.queryAll = (function(a) {
-    return Array.prototype.slice.call(document.querySelectorAll(a)).map((function(a) {
-      return constr(a);
-    }));
+    return Array.prototype.slice.call(document.querySelectorAll(a));
   });
   dom.fragment = document.createDocumentFragment.bind(document);
   dom.on = (function(a, b, c) {

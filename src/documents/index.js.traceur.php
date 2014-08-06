@@ -22,24 +22,20 @@ if(!window.Node)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+Element.prototype.on = function(a,b,c){
+	this.addEventListener(a,b,c);
+	return this;
+};
 
-var dom
+Element.prototype.clear = function(){
+	var i;
+	while(i=this.firstChild)this.removeChild(i);
+	return this;
+};
+
 ;(function(){
 
-	var constr=function(a){
-		a.on=function(a,b,c){
-			this.addEventListener(a,b,c);
-			return this;
-		};
-		a.clear=function(){
-			var i;
-			while(i=this.firstChild)this.removeChild(i);
-			return this;
-		};
-		return a;
-	};
-
-	dom=function(a,b){
+	window.dom=function(a,b){
 	  if(a==="br")return document.createElement("br");//dumb ie bug fix
 	  var e=arguments, l=e.length, c, i=1,
 	  element = document.createElement(a)
@@ -51,14 +47,14 @@ var dom
 
 	  for(;i<l;i++) element.append(e[i])
 
-	  return constr(element)
+	  return element
 	}
 
 	dom.query=function(s){
 		var a=document.querySelector(s);
-		return constr(a);
+		return a;
 	};
-	dom.queryAll=a=>Array.prototype.slice.call(document.querySelectorAll(a)).map(a=>constr(a));
+	dom.queryAll=a=>Array.prototype.slice.call(document.querySelectorAll(a));
 
 	dom.fragment=document.createDocumentFragment.bind(document)
 
