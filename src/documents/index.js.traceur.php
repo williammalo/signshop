@@ -145,11 +145,11 @@ SSH.getResults = (keyword,reverse)=>
 		,i=>SSH.match(keyword,i.searchText)^reverse
 	)
 
-SSH.search = function f(args={}){
+SSH.search = function(args={}){
 	var {keyword=SSH.inputElement.value,reverse} = args
 
-	var onappendnode = f.onappendnode||function(){}
-	var onfragmentpopulated = f.onfragmentpopulated||function(){}
+	var onappendnode = SSH.search.onappendnode||function(){}
+	var onfragmentpopulated = SSH.search.onfragmentpopulated||function(){}
 
 	var  array       = SSH.getResults(keyword,reverse)
 		,fragment    = dom.fragment()

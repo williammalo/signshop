@@ -164,13 +164,13 @@ SSH.getResults = (function(keyword, reverse) {
     return SSH.match(keyword, i.searchText)^reverse;
   }));
 });
-SSH.search = function f() {
+SSH.search = function() {
   var args = arguments[0] !== (void 0) ? arguments[0]: {};
   var $__0 = args,
       keyword = "keyword"in $__0 ? $__0.keyword: SSH.inputElement.value,
       reverse = $__0.reverse;
-  var onappendnode = f.onappendnode || function() {};
-  var onfragmentpopulated = f.onfragmentpopulated || function() {};
+  var onappendnode = SSH.search.onappendnode || function() {};
+  var onfragmentpopulated = SSH.search.onfragmentpopulated || function() {};
   var array = SSH.getResults(keyword, reverse),
       fragment = dom.fragment();
   array.forEach((function(i) {
