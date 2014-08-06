@@ -35,9 +35,9 @@ link(rel="icon",type="image/png",href="favicon.png")
 	|<body class=ie>
 
 header#subscribed
-	a#cart(href="http://signshophelper.fetchapp.com/cart/pp",target="_blank")
+	a.cart.icon(href="http://signshophelper.fetchapp.com/cart/pp",target="_blank")
 
-	form#mail(onmouseover="document.getElementById('mailinput').focus()",action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae", method="post", name="mc-embedded-subscribe-form", novalidate)
+	form.mail.icon(onmouseover="document.getElementById('mailinput').focus()",action="http://maloweb.us6.list-manage1.com/subscribe/post?u=6aef9dc8050cd9b309aa2c409&amp;id=8daedc86ae", method="post", name="mc-embedded-subscribe-form", novalidate)
 		input#mailinput(type="email", value="", name="EMAIL", placeholder="Your email…")
 		input#formsubmit(type="submit", value="Subscribe", name="subscribe")
 	h1
@@ -45,8 +45,8 @@ header#subscribed
 		span SIGNSHOP HELPER
 	nav
 		a(href="templates") 
-			|<svg width="35" height="60" class="tab"><path d="m 35,0 0,60 -35,0 c 4,0 8,-3 9,-6 L 23,8 C 25,3 30,0 35,0 z"/></svg>
-			|<svg width="35" height="60" class="tab"><path d="m 0,0 0,60 35,0 c -4,0 -8,-3 -9,-6 L 12,8 C 10,3 5,0 0,0 z"/></svg>
+			|<svg width="21" height="36" class="tab"><path d="m 21,0 0,36 -21,0 c 2,0 5,-2 5,-4 L 14,5 C 15,3 18,0 21,0 z"/></svg>
+			|<svg width="21" height="36" class="tab"><path d="m 0,0 0,36 21,0 c -2,0 -5,-2 -5,-4 L 7,5 C 6,2 3,0 0,0 z"/></svg>
 			|Vehicle Templates
 
 -pptxt=" <strong style='white-space:nowrap'>Checkout with&nbsp;<img class=paypal src=paypal.png alt=paypal>.</strong>"
@@ -62,7 +62,7 @@ input.more(type="checkbox", id="tmore")
 		img(data-src="4.jpg")
 		img(data-src="5.jpg")
 		img(data-src="6.jpg")
-	label.more(for="tmore")
+	label.more.icon(for="tmore")
 	.popup
 		ul
 			li Vehicle outlines for cars, trucks, SUV's, vans, trailers, and tractors.

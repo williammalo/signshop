@@ -1,4 +1,4 @@
-var SSHData=[
+SSH.data=[
 ["bohghozu","Toyota Rav-4 2014-uptodate","suv",83],
 ["ijughaim","Honda Accord 2012-uptodate","car",67],
 ["cmhoorae","Toyota Camry 2012-uptodate","car",75],
@@ -632,8 +632,8 @@ graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
 
 //elements.defaultKeyword="slogan";
 
-SSHData.imageSuffix=".jpg";
-SSHData.processor=t=>{
+SSH.data.imageSuffix=".jpg";
+SSH.data.processor=function(t){
 	var r="replace",now=(new Date).getFullYear()+"";
 	return t[r](/uptodate/i,now)              //automatically update uptodate template to current year
 			[r](" slash "," / ")              //add slashes
@@ -651,21 +651,7 @@ SSHData.processor=t=>{
 			[r](/-/g,"‑");
 };
 
-//graphics.defaultKeyword="ky";
-//graphics.imageSuffix=
-	(window.devicePixelRatio||1)>1
-		?".png"
-		:"_500.png";
 
-//logos.buyPath = "http://www.payloadz.com/go/sip?id="
-//elements.buyPath = "http://www.payloadz.com/go/sip?id="
-SSHData.buyPath = "http://signshophelper.fetchapp.com/sell/"
-//graphics.buyPath = "http://www.payloadz.com/go/sip?id="
+SSH.data.buyPath = "http://signshophelper.fetchapp.com/sell/"
 
-//logos.buySuffix = ""
-//elements.buySuffix = ""
-SSHData.buySuffix = "/ppc"
-//graphics.buySuffix = ""
-
-//var views = { logos, elements, SSHData, graphics },view
-var views = { SSHData },view
+SSH.data.buySuffix = "/ppc"

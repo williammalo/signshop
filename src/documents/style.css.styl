@@ -12,6 +12,8 @@ sun(a,b)
 
 brand=#83c61a #bd000c #2eb3ed #ee9908
 
+
+
 brand[1]=lighten(desaturate(#9300cf,20%),20%)
 
 light=tint(sun(brand[0],8),15%) tint(sun(brand[1],8),15%) tint(sun(brand[2],8),15%) tint(sun(brand[3],8),15%)
@@ -41,32 +43,30 @@ dark=(brand[0]*0.95) (brand[1]*0.95) (brand[2]*0.95) (brand[3]*0.95)
 header
 	background:#575043
 
-h1, #cart, #mail
+h1, .cart, .mail
 	color:#fff
 
-#cart
+.cart
 	background:url(cart.png) center no-repeat
-	background-size:16px 16px
 
-#mail
+.mail
 	background:url(mail.png) center no-repeat
-	background-size:16px 16px
 	input[type=submit],input[type=email]
 		border:none
 	input[type=submit]
-		color:#fff
+		color:inherit
 		cursor:pointer
 	input[type=email]
 		background:#fff
 
-#mail:hover
+.mail:hover
 	background:none
-#mail:hover:before
+.mail:hover:before
 	content:"Subscribe to our newsletter for a free template!"
 
-#subscribed:target #mail
+#subscribed:target .mail
 	background:none
-#subscribed:target #mail:before
+#subscribed:target .mail:before
 	content:"We sent you an email to validate your subscription."
 
 nav a
@@ -79,8 +79,8 @@ nav a
 
 label.more
 	cursor:pointer
-	background:url(plus.png) no-repeat
-	background-size:16px 16px
+	background-image:url(plus.png)
+	background-repeat:no-repeat
 	transform:rotate(0deg)
 	transition:transform .5s
 
@@ -164,7 +164,7 @@ label.more
 	text-rendering: optimizeSpeed
 	text-decoration:none
 
-#mail input[type=submit]
+.mail input[type=submit]
 	background:brand[2]
 
 nav a
@@ -196,10 +196,12 @@ retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),
 @media retina
 	label.more
 		background-image:url(plusr.png)
-	#cart
+	.cart
 		background-image:url(cartr.png)
-	#mail
+	.mail
 		background-image:url(mailr.png)
 	#input
 		background-image:url(searchr.png)
 
+.icon
+	background-size:16px 16px

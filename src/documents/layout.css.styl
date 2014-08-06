@@ -33,7 +33,7 @@ h1
 	span
 		vertical-align:middle
 
-#cart,#mail
+.cart,.mail
 	position:absolute
 	font-size:.62em
 	top:0
@@ -41,49 +41,46 @@ h1
 	min-width:16px
 	height:36px
 
-#cart
+.cart
 	right:1em
 
-#mail
+.mail
 	right:3.5em
 	input[type=submit],input[type=email]
 		border-radius:5px
 		padding:1px 5px
 		display:none
 
-#mail:hover input
+.mail:hover input
 	display:inline-block
 
-#mail:hover:before
+.mail:hover:before
 	display:inline-block
 	padding-right:1em
 
-#subscribed:target #mail *
+#subscribed:target .mail *
 	display:none
 
 nav
 	position:absolute
-	bottom:-1px
+	bottom:0
 	right:0
 
 nav a
 	position:relative
 	font-size:20px
-	margin-right:17px
+	margin-right:1em
 	display:inline-block
 	padding:7px 1px 9px 1px
 	line-height:1em
 
 .tab
-	position:relative
-	transform:scale(.6,.6)
-	transform-origin:0 0
 	position:absolute
 	top:0
-	right:-34px
+	right:-21px
 
 .tab:nth-child(1)
-	left:-20px
+	left:-21px
 
 .infobox
 	padding:1em
