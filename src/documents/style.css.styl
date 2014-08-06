@@ -46,11 +46,7 @@ header
 h1, .cart, .mail
 	color:#fff
 
-.cart
-	background:url(cart.png) center no-repeat
-
 .mail
-	background:url(mail.png) center no-repeat
 	input[type=submit],input[type=email]
 		border:none
 	input[type=submit]
@@ -59,8 +55,8 @@ h1, .cart, .mail
 	input[type=email]
 		background:#fff
 
-.mail:hover
-	background:none
+.mail:hover svg
+	display:none
 .mail:hover:before
 	content:"Subscribe to our newsletter for a free template!"
 
@@ -79,8 +75,8 @@ nav a
 
 label.more
 	cursor:pointer
-	background-image:url(plus.png)
-	background-repeat:no-repeat
+	//background-image:url(plus.png)
+	//background-repeat:no-repeat
 	transform:rotate(0deg)
 	transition:transform .5s
 
@@ -143,9 +139,11 @@ label.more
 	border-radius:1.1em
 	border:none
 	background:#fff url(search.png) center right no-repeat
+	background:#fff url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEgMjBsNS00Yy42LS41IDEuNS0xIDItMS0xLjMtMS42LTItMy44LTItNiAwLTUgNC05IDktOXM5IDQgOSA5LTQgOS05IDljLTIuMiAwLTQuNC0uNy02LTIgMCAuNS0uNSAxLjQtMSAybC00IDVjLS44IDEtMiAxLTMgMHMtMS0yIDAtM3ptMTQtNWMzLjMgMCA2LTIuNyA2LTZzLTIuNy02LTYtNi02IDIuNy02IDYgMi43IDYgNiA2eiIvPjwvc3ZnPg==") center right no-repeat
 	background-size:32px 24px
 	outline: none
 	animation:bounceIn .5s
+/* <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24"><path d="M1 20l5-4c.6-.5 1.5-1 2-1-1.3-1.6-2-3.8-2-6 0-5 4-9 9-9s9 4 9 9-4 9-9 9c-2.2 0-4.4-.7-6-2 0 .5-.5 1.4-1 2l-4 5c-.8 1-2 1-3 0s-1-2 0-3zm14-5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6z"/></svg> */
 
 #input:focus
 	box-shadow: 0 0 0 .1em brand[2]
@@ -192,16 +190,3 @@ html
 	color:dark[2]
 
 retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
-
-@media retina
-	label.more
-		background-image:url(plusr.png)
-	.cart
-		background-image:url(cartr.png)
-	.mail
-		background-image:url(mailr.png)
-	#input
-		background-image:url(searchr.png)
-
-.icon
-	background-size:16px 16px
