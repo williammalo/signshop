@@ -20,6 +20,20 @@ xlight=tint(sun(light[0],8),65%) tint(sun(light[1],8),65%) tint(sun(light[2],8),
 
 dark=(brand[0]*0.95) (brand[1]*0.95) (brand[2]*0.95) (brand[3]*0.95)
 
+.new
+	display:inline-block
+	font-weight:bold
+	position:relative
+.new:after
+	content:"NEW!"
+	font-size:.62em
+	display:block
+	position:absolute
+	top:-1.3em
+	left:.45em
+	font-weight:bold
+	color:#c00
+	text-shadow:0 0 1em #fff
 
 .slide
 	background:#fff
