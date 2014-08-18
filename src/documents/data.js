@@ -1,5 +1,6 @@
 
 SSH.data=[
+["aesameev","Tesla model S 2014","car",65],
 ["caiphooj","Ford Transit full-size medium-roof long 2015","van",86],
 ["iquokeib","Ford Econoline extended length cargo 2008-uptodate","van",76],
 ["bohghozu","Toyota Rav-4 2014-uptodate","suv",83],
@@ -650,6 +651,7 @@ SSH.data.processor=function(t){
 			[r](" Econoline\n"," Econoline e-350\n")
 			[r]("Ram\nPromaster","Ram Promaster\n")
 			[r]("Transit\nConnect ","Transit Connect\n")
+			[r]("model\nS","model S")
 			[r]("\n ","\n")
 			[r](/-/g,"‑");
 };

@@ -275,6 +275,7 @@ SSH.search()
 
 
 //stylesheet load
+//https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
 var cb = function() {
 var l = document.createElement('link'); l.rel = 'stylesheet';
 l.href = 'http://fonts.googleapis.com/css?family=Ubuntu:400,700';
