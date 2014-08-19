@@ -23,7 +23,6 @@ link(rel="dns-prefetch", href="http://signshop.s3-website-us-east-1.amazonaws.co
 link(rel="dns-prefetch", href="http://signshophelper.fetchapp.com")
 link(rel="dns-prefetch", href="https://www.paypal.com")
 link(rel="dns-prefetch", href="http://fonts.gstatic.com")
-link(rel="dns-prefetch", href="http://fonts.googleapis.com")
 
 //if IE
 	script(src="ie.js")
@@ -83,6 +82,15 @@ form#inputform
 	input(type="text", id="input", autofocus, placeholder="Search Your Model…")
 
 #container
-
+	include default.html
 script(src="index.js")
+script.
+	(function(){
+		window.onload=function(){
+			var body = document.body;
+			var script = document.createElement('script');
+			script.src = 'index.js';
+			body.appendChild(script);
+		}
+	})()
 //include ../../index.js
