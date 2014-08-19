@@ -232,12 +232,12 @@ SSH.data.forEach(item=>{
 
 //lazy images
 
-dom.on("load",()=>{
+;(()=>{
 	dom.queryAll("[data-src]")
 		.forEach(i=>{
 			i.src = imagePath + i.getAttribute("data-src")
 		})
-})
+})()
 
 //faq cover
 

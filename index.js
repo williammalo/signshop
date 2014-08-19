@@ -228,11 +228,12 @@ SSH.data.forEach((function(item) {
   item.searchText = item.searchText + item.searchText.replace(/‑/g, "") + item.searchText.replace(/‑/g, " ") + item.searchText.replace(/‑/g, "-");
   item.searchText = item.searchText + " " + tags;
 }));
-dom.on("load", (function() {
+;
+((function() {
   dom.queryAll("[data-src]").forEach((function(i) {
     i.src = imagePath + i.getAttribute("data-src");
   }));
-}));
+}))();
 var cover = dom("div", {"class": "cover"}, dom("iframe", {src: "faq"})).on("click", (function(e) {
   e.preventDefault();
   cover.remove();
