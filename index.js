@@ -47,7 +47,7 @@ $traceurRuntime.toObject = function(value) {
         }
         return !!force;
       },
-      ElementPrototype = (window.Node || window.Element || window.HTMLElement).prototype,
+      ElementPrototype = (window.Node || window.HTMLDocument || window.Element || window.HTMLElement).prototype,
       properties = ['matches', (ElementPrototype.matchesSelector || ElementPrototype.webkitMatchesSelector || ElementPrototype.khtmlMatchesSelector || ElementPrototype.mozMatchesSelector || ElementPrototype.msMatchesSelector || ElementPrototype.oMatchesSelector || function matches(selector) {
         var parentNode = this.parentNode;
         return !!parentNode && - 1 < indexOf.call(parentNode.querySelectorAll(selector), this);
