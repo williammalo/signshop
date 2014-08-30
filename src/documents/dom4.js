@@ -49,7 +49,7 @@
       }
       return !!force;
     },
-    ElementPrototype = (window.Node || window.HTMLDocument || window.Element || window.HTMLElement).prototype,
+    ElementPrototype = (window.Node ||  window.Element || window.HTMLElement).prototype,
     properties = [
       'matches', (
         ElementPrototype.matchesSelector ||
