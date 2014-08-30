@@ -588,54 +588,6 @@ SSH.data=[
 ["ohheghie","trailer front slash rear refer-box","trailer",94]
 ];
 
-/*
-logos.categories=[["vacatio|transp|touris|sport|sign|print|achitec|office|music|50|medical|home|golf|food|corp|const|compute|clothe|car|art|antique|animal","other",1]
-,["vacatio","vacation"]
-,["transp","transport"]
-,["touris","tourism"]
-,["sport","sport"]
-,["sign","sign"]
-,["print","print"]
-,["office","office"]
-,["music","music"]
-,["medical","medical"]
-,["home","home"]
-,["golf","golf"]
-,["food","food"]
-,["corp","corp"]
-,["const","construction"]
-,["compute","computers"]
-,["clothe","clothing"]
-,["car","car"]
-,["art","art"]
-,["achitec","architecture"]
-,["antique","antique"]
-,["animal","animals"]
-,["50","50's"]
-,["","all"]
-];
-
-elements.categories=[["dotcom","website"]
-,["slogan","slogans"]
-,["iso","iso"]
-,["^\\d","anniversary"]
-,["","all"]
-];
-
-graphics.categories=[["ky|y2k|x-trim|power|pin|mozart","other",1]
-,["y2k","y2k"]
-,["x-trim","x-trim"]
-,["pin","pinstripe"]
-,["mozart","mozart"]
-,["ky","kentucky"]
-,["power","flower power"]
-,["","all"]
-];
-*/
-//logos.defaultKeyword="car";
-
-//elements.defaultKeyword="slogan";
-
 SSH.data.imageSuffix=".jpg";
 SSH.data.processor=function(t){
 	var r="replace",now=(new Date).getFullYear()+"";
