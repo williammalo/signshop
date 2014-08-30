@@ -1,4 +1,4 @@
-SSH.data=[
+WS.data=[
 ["aesameev","Tesla model S 2014","car",65],
 ["caiphooj","Ford Transit full-size medium-roof long 2015","van",86],
 ["iquokeib","Ford Econoline extended length cargo 2008-uptodate","van",76],
@@ -587,8 +587,8 @@ SSH.data=[
 ["ohheghie","trailer front slash rear refer-box","trailer",94]
 ];
 
-SSH.data.imageSuffix=".jpg";
-SSH.data.processor=function(t){
+WS.data.imageSuffix=".jpg";
+WS.data.processor=function(t){
 	var r="replace",now=(new Date).getFullYear()+"";
 	return t[r](/uptodate/i,now)              //automatically update uptodate template to current year
 			[r](" slash "," / ")              //add slashes
@@ -608,6 +608,6 @@ SSH.data.processor=function(t){
 };
 
 
-SSH.data.buyPath = "http://signshophelper.fetchapp.com/sell/"
+WS.data.buyPath = "http://signshophelper.fetchapp.com/sell/"
 
-SSH.data.buySuffix = "/ppc"
+WS.data.buySuffix = "/ppc"
