@@ -254,23 +254,6 @@ Element.prototype.queryAll = function(a) {
   dom.html = document.documentElement;
   dom.body = document.body;
 })();
-var mapObject = (function(o, ƒ) {
-  var n = {};
-  Object.keys(o).forEach((function(v) {
-    n[v] = ƒ(o[v], v);
-  }));
-  return n;
-});
-var getQueryVariable = function(a) {
-  return unescape((RegExp("[&?]" + a + "=([^&]+)").exec(location) || ["", ""])[1] || "");
-};
-var mergeObject = function(a, b) {
-  for (var i in b) a[i] = b[i];
-  return a;
-};
-var addMethods = (function(a, b) {
-  for (var i in b) a.prototype[i] = b[i];
-});
 var WS = {};
 WS.idealArea = 15;
 WS.area = 15;
@@ -321,6 +304,23 @@ WS.search = function() {
 };
 WS.search.on = (function(eventString, callback) {
   WS.search["on" + eventString] = callback;
+});
+var mapObject = (function(o, ƒ) {
+  var n = {};
+  Object.keys(o).forEach((function(v) {
+    n[v] = ƒ(o[v], v);
+  }));
+  return n;
+});
+var getQueryVariable = function(a) {
+  return unescape((RegExp("[&?]" + a + "=([^&]+)").exec(location) || ["", ""])[1] || "");
+};
+var mergeObject = function(a, b) {
+  for (var i in b) a[i] = b[i];
+  return a;
+};
+var addMethods = (function(a, b) {
+  for (var i in b) a.prototype[i] = b[i];
 });
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
     inputFormElement = dom.query("#inputform"),
