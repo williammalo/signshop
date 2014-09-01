@@ -384,3 +384,6 @@ inputFormElement.on("submit", (function(e) {
   e.preventDefault();
 }));
 if (WS.inputElement.value = getQueryVariable("search")) WS.search();
+WS.containerElement.on("click", (function(event) {
+  if (event.target.href) event.target.classList.add("clicked");
+}));

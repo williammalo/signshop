@@ -52,7 +52,6 @@ var addMethods = (a,b)=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,inputFormElement = dom.query("#inputform")
 	,showAllLink =
@@ -118,7 +117,6 @@ dom.queryAll("[data-src]")
 		i.src = imagePath + i.getAttribute("data-src")
 	})
 
-
 //faq cover
 
 var cover=dom(
@@ -152,6 +150,12 @@ inputFormElement
 
 if(WS.inputElement.value = getQueryVariable("search"))
 	WS.search()
+
+
+WS.containerElement.on("click",event=>{
+	if(event.target.href)
+		event.target.classList.add("clicked")
+})
 
 
 //stylesheet load
