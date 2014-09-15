@@ -586,28 +586,3 @@ WS.data=[
 ["cquooyah","trailer front slash rear dry-box","trailer",92],
 ["ohheghie","trailer front slash rear refer-box","trailer",94]
 ];
-
-WS.data.imageSuffix=".jpg";
-WS.data.processor=function(t){
-	var r="replace",now=(new Date).getFullYear()+"";
-	return t[r](/uptodate/i,now)              //automatically update uptodate template to current year
-			[r](" slash "," / ")              //add slashes
-			[r](/(20\d\d-20\d\d)/,"\n$1")     //put year range on newline
-			[r](/( 20\d\d)/,"\n$1")           //put lonely year on newline
-			[r](/^(\S*) (\S*) /,"$1 $2\n")    //put model and tags on different lines
-			[r]("\n\n","\n")                  //prevent duplicate newlines
-			[r]("Prius\nC","Prius C")		  //make sure multiple-word model names stay on the same line
-			[r](now+"-"+now,now)              //avoid range with duplicate years
-			[r](/(20\d\d)-(20\d\d)/,"$1–$2")  //use the right kind of unicode dashes
-			[r](" Econoline\n"," Econoline e-350\n")
-			[r]("Ram\nPromaster","Ram Promaster\n")
-			[r]("Transit\nConnect ","Transit Connect\n")
-			[r]("model\nS","model S")
-			[r]("\n ","\n")
-			[r](/-/g,"‑");
-};
-
-
-WS.data.buyPath = "http://signshophelper.fetchapp.com/sell/"
-
-WS.data.buySuffix = "/ppc"

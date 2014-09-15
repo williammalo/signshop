@@ -80,7 +80,7 @@ input::-ms-clear
 //global styles
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-header,.toolbar,#container a,#container
+header,.toolbar,#ws-container a,#ws-container
 	padding:1em
 
 .one-line
@@ -170,6 +170,7 @@ header
 
 #toggle-info:checked~header
 	height:311px
+	transition:height .5s
 
 .slide
 	width:310px
@@ -225,7 +226,7 @@ header
 .toolbar>*:not(:first-child)
 	margin-left:1em
 
-#input
+#ws-input
 	background:#fff url(search.png) center right no-repeat
 	background:#fff url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEgMjBsNS00Yy42LS41IDEuNS0xIDItMS0xLjMtMS42LTItMy44LTItNiAwLTUgNC05IDktOXM5IDQgOSA5LTQgOS05IDljLTIuMiAwLTQuNC0uNy02LTIgMCAuNS0uNSAxLjQtMSAybC00IDVjLS44IDEtMiAxLTMgMHMtMS0yIDAtM3ptMTQtNWMzLjMgMCA2LTIuNyA2LTZzLTIuNy02LTYtNi02IDIuNy02IDYgMi43IDYgNiA2eiIvPjwvc3ZnPg==") center right no-repeat
 	background-size:1.3333em 1em
@@ -295,7 +296,7 @@ header
 //results
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-#container
+#ws-container
 	background:xlight[2]
 	column-width:20em
 	column-gap:1em
@@ -312,7 +313,7 @@ header
 		float:right
 		margin-left:1em
 
-.ie #container a
+.ie #ws-container a
 	width:20em
 	margin-right:1em
 

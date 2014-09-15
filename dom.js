@@ -1,23 +1,25 @@
-Element.prototype.on = function(a,b,c){
-	this.addEventListener(a,b,c);
-	return this;
-};
+;(function(document){
 
-Element.prototype.clear = function(){
-	var i;
-	while(i=this.firstChild)this.removeChild(i);
-	return this;
-};
+	var slice = Array.prototype.slice;
 
-Element.prototype.query = function(a){
-	return this.querySelector(a)
-};
+	Element.prototype.on = function(a,b,c){
+		this.addEventListener(a,b,c);
+		return this;
+	};
 
-Element.prototype.queryAll = function(a){
-	return Array.prototype.slice.call(this.querySelectorAll(a))
-};
+	Element.prototype.clear = function(){
+		var i;
+		while(i=this.firstChild)this.removeChild(i);
+		return this;
+	};
 
-;(function(){
+	Element.prototype.query = function(a){
+		return this.querySelector(a)
+	};
+
+	Element.prototype.queryAll = function(a){
+		return slice.call(this.querySelectorAll(a))
+	};
 
 	window.dom=function(a,b){
 	  if(a==="br")return document.createElement("br");//dumb ie bug fix
@@ -37,12 +39,13 @@ Element.prototype.queryAll = function(a){
 	dom.query=function(s){
 		return document.querySelector(s);
 	};
-	dom.queryAll=a=>Array.prototype.slice.call(document.querySelectorAll(a));
+	dom.queryAll=a=>slice.call(document.querySelectorAll(a));
 
-	dom.fragment=document.createDocumentFragment.bind(document)
+	dom.fragment=()=>document.createDocumentFragment()
 
-	dom.on=(a,b,c)=>addEventListener(a,b,c)
+	dom.on=addEventListener
 	dom.html=document.documentElement
 	dom.body=document.body
+	dom.head=document.head
 
-})();
+})(document);

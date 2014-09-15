@@ -56,25 +56,19 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,inputFormElement = dom.query("#inputform")
 	,showAllLink =
 		dom("a",{style:"cursor:pointer"},"show all")
-			.on("click", e=>{ 
-				e.preventDefault();
-				WS.area = 1000;
-				WS.search();
-				WS.area = WS.idealArea 
-			})
+			.on("click", WS.showAll)
 	,linkTemplate = (link,text,tags,height)=>
 		dom("a",{target:"paypal",href:link}
 			,dom("img",{style:"height:"+height+"px"})
 			,text
 		)
 
-WS.inputElement = dom.query("#input")
-WS.containerElement = dom.query("#container")
+dom.query("#showalllink").on("click",WS.showAll)
 
 WS.search.on("appendnode",item=>{
-	if(!item.imageLoaded)               		  //test if image is loaded (very important for perf!!!)
-		 item.node.firstChild.src = item.imageURL //load image
-		,item.imageLoaded 		  = true 		  //cache that the image was loaded
+	if(!item.imageLoaded)    	               		//test if image is loaded (very important for perf!!!)
+		 item.node.firstChild.src = item.imageURL 	//load image
+		,item.imageLoaded 		  = true 		  	//cache that the image was loaded
 })
 
 WS.search.on("fragmentpopulated",(fragment,array)=>{
@@ -85,24 +79,57 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 <?php include 'data.js'; ?>
 //process data
+
+var prettify = text=>{
+	var now=(new Date).getFullYear()+"";
+	var rules=[
+		//date formating
+		 [/uptodate/i,now]
+		,[/(20\d\d-20\d\d)/,"\n$1"]
+		,[/( 20\d\d)/,"\n$1"]
+		,[now+"-"+now,now]
+		//put model on first line
+		,[/^(\S*) (\S*) /,"$1 $2\n"]
+		,["Prius\nC","Prius C"]
+		,["Ram\nPromaster","Ram Promaster\n"]
+		,["Transit\nConnect ","Transit Connect\n"]
+		,["model\nS","model S"]
+		//unescape
+		,[" slash "," / "]
+		,[/(20\d\d)-(20\d\d)/,"$1–$2"]
+		,[/-/g,"‑"]
+		//hack!!!!
+		,[" Econoline\n"," Econoline e-350 e-250\n"]
+		//fixes
+		,["\n\n","\n"]
+		,["\n ","\n"]
+	]
+
+	rules.forEach(i=>{
+		text = text.replace(i[0],i[1])
+	})
+
+	return text
+}
+
 WS.data.forEach(item=>{
 
 	var  rawURL  = item[0]
 		,rawText = item[1]
 		,tags    = item[2]||""
-		,buyURL  = WS.data.buyPath + rawURL + WS.data.buySuffix
+		,buyURL  = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc"
 		,height  = item[3]
 
-	item.prettyText	 = WS.data.processor(rawText)
+	item.prettyText	 = prettify(rawText)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
-	item.imageURL 	 = imagePath + rawText + (WS.data.imageSuffix||".png")
+	item.imageURL 	 = imagePath + rawText + ".jpg"
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n", " ")
 	item.searchText  = item.searchText 
 					 + item.searchText.replace(/‑/g, "" )
 					 + item.searchText.replace(/‑/g, " ")
 					 + item.searchText.replace(/‑/g, "-")
-	item.searchText  = item.searchText + " " + tags
+					 + " " + tags
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,7 +177,6 @@ inputFormElement
 
 if(WS.inputElement.value = getQueryVariable("search"))
 	WS.search()
-
 
 WS.containerElement.on("click",event=>{
 	if(event.target.href)
