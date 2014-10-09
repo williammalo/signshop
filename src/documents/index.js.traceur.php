@@ -100,6 +100,7 @@ var prettify = text=>{
 		,[/-/g,"‑"]
 		//hack!!!!
 		,[" Econoline\n"," Econoline e-350 e-250\n"]
+		,["Ram\n1500","Ram 1500 2500"]
 		//fixes
 		,["\n\n","\n"]
 		,["\n ","\n"]
