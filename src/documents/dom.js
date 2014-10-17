@@ -1,4 +1,3 @@
-
 ;(function(document){
 
 	var slice = Array.prototype.slice;
