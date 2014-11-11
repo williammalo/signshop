@@ -1,4 +1,5 @@
 WS.data=[
+["vwakecoo","Dodge Ram Promaster 136 wheelbase, high-roof 2014-uptodate","van",90],
 ["aesameev","Tesla model S 2014","car",65],
 ["caiphooj","Ford Transit full-size medium-roof long 2015","van",86],
 ["iquokeib","Ford Econoline extended length cargo 2008-2014","van",76],
@@ -389,7 +390,7 @@ WS.data=[
 ["nquaecer","Mazda Tribute 2006","suv",87],
 ["reishoga","Mazda Tribute 2007-2011","suv",85],
 ["ohshitie","Mini Clubman 2008-uptodate","car",81],
-["ahghoolu","Mini Cooper 2004-uptodate","car",99],
+["ahghoolu","Mini Cooper 2004-2007","car",99],
 ["ipohsegu","Mitsubishi Lancer evolution 2003-uptodate","car",88],
 ["tkooxahp","Mitsubishi Lancer 2008-uptodate","car",76],
 ["fxmsaefu","Mitsubishi Raider crew-cab 2006-2009","pickup",79],
