@@ -163,10 +163,7 @@ dom.query("#faq")
 		dom.body.append(cover)
 	})
 
-//searchbox
-
-WS.inputElement
-	.on("input",WS.search)
+//hardlinking
 
 inputFormElement
 	.on("submit",e=>{
@@ -174,10 +171,10 @@ inputFormElement
 		e.preventDefault()
 	})
 
-//setup
-
 if(WS.inputElement.value = getQueryVariable("search"))
 	WS.search()
+
+//clicked indicator
 
 WS.containerElement.on("click",event=>{
 	if(event.target.href)

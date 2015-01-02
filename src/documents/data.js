@@ -1,6 +1,7 @@
 
 WS.data=[
 ["vwakecoo","Dodge Ram Promaster 136 wheelbase, high-roof 2014-uptodate","van",90],
+["ohphizoo","Ford Transit full-size high-roof long 2015","van",100],
 ["aesameev","Tesla model S 2014","car",65],
 ["caiphooj","Ford Transit full-size medium-roof long 2015","van",86],
 ["iquokeib","Ford Econoline extended length cargo 2008-2014","van",76],

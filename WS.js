@@ -23,7 +23,7 @@ var match = (target,keywordList)=>{
 }
 
 //filter that stops when it reaches a certain number of items
-limitedFilter = (array,callback,limit)=>{
+var limitedFilter = (array,callback,limit)=>{
 	var result = [];
 
 	var  index = -1
@@ -97,6 +97,9 @@ WS.showAll = ()=>{
 	WS.area = WS.idealArea;
 	return false;
 }
+
+WS.inputElement
+	.on("input",WS.search)
 
 
 })()
