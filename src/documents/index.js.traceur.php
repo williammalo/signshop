@@ -63,6 +63,18 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			,text
 		)
 
+var setArea = function(){
+	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	var area = ((h-168)*w)/54208;
+	area = Math.max(area,10)|0;
+
+	WS.idealArea = area
+	WS.area = area
+}
+setArea();
+onresize = setArea;
+
 dom.query("#showalllink").on("click",WS.showAll)
 
 WS.search.on("appendnode",item=>{
@@ -171,8 +183,12 @@ inputFormElement
 		e.preventDefault()
 	})
 
+/*
 if(WS.inputElement.value = getQueryVariable("search"))
 	WS.search()
+*/
+
+WS.search()
 
 //clicked indicator
 
