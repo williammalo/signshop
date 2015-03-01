@@ -452,7 +452,7 @@ WS.data=[
 ["geesheng","Smart Fortwo 2006-2007","car",111],
 ["jaishuko","Smart Fortwo 2008-uptodate","car",102],
 ["shukisae","Subaru Baja sport 2004-2006","car pickup",82],
-["sieghawu","Subaru Impreza 4-door hatchback 2008-uptodate","car",79],
+["sieghawu","Subaru Impreza 4-door hatchback 2008-2014","car",79],
 ["hivohjim","Subaru Impreza sedan 2008-uptodate","car",75],
 ["lkzaetah","Subaru Impreza sedan WRX 2008-uptodate","car",75],
 ["xabohyuw","Subaru Impreza wagon 2004-2007","car",79],
