@@ -1,4 +1,6 @@
 WS.data=[
+["mhoohush","Newmar RV 45ft","Recreational vehicle class a motorhome caravan camper van bus",73],
+["amohmuri","Mini Cooper 2008-uptodate","car",79],
 ["rphooref","Ford F-150 supercab 6 5ft 2015-uptodate","pickup",75],
 ["vwakecoo","Dodge Ram Promaster 136 wheelbase, high-roof 2014-uptodate","van",90],
 ["ohphizoo","Ford Transit full-size high-roof long 2015","van",100],
