@@ -410,6 +410,7 @@ inputFormElement.on("submit", (function(e) {
   history.pushState("", "", "?search=" + WS.inputElement.value);
   e.preventDefault();
 }));
+WS.inputElement.value = getQueryVariable("search");
 WS.search();
 WS.containerElement.on("click", (function(event) {
   if (event.target.href) event.target.classList.add("clicked");

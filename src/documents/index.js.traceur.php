@@ -183,12 +183,11 @@ inputFormElement
 		e.preventDefault()
 	})
 
-/*
-if(WS.inputElement.value = getQueryVariable("search"))
-	WS.search()
-*/
+
+WS.inputElement.value = getQueryVariable("search")
 
 WS.search()
+
 
 //clicked indicator
 
