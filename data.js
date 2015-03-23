@@ -375,7 +375,7 @@ WS.data=[
 ["obahdieb","Kia Sedona 2004-2005","suv",82],
 ["baingizu","Kia Sedona 2006-2012","suv",82],
 ["eijahzee","Kia Sorento 2004-2009","suv",87],
-["quuyeegh","Kia Sorento 2010-uptodate","suv",81],
+["quuyeegh","Kia Sorento 2010-2015","suv",81],
 ["ahfituci","Kia Sportage 2005-2006","suv",87],
 ["wooxeegi","Kia Sportage 2007-uptodate","suv",83],
 ["thilooja","Kia Sportage 2011-uptodate","suv",83],
