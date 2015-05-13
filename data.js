@@ -222,7 +222,7 @@ WS.data=[
 ["jaikaech","Ford Mustang 2005-uptodate","muscle car",73],
 ["eixivoko","Ford Focus SVT 2003-2006","car",92],
 ["ohhaishu","Ford Taurus 2008-2009","car",77],
-["ychashai","Ford Taurus 2010-uptodate","car",78],
+["ychashai","Ford Taurus 2010-2014","car",78],
 ["oteeluyu","Ford Taurus X 2008-2009","car",82],
 ["izobetho","Ford Explorer sport-trac 2003-uptodate","suv",86],
 ["zahshote","Ford F-150 regular-cab 6 5ft 2004-2008","pickup",81],
