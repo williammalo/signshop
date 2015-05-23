@@ -219,7 +219,7 @@ WS.data=[
 ["ietoomie","Ford Fusion 2007-2009","car",73],
 ["hzyahpaj","Ford Fusion 2010-2012","car",75],
 ["oomaiqua","Ford Mustang 2004","muscle car",69],
-["jaikaech","Ford Mustang 2005-uptodate","muscle car",73],
+["jaikaech","Ford Mustang 2005-2014","muscle car",73],
 ["eixivoko","Ford Focus SVT 2003-2006","car",92],
 ["ohhaishu","Ford Taurus 2008-2009","car",77],
 ["ychashai","Ford Taurus 2010-2014","car",78],
