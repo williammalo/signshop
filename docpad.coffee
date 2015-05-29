@@ -364,7 +364,7 @@ docpadConfig = {
             prompts: process.argv.length >= 2 and /docpad$/.test(process.argv[1])  # default
 
             # Listen to port 9005 on the development environment
-            port: 9005  # example
+            port: 1337  # example
             plugins:
                 cleanurls:
                     enabled: true
