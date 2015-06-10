@@ -415,3 +415,12 @@ WS.search();
 WS.containerElement.on("click", (function(event) {
   if (event.target.href) event.target.classList.add("clicked");
 }));
+var cb = function() {
+  var l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = 'http://fonts.googleapis.com/css?family=Ubuntu:400,700';
+  var h = document.getElementsByTagName('head')[0];
+  h.parentNode.insertBefore(l, h);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb); else window.addEventListener('load', cb);
