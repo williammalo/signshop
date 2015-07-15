@@ -354,7 +354,10 @@ var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
       return dom("a", {
         target: "paypal",
         href: link
-      }, dom("img", {style: "height:" + height + "px"}), text);
+      }, dom("img", {
+        height: height,
+        width: 150
+      }), text);
     });
 var setArea = function() {
   var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);

@@ -59,7 +59,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			.on("click", WS.showAll)
 	,linkTemplate = (link,text,tags,height)=>
 		dom("a",{target:"paypal",href:link}
-			,dom("img",{style:"height:"+height+"px"})
+			,dom("img",{height,width:150})
 			,text
 		)
 
