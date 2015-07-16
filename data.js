@@ -1,4 +1,5 @@
 WS.data=[
+["98973bb9","GMC Sierra double-cab standard-box 2014-uptodate","pickup",76],
 ["36cf2901","Ford Transit full-size high-roof long extended 2015-uptodate","van",91],
 ["1b545db2","Mazda MX-5 Miata Eunos Roadster 2015-uptodate","car",72],
 ["aec6015b","Ford Mustang 2015-uptodate","car",65],
