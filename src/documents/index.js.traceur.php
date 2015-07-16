@@ -107,7 +107,6 @@ var prettify = text=>{
 		,["Transit\nConnect ","Transit Connect\n"]
 		,["model\nS","model S"]
 		//unescape
-		,[" slash "," / "]
 		,[/(20\d\d)-(20\d\d)/,"$1–$2"]
 		,[/-/g,"‑"]
 		//hack!!!!
@@ -132,10 +131,11 @@ WS.data.forEach(item=>{
 		,tags    = item[2]||""
 		,buyURL  = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc"
 		,height  = item[3]
+		,sku     = item[4]
 
 	item.prettyText	 = prettify(rawText)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
-	item.imageURL 	 = imagePath + rawText + ".jpg"
+	item.imageURL 	 = imagePath + sku + ".jpg"
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n", " ")
 	item.searchText  = item.searchText 
