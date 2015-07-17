@@ -3,6 +3,8 @@ var WS={};
 
 (function(){
 
+var noop=function(){}
+
 var fastEvery = function(collection, callback) {
 	var result = true;
 
@@ -53,10 +55,7 @@ WS.getResults = (keyword,reverse)=>{
 	if(keyword==="")
 		return WS.data.slice(0,WS.area)
 
-	var keywordList = 
-		keyword
-			.split(" ")
-			.map(toCaseInsensitive)
+	var keywordList = keyword.split(" ").map(toCaseInsensitive)
 	
 	return limitedFilter(
 		 WS.data
@@ -67,12 +66,9 @@ WS.getResults = (keyword,reverse)=>{
 
 WS.search = function(args={}){
 	var {keyword=WS.inputElement.value,reverse} = args
-
-	var onappendnode = WS.search.onappendnode||function(){}
-	var onfragmentpopulated = WS.search.onfragmentpopulated||function(){}
-
-	var  array       = WS.getResults(keyword,reverse)
-		,fragment    = dom.fragment()
+		,{onappendnode=noop,onfragmentpopulated=noop} = WS.search
+		,array    = WS.getResults(keyword,reverse)
+		,fragment = dom.fragment()
 	
 	array.forEach(i=>{
 		onappendnode(i)

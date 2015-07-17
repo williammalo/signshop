@@ -1,51 +1,36 @@
 ;(function(document){
 
-	var slice = Array.prototype.slice;
+	var slice      = Array.prototype.slice
+	var addMethods = (a,b)=>{for(var i in b)a.prototype[i] = b[i]}
 
-	Element.prototype.on = function(a,b,c){
-		this.addEventListener(a,b,c);
-		return this;
-	};
+	addMethods(Element,{
+		on		 (...a)	{this.addEventListener(...a); return this;},
+		clear	 ()		{var i; while(i=this.firstChild)this.removeChild(i); return this;},
+		query 	 (a)	{return this.querySelector(a)},
+		queryAll (a)	{return slice.call(this.querySelectorAll(a))}
+	})
 
-	Element.prototype.clear = function(){
-		var i;
-		while(i=this.firstChild)this.removeChild(i);
-		return this;
-	};
-
-	Element.prototype.query = function(a){
-		return this.querySelector(a)
-	};
-
-	Element.prototype.queryAll = function(a){
-		return slice.call(this.querySelectorAll(a))
-	};
-
-	window.dom=function(a,b){
+	var dom=function(a,b){
 	  if(a==="br")return document.createElement("br");//dumb ie bug fix
 	  var e=arguments, l=e.length, c, i=1,
 	  element = document.createElement(a)
-	  
 	  if(b&&b.constructor===Object)
 	    for(c in b)
 	      element.setAttribute(c, b[c])
 	    ,i=2
-
 	  for(;i<l;i++) element.append(e[i])
-
 	  return element
 	}
 
-	dom.query=function(s){
-		return document.querySelector(s);
-	};
-	dom.queryAll=a=>slice.call(document.querySelectorAll(a));
+	dom.query    = s => document.querySelector(s);
+	dom.queryAll = a => slice.call(document.querySelectorAll(a));
+	dom.fragment = ()=> document.createDocumentFragment()
 
-	dom.fragment=()=>document.createDocumentFragment()
+	dom.on   = addEventListener
+	dom.html = document.documentElement
+	dom.body = document.body
+	dom.head = document.head
 
-	dom.on=addEventListener
-	dom.html=document.documentElement
-	dom.body=document.body
-	dom.head=document.head
+	window.dom = dom
 
 })(document);

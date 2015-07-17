@@ -1,7 +1,6 @@
 var $traceurRuntime = {};
-$traceurRuntime.toObject = function(value) {
-  return Object(value);
-}(function(window) {
+$traceurRuntime.toObject = Object;
+(function(window) {
   'use strict';
   function textNodeIfString(node) {
     return typeof node === 'string' ? window.document.createTextNode(node): node;
@@ -216,22 +215,30 @@ $traceurRuntime.toObject = function(value) {
 ;
 (function(document) {
   var slice = Array.prototype.slice;
-  Element.prototype.on = function(a, b, c) {
-    this.addEventListener(a, b, c);
-    return this;
-  };
-  Element.prototype.clear = function() {
-    var i;
-    while (i = this.firstChild) this.removeChild(i);
-    return this;
-  };
-  Element.prototype.query = function(a) {
-    return this.querySelector(a);
-  };
-  Element.prototype.queryAll = function(a) {
-    return slice.call(this.querySelectorAll(a));
-  };
-  window.dom = function(a, b) {
+  var addMethods = (function(a, b) {
+    for (var i in b) a.prototype[i] = b[i];
+  });
+  addMethods(Element, {
+    on: function() {
+      var $__3;
+      for (var a = [],
+          $__0 = 0; $__0 < arguments.length; $__0++) a[$__0] = arguments[$__0];
+      ($__3 = this).addEventListener.apply($__3, $traceurRuntime.toObject(a));
+      return this;
+    },
+    clear: function() {
+      var i;
+      while (i = this.firstChild) this.removeChild(i);
+      return this;
+    },
+    query: function(a) {
+      return this.querySelector(a);
+    },
+    queryAll: function(a) {
+      return slice.call(this.querySelectorAll(a));
+    }
+  });
+  var dom = function(a, b) {
     if (a === "br") return document.createElement("br");
     var e = arguments,
         l = e.length,
@@ -242,9 +249,9 @@ $traceurRuntime.toObject = function(value) {
     for (; i < l; i++) element.append(e[i]);
     return element;
   };
-  dom.query = function(s) {
+  dom.query = (function(s) {
     return document.querySelector(s);
-  };
+  });
   dom.queryAll = (function(a) {
     return slice.call(document.querySelectorAll(a));
   });
@@ -255,9 +262,11 @@ $traceurRuntime.toObject = function(value) {
   dom.html = document.documentElement;
   dom.body = document.body;
   dom.head = document.head;
+  window.dom = dom;
 })(document);
 var WS = {};
 (function() {
+  var noop = function() {};
   var fastEvery = function(collection, callback) {
     var result = true;
     var index = - 1,
@@ -305,12 +314,13 @@ var WS = {};
   });
   WS.search = function() {
     var args = arguments[0] !== (void 0) ? arguments[0]: {};
-    var $__0 = args,
-        keyword = "keyword"in $__0 ? $__0.keyword: WS.inputElement.value,
-        reverse = $__0.reverse;
-    var onappendnode = WS.search.onappendnode || function() {};
-    var onfragmentpopulated = WS.search.onfragmentpopulated || function() {};
-    var array = WS.getResults(keyword, reverse),
+    var $__1 = args,
+        keyword = "keyword"in $__1 ? $__1.keyword: WS.inputElement.value,
+        reverse = $__1.reverse,
+        $__2 = WS.search,
+        onappendnode = "onappendnode"in $__2 ? $__2.onappendnode: noop,
+        onfragmentpopulated = "onfragmentpopulated"in $__2 ? $__2.onfragmentpopulated: noop,
+        array = WS.getResults(keyword, reverse),
         fragment = dom.fragment();
     array.forEach((function(i) {
       onappendnode(i);
@@ -386,12 +396,13 @@ var prettify = (function(text) {
   return text;
 });
 WS.data.forEach((function(item) {
-  var rawURL = item[0],
-      rawText = item[1],
-      tags = item[2] || "",
-      buyURL = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc",
-      height = item[3],
-      sku = item[4];
+  var $__1 = item,
+      rawURL = $__1[0],
+      rawText = $__1[1],
+      tags = 2 in $__1 ? $__1[2]: "",
+      height = $__1[3],
+      sku = $__1[4],
+      buyURL = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc";
   item.prettyText = prettify(rawText);
   item.node = linkTemplate(buyURL, item.prettyText, tags, height);
   item.imageURL = imagePath + sku + ".jpg";

@@ -1,9 +1,7 @@
 
 var $traceurRuntime = {};
 
-$traceurRuntime.toObject=function(value){
-return Object(value)
-}
+$traceurRuntime.toObject=Object;
 
 // dom 4 shim https://github.com/WebReflection/dom4
 <?php include 'dom4.js'; ?>
@@ -125,13 +123,9 @@ var prettify = text=>{
 }
 
 WS.data.forEach(item=>{
-
-	var  rawURL  = item[0]
-		,rawText = item[1]
-		,tags    = item[2]||""
+	
+	var [rawURL,rawText,tags="",height,sku] = item
 		,buyURL  = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc"
-		,height  = item[3]
-		,sku     = item[4]
 
 	item.prettyText	 = prettify(rawText)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
