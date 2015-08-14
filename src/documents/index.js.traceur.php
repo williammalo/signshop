@@ -1,7 +1,4 @@
-
-var $traceurRuntime = {};
-
-$traceurRuntime.toObject=Object;
+<?php include 'traceur-runtime.js'; ?>
 
 // dom 4 shim https://github.com/WebReflection/dom4
 <?php include 'dom4.js'; ?>
