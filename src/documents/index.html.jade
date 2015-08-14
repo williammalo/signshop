@@ -95,14 +95,19 @@ header.dark-background#subscribed
 
 #ws-container
 	include default.html
-script(src="traceur-runtime.js")
+
 script.
 	(function(){
 		window.onload=function(){
 			var body = document.body;
-			var script = document.createElement('script');
-			script.src = 'index.js';
-			body.appendChild(script);
+
+			var script0 = document.createElement('script');
+			script0.src = 'traceur-runtime.js';
+			body.appendChild(script0);
+
+			var script1 = document.createElement('script');
+			script1.src = 'index.js';
+			body.appendChild(script1);
 		}
 	})()
 //google analytics
