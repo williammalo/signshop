@@ -28,9 +28,8 @@ link(rel="dns-prefetch", href="http://fonts.googleapis.com")
 <!--[if IE]>
 script(src="ie.js")
 <![endif]-->
-//include ../../style.css
-//link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700',rel='stylesheet')
-link(rel="stylesheet",href="style.css")
+style#critical
+	include ../../style-critical.css
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -98,6 +97,17 @@ header.dark-background#subscribed
 
 script.
 	(function(){
+		var cb = function() {
+			var l = document.createElement('link'); l.rel = 'stylesheet';
+			l.href = 'style.css';
+			var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+			h.removeChild(document.getElementById("critical"))
+		};
+		var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+			webkitRequestAnimationFrame || msRequestAnimationFrame;
+		if (raf) raf(cb);
+		else window.addEventListener('load', cb);
+
 		window.onload=function(){
 			var body = document.body;
 

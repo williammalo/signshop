@@ -25,9 +25,8 @@
 <link rel="dns-prefetch" href="http://fonts.gstatic.com">
 <link rel="dns-prefetch" href="http://fonts.googleapis.com"><!--[if IE]>
 <script src="ie.js"></script><![endif]-->
-<!--include ../../style.css-->
-<!--link(href='http://fonts.googleapis.com/css?family=Ubuntu:400,700',rel='stylesheet')-->
-<link rel="stylesheet" href="style.css"><link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<style id="critical">*,:before,:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}html{background:#c5edf9;font-family:Helvetica Neue,Helvetica,sans-serif}body{margin:0}header,.toolbar,#ws-container a,#ws-container{padding:1em}.one-line,h1,header .middle div{line-height:1ex}.logo{margin-right:.4em;vertical-align:middle}h1{font-size:4.1em;margin:.1em 0 .3em 0;}.middle{display:inline-block;vertical-align:middle}header{height:109px;-webkit-transition:height .5s;transition:height .5s;overflow:hidden}.toolbar{background:#2eb3ed;position:-webkit-sticky;top:0;left:0;height:59px}.dark-background{background:#575043;color:#fff}.pad{display:inline-block;padding-right:3em}.hidden,.mobile,.popup,.toolbar-icon,#inputform,#mail-form,#ws-container{display:none}@media screen and (max-width:720px){html{font-size:14px}header{height:105px}}@media screen and (max-width:610px){header .middle div{width:330px;line-height:1.3em}h1{font-size:2.6em;margin-bottom:.2em}}@media screen and (max-width:435px){.mobile{display:block;margin-top:1em}.desktop{display:none}h1{width:200px;font-size:3em;line-height:.9em;margin:0}header{height:157px}}
+</style><link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
@@ -103,6 +102,17 @@ city
 </div>
 <script>
   (function(){
+  	var cb = function() {
+  		var l = document.createElement('link'); l.rel = 'stylesheet';
+  		l.href = 'style.css';
+  		var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+  		h.removeChild(document.getElementById("critical"))
+  	};
+  	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+  		webkitRequestAnimationFrame || msRequestAnimationFrame;
+  	if (raf) raf(cb);
+  	else window.addEventListener('load', cb);
+  
   	window.onload=function(){
   		var body = document.body;
   
