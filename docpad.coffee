@@ -321,6 +321,10 @@ docpadConfig = {
             compress: true
         jadeOptions:
             pretty: false
+        uglify:
+            environments:
+                development:
+                    enabled: true
 
     # =================================
     # Event Configuration

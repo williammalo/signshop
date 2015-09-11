@@ -152,8 +152,9 @@ header .middle div
 	margin:-4px 0
 */
 header
-	height:109px
-	transition:height .5s
+	height:auto
+	max-height:109px
+	transition:max-height .5s
 	overflow:hidden
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -166,8 +167,7 @@ header
 	display:block
 
 #toggle-info:checked~header
-	height:311px
-	transition:height .5s
+	max-height:500px
 
 .slide
 	width:310px
@@ -357,6 +357,9 @@ header
 		border:none
 		animation:zoom .5s
 
+[hidden]
+	display:none
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //media queries
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -364,18 +367,9 @@ header
 .mobile
 	display:none
 
-
-@media screen and (max-width: 1058px)
-	header
-		transition:none
-	#toggle-info:checked~header
-		height:auto
-
 @media screen and (max-width: 720px)
 	html
 		font-size:14px
-	header
-		height:105px
 
 @media screen and (max-width: 610px)
 	header .middle div
@@ -400,12 +394,12 @@ header
 		margin-top:1em
 	.desktop
 		display:none
+	header
+		max-height:150px
 	h1
 		width:200px
 		font-size:3em
 		line-height:.9em
 		margin:0
-	header
-		height:157px
 
 retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"

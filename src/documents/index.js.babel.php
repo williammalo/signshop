@@ -1,4 +1,4 @@
-<?php include 'traceur-runtime.js'; ?>
+
 
 // dom 4 shim https://github.com/WebReflection/dom4
 <?php include 'dom4.js'; ?>
@@ -53,9 +53,18 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 		dom("a",{style:"cursor:pointer"},"show all")
 			.on("click", WS.showAll)
 	,linkTemplate = (link,text,tags,height)=>
-		dom("a",{target:"paypal",href:link}
-			,dom("img",{height,width:150})
-			,text
+		dom("a",{
+				 target:"paypal"
+				,href:link
+				,itemscope:""
+				,itemtype:"http://schema.org/Product"
+			}
+			,dom("img",{height,width:150,itemprop:"image"})
+			,dom("span",{itemprop:"name"},text)
+			,dom("span",{itemprop:"offers",itemscope:"",itemtype:"http://schema.org/AggregateOffer",hidden:"hidden"}
+				,dom("span",{itemprop:"priceCurrency",content:"USD"},"$")
+				,dom("span",{itemprop:"price",content:"19.00"},"19")
+			)
 		)
 
 var setArea = function(){
@@ -88,13 +97,14 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //process data
 
 var prettify = text=>{
-	var now=(new Date).getFullYear()+"";
+	var now=(new Date).getFullYear();
 	var rules=[
 		//date formating
-		 [/uptodate/i,now]
+		 [/uptodate/i,now+""]
 		,[/(20\d\d-20\d\d)/,"\n$1"]
 		,[/( 20\d\d)/,"\n$1"]
-		,[now+"-"+now,now]
+		,[now+"-"+now,now+""]
+		,[(now+1)+"-"+now,(now+1)+""]
 		//put model on first line
 		,[/^(\S*) (\S*) /,"$1 $2\n"]
 		,["Prius\nC","Prius C"]
