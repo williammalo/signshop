@@ -153,10 +153,12 @@ WS.data.forEach(item=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //defered images
-dom.queryAll("[data-src]")
-	.forEach(i=>{
-		i.src = imagePath + i.getAttribute("data-src")
-	})
+dom.query("[for=toggle-info]").on("click",e=>{
+	dom.queryAll("[data-src]")
+		.forEach(i=>{
+			i.src = imagePath + i.getAttribute("data-src")
+		})
+})
 
 //faq cover
 

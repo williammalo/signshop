@@ -26,7 +26,7 @@
 	dom.queryAll = a => slice.call(document.querySelectorAll(a));
 	dom.fragment = ()=> document.createDocumentFragment()
 
-	dom.on   = addEventListener
+	dom.on   = (...a)=>window.addEventListener(...a)
 	dom.html = document.documentElement
 	dom.body = document.body
 	dom.head = document.head
