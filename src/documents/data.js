@@ -1,6 +1,8 @@
 
 WS.data=[
 //["url","name","tags","image-height","sku"],
+["508dc0f3","GMC Canyon / Chevrolet Colorado extended-cab short-box 2015-uptodate","pickup",75,"00604"],
+["3a7cb9c6","GMC Canyon / Chevrolet Colorado crew-cab short-box 2015-uptodate","pickup",76,"00603"],
 ["0e82e3b3","Honda HR-V 2016","suv",85,"00602"],
 ["04f4ea49","Nissan Micra 4-door 2016-uptodate","car",92,"00601"],
 ["98973bb9","GMC Sierra double-cab standard-box 2014-uptodate","pickup",76,"00600"],
