@@ -64,6 +64,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			,dom("span",{itemprop:"offers",itemscope:"",itemtype:"http://schema.org/AggregateOffer",hidden:"hidden"}
 				,dom("span",{itemprop:"priceCurrency",content:"USD"},"$")
 				,dom("span",{itemprop:"price",content:"19.00"},"19")
+				,dom("span",{itemprop:"lowPrice",content:"19.00"},"19")
 			)
 		)
 
@@ -176,6 +177,8 @@ WS.search()
 
 
 //clicked indicator
+
+
 
 WS.containerElement.on("click",event=>{
 	if(event.target.href)
