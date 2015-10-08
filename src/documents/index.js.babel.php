@@ -50,8 +50,8 @@ var addMethods = (a,b)=>{
 var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,inputFormElement = dom.query("#inputform")
 	,showAllLink =
-		dom("a",{style:"cursor:pointer"},"show all")
-			.on("click", WS.showAll)
+		dom("a",{id:"showalllink"},"show all")
+			.on("click",WS.showAll)
 	,linkTemplate = (link,text,tags,height)=>
 		dom("a",{
 				 target:"paypal"
@@ -59,7 +59,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 				,itemscope:""
 				,itemtype:"http://schema.org/Product"
 			}
-			,dom("img",{height,width:150,itemprop:"image"})
+			,dom("img",{height,width:150,itemprop:"image",alt:" "})
 			,dom("span",{itemprop:"name"},text)
 			,dom("span",{itemprop:"offers",itemscope:"",itemtype:"http://schema.org/AggregateOffer",hidden:"hidden"}
 				,dom("span",{itemprop:"priceCurrency",content:"USD"},"$")
@@ -101,25 +101,8 @@ var prettify = text=>{
 	var rules=[
 		//date formating
 		 [/uptodate/i,now+""]
-		,[/(20\d\d-20\d\d)/,"\n$1"]
-		,[/( 20\d\d)/,"\n$1"]
-		,[now+"-"+now,now+""]
-		,[(now+1)+"-"+now,(now+1)+""]
-		//put model on first line
-		,[/^(\S*) (\S*) /,"$1 $2\n"]
-		,["Prius\nC","Prius C"]
-		,["Ram\nPromaster","Ram Promaster\n"]
-		,["Transit\nConnect ","Transit Connect\n"]
-		,["model\nS","model S"]
-		//unescape
-		,[/(20\d\d)-(20\d\d)/,"$1–$2"]
-		,[/-/g,"‑"]
-		//hack!!!!
-		,[" Econoline\n"," Econoline e-350 e-250\n"]
-		,["Ram\n1500","Ram 1500 2500"]
-		//fixes
-		,["\n\n","\n"]
-		,["\n ","\n"]
+		,[now+"‑"+now,now+""]
+		,[(now+1)+"‑"+now,(now+1)+""]
 	]
 
 	rules.forEach(i=>{
