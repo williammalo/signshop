@@ -41,6 +41,25 @@ var addMethods = (a,b)=>{
 		a.prototype[i] = b[i]
 }
 
+var range = function(start, stop) {
+
+	var length = Math.max(Math.ceil((stop - start)), 0);
+	var range = Array(length);
+
+	for (var idx = 0; idx < length; idx++, start += 1) {
+	  range[idx] = start;
+	}
+
+	return range;
+};
+
+var expandRange = function(rangeString){
+	var ends = rangeString.split("‑");
+	var start = parseInt(ends[0]);
+	var stop = parseInt(ends[1]);
+	return range(start,stop).join(" ")
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //VARIABLES
@@ -64,6 +83,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 			,dom("span",{itemprop:"offers",itemscope:"",itemtype:"http://schema.org/AggregateOffer",hidden:"hidden"}
 				,dom("span",{itemprop:"priceCurrency",content:"USD"},"$")
 				,dom("span",{itemprop:"price",content:"19.00"},"19")
+				,dom("span",{itemprop:"lowPrice",content:"19.00"},"19")
 			)
 		)
 
@@ -122,11 +142,13 @@ WS.data.forEach(item=>{
 	item.imageURL 	 = imagePath + sku + ".jpg"
 	item.imageLoaded = false
 	item.searchText  = item.prettyText.replace("\n", " ")
-	item.searchText  = item.searchText 
-					 + item.searchText.replace(/‑/g, "" )
-					 + item.searchText.replace(/‑/g, " ")
-					 + item.searchText.replace(/‑/g, "-")
-					 + " " + tags
+	item.searchText  = item.searchText + " "
+					 + item.searchText.replace(/‑/g, "" ) + " "
+					 + item.searchText.replace(/‑/g, " ") + " "
+					 + item.searchText.replace(/‑/g, "-") + " " 
+					 + tags
+	item.searchText = item.searchText + " " + item.searchText.replace("Chevrolet", "Chevy")
+	item.searchText = item.searchText + " " + item.searchText.replace(/20\d\d‑20\d\d/,expandRange)
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -176,6 +198,8 @@ WS.search()
 
 
 //clicked indicator
+
+
 
 WS.containerElement.on("click",event=>{
 	if(event.target.href)
