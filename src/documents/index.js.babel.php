@@ -43,20 +43,20 @@ var addMethods = (a,b)=>{
 
 var range = function(start, stop) {
 
-	var length = Math.max(Math.ceil((stop - start)), 0);
+	var length = stop - start;
 	var range = Array(length);
+	var i=0;
 
-	for (var idx = 0; idx < length; idx++, start += 1) {
-	  range[idx] = start;
-	}
+	for (; i < length; i++, start++)
+		range[i] = start;
 
 	return range;
 };
 
 var expandRange = function(rangeString){
 	var ends = rangeString.split("‑");
-	var start = parseInt(ends[0]);
-	var stop = parseInt(ends[1]);
+	var start = +ends[0];
+	var stop  = +ends[1];
 	return range(start,stop).join(" ")
 }
 
@@ -132,6 +132,17 @@ var prettify = text=>{
 	return text
 }
 
+var getSearchString = text=>{
+	var  searchText = text.replace("\n", " ")
+	var  noSpace = searchText.replace(/‑/g, "" )
+		,space   = searchText.replace(/‑/g, " ")
+		,dash    = searchText.replace(/‑/g, "-")
+		,chevy   = searchText.replace("Chevrolet", "Chevy")
+		,range   = searchText.replace(/20\d\d‑20\d\d/,expandRange)
+
+	return `${searchText} ${noSpace} ${space} ${dash} ${chevy} ${range} `
+}
+
 WS.data.forEach(item=>{
 	
 	var [rawURL,rawText,tags="",height,sku] = item
@@ -141,14 +152,7 @@ WS.data.forEach(item=>{
 	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
 	item.imageURL 	 = imagePath + sku + ".jpg"
 	item.imageLoaded = false
-	item.searchText  = item.prettyText.replace("\n", " ")
-	item.searchText  = item.searchText + " "
-					 + item.searchText.replace(/‑/g, "" ) + " "
-					 + item.searchText.replace(/‑/g, " ") + " "
-					 + item.searchText.replace(/‑/g, "-") + " " 
-					 + tags
-	item.searchText = item.searchText + " " + item.searchText.replace("Chevrolet", "Chevy")
-	item.searchText = item.searchText + " " + item.searchText.replace(/20\d\d‑20\d\d/,expandRange)
+	item.searchText  = getSearchString(item.prettyText) + tags
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +202,6 @@ WS.search()
 
 
 //clicked indicator
-
 
 
 WS.containerElement.on("click",event=>{
