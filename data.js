@@ -1,4 +1,6 @@
 WS.data=[
+["8abf2355","Winnebago Brave 31C","Recreational vehicle class a motorhome caravan camper van bus",90,"00611"],
+["68206198","Kia Sorento SX 2016","suv",78,"00610"],
 ["baa887ad","Winnebago Vista","RV",90,"00609"],
 ["304dde38","GMC Sierra\n/ Chevrolet Silverado crew‑cab 3500 HD long-box 2014‑uptodate","pickup",68,"00608"],
 ["29185114","Mercedes Metris cargo van 2016‑uptodate","van",82,"00607"],
