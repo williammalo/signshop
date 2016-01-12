@@ -154,9 +154,19 @@ header .middle div
 header
 	height:auto
 	max-height:109px
-	transition:max-height .5s
+	//transition:max-height .5s
 	overflow:hidden
 
+header.dark-background
+	background:repeat-x url("/header-bg.png"),url("/header.jpg")
+	background-size:260px,cover;
+	min-height: calc(100vw / 3)
+	max-height:initial
+	text-shadow: 0 0 1em #000
+#toggle-info:checked~header.dark-background
+	background:repeat url("/header-bg2.png"),url("/header-blurred.jpg");
+	background-size:260px,cover;
+	min-height:initial
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //content
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -251,7 +261,7 @@ header
 	top:24px
 	left:-12px
 	line-height:1.1em
-	padding-top:1px
+	padding-top:3px
 	padding-bottom:3px
 .toolbar-icon:before
 	content:""
@@ -276,8 +286,8 @@ header
 	content:"less info"
 
 .toolbar-icon.mail:after
-	width:50px
-	left:-17px
+	width:52px
+	left:-18px
 
 #mail-form
 	display:none

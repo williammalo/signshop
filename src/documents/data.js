@@ -1,8 +1,8 @@
 
 WS.data=[
-["8abf2355","Winnebago Brave 31C","Recreational vehicle class a motorhome caravan camper van bus",90,"00611"],
+["8abf2355","Winnebago Brave 31C","RV Recreational vehicle class a motorhome caravan camper van bus",90,"00611"],
 ["68206198","Kia Sorento SX 2016","suv",78,"00610"],
-["baa887ad","Winnebago Vista","RV",90,"00609"],
+["baa887ad","Winnebago Vista","RV Recreational vehicle class a motorhome caravan camper van bus",90,"00609"],
 ["304dde38","GMC Sierra\n/ Chevrolet Silverado crew‑cab 3500 HD long-box 2014‑uptodate","pickup",68,"00608"],
 ["29185114","Mercedes Metris cargo van 2016‑uptodate","van",82,"00607"],
 ["6751b7bd","Ford F‑150\nsupercrew 5.5ft 2015‑uptodate","pickup",75,"00606"],
@@ -23,9 +23,9 @@ WS.data=[
 ["amohmuri","Mini Cooper\n2008‑2015","car",79,"00591"],
 ["rphooref","Ford F‑150\nsupercab 6 5ft\n2015‑uptodate","pickup",75,"00590"],
 ["vwakecoo","Dodge Ram Promaster\n136 wheelbase, high‑roof\n2014‑uptodate","van",90,"00587"],
-["ohphizoo","Ford Transit\nfull‑size high‑roof long\n2015","van",100,"00588"],
+["ohphizoo","Ford Transit\nfull‑size high‑roof long\n2015‑uptodate","van",100,"00588"],
 ["aesameev","Tesla model S\n2014","car",65,"00586"],
-["caiphooj","Ford Transit\nfull‑size medium‑roof long\n2015","van",86,"00585"],
+["caiphooj","Ford Transit\nfull‑size medium‑roof long\n2015‑uptodate","van",86,"00585"],
 ["iquokeib","Ford Econoline e‑350 e‑250\nextended length cargo\n2008‑2014","van",76,"00584"],
 ["bohghozu","Toyota Rav‑4\n2014‑uptodate","suv",83,"00001"],
 ["ijughaim","Honda Accord\n2012‑uptodate","car",67,"00582"],
