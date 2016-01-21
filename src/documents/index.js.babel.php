@@ -187,6 +187,15 @@ dom.query("#faq")
 		dom.body.append(cover)
 	})
 
+//hide info on text input
+var infoBlockElement = dom.query("#toggle-info");
+WS.inputElement
+	.on("input",function(){
+		if(infoBlockElement.checked !== false)
+			infoBlockElement.checked = false;
+	})
+
+
 //hardlinking
 
 inputFormElement

@@ -10,9 +10,9 @@ brand=#83c61a #bd000c #2eb3ed #ee9908
 
 brand[1]=lighten(desaturate(#9300cf,20%),20%)
 
-light=tint(sun(brand[0],8),15%) tint(sun(brand[1],8),15%) tint(sun(brand[2],8),15%) tint(sun(brand[3],8),15%)
+light=tint(sun(brand[0],2),15%) tint(sun(brand[1],2),15%) tint(sun(brand[2],2),15%) tint(sun(brand[3],2),15%)
 
-xlight=tint(sun(light[0],8),65%) tint(sun(light[1],8),65%) tint(sun(light[2],8),65%) tint(sun(light[3],8),65%)
+xlight=tint(sun(light[0],2),65%) tint(sun(light[1],2),65%) tint(sun(light[2],2),65%) tint(sun(light[3],2),65%)
 
 dark=(brand[0]*0.95) (brand[1]*0.95) (brand[2]*0.95) (brand[3]*0.95)
 
@@ -31,8 +31,14 @@ html
 	line-height:1.4em
 	font-size:16px //force font size in mobile webkit
 	-webkit-text-size-adjust: 100% //force font size in mobile webkit
-	background:xlight[2]
+	background: xlight[2]
+	background:url(/bannerbottom.jpg)
+	background-size:100%
 
+.main
+	background:url(/bannerbottom.jpg)
+	background:linear-gradient(to bottom, rgba(#B9B9B9,0) 0%,rgba(#B9B9B9,0.6) 50%,rgba(#B9B9B9,1) 100% )
+	background-size:100%
 body
 	margin:0
 
@@ -42,6 +48,9 @@ img
 
 ul
 	padding-left:1.1em
+
+ul:first-child
+	margin-top:0
 
 a
 	color:dark[2]
@@ -54,6 +63,7 @@ input[type=text],input[type=submit],input[type=email]
 	border-radius: 1em;
 	background:#fff
 	outline: none
+	max-width:100%
 input[type=text],input[type=email]
 	width:12em
 input[type=submit]
@@ -61,7 +71,7 @@ input[type=submit]
 	cursor:pointer
 
 input:focus
-	box-shadow: 0 0 .5em brand[2]*2
+	box-shadow: 0 0 0 .2em brand[2]
 input:focus::-webkit-input-placeholder
 	color:dark[2]
 input:focus:-moz-placeholder
@@ -79,7 +89,7 @@ input::-ms-clear
 //global styles
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-header,.toolbar,#ws-container a,#ws-container
+.toolbar,#ws-container a,#ws-container,.pad
 	padding:1em
 
 .one-line
@@ -125,8 +135,6 @@ header,.toolbar,#ws-container a,#ws-container
 
 
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //header
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -152,32 +160,46 @@ header .middle div
 	margin:-4px 0
 */
 header
-	height:auto
-	max-height:109px
+	height:0
+	padding-bottom:20%
+	//max-height:109px
 	//transition:max-height .5s
 	overflow:hidden
-
+	position:relative
 header.dark-background
-	background:repeat-x url("/header-bg.png"),url("/header.jpg")
-	background-size:260px,cover;
-	min-height: calc(100vw / 3)
-	max-height:initial
-	text-shadow: 0 0 1em #000
-#toggle-info:checked~header.dark-background
-	background:repeat url("/header-bg2.png"),url("/header-blurred.jpg");
-	background-size:260px,cover;
-	min-height:initial
+	background:url(/banner2.jpg)
+	background-size:cover
+header img
+	width:100%;
+	display:block
+.header-content
+	padding:1em;
+	//position:absolute;
+	top:0;
+	//left:50%;
+	//transform:translateX(-50%)
+	//background:rgba(#000,0.7)
+	//border-radius:1em
+	//width:685px
+	color:#fff
+	text-align:center
+	background:#50493F;//brand[2]
+	background:url(/bannertop.jpg)
+	background:linear-gradient(to top, rgba(#B9B9B9,0) 0%,rgba(#B9B9B9,0.6) 50%,rgba(#B9B9B9,1) 100% ),linear-gradient(to right, #B9B9B9 0%,#B9B9B9 33%,#818C93 35%,#557CA7 36%,#204F84 38%,#204F84 42%,#404038 44%,#434746 46%,#133552 48%,#133552 50.5%,#455E75 51.6%,#979FAB 52.8%,#959CA7 62%,#83979E 64%,#8598A3 66%,#5786BA 68%,#5B89BA 100%)
+	-webkit-transform:translateZ(0)
+	background-size:100% 100%
+	position:relative;
+	z-index:1
+.header-content-inner
+	filter:drop-shadow(0 0 15px rgba(0,0,0,0.5))
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //content
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 .popup
 	display:none
-#toggle-info:checked~* .popup
+#toggle-info:checked~.popup
 	display:block
-
-#toggle-info:checked~header
-	max-height:500px
 
 .slide
 	width:310px
@@ -208,7 +230,6 @@ header.dark-background
 .popup strong
 	max-width:694px
 
-
 #toggle-info:checked~* .popup strong
 	display:block
 	animation: shakered 1s
@@ -219,18 +240,28 @@ header.dark-background
 
 .toolbar
 	@extend .one-line
-	background:brand[2]
-	position:-webkit-sticky
+	//background:rgba(#000,0.5) //brand[2]
+	position:absolute;
+	//width:100%;
+	//position:-webkit-sticky
 	top:0
-	left:0
+	right:0
+	text-align:right;
+	z-index:2
 
 .toolbar>*
 	display:inline-block
 	vertical-align:middle
 .toolbar>*:not(:first-child)
 	margin-left:1em
-
+#inputform
+	text-align:center
+	padding:1em
+	padding-top:2em
+	z-index:1
+	position:relative
 #ws-input
+	font-size:2em
 	background:#fff url(search.png) center right no-repeat
 	background:#fff url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTEgMjBsNS00Yy42LS41IDEuNS0xIDItMS0xLjMtMS42LTItMy44LTItNiAwLTUgNC05IDktOXM5IDQgOSA5LTQgOS05IDljLTIuMiAwLTQuNC0uNy02LTIgMCAuNS0uNSAxLjQtMSAybC00IDVjLS44IDEtMiAxLTMgMHMtMS0yIDAtM3ptMTQtNWMzLjMgMCA2LTIuNyA2LTZzLTIuNy02LTYtNi02IDIuNy02IDYgMi43IDYgNiA2eiIvPjwvc3ZnPg==") center right no-repeat
 	background-size:1.3333em 1em
@@ -291,14 +322,22 @@ header.dark-background
 
 #mail-form
 	display:none
+	font-size: 12px;
 #toggle-mail:checked~* #mail-form
 	display:inline-block
 #toggle-mail:checked~* .toolbar-icon.mail
 	display:none
-
+#toggle-mail:checked~.toolbar
+	background:rgba(#000,0.3)
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //results
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+.block
+	background:#fff
+	padding:1em
+.info-block
+	margin-bottom:-1em
 
 #ws-container
 	column-width:20em
@@ -346,7 +385,7 @@ header.dark-background
 	a
 		color:light[2]
 
-.pad
+.spacer
 	display:inline-block
 	padding-right:3em
 
@@ -383,14 +422,18 @@ header.dark-background
 	html
 		font-size:14px
 
-@media screen and (max-width: 610px)
-	header .middle div
+@media screen and (max-width: 893px)
+	.middle div
 		width:330px
 		line-height:1.3em
+		text-align:left
 	h1
 		font-size:2.6em
 		margin-bottom: .2em
-@media screen and (max-width: 550px)
+@media screen and (max-width: 568px)
+	.header-content
+		text-align:left
+@media screen and (max-width: 580px)
 	.slide
 		display:none !important
 
@@ -400,7 +443,7 @@ header.dark-background
 	#toggle-mail:checked~* #mail-form
 		display:block
 		margin-top:.5em
-@media screen and (max-width: 435px)
+@media screen and (max-width: 500px)
 	.mobile
 		display:block
 		margin-top:1em
@@ -413,5 +456,9 @@ header.dark-background
 		font-size:3em
 		line-height:.9em
 		margin:0
+
+@media screen and (max-width: 380px)
+	.header-content h1
+		font-size:2.4em
 
 retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
