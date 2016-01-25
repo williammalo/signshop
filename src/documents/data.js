@@ -1,9 +1,10 @@
 
 WS.data=[
+["4f175128","Ford Super‑Duty F‑Series F‑250 F‑350 F‑450 crew‑cab 2016‑uptodate","pickup",71,"00612"],
 ["8abf2355","Winnebago Brave 31C","RV Recreational vehicle class a motorhome caravan camper van bus",90,"00611"],
 ["68206198","Kia Sorento SX 2016","suv",78,"00610"],
 ["baa887ad","Winnebago Vista","RV Recreational vehicle class a motorhome caravan camper van bus",90,"00609"],
-["304dde38","GMC Sierra\n/ Chevrolet Silverado crew‑cab 3500 HD long-box 2014‑uptodate","pickup",68,"00608"],
+["304dde38","GMC Sierra\n/ Chevrolet Silverado crew‑cab 3500 HD long‑box 2014‑uptodate","pickup",68,"00608"],
 ["29185114","Mercedes Metris cargo van 2016‑uptodate","van",82,"00607"],
 ["6751b7bd","Ford F‑150\nsupercrew 5.5ft 2015‑uptodate","pickup",75,"00606"],
 ["a2f1142e","Ford F‑150\nsupercrew 6.5ft 2015‑uptodate","pickup",78,"00605"],
