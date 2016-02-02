@@ -229,7 +229,7 @@ WS.data=[
 ["xghocoor","Ford Flex\n2009‑uptodate","crossover",82,"00195"],
 ["fveeghie","Ford Focus\n4‑door\n2008‑2010","car",80,"00196"],
 ["iefohlih","Ford Focus\n4‑door sedan\n2010‑uptodate","car",80,"00197"],
-["aibeigie","Ford Focus\ncoupe\n2008‑uptodate","car",79,"00198"],
+["aibeigie","Ford Focus\ncoupe\n2008‑2011","car",79,"00198"],
 ["ofaixaca","Ford Focus\nwagon\n2003‑2007","car",81,"00199"],
 ["eejiewof","Ford Freestyle\n2005‑2007","crossover",85,"00200"],
 ["ietoomie","Ford Fusion\n2007‑2009","car",73,"00201"],
