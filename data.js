@@ -48,7 +48,7 @@ WS.data=[
 ["oroocaph","Dodge Ram Promaster\n118 wheelbase, standard‑roof\n2014‑uptodate","van",85,"00014"],
 ["gothoxox","Dodge Ram Promaster\n136 wheelbase, standard‑roof\n2014‑uptodate","van",86,"00015"],
 ["aquefaid","Nissan Murano\n2014","suv",87,"00016"],
-["engeivug","Mitsubishi Outlander\n2014","suv",85,"00017"],
+["engeivug","Mitsubishi Outlander\n2014‑2015","suv",85,"00017"],
 ["weephahz","Kenworth t680\n2013‑uptodate","tractor",126,"00018"],
 ["eitoocah","Peterbilt 579","tractor",127,"00019"],
 ["kiewiezu","Freightliner Cascadia\nEvolution","tractor",132,"00020"],
