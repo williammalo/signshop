@@ -163,7 +163,7 @@ WS.data=[
 ["iwohjoon","Chevrolet Venture\next\n2003‑2004","van",83,"00128"],
 ["zohbahng","Chevrolet Venture\nregular\n2003‑2004","van",80,"00129"],
 ["oxaequee","Chrysler PT‑Cruiser\n2004‑2010","car",81,"00130"],
-["airiezie","Chrysler PT‑Cruiser\npanel\n2007‑uptodate","car",80,"00131"],
+["airiezie","Chrysler PT‑Cruiser\npanel\n2007‑2010","car",80,"00131"],
 ["haipahji","Chrysler Town\nand Country\n2003‑2007","van",79,"00132"],
 ["ziedeife","Chrysler Town\nand Country\n2008‑uptodate","van",80,"00133"],
 ["thichohd","Ford Econoline e‑350 e‑250\ncube 15ft","cube",97,"00134"],
