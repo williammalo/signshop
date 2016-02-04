@@ -382,7 +382,7 @@ WS.data=[
 ["ohmuhiez","Kia Forte\n2010‑uptodate","car",75,"00351"],
 ["phahquom","Kia Koup\n2010‑uptodate","car",76,"00352"],
 ["zfwthoye","Kia Rio\n2006‑2011","car",86,"00353"],
-["giepoobi","Kia Rondo\n2007‑uptodate","car",86,"00354"],
+["giepoobi","Kia Rondo\n2007‑2012","car",86,"00354"],
 ["thegaech","Kia Soul\n2010‑2013","car",87,"00355"],
 ["ahgetihu","Kia Spectra\n2007‑2009","car",76,"00356"],
 ["eenaichi","Kia Borrego\n2009‑2011","suv",81,"00357"],
