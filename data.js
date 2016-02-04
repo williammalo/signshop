@@ -400,7 +400,7 @@ WS.data=[
 ["aekoceis","Mazda 3\nsedan\n2010‑2013","car",82,"00369"],
 ["eedoxeet","Mazda MX5\nMiata\n2008‑uptodate","car",70,"00370"],
 ["cheixiem","Mazda Protege\n5\n2003","car",75,"00371"],
-["xmthuyoo","Mazda RX‑8\n2008‑uptodate","car",74,"00372"],
+["xmthuyoo","Mazda RX‑8\n2008‑2012","car",74,"00372"],
 ["ohtheebi","Mazda Speed3\n2010‑2013","car",78,"00373"],
 ["ooneibee","Mazda B‑Series\n2004‑2009","pickup",82,"00374"],
 ["nefeicop","Mazda 5\n2006‑2011","van",86,"00375"],
