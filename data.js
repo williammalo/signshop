@@ -525,7 +525,7 @@ WS.data=[
 ["thijebaf","Scion XB\n/ BB\n2004‑2007","car",129,"00494"],
 ["iezephoo","Toyota 4Runner\n2004‑2009","suv",87,"00495"],
 ["muhephoc","Toyota 4Runner\n2010‑uptodate","suv",81,"00496"],
-["veichere","Toyota FJ‑Cruiser\n2007‑uptodate","suv",86,"00497"],
+["veichere","Toyota FJ‑Cruiser\n2007‑2014","suv",86,"00497"],
 ["daefaela","Toyota Highlander\n2003‑2007","suv",82,"00498"],
 ["iecewohl","Toyota Highlander\n2008‑2013","suv",82,"00499"],
 ["enengiwo","Toyota Rav‑4\n2003‑2005","suv",88,"00500"],
