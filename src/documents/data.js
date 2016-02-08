@@ -1,5 +1,7 @@
 
 WS.data=[
+["8e7907b5","Honda Civic\nsedan 2016‑uptodate","car",70,"00614"],
+["0ea4504e","Subaru BRZ\n2013‑uptodate","car",70,"00613"],
 ["4f175128","Ford Super‑Duty F‑Series F‑250 F‑350 F‑450 crew‑cab 2016‑uptodate","pickup",71,"00612"],
 ["8abf2355","Winnebago Brave 31C","RV Recreational vehicle class a motorhome caravan camper van bus",90,"00611"],
 ["68206198","Kia Sorento SX 2016","suv",78,"00610"],
