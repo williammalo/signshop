@@ -55,7 +55,7 @@ WS.data=[
 ["kiewiezu","Freightliner Cascadia\nEvolution","tractor",132,"00020"],
 ["ohyedunu","Nissan NV200\n2013‑uptodate","van",86,"00021"],
 ["ynegunoo","Toyota Prius C\n2013‑uptodate","car",75,"00022"],
-["jahghies","Subaru XV\n2013‑uptodate","suv",82,"00023"],
+["jahghies","Subaru XV Crosstrek\n2013‑uptodate","suv",82,"00023"],
 ["ohkahroo","Nissan Pathfinder\n2013‑uptodate","suv",80,"00024"],
 ["vquiegee","Mitsubishi Imiev\n2012‑uptodate","car",98,"00025"],
 ["bhrieyal","Mazda CX‑5\n2012‑uptodate","suv",83,"00026"],
