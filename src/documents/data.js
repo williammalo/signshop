@@ -25,7 +25,7 @@ WS.data=[
 ["rphooref","Ford F‑150\nsupercab 6 5ft\n2015‑uptodate","pickup",75,"00590"],
 ["vwakecoo","Dodge Ram Promaster\n136 wheelbase, high‑roof\n2014‑uptodate","van",90,"00587"],
 ["ohphizoo","Ford Transit\nfull‑size high‑roof long\n2015‑uptodate","van",100,"00588"],
-["aesameev","Tesla model S\n2014","car",65,"00586"],
+["aesameev","Tesla model S\n2014‑uptodate","car",65,"00586"],
 ["caiphooj","Ford Transit\nfull‑size medium‑roof long\n2015‑uptodate","van",86,"00585"],
 ["iquokeib","Ford Econoline e‑350 e‑250\nextended length cargo\n2008‑2014","van",76,"00584"],
 ["bohghozu","Toyota Rav‑4\n2014‑uptodate","suv",83,"00001"],
