@@ -1,5 +1,6 @@
 
 WS.data=[
+["f7cefb84","Smart Fortwo\n2016‑uptodate","car",105,"00615"],
 ["8e7907b5","Honda Civic\nsedan 2016‑uptodate","car",70,"00614"],
 ["0ea4504e","Subaru BRZ\n2013‑uptodate","car",70,"00613"],
 ["4f175128","Ford Super‑Duty F‑Series F‑250 F‑350 F‑450 crew‑cab 2016‑uptodate","pickup",71,"00612"],
