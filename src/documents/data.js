@@ -1,7 +1,7 @@
 
 WS.data=[
 //["","","",,""],
-//["","","",,""],
+["e4c3aebd","Mazda CX-3\n2016‑uptodate","suv",78,"00619"],
 ["dd838198","Kia Sedona\n2015‑uptodate","van",82,"00618"],
 ["1626ce09","Toyota Tundra\ncrewmax 2016‑uptodate","pickup",73,"00617"],
 ["0d27c757","Ford Edge\n2016‑uptodate","suv",79,"00616"],
