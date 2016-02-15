@@ -192,6 +192,37 @@ header img
 	z-index:1
 .header-content-inner
 	filter:drop-shadow(0 0 15px rgba(0,0,0,0.5))
+
+@keyframes banner
+	0%
+		opacity:0
+	60%
+		opacity:0
+	80%
+		opacity:1
+	100%
+		opacity:0
+
+
+.banner-words
+	width:33.33%
+	float:left
+	text-align:center
+	text-transform:uppercase;
+	padding-top:17%
+	font-size:3vw
+	text-shadow:0 0 1em #000
+	font-weight:bold
+	opacity:0
+.banner-words:first-child
+	color:#000
+	text-shadow:0 0 1em #fff
+	animation:banner 18s infinite
+.banner-words:nth-child(2)
+	animation:banner 18s 6s infinite
+.banner-words:nth-child(3)
+	animation:banner 18s 12s infinite
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //content
 ////////////////////////////////////////////////////////////////////////////////////////////////
