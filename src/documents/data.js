@@ -1,6 +1,7 @@
 
 WS.data=[
 //["","","",,""],
+["679fa22f","Subaru Forester\n2014‑uptodate","suv",91,"00623"],
 ["61393d30","Toyota Tacoma\ndouble‑cab short‑bed 6.1ft 2016‑uptodate","6ft pickup",70,"00622"],
 ["1e10cc9e","Toyota Tacoma\naccess‑cab long‑bed\n2016‑uptodate","pickup",73,"00621"],
 ["4b36e2fb","Toyota Tundra\ndouble‑cab SR5\n2016‑uptodate","pickup",73,"00620"],
