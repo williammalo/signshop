@@ -89,7 +89,7 @@ WS.data=[
 ["oopofael","Honda CR‑V\n2012‑uptodate","suv",82,"00042"],
 ["aikeyaye","Honda Civic\ncoupe\n2012‑2015","car",74,"00043"],
 ["ixaepohz","Hyundai Accent\n4‑door hatchback\n2012‑uptodate","car",79,"00044"],
-["aiboogoh","Hyundai Elantra\n2012‑uptodate","car",72,"00045"],
+["aiboogoh","Hyundai Elantra\n2012‑2015","car",72,"00045"],
 ["peiveelu","Hyundai Veloster\n2012‑uptodate","car",73,"00046"],
 ["chievahm","Mazda 5\n2012‑uptodate","van",83,"00047"],
 ["hoholier","Mitsubishi RVR\n2010‑uptodate","suv",81,"00048"],
