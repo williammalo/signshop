@@ -196,11 +196,11 @@ header img
 @keyframes banner
 	0%
 		opacity:0
-	20%
+	10%
 		opacity:0
-	40%
+	20%
 		opacity:1
-	60%
+	30%
 		opacity:0
 	100%
 		opacity:0
@@ -211,7 +211,7 @@ header img
 	float:left
 	text-align:center
 	text-transform:uppercase;
-	padding-top:17%
+	padding-top:16.5%
 	font-size:3vw
 	text-shadow:0 0 1em #000
 	font-weight:bold
@@ -219,11 +219,11 @@ header img
 .banner-words:first-child
 	color:#000
 	text-shadow:0 0 1em #fff
-	animation:banner 10s infinite
+	animation:banner 20s infinite
 .banner-words:nth-child(2)
-	animation:banner 10s 3s infinite
+	animation:banner 20s 3s infinite
 .banner-words:nth-child(3)
-	animation:banner 10s 6s infinite
+	animation:banner 20s 6s infinite
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //content
@@ -349,7 +349,7 @@ header img
 #toggle-info:checked~* label.info:after
 	content:"less info"
 
-.toolbar-icon.mail:after
+.toolbar-icon.mail:after,.toolbar-icon.twitter:after
 	width:52px
 	left:-18px
 
@@ -455,7 +455,11 @@ header img
 	html
 		font-size:14px
 
-@media screen and (max-width: 893px)
+@media screen and (max-width: 930px)
+	.header-content-inner
+		text-align:left
+
+@media screen and (max-width: 824px)
 	.middle div
 		width:330px
 		line-height:1.3em
@@ -463,6 +467,7 @@ header img
 	h1
 		font-size:2.6em
 		margin-bottom: .2em
+
 @media screen and (max-width: 568px)
 	.header-content
 		text-align:left
@@ -478,7 +483,7 @@ header img
 	#toggle-mail:checked~* #mail-form
 		display:block
 		margin-top:.5em
-@media screen and (max-width: 500px)
+@media screen and (max-width: 520px)
 	.mobile
 		display:block
 		margin-top:1em
@@ -491,8 +496,13 @@ header img
 		font-size:3em
 		line-height:.9em
 		margin:0
+	.header-helper
+		font-size: 1.35em;
+		position: relative;
+		left: -3px;
+		top: 2px;
 
-@media screen and (max-width: 380px)
+@media screen and (max-width: 400px)
 	.header-content h1
 		font-size:2.4em
 
