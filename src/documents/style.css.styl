@@ -301,6 +301,10 @@ header img
 	animation:bounceIn .5s
 // <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24"><path d="M1 20l5-4c.6-.5 1.5-1 2-1-1.3-1.6-2-3.8-2-6 0-5 4-9 9-9s9 4 9 9-4 9-9 9c-2.2 0-4.4-.7-6-2 0 .5-.5 1.4-1 2l-4 5c-.8 1-2 1-3 0s-1-2 0-3zm14-5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6z"/></svg>
 
+@media screen and (max-width: 385px)
+	#ws-input
+		font-size:1.8em
+
 .toolbar-icon
 	position:relative
 	text-align:center
@@ -501,10 +505,17 @@ header img
 		position: relative;
 		left: -3px;
 		top: 2px;
+	header
+		display:none
 
 @media screen and (max-width: 400px)
 	.header-content h1
 		font-size:2.4em
+@media screen and (max-width: 367px)
+	.header-content h1
+		font-size: 1.9em;
+		position: relative;
+		top: 14px
 
 retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
 
