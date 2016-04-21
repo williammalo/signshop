@@ -520,7 +520,7 @@ WS.data=[
 ["uxooxagh","Toyota Matrix\n2004‑2008","car",84,"00473"],
 ["yahnaego","Toyota Matrix\n2009‑2014","car",85,"00474"],
 ["ooyohnot","Toyota Prius\n2004‑2009","car",86,"00475"],
-["iedeexie","Toyota Prius\n2010‑uptodate","car",80,"00476"],
+["iedeexie","Toyota Prius\n2010‑2015","car",80,"00476"],
 ["eiciquaz","Toyota Venza\n2009‑2015","suv",79,"00477"],
 ["ievogase","Toyota Yaris\n2‑door\n2006‑2013","car",78,"00478"],
 ["aethakoo","Toyota Yaris\n4‑door hatchback\n2006‑2013","car",80,"00479"],
