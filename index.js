@@ -1,3 +1,6 @@
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 // dom 4 shim https://github.com/WebReflection/dom4
 (function (window) {
@@ -89,7 +92,7 @@
   // but its actually there as getter
   if (!('classList' in document.documentElement)) {
     // http://www.w3.org/TR/domcore/#domtokenlist
-    verifyToken = function (token) {
+    verifyToken = function verifyToken(token) {
       if (!token) {
         throw 'SyntaxError';
       } else if (spaces.test(token)) {
@@ -97,7 +100,7 @@
       }
       return token;
     };
-    DOMTokenList = function (node) {
+    DOMTokenList = function DOMTokenList(node) {
       var className = node.className.replace(trim, '');
       if (className.length) {
         properties.push.apply(this, className.split(spaces));
@@ -146,7 +149,7 @@
       get: function get() {
         return new DOMTokenList(this);
       },
-      set: function () {}
+      set: function set() {}
     });
   } else {
     // iOS 5.1 and Nokia ASHA do not support multiple add or remove
@@ -160,7 +163,7 @@
         // ASHA double fails in here
         ElementPrototype = window.DOMTokenList.prototype;
       }
-      verifyToken = function (original) {
+      verifyToken = function verifyToken(original) {
         return function () {
           var i = 0;
           while (i < arguments.length) {
@@ -177,7 +180,7 @@
 
   if (!('head' in document)) {
     defineProperty(document, 'head', {
-      get: function () {
+      get: function get() {
         return head || (head = document.getElementsByTagName('head')[0]);
       }
     });
@@ -231,42 +234,58 @@
 ;(function (document) {
 
   var slice = Array.prototype.slice;
-  var addMethods = (a, b) => {
-    for (var i in b) a.prototype[i] = b[i];
+  var addMethods = function addMethods(a, b) {
+    for (var i in b) {
+      a.prototype[i] = b[i];
+    }
   };
 
   addMethods(Element, {
-    on(...a) {
-      this.addEventListener(...a);return this;
+    on: function on() {
+      this.addEventListener.apply(this, arguments);return this;
     },
-    clear() {
-      var i;while (i = this.firstChild) this.removeChild(i);return this;
+    clear: function clear() {
+      var i;while (i = this.firstChild) {
+        this.removeChild(i);
+      }return this;
     },
-    query(a) {
+    query: function query(a) {
       return this.querySelector(a);
     },
-    queryAll(a) {
+    queryAll: function queryAll(a) {
       return slice.call(this.querySelectorAll(a));
     }
   });
 
-  var dom = function (a, b) {
+  var dom = function dom(a, b) {
     if (a === "br") return document.createElement("br"); //dumb ie bug fix
     var e = arguments,
         l = e.length,
         c,
         i = 1,
         element = document.createElement(a);
-    if (b && b.constructor === Object) for (c in b) element.setAttribute(c, b[c]), i = 2;
-    for (; i < l; i++) element.append(e[i]);
-    return element;
+    if (b && b.constructor === Object) for (c in b) {
+      element.setAttribute(c, b[c]), i = 2;
+    }for (; i < l; i++) {
+      element.append(e[i]);
+    }return element;
   };
 
-  dom.query = s => document.querySelector(s);
-  dom.queryAll = a => slice.call(document.querySelectorAll(a));
-  dom.fragment = () => document.createDocumentFragment();
+  dom.query = function (s) {
+    return document.querySelector(s);
+  };
+  dom.queryAll = function (a) {
+    return slice.call(document.querySelectorAll(a));
+  };
+  dom.fragment = function () {
+    return document.createDocumentFragment();
+  };
 
-  dom.on = (...a) => window.addEventListener(...a);
+  dom.on = function () {
+    var _window;
+
+    return (_window = window).addEventListener.apply(_window, arguments);
+  };
   dom.html = document.documentElement;
   dom.body = document.body;
   dom.head = document.head;
@@ -277,9 +296,9 @@ var WS = {};
 
 (function () {
 
-  var noop = function () {};
+  var noop = function noop() {};
 
-  var fastEvery = function (collection, callback) {
+  var fastEvery = function fastEvery(collection, callback) {
     var result = true;
 
     var index = -1,
@@ -294,12 +313,14 @@ var WS = {};
     return result;
   };
 
-  var match = (target, keywordList) => {
-    return fastEvery(keywordList, a => a.test(target));
+  var match = function match(target, keywordList) {
+    return fastEvery(keywordList, function (a) {
+      return a.test(target);
+    });
   };
 
   //filter that stops when it reaches a certain number of items
-  var limitedFilter = (array, callback, limit) => {
+  var limitedFilter = function limitedFilter(array, callback, limit) {
     var result = [];
 
     var index = -1,
@@ -317,7 +338,9 @@ var WS = {};
     return result;
   };
 
-  var toCaseInsensitive = a => RegExp(a, "i");
+  var toCaseInsensitive = function toCaseInsensitive(a) {
+    return RegExp(a, "i");
+  };
 
   //defaults
   WS.idealArea = 15;
@@ -325,21 +348,30 @@ var WS = {};
   WS.inputElement = dom.query("#ws-input");
   WS.containerElement = dom.query("#ws-container");
 
-  WS.getResults = (keyword, reverse) => {
+  WS.getResults = function (keyword, reverse) {
     if (keyword === "") return WS.data.slice(0, WS.area);
 
     var keywordList = keyword.split(" ").map(toCaseInsensitive);
 
-    return limitedFilter(WS.data, i => match(i.searchText, keywordList) ^ reverse, WS.area);
+    return limitedFilter(WS.data, function (i) {
+      return match(i.searchText, keywordList) ^ reverse;
+    }, WS.area);
   };
 
-  WS.search = function (args = {}) {
-    var { keyword = WS.inputElement.value, reverse } = args,
-        { onappendnode = noop, onfragmentpopulated = noop } = WS.search,
-        array = WS.getResults(keyword, reverse),
-        fragment = dom.fragment();
+  WS.search = function () {
+    var args = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var _args$keyword = args.keyword;
+    var keyword = _args$keyword === undefined ? WS.inputElement.value : _args$keyword;
+    var reverse = args.reverse;
+    var _WS$search = WS.search;
+    var _WS$search$onappendno = _WS$search.onappendnode;
+    var onappendnode = _WS$search$onappendno === undefined ? noop : _WS$search$onappendno;
+    var _WS$search$onfragment = _WS$search.onfragmentpopulated;
+    var onfragmentpopulated = _WS$search$onfragment === undefined ? noop : _WS$search$onfragment;
+    var array = WS.getResults(keyword, reverse);
+    var fragment = dom.fragment();
 
-    array.forEach(i => {
+    array.forEach(function (i) {
       onappendnode(i);
       fragment.append(i.node);
     });
@@ -349,11 +381,11 @@ var WS = {};
     WS.containerElement.clear().append(fragment);
   };
 
-  WS.search.on = (eventString, callback) => {
+  WS.search.on = function (eventString, callback) {
     WS.search["on" + eventString] = callback;
   };
 
-  WS.showAll = () => {
+  WS.showAll = function () {
     WS.area = WS.data.length;
     WS.search();
     WS.area = WS.idealArea;
@@ -368,39 +400,42 @@ var WS = {};
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-var mapObject = (o, ƒ) => {
+var mapObject = function mapObject(o, ƒ) {
   var n = {};
-  Object.keys(o).forEach(v => {
+  Object.keys(o).forEach(function (v) {
     n[v] = ƒ(o[v], v);
   });
   return n;
 };
 
-var getQueryVariable = function (a) {
+var getQueryVariable = function getQueryVariable(a) {
   return unescape((RegExp("[&?]" + a + "=([^&]+)").exec(location) || ["", ""])[1] || "");
 };
 
-var mergeObject = function (a, b) {
-  for (var i in b) a[i] = b[i];
-  return a;
+var mergeObject = function mergeObject(a, b) {
+  for (var i in b) {
+    a[i] = b[i];
+  }return a;
 };
 
-var addMethods = (a, b) => {
-  for (var i in b) a.prototype[i] = b[i];
+var addMethods = function addMethods(a, b) {
+  for (var i in b) {
+    a.prototype[i] = b[i];
+  }
 };
 
-var range = function (start, stop) {
+var range = function range(start, stop) {
 
   var length = stop - start;
   var range = Array(length);
   var i = 0;
 
-  for (; i < length; i++, start++) range[i] = start;
-
-  return range;
+  for (; i < length; i++, start++) {
+    range[i] = start;
+  }return range;
 };
 
-var expandRange = function (rangeString) {
+var expandRange = function expandRange(rangeString) {
   var ends = rangeString.split("‑");
   var start = +ends[0];
   var stop = +ends[1];
@@ -416,14 +451,16 @@ var expandRange = function (rangeString) {
 var imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/",
     inputFormElement = dom.query("#inputform"),
     showAllLink = dom("a", { id: "showalllink" }, "show all").on("click", WS.showAll),
-    linkTemplate = (link, text, tags, height) => dom("a", {
-  target: "paypal",
-  href: link,
-  itemscope: "",
-  itemtype: "http://schema.org/Product"
-}, dom("img", { height, width: 150, itemprop: "image", alt: " " }), dom("span", { itemprop: "name" }, text), dom("span", { itemprop: "offers", itemscope: "", itemtype: "http://schema.org/AggregateOffer", hidden: "hidden" }, dom("span", { itemprop: "priceCurrency", content: "USD" }, "$"), dom("span", { itemprop: "price", content: "19.00" }, "19"), dom("span", { itemprop: "lowPrice", content: "19.00" }, "19")));
+    linkTemplate = function linkTemplate(link, text, tags, height) {
+  return dom("a", {
+    target: "paypal",
+    href: link,
+    itemscope: "",
+    itemtype: "http://schema.org/Product"
+  }, dom("img", { height: height, width: 150, itemprop: "image", alt: " " }), dom("span", { itemprop: "name" }, text), dom("span", { itemprop: "offers", itemscope: "", itemtype: "http://schema.org/AggregateOffer", hidden: "hidden" }, dom("span", { itemprop: "priceCurrency", content: "USD" }, "$"), dom("span", { itemprop: "price", content: "19.00" }, "19"), dom("span", { itemprop: "lowPrice", content: "19.00" }, "19")));
+};
 
-var setArea = function () {
+var setArea = function setArea() {
   var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   var area = (h - 168) * w / 54208;
@@ -437,13 +474,13 @@ onresize = setArea;
 
 dom.query("#showalllink").on("click", WS.showAll);
 
-WS.search.on("appendnode", item => {
+WS.search.on("appendnode", function (item) {
   if (!item.imageLoaded) //test if image is loaded (very important for perf!!!)
     item.node.firstChild.src = item.imageURL //load image
     , item.imageLoaded = true; //cache that the image was loaded
 });
 
-WS.search.on("fragmentpopulated", (fragment, array) => {
+WS.search.on("fragmentpopulated", function (fragment, array) {
   if (array.length === WS.idealArea) fragment.append(showAllLink);
 });
 
@@ -461,20 +498,20 @@ WS.data = [
 //["chafooxo","Ford Crown\nVictoria / Grand Marquis police\n2005‑2011","car",79,"00417"],
 ["sthejoox", "Ford Crown\nVictoria / Grand Marquis\n2005‑2011", "car", 72, "00418"], ["vmiefuch", "Pontiac G6\n2007", "car", 114, "00419"], ["tsaethah", "Pontiac G6\n2008‑2009", "car", 117, "00420"], ["laexaela", "Pontiac GTO\n2005‑2006", "car", 74, "00421"], ["neeputhi", "Pontiac Solstice\n2007‑2009", "car", 73, "00422"], ["shigabae", "Pontiac Sunfire\n2004‑2005", "car", 74, "00423"], ["quoopeem", "Pontiac Vibe\n2004‑2008", "car", 84, "00424"], ["eishahmu", "Pontiac Vibe\n2009‑2010", "car", 80, "00425"], ["oowiciga", "Pontiac Wave\n4‑door canadian\n2004‑2006", "car", 117, "00426"], ["lafohree", "Pontiac Wave\n5‑door canadian\n2004‑2006", "car", 91, "00427"], ["ahlohvei", "Pontiac Aztek\n2004‑2005", "suv", 80, "00428"], ["phemooxe", "Pontiac Montana\n2006‑2009", "van", 82, "00429"], ["phohrahs", "Pontiac Montana\nextended\n2004‑2005", "van", 82, "00430"], ["gsenucoh", "Pontiac Montana\nregular\n2004‑2005", "van", 88, "00431"], ["hwaetash", "Pontiac SV6\n2006", "van", 82, "00432"], ["ienithoo", "Pontiac Torrent\n2007‑2009", "suv", 85, "00433"], ["neewoyov", "Saturn Astra\n2008‑2009", "car", 79, "00434"], ["ukeefiel", "Saturn Ion\n2003‑2007", "car", 77, "00435"], ["ahmeitah", "Saturn Sky\n2007‑2009", "car", 78, "00436"], ["ujagahng", "Saturn Outlook\n2007‑2009", "suv", 82, "00437"], ["haebaeyu", "Saturn Relay\n2006‑2007", "van", 83, "00438"], ["sophaebo", "Saturn Vue\n2003‑2007", "suv", 124, "00439"], ["vzoosaif", "Saturn Vue\n2008‑2009", "suv", 85, "00440"], ["geesheng", "Smart Fortwo\n2006‑2007", "car", 111, "00441"], ["jaishuko", "Smart Fortwo\n2008‑2015", "car", 102, "00442"], ["shukisae", "Subaru Baja\nsport\n2004‑2006", "car pickup", 82, "00443"], ["sieghawu", "Subaru Impreza\n4‑door hatchback\n2008‑2014", "car", 79, "00444"], ["hivohjim", "Subaru Impreza\nsedan\n2008‑2014", "car", 75, "00445"], ["lkzaetah", "Subaru Impreza\nsedan WRX\n2008‑2014", "car", 75, "00446"], ["xabohyuw", "Subaru Impreza\nwagon\n2004‑2007", "car", 79, "00447"], ["leivipoo", "Subaru Impreza\nWRX 4‑door hatchback\n2008‑2014", "car", 79, "00448"], ["ieshaehe", "Subaru Impreza\nWRX\n2004‑2007", "car", 77, "00449"], ["ceicufah", "Subaru Impreza\nWRX STI\n2008‑2014", "car", 80, "00450"], ["quoowooh", "Subaru Outback\n2006‑2009", "car", 76, "00451"], ["syooghoo", "Subaru Outback\n2010‑2014", "car", 83, "00452"], ["lyohquus", "Subaru Outback\nsport\n2006‑2009", "car", 82, "00453"], ["thupecei", "Subaru B9\nTribeca\n2006‑2007", "suv", 85, "00454"], ["fajuveek", "Subaru Tribeca\n2008‑2014", "suv", 85, "00455"], ["phowisho", "Subaru Forester\n2004‑2008", "suv", 84, "00456"], ["wdzeekox", "Subaru Forester\n2009‑2013", "suv", 87, "00457"], ["quivange", "Suzuki Aerio\n2004‑2007", "car", 123, "00458"], ["ohmaisie", "Suzuki Swift\n5‑door\n2004‑2011", "car", 130, "00459"], ["shooxahy", "Suzuki SX4\n2007‑2014", "car", 83, "00460"], ["eideiche", "Suzuki Equator\n6ft box\n2009‑2014", "pickup", 78, "00461"], ["eigheefo", "Suzuki Equator\ncrew‑cab 6ft box\n2009‑2014", "pickup", 76, "00462"], ["oshaivee", "Suzuki Equator\ncrew‑cab\n2009‑2014", "pickup", 78, "00463"], ["oorahngo", "Suzuki Grand\nVitara\n2004‑2005", "suv", 88, "00464"], ["tohvohlo", "Suzuki Grand\nVitara\n2006‑2014", "suv", 92, "00465"], ["twsheepa", "Suzuki Vitara\nconvertible\n2004", "pickup", 97, "00466"], ["gooquoze", "Suzuki XL‑7\n2004‑2006", "van", 84, "00467"], ["vaxeshes", "Suzuki XL‑7\n2007‑2009", "van", 86, "00468"], ["thahmohc", "Scion XA\n2004‑2007", "car", 126, "00469"], ["saechaix", "Toyota Echo\n2‑door coupe\n2004‑2005", "car", 85, "00470"], ["phemohcu", "Toyota Echo\n4‑door\n2004‑2005", "car", 132, "00471"], ["aipohkei", "Toyota Echo\n2003‑2005", "car", 132, "00472"], ["uxooxagh", "Toyota Matrix\n2004‑2008", "car", 84, "00473"], ["yahnaego", "Toyota Matrix\n2009‑2014", "car", 85, "00474"], ["ooyohnot", "Toyota Prius\n2004‑2009", "car", 86, "00475"], ["iedeexie", "Toyota Prius\n2010‑2015", "car", 80, "00476"], ["eiciquaz", "Toyota Venza\n2009‑2015", "suv", 79, "00477"], ["ievogase", "Toyota Yaris\n2‑door\n2006‑2013", "car", 78, "00478"], ["aethakoo", "Toyota Yaris\n4‑door hatchback\n2006‑2013", "car", 80, "00479"], ["feteeghu", "Toyota Yaris\nsedan\n2008‑2013", "car", 75, "00480"], ["ahaegaco", "Toyota Tacoma\ncrew‑cab\n2003‑2004", "pickup", 118, "00481"], ["bapahpae", "Toyota Tacoma\naccess‑cab\n2005‑2015", "pickup", 75, "00482"], ["zoozagie", "Toyota Tacoma\ncrew‑cab\n2005‑2015", "pickup", 75, "00483"], ["leengael", "Toyota Tundra\n2003", "pickup", 114, "00484"], ["nadagaqu", "Toyota Tundra\nregular\n2003", "pickup", 117, "00485"], ["upureejo", "Toyota Tundra\naccess‑cab\n2004‑2006", "pickup", 82, "00486"], ["eduphaex", "Toyota Tundra\ncrew‑cab\n2004‑2006", "pickup", 80, "00487"], ["chiekaif", "Toyota Tundra\nregular‑cab\n2004‑2006", "pickup", 78, "00488"], ["ooroodek", "Toyota Tundra\ncrew‑cab\n2007‑2013", "pickup", 78, "00489"], ["eeyuquud", "Toyota Tundra\ncrew‑cab long\n2007‑2013", "pickup", 73, "00490"], ["ifohrexe", "Toyota Tundra\ncrewmax\n2008‑2013", "pickup", 76, "00491"], ["jaisieth", "Toyota Tundra\nregular‑cab long\n2007‑2013", "pickup", 76, "00492"], ["ciphievu", "Toyota Tundra\nregular‑cab short\n2007‑2013", "pickup", 76, "00493"], ["thijebaf", "Scion XB\n/ BB\n2004‑2007", "car", 129, "00494"], ["iezephoo", "Toyota 4Runner\n2004‑2009", "suv", 87, "00495"], ["muhephoc", "Toyota 4Runner\n2010‑uptodate", "suv", 81, "00496"], ["veichere", "Toyota FJ‑Cruiser\n2007‑2014", "suv", 86, "00497"], ["daefaela", "Toyota Highlander\n2003‑2007", "suv", 82, "00498"], ["iecewohl", "Toyota Highlander\n2008‑2013", "suv", 82, "00499"], ["enengiwo", "Toyota Rav‑4\n2003‑2005", "suv", 88, "00500"], ["pheevohp", "Toyota Rav‑4\n2006‑2012", "suv", 87, "00501"], ["izaelohm", "Toyota Sequoia\n2003‑2008", "suv", 85, "00502"], ["wrveewob", "Toyota Sequoia\n2009‑uptodate", "suv", 81, "00503"], ["olahiede", "Toyota Sienna\n2004‑2010", "van", 83, "00504"], ["fasooyap", "Toyota Sienna\n2011‑uptodate", "van", 82, "00505"], ["umifijic", "Volkswagen Golf\n2003‑2009", "car", 78, "00506"], ["eimoohae", "Volkswagen Jetta\n2007‑2010", "car", 79, "00507"], ["teehinit", "Volkswagen New‑Beetle\n2003‑2011", "car", 86, "00508"], ["aihaevoo", "Volkswagen Rabbit\nGTI\n2007‑2009", "car", 77, "00509"], ["cfutaipi", "Volkswagen Routan\n2009‑2012", "van", 82, "00510"], ["iemeeque", "Volkswagen Tiguan\n2009‑uptodate", "suv", 85, "00511"], ["oongaiqu", "Volkswagen Touareg\n2004‑2010", "suv", 83, "00512"], ["epieleiz", "Freightliner Argosy\nday‑cab\n2001‑2006", "tractor truck", 152, "00513"], ["eemiketh", "Freightliner Argosy\nmedium‑roof\n2001‑2006", "tractor truck", 147, "00514"], ["asahgaiz", "Freightliner Argosy\nraised‑roof\n2001‑2006", "tractor truck", 153, "00515"], ["agaegees", "Freightliner Cascadia", "tractor truck", 131, "00516"], ["veireenu", "Freightliner Columbia\nday‑cab\n2004‑uptodate", "tractor truck", 111, "00517"], ["vaijeeta", "Freightliner Columbia\nday‑cab deflector\n2004‑uptodate", "tractor truck", 127, "00518"], ["aphiengi", "Freightliner Columbia\nmedium‑roof\n2004‑uptodate", "tractor truck", 132, "00519"], ["aimoopai", "Freightliner Columbia\nraised‑roof\n2004‑uptodate", "tractor truck", 134, "00520"], ["iewielae", "Freightliner Coronado\nday‑cab\n2004‑uptodate", "tractor truck", 153, "00521"], ["chievoof", "Freightliner Coronado\nmedium‑roof\n2004‑uptodate", "tractor truck", 129, "00522"], ["eidozeih", "Freightliner Coronado\nraised‑roof\n2004‑uptodate", "tractor truck", 133, "00523"], ["elewiejo", "Freightliner M2\n26in extended‑cab\n2003‑uptodate", "tractor truck", 129, "00524"], ["ahghaevi", "Freightliner M2\n48in crew‑cab\n2003‑uptodate", "tractor truck", 132, "00525"], ["aiparome", "Freightliner M2\nday‑cab\n2003‑uptodate", "tractor truck", 133, "00526"], ["tbahwosh", "GMC Topkick\nC4500 / C5500", "tractor truck", 106, "00527"], ["quieghil", "GMC T‑Series\nT7500", "tractor truck", 108, "00528"], ["ahgoolee", "Hino FA1517\n2008‑2009", "tractor truck", 86, "00529"], ["icuquiem", "Hino Low‑Profile\n258\n2009", "tractor truck", 103, "00530"], ["ahviexae", "International 8500\nregular", "tractor truck", 144, "00531"], ["denemiem", "International 9200i", "tractor truck", 143, "00532"], ["eikohyai", "International 9200i\n9400i high‑roof", "tractor truck", 141, "00533"], ["pghighai", "International 9200i\n9400i low‑roof", "tractor truck", 121, "00534"], ["aiseiwoh", "International 9200i\ndeflector", "tractor truck", 149, "00535"], ["upaiweyu", "International 9900i\nsleeper high‑roof", "tractor truck", 144, "00536"], ["oophethu", "International 9900i\nsleeper medium‑roof", "tractor truck", 131, "00537"], ["faicadoo", "International 9900ix\ndeflector", "tractor truck", 179, "00538"], ["rogahxei", "International 9900ix\nregular", "tractor truck", 146, "00539"], ["chemevie", "International CF‑Series", "tractor truck", 104, "00540"], ["zebahxok", "International CXT\n2006", "tractor truck", 116, "00541"], ["njereibe", "International Lonestar", "tractor truck", 124, "00542"], ["oofeethi", "Kenworth T600\nsleeper\n2004‑uptodate", "tractor truck", 142, "00543"], ["leexeepi", "Kenworth T800\ndeflector\n2004‑uptodate", "tractor truck", 155, "00544"], ["eechiewi", "Kenworth T800\nregular‑hood extended‑cab\n2004‑uptodate", "tractor truck", 138, "00545"], ["ohdahtei", "Kenworth T800\nsleeper\n2004‑uptodate", "tractor truck", 124, "00546"], ["eedaphil", "Kenworth T2000\nuptodate", "tractor truck", 140, "00547"], ["aechieve", "Kenworth W900\nsleeper\n2004‑uptodate", "tractor truck", 137, "00548"], ["yxixohze", "Mack CHN603\nday‑cab", "tractor truck", 147, "00549"], ["kuquebep", "Mack Vision\nday‑cab", "tractor truck", 130, "00550"], ["hzookeef", "Mack Vision\nday‑cab deflector", "tractor truck", 135, "00551"], ["ahheiyei", "Mack Vision\nsleeper", "tractor truck", 135, "00552"], ["ocixahya", "Mitsubishi Fuso\nFE‑180", "tractor truck", 83, "00553"], ["pheisaef", "Peterbilt 330\n108in BBC", "tractor truck", 109, "00554"], ["aishiepa", "Peterbilt 357\n111in BBC", "tractor truck", 139, "00555"], ["wmoxopah", "Peterbilt 357\n119in BBC sloped‑hood", "tractor truck", 139, "00556"], ["cheecahm", "Peterbilt 362\n76 BBC flat‑nose", "tractor truck", 149, "00557"], ["utohfaiy", "Peterbilt 362\n90 BBC flat‑nose", "tractor truck", 150, "00558"], ["oosusibu", "Peterbilt 379\nlong city\n2004‑2009", "tractor truck", 125, "00559"], ["quoshohj", "Peterbilt 379\nlong sleeper 69in\n2004‑2009", "tractor truck", 130, "00560"], ["pohraish", "Peterbilt 379\nshort city\n2004‑2009", "tractor truck", 134, "00561"], ["eetakaqu", "Peterbilt 385\n112in BBC", "tractor truck", 130, "00562"], ["ohphoxah", "Peterbilt 385\n120in BBC", "tractor truck", 126, "00563"], ["angaexah", "Peterbilt 387\nhigh‑roof sleeper\n2004‑2009", "tractor truck", 140, "00564"], ["aiyohhoo", "Peterbilt 387\nmedium‑roof sleeper\n2004‑2007", "tractor truck", 116, "00565"], ["ushiejae", "Sterling Acterra", "tractor truck", 141, "00566"], ["rwjoothe", "Volvo Highway\n2003‑uptodate", "tractor truck", 137, "005677"], ["mlquahgi", "Volvo Highway\nVN‑730\n2008‑uptodate", "tractor truck", 133, "00568"], ["meecoqui", "Volvo VT‑800\n2006‑uptodate", "tractor truck", 152, "00569"], ["ohliecek", "Western Star\n4900 EX", "tractor truck", 153, "00570"], ["chiejail", "Western Star\n4900 FA", "tractor truck", 151, "00571"], ["aivayaef", "Western Star\n4900 SA", "tractor truck", 153, "00572"], ["ishiniye", "Western Star\n6900 XD", "tractor truck", 149, "00573"], ["wdeeghek", "45ft trailer", "trailer", 102, "00574"], ["aemahhoh", "48ft trailer", "trailer", 99, "00575"], ["ahngahza", "53ft trailer", "trailer", 87, "00576"], ["cquooyah", "trailer front\n/ rear dry‑box", "trailer", 92, "00577"], ["ohheghie", "trailer front\n/ rear refer‑box", "trailer", 94, "00578"]]; //process data
 
-var prettify = text => {
+var prettify = function prettify(text) {
   var now = new Date().getFullYear();
   var rules = [
   //date formating
   [/uptodate/i, now + ""], [now + "‑" + now, now + ""], [now + 1 + "‑" + now, now + 1 + ""]];
 
-  rules.forEach(i => {
+  rules.forEach(function (i) {
     text = text.replace(i[0], i[1]);
   });
 
   return text;
 };
 
-var getSearchString = text => {
+var getSearchString = function getSearchString(text) {
   var searchText = text.replace("\n", " ");
   var noSpace = searchText.replace(/‑/g, ""),
       space = searchText.replace(/‑/g, " "),
@@ -482,13 +519,19 @@ var getSearchString = text => {
       chevy = searchText.replace("Chevrolet", "Chevy"),
       range = searchText.replace(/20\d\d‑20\d\d/, expandRange);
 
-  return `${ searchText } ${ noSpace } ${ space } ${ dash } ${ chevy } ${ range } `;
+  return searchText + ' ' + noSpace + ' ' + space + ' ' + dash + ' ' + chevy + ' ' + range + ' ';
 };
 
-WS.data.forEach(item => {
+WS.data.forEach(function (item) {
+  var _item = _slicedToArray(item, 5);
 
-  var [rawURL, rawText, tags = "", height, sku] = item,
-      buyURL = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc";
+  var rawURL = _item[0];
+  var rawText = _item[1];
+  var _item$ = _item[2];
+  var tags = _item$ === undefined ? "" : _item$;
+  var height = _item[3];
+  var sku = _item[4];
+  var buyURL = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc";
 
   item.prettyText = prettify(rawText);
   item.node = linkTemplate(buyURL, item.prettyText, tags, height);
@@ -504,20 +547,20 @@ WS.data.forEach(item => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //defered images
-dom.query("[for=toggle-info]").on("click", e => {
-  dom.queryAll("[data-src]").forEach(i => {
+dom.query("[for=toggle-info]").on("click", function (e) {
+  dom.queryAll("[data-src]").forEach(function (i) {
     i.src = imagePath + i.getAttribute("data-src");
   });
 });
 
 //faq cover
 
-var cover = dom("div", { "class": "cover" }, dom("iframe", { src: "faq" })).on("click", e => {
+var cover = dom("div", { "class": "cover" }, dom("iframe", { src: "faq" })).on("click", function (e) {
   e.preventDefault();
   cover.remove();
 });
 
-dom.query("#faq").on("click", e => {
+dom.query("#faq").on("click", function (e) {
   e.preventDefault();
   dom.body.append(cover);
 });
@@ -530,7 +573,7 @@ WS.inputElement.on("input", function () {
 
 //hardlinking
 
-inputFormElement.on("submit", e => {
+inputFormElement.on("submit", function (e) {
   history.pushState("", "", "?search=" + WS.inputElement.value);
   e.preventDefault();
 });
@@ -541,14 +584,14 @@ WS.search();
 
 //clicked indicator
 
-WS.containerElement.on("click", event => {
+WS.containerElement.on("click", function (event) {
   if (event.target.href) event.target.classList.add("clicked");
 });
 
 //stylesheet load
 //https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
 
-var cb = function () {
+var cb = function cb() {
   var l = document.createElement('link');l.rel = 'stylesheet';
   l.href = 'http://fonts.googleapis.com/css?family=Ubuntu:400,700';
   var h = document.getElementsByTagName('head')[0];h.parentNode.insertBefore(l, h);
