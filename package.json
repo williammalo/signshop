@@ -7,8 +7,9 @@
     "npm": "1.2"
   },
   "dependencies": {
-    "docpad": "~6.78.3",
+    "docpad": "~6.78.6",
     "docpad-plugin-autoprefix": "~2.0.0",
+    "docpad-plugin-babel": "~2.2.1",
     "docpad-plugin-uglify": "~2.4.0"
   },
   "main": "node_modules/docpad/bin/docpad-server",
