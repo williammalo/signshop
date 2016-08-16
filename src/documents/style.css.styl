@@ -16,6 +16,8 @@ xlight=tint(sun(light[0],2),65%) tint(sun(light[1],2),65%) tint(sun(light[2],2),
 
 dark=(brand[0]*0.95) (brand[1]*0.95) (brand[2]*0.95) (brand[3]*0.95)
 
+retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //reset
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,6 +171,23 @@ header
 header.dark-background
 	background:url(/banner2.jpg)
 	background-size:cover
+@media screen and (max-width: 1500px)
+	header.dark-background
+		background-image:url(/banner2-1500.jpg)
+@media screen and (max-width: 800px)
+	header.dark-background
+		background-image:url(/banner2-800.jpg)
+
+@media (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2.jpg)
+@media screen and (max-width: 750px) and (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2-1500.jpg)
+@media screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2-800.jpg)
+	
 header img
 	width:100%;
 	display:block
@@ -516,8 +535,6 @@ header img
 		font-size: 1.9em;
 		position: relative;
 		top: 14px
-
-retina="(-o-min-device-pixel-ratio: 5/4),(-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)"
 
 
 
