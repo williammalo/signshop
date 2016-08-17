@@ -178,16 +178,29 @@ header.dark-background
 	header.dark-background
 		background-image:url(/banner2-800.jpg)
 
-@media (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+@media (-webkit-min-device-pixel-ratio: 1.25)
 	header.dark-background
 		background-image:url(/banner2.jpg)
-@media screen and (max-width: 750px) and (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+@media (min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2.jpg)
+
+@media screen and (max-width: 750px) and (-webkit-min-device-pixel-ratio: 1.25)
 	header.dark-background
 		background-image:url(/banner2-1500.jpg)
-@media screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 1.25),(min-resolution: 120dpi)
+@media screen and (max-width: 750px) and (min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2-1500.jpg)
+
+@media screen and (max-width: 400px) and (-webkit-min-device-pixel-ratio: 1.25)
 	header.dark-background
 		background-image:url(/banner2-800.jpg)
-	
+
+@media screen and (max-width: 400px) and (min-resolution: 120dpi)
+	header.dark-background
+		background-image:url(/banner2-800.jpg)
+
+
 header img
 	width:100%;
 	display:block
@@ -396,8 +409,9 @@ header img
 	margin-bottom:-1em
 
 #ws-container
-	column-width:20em
+	column-width:182px
 	column-gap:1em
+	text-align:center
 	a
 		display:inline-block
 		width:100%
@@ -407,9 +421,29 @@ header img
 		text-rendering: optimizeSpeed
 		text-decoration:none
 		overflow:hidden
+		color:inherit
+	strong
+		display:block
+		color:#000
+	span
+		font-size:0.7em
+		line-height:1.4em
+		display:block
+		color:#333
 	img
-		float:right
-		margin-left:1em
+		display:block
+		margin: 0 auto
+		margin-bottom:1em
+		//float:right
+		//margin-left:1em
+
+.add-button
+	background:brand[2]
+	color:#fff
+	border-radius:1em
+	font-size:0.7em
+	margin-top:1.43em
+
 #showalllink
 	cursor:pointer
 .ie #ws-container a
@@ -433,7 +467,7 @@ header img
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 .hidden
-	display:none
+	display:none !important
 
 .dark-background
 	background:#575043
@@ -465,7 +499,7 @@ header img
 		animation:zoom .5s
 
 [hidden]
-	display:none
+	display:none !important
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //media queries

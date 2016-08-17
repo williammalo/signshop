@@ -71,7 +71,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 	,showAllLink =
 		dom("a",{id:"showalllink"},"show all")
 			.on("click",WS.showAll)
-	,linkTemplate = (link,text,tags,height)=>
+	,linkTemplate = (link,text,desc,tags,height)=>
 		dom("a",{
 				 target:"paypal"
 				,href:link
@@ -79,18 +79,20 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 				,itemtype:"http://schema.org/Product"
 			}
 			,dom("img",{height,width:150,itemprop:"image",alt:" "})
-			,dom("span",{itemprop:"name"},text)
+			,dom("strong",{itemprop:"name"},text)
+			,dom("span",{itemprop:"name"},desc)
 			,dom("span",{itemprop:"offers",itemscope:"",itemtype:"http://schema.org/AggregateOffer",hidden:"hidden"}
 				,dom("span",{itemprop:"priceCurrency",content:"USD"},"$")
 				,dom("span",{itemprop:"price",content:"19.00"},"19")
 				,dom("span",{itemprop:"lowPrice",content:"19.00"},"19")
 			)
+			,dom("div",{class:"add-button"},"Add to Cart")
 		)
 
 var setArea = function(){
 	var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	var area = ((h-168)*w)/54208;
+	var area = ((h-168)*w)/42302;
 	area = Math.max(area,10)|0;
 
 	WS.idealArea = area
@@ -145,14 +147,16 @@ var getSearchString = text=>{
 
 WS.data.forEach(item=>{
 	
-	var [rawURL,rawText,tags="",height,sku] = item
+	var [rawURL,rawText,rawDesc,tags="",height,sku] = item
 		,buyURL  = "http://signshophelper.fetchapp.com/sell/" + rawURL + "/ppc"
 
-	item.prettyText	 = prettify(rawText)
-	item.node 		 = linkTemplate(buyURL,item.prettyText,tags,height)
+	item.prettyText	 = rawText
+	item.prettyDesc	 = prettify(rawDesc)
+	item.node 		 = linkTemplate(buyURL,item.prettyText,item.prettyDesc,tags,height)
 	item.imageURL 	 = imagePath + sku + ".jpg"
 	item.imageLoaded = false
-	item.searchText  = getSearchString(item.prettyText) + tags
+	item.searchText  = getSearchString(item.prettyText+"\n"+item.prettyDesc) + tags
+
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
