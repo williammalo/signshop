@@ -153,7 +153,10 @@ WS.data.forEach(item=>{
 	item.prettyText	 = rawText
 	item.prettyDesc	 = prettify(rawDesc)
 	item.node 		 = linkTemplate(buyURL,item.prettyText,item.prettyDesc,tags,height)
-	item.imageURL 	 = imagePath + sku + ".jpg"
+	item.imageURL 	 = imagePath + sku + "-thumb.jpg"
+	if((window.devicePixelRatio||1)>1.5){
+		item.imageURL = imagePath + sku + ".jpg"
+	}
 	item.imageLoaded = false
 	item.searchText  = getSearchString(item.prettyText+"\n"+item.prettyDesc) + tags
 
