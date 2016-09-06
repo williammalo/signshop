@@ -119,7 +119,7 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //process data
 
 var prettify = text=>{
-	var now=(new Date).getFullYear();
+	var now=2017;//(new Date).getFullYear();
 	var rules=[
 		//date formating
 		 [/uptodate/i,now+""]
