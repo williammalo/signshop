@@ -1,5 +1,7 @@
 WS.data=[
-//["","","",,""],
+//["","","","",,""],
+["b0420147","Nissan Titan","crew‑cab 5.5ft 2016‑uptodate","pickup",72,"00632"],
+["b40a7b27","Nissan Titan","XD crew‑cab 6.5ft 2016‑uptodate","pickup",73,"00631"],
 ["ad40b9ae","Honda Pilot","2016‑uptodate","suv van",90,"00630"],
 ["ce1889df","Ford Transit","full‑size low‑roof passenger 2015‑uptodate","van wagon 350 XLT 147.6 wb",89,"00629"],
 ["c7a7acb0","Nissan Patrol","2016‑uptodate","suv van",85,"00628"],
