@@ -1,11 +1,14 @@
 
-
+console.time("foo");
 // dom 4 shim https://github.com/WebReflection/dom4
-<?php include 'dom4.js'; ?>
+//<?php include 'dom4.js'; ?>
+<%- @partial('dom4', @) %>
 //dom manipulation lib
-<?php include 'dom.js'; ?>
+//<?php include 'dom.js'; ?>
+<%- @partial('dom', @) %>
 //search lib
-<?php include 'WS.js'; ?>
+//<?php include 'WS.js'; ?>
+<%- @partial('WS', @) %>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,7 +118,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 })
 
 //include data
-<?php include 'data.js'; ?>
+//<?php include 'data.js'; ?>
+<%- @partial('data', @) %>
 //process data
 
 var prettify = text=>{
@@ -239,3 +243,5 @@ var raf = requestAnimationFrame || mozRequestAnimationFrame ||
 if (raf) raf(cb);
 else window.addEventListener('load', cb);
 */
+console.log("foo")
+console.timeEnd("foo")

@@ -98,4 +98,4 @@ WS.inputElement
 	.on("input",WS.search)
 
 
-})()
+})();
