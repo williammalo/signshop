@@ -1,5 +1,5 @@
 
-console.time("foo");
+
 // dom 4 shim https://github.com/WebReflection/dom4
 //<?php include 'dom4.js'; ?>
 <%- @partial('dom4', @) %>
@@ -243,5 +243,3 @@ var raf = requestAnimationFrame || mozRequestAnimationFrame ||
 if (raf) raf(cb);
 else window.addEventListener('load', cb);
 */
-console.log("foo")
-console.timeEnd("foo")

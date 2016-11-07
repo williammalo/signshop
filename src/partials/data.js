@@ -1,6 +1,8 @@
 
 WS.data=[
 //["","","","",,""],
+["c810c121","Chevrolet Volt","2016‑uptodate","car sedan",73,"00635"],
+["770cc504","Chevrolet Spark","2016‑uptodate","car hatchback",90,"00634"],
 ["14300163","Ford F‑150","regular cab 6.5ft 2017‑uptodate","pickup",83,"00633"],
 ["b0420147","Nissan Titan","crew‑cab 5.5ft 2016‑uptodate","pickup",72,"00632"],
 ["b40a7b27","Nissan Titan","XD crew‑cab 6.5ft 2016‑uptodate","pickup",73,"00631"],
