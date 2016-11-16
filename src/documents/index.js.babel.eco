@@ -218,7 +218,10 @@ inputFormElement
 
 WS.inputElement.value = getQueryVariable("search")
 
-WS.search()
+;(raf=>{
+	raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame || (a=>a()) ;
+	raf( WS.search )
+})()
 
 
 //clicked indicator
