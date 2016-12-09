@@ -1,6 +1,7 @@
 
 WS.data=[
 //["","","","",,""],
+["b85f3a7d","Kia Soul","2013‑uptodate","suv",88,"00637"],
 //["1ae0ccfa","Kia Sportage","2016‑uptodate","suv",86,"00636"],
 ["c810c121","Chevrolet Volt","2016‑uptodate","car sedan",73,"00635"],
 ["770cc504","Chevrolet Spark","2016‑uptodate","car hatchback",90,"00634"],
