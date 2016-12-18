@@ -1,13 +1,10 @@
 
 
 // dom 4 shim https://github.com/WebReflection/dom4
-//<?php include 'dom4.js'; ?>
-<%- @partial('dom4', @) %>
+<%- @partial('domshim', @) %>
 //dom manipulation lib
-//<?php include 'dom.js'; ?>
 <%- @partial('dom', @) %>
 //search lib
-//<?php include 'WS.js'; ?>
 <%- @partial('WS', @) %>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
