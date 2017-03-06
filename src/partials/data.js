@@ -1,5 +1,9 @@
 WS.data=[
 //["","","","",,""],
+["fd57140c","Chevrolet Spark","2016‑uptodate","hatchback",88,"00642"],
+["22e7115f","Hyundai Tucson","2016‑uptodate","suv",84,"00641"],
+["024710b1","Kia Sportage","2016‑uptodate","suv",89,"00640"],
+["6d76f374","Ford Transit","full‑size medium‑roof 129 wb 2015‑uptodate","van",82,"00639"],
 ["3a4be52c","Ford Explorer","2016‑uptodate","suv",83,"00638"],
 ["b0420147","Nissan Titan","crew‑cab 5.5ft 2016‑uptodate","pickup",72,"00632"],
 ["b40a7b27","Nissan Titan","XD crew‑cab 6.5ft 2016‑uptodate","pickup",73,"00631"],
