@@ -1,10 +1,10 @@
-#This is the READ ME file for �1996-2013 SIGNSHOP HELPER 2013
+#This is the READ ME file for ©1996-2013 SIGNSHOP HELPER 2013
 
-     Copyright �1996-2013 RFM Graphik-Link Corporation.
+     Copyright ©1996-2013 RFM Graphik-Link Corporation.
                Terrebonne (Quebec) CANADA
 	              All rights reserved.
 
-This agreement governs your use of the  SIGNSHOP HELPER � FILES.
+This agreement governs your use of the  SIGNSHOP HELPER © FILES.
 The FILES may only be used by the registered user, and may not be 
 resold or transferred without the consent of RFM Graphik-Link Corporation.  
 All designs may be used for your business retail only, no part of this 
@@ -85,9 +85,9 @@ curves and not as text. This should also be considered when importing or
 converting the text design (it is suggested that you use your own text font 
 of your graphic software).
 
-###GENERAL INFORMATION ON � COLOR VEHICLE TEMPLATE LIBRARY
+###GENERAL INFORMATION ON © COLOR VEHICLE TEMPLATE LIBRARY
 
-Here is vital information on the new library of �COLOR  VEHICLE  TEMPLATES.
+Here is vital information on the new library of ©COLOR  VEHICLE  TEMPLATES.
   
 Always check the measurements of the vehicle.  Before cutting or printing 
 any final artwork measure doors, windows and body side to verify graphic max. 
@@ -117,7 +117,7 @@ Available on the site signshophelper.com  you  will  find  all  the logos,
 auto graphics, and vehicle templates in (EPS) format. Plus on the FAQ link
 you will find helpfull info on template scaling, wrap information importing and more.
 
-Gerber GRAPHIX ADVANTAGE� is a trademark of �1995 Gerber Scientific 
+Gerber GRAPHIX ADVANTAGE© is a trademark of ©1995 Gerber Scientific 
 Products, Inc. 
 All rights reserved.
 
