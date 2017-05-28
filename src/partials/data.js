@@ -1,5 +1,7 @@
 WS.data=[
 //["","","","",,""],
+["b8f9da67","GMC Acadia / Chevrolet Traverse","2017‑uptodate","suv",80,"00645"],
+["1d6ef407","GMC Sierra / Chevrolet Silverado","regular‑cab 3500 HD long‑box 2014‑uptodate","pickup",73,"00644"],
 ["57e1edf8","Dodge Ram","1500 2500 3500 mega‑cab 2009‑uptodate","pickup",71,"00643"],
 ["fd57140c","Chevrolet Spark","2016‑uptodate","hatchback",88,"00642"],
 ["22e7115f","Hyundai Tucson","2016‑uptodate","suv",84,"00641"],
