@@ -414,7 +414,7 @@
 ["hangongu","Jeep TJ","unlimited\n2005‑2009","suv",87,"00348"],
 ["cilaezox","Jeep Wrangler","2‑door\n2007‑uptodate","suv",87,"00349"],
 ["wsoovagu","Jeep Wrangler","4‑door\n2007‑uptodate","suv",85,"00350"],
-["ohmuhiez","Kia Forte","2010‑uptodate","car",75,"00351"],
+["ohmuhiez","Kia Forte","2010‑2013","car",75,"00351"],
 ["phahquom","Kia Koup","2010‑uptodate","car",76,"00352"],
 ["zfwthoye","Kia Rio","2006‑2011","car",86,"00353"],
 ["giepoobi","Kia Rondo","2007‑2012","car",86,"00354"],
