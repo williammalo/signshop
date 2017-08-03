@@ -470,7 +470,7 @@ WS.data=[
 ["oyaimahm","Nissan Pathfinder","2003‑2004","suv",124,"00404"],
 ["aijacoog","Nissan Pathfinder","2005‑2012","suv",88,"00405"],
 ["uduweixi","Nissan Quest","2004‑2010","van",86,"00406"],
-["zrohcaem","Nissan Quest","2011‑2014","van",83,"00407"],
+["zrohcaem","Nissan Quest","2011‑2016","van",83,"00407"],
 ["ooditaid","Nissan Xterra","2003‑2004","suv",89,"00408"],
 ["niweilah","Nissan Xterra","2005‑2015","suv",89,"00409"],
 ["bliquaez","Nissan Rogue","X‑Trail\n2008‑2016","suv",84,"00410"],
