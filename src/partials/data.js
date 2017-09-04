@@ -1,6 +1,6 @@
 WS.data=[
 //["","","","",,""],
-//["","","","",,""],
+["ec149824","Chevrolet Tahoe / GMC Yukon","2015‑uptodate","suv",87,"00651"],
 ["2ff06815","Honda Ridgeline","2017‑uptodate","pickup",76,"00650"],
 ["2b814b09","Chrysler Pacifica","2004‑2008","van",119,"00649"],
 ["173ad497","Chrysler Pacifica","2017‑uptodate","van",78,"00648"],
@@ -350,7 +350,7 @@ WS.data=[
 ["eefaedai","GMC Envoy","XL\n2004‑2006","suv",81,"00284"],
 ["oohaeziv","GMC Terrain","2010‑2017","suv denali",85,"00285"],
 ["ljnngiew","GMC Yukon / Tahoe","2003‑2006","suv denali",86,"00286"],
-["ohxaevoh","GMC Yukon / Tahoe","2007‑uptodate","suv denali",87,"00287"],
+["ohxaevoh","GMC Yukon / Tahoe","2007‑2014","suv denali",87,"00287"],
 ["cailihus","GMC Yukon XL / Suburban","2003‑2006","suv",81,"00288"],
 ["ohchaebu","GMC Yukon XL / Suburban","2007‑2014","suv",82,"00289"],
 ["thaigeit","Safari / Astro","cargo swing‑door\n2003‑2005","van",93,"00290"],
