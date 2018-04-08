@@ -108,7 +108,7 @@ dom.query("#showalllink").on("click",WS.showAll)
 
 WS.search.on("appendnode",item=>{
 	if(!item.imageLoaded)    	               		//test if image is loaded (very important for perf!!!)
-		 item.node.firstChild.src = item.imageURL 	//load image
+		 item.node.childred[1].src = item.imageURL 	//load image
 		,item.imageLoaded 		  = true 		  	//cache that the image was loaded
 })
 
