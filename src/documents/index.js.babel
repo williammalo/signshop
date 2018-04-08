@@ -80,6 +80,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 				,itemscope:""
 				,itemtype:"http://schema.org/Product"
 			}
+			,dom("div",{class:"price-tag"},"19\nUSD")
 			,dom("img",{height,width:150,itemprop:"image",alt:" "})
 			,dom("strong",{itemprop:"name"},text)
 			,dom("span",{itemprop:"name"},desc)
