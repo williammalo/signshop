@@ -120,8 +120,9 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["214e516f","Volvo VNL 300","day‑cab\n2018‑uptodate","truck",158,"00673"],
 ["f8322825","Dodge Ram Promaster","136 wheelbase high‑roof windows 2014‑uptodate","van",91,"00672"],
-["cce89a59","Ford Expedition","2018‑uptodate","suv",82,"00671"],
+["cce89a59","Ford Expedition","2018‑uptodate","suv",82,"00671"], 
 ["2ff99038","Nissan Leaf","2018‑uptodate","car",79,"00670"],
 ["c1c8f5bd","Ford Expedition","max\n2018‑uptodate","suv",81,"00669"],
 ["c4b95d82","Honda Accord","2018‑uptodate","car",74,"00668"],
