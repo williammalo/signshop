@@ -788,7 +788,7 @@ WS.data=[
 //process data
 
 var prettify = text=>{
-	var now=2018;//(new Date).getFullYear();
+	var now=2019;//(new Date).getFullYear();
 	var rules=[
 		//date formating
 		 [/uptodate/i,now+""]
