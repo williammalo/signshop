@@ -120,6 +120,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["83c1b9a0","Hyundai Santa‑Fe","2019‑uptodate","suv",77,"00682"],
+["3374d488","Nissan Kicks","2019‑uptodate","suv",80,"00681"],
 ["f8662f27","Dodge Ram 1500","crew‑cab 6'4 long‑bed 2019‑uptodate","pickup",74,"00680"],
 ["4e585343","Toyota C‑HR","2018‑uptodate","suv",77,"00679"],
 ["81a6c30a","Toyota Camry","2018‑uptodate","car",66,"00678"],
@@ -242,7 +244,7 @@ WS.data=[
 ["d496d17b","Mazda CX‑5","2012‑2017","suv",83,"00026"],
 ["803cb848","Kia Rio","hatchback\n2013‑2017","car",80,"00027"],
 ["2b6260bd","Kia Forte","hatchback\n2013‑uptodate","car",80,"00028"],
-["958906a2","Hyundai Santa‑Fe","2013‑uptodate","suv",81,"00029"],
+["958906a2","Hyundai Santa‑Fe","2013‑2018","suv",81,"00029"],
 ["db8a0af2","Ford Escape","2013‑uptodate","suv",82,"00030"],
 ["c0b764d5","Ford C‑max","2012‑uptodate","car hatchback",80,"00031"],
 ["0dd13713","Dodge Dart","2013‑uptodate","car",73,"00032"],
@@ -266,7 +268,7 @@ WS.data=[
 ["985afaef","Nissan NV","NV1500 NV2500 HD NV3500\nlow‑roof\n2012‑uptodate","van",82,"00050"],
 ["b000b7b6","Scion IQ","2012‑2015","car",97,"00051"],
 ["45b4fce0","Scion XB","2008‑2015","car",84,"00052"],
-["c4d0fcf8","Volkswagen Beetle","2012‑uptodate","car",85,"00053"],
+["c4d0fcf8","Volkswagen Beetle","2012‑2018","car",85,"00053"],
 ["6c917f3c","Volkswagen Jetta","2011‑uptodate","car",78,"00054"],
 ["0c435a90","Buick Enclave","2008‑2017","suv",82,"00055"],
 ["e4ed0ec9","Buick Rainier","2004‑2007","suv",83,"00056"],
