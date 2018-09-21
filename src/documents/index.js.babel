@@ -120,6 +120,9 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["aab8d49c","Hyundai Kona","2019‑uptodate","suv",85,"00685"],
+["77e7004a","Hino 195","flat‑nose 2019‑uptodate","tractor",91,"00684"],
+["38fe3cb4","Chevrolet Trax","2018‑uptodate","suv",87,"00683"],
 ["83c1b9a0","Hyundai Santa‑Fe","2019‑uptodate","suv",77,"00682"],
 ["3374d488","Nissan Kicks","2019‑uptodate","suv",80,"00681"],
 ["f8662f27","Dodge Ram 1500","crew‑cab 6'4 long‑bed 2019‑uptodate","pickup",74,"00680"],
@@ -736,7 +739,7 @@ WS.data=[
 ["73177ce1","Freightliner M2","day‑cab\n2003‑uptodate","tractor truck",133,"00526"],
 ["37214c25","GMC Topkick","C4500 / C5500","tractor truck",106,"00527"],
 ["b9b97c17","GMC T‑Series","T7500","tractor truck",108,"00528"],
-["b4d72f95","Hino FA1517","2008‑2009","tractor truck",86,"00529"],
+["b4d72f95","Hino FA1517","2009","tractor truck",86,"00529"],
 ["fd189ca0","Hino Low‑Profile","258\n2009","tractor truck",103,"00530"],
 ["b8cf6c8f","International 8500","regular","tractor truck",144,"00531"],
 ["4c11cd8c","International 9200i","","tractor truck",143,"00532"],
