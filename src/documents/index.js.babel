@@ -120,6 +120,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["4a010af9","Hino XL 8","2019","tractor",111,"00687"],
+["10095144","Toyota Rav‑4","2019‑uptodate","suv",81,"00686"],
 ["aab8d49c","Hyundai Kona","2019‑uptodate","suv",85,"00685"],
 ["77e7004a","Hino 195","flat‑nose 2019‑uptodate","tractor",91,"00684"],
 ["38fe3cb4","Chevrolet Trax","2018‑uptodate","suv",87,"00683"],
