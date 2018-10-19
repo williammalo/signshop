@@ -120,6 +120,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["3ff6940c","Mitsubishi Eclipse","Cross 2018‑uptodate","suv",82,"00691"],
+["1d52d2d2","Subaru Forester","2019‑uptodate","suv",80,"00690"],
 ["e68f0966","Tesla model X","2017‑uptodate","suv",70,"00689"],
 ["b9b3ffcd","Subaru Ascent","2019‑uptodate","suv",82,"00688"],
 ["4a010af9","Hino XL 8","2019","tractor",111,"00687"],
