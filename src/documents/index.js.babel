@@ -120,6 +120,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["ec0df7d1","Lexus RX","2016‑uptodate","suv",77,"00700"],
+["8049bfaf","Nissan Titan","regular‑cab long‑bed 2016‑uptodate","pickup",74,"00699"],
 ["4ae8be53","Jeep Compass","2018‑uptodate","suv",79,"00698"],
 ["1329f7cc","Hyundai Accent Sedan","2018‑uptodate","car",73,"00697"],
 ["e3836c99","Honda CR‑V","2018‑uptodate","suv",80,"00696"],
