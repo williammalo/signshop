@@ -32,15 +32,13 @@ var getQueryVariable = function(a){
 	)
 };
 
-var mergeObject=function(a,b){
-	for(var i in b)
-		a[i] = b[i]
-	return a
+var mergeObject = (a, b) => {
+	for(var i in b) a[i] = b[i];
+	return a;
 };
 
-var addMethods = (a,b)=>{
-	for(var i in b)
-		a.prototype[i] = b[i]
+var addMethods = (a, b) => {
+	for(var i in b) a.prototype[i] = b[i]
 }
 
 var range = function(start, stop) {
@@ -120,23 +118,25 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["43515fc4","Land Rover Range Rover","Velar 2018‑uptodate","suv",76,"00702"],
+["0cfdc30d","Volkswagen Transporter","Kombi long high‑roof\n2017‑uptodate","van caravelle",110,"00701"],
 ["ec0df7d1","Lexus RX","2016‑uptodate","suv",77,"00700"],
-["8049bfaf","Nissan Titan","regular‑cab long‑bed 2016‑uptodate","pickup",74,"00699"],
+["8049bfaf","Nissan Titan","regular‑cab long‑bed\n2016‑uptodate","pickup",74,"00699"],
 ["4ae8be53","Jeep Compass","2018‑uptodate","suv",79,"00698"],
 ["1329f7cc","Hyundai Accent Sedan","2018‑uptodate","car",73,"00697"],
 ["e3836c99","Honda CR‑V","2018‑uptodate","suv",80,"00696"],
-["78f7080d","GMC Sierra crew‑cab short‑bed","2019‑uptodate","pickup",74,"00695"],
-["083aa246","Chevrolet Silverado crew‑cab short‑bed","2019‑uptodate","pickup",73,"00694"],
+["78f7080d","GMC Sierra","crew‑cab short‑bed\n2019‑uptodate","pickup",74,"00695"],
+["083aa246","Chevrolet Silverado","crew‑cab short‑bed\n2019‑uptodate","pickup",73,"00694"],
 ["e94bb718","Chevrolet Traverse","2018‑uptodate","suv",78,"00693"],
 ["d89a61e9","Fiat Spider","2018‑uptodate","car convertible",70,"00692"],
-["3ff6940c","Mitsubishi Eclipse","Cross 2018‑uptodate","suv",82,"00691"],
+["3ff6940c","Mitsubishi Eclipse","Cross\n2018‑uptodate","suv",82,"00691"],
 ["1d52d2d2","Subaru Forester","2019‑uptodate","suv",80,"00690"],
 ["e68f0966","Tesla model X","2017‑uptodate","suv",70,"00689"],
 ["b9b3ffcd","Subaru Ascent","2019‑uptodate","suv",82,"00688"],
 ["4a010af9","Hino XL 8","2019","tractor",111,"00687"],
 ["10095144","Toyota Rav‑4","2019‑uptodate","suv",81,"00686"],
 ["aab8d49c","Hyundai Kona","2019‑uptodate","suv",85,"00685"],
-["77e7004a","Hino 195","flat‑nose 2019‑uptodate","tractor",91,"00684"],
+["77e7004a","Hino 195","flat‑nose\n2019‑uptodate","tractor",91,"00684"],
 ["38fe3cb4","Chevrolet Trax","2018‑uptodate","suv",87,"00683"],
 ["83c1b9a0","Hyundai Santa‑Fe","2019‑uptodate","suv",77,"00682"],
 ["3374d488","Nissan Kicks","2019‑uptodate","suv",80,"00681"],
