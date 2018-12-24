@@ -118,6 +118,8 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["","Jaguar F‑Pace 2017‑uptodate","","",,"00708"],
+["41460e70","Tesla Model 3","2019‑uptodate","car electric",76,"00707"],
 ["60df39ab","Volkswagen Transporter Short","2017‑uptodate","van",93,"00706"],
 ["dd1453fc","Volkswagen Transporter","Kombi long 2017‑uptodate","van",86,"00705"],
 ["5f0a8c63","Hyundai Veloster","2019‑uptodate","car",77,"00704"],
