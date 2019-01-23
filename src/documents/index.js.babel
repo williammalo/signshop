@@ -118,6 +118,11 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
+["3ea3e539","Toyota Corolla","hatchback 2018‑uptodate","car",78,"00717"],
+["fb369bf5","Volkswagen Atlas","2018‑uptodate","suv",85,"00716"],
+["b94ec783","Kia Rio","5‑doors hatchback 2018‑uptodate","car",75,"00715"],
+["5b388ec5","Chevrolet Cruze","2016‑uptodate","car",76,"00714"],
+["84bf8a25","International LT625","A26 2017","truck",143,"00713"],
 ["cc56b5a6","Nissan Qashqai / Rogue Sport","2017‑uptodate","suv",82,"00712"],
 ["dfbbddc9","Buick Cascada","2019‑uptodate","car",72,"00711"],
 ["4adfba52","Kia Soul","2013‑uptodate","suv",88,"00710"],
@@ -544,7 +549,7 @@ WS.data=[
 ["cc982b7b","Honda CR‑Z","2011‑2014","car",75,"00304"],
 ["594d0643","Honda Element","2003‑2007","suv",88,"00305"],
 ["2a4abc7b","Honda Fit","2007‑2008","car",82,"00306"],
-["2edd88a1","Honda Fit","2009‑uptodate","car",83,"00307"],
+["2edd88a1","Honda Fit","2009‑2014","car",83,"00307"],
 ["be20c1cf","Honda Insight","2010‑2014","car",78,"00308"],
 ["87d6cf81","Honda S2000","2007‑uptodate","car",73,"00309"],
 ["ddfb3a14","Honda Ridgeline","2006‑2014","pickup",85,"00310"],
