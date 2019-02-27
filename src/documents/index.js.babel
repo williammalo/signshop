@@ -262,7 +262,7 @@ WS.data=[
 ["a675124f","Ford Transit Connect","short wagon\n2014‑uptodate","van",86,"00008"],
 ["3e89d7f6","Ford Transit Connect","long wagon\n2014‑uptodate","van",82,"00009"],
 ["b4ffeaa0","GMC Sierra","crew‑cab regular‑box\n2014‑2018","pickup",72,"00010"],
-["fbd14c7e","Chevrolet Silverado","crew‑cab regular‑box\n2014‑uptodate","pickup",72,"00011"],
+["fbd14c7e","Chevrolet Silverado","crew‑cab regular‑box\n2014‑2018","pickup",72,"00011"],
 ["0ac0c717","Honda Civic","sedan\n2011‑2015","car",74,"00012"],
 ["6d15c60c","Dodge Ram Promaster","159 wheelbase, high‑roof\n2014‑uptodate","van",86,"00013"],
 ["043480b2","Dodge Ram Promaster","118 wheelbase, standard‑roof\n2014‑uptodate","van",85,"00014"],
