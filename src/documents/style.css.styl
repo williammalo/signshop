@@ -431,37 +431,39 @@ header img
 		text-rendering: optimizeSpeed
 		text-decoration:none
 		color:inherit
+		position:relative
+	strong, span, img
+		transition: .3s
 	strong
 		display:block
-		color:#000
 	span
 		font-size:0.7em
 		line-height:1.4em
 		display:block
-		color:#333
 	img
 		display:block
 		margin: 0 auto
 		margin-bottom:1em
-		//float:right
-		//margin-left:1em
-
-.price-tag
-	background: #ffb901
-	border-radius: 1em
-	font-size: 0.7em
-	margin-top: 1.43em
-	float: left
-	padding: 0 10px
 
 .add-button
 	background: brand[2]
 	color: #fff
-	border-radius: 1em
-	font-size: 0.7em
-	margin-top: 1.43em
-	float: right
-	width: calc(100% - 65px)
+	opacity: 0
+	transition: .3s
+	border-radius: 1.5em
+	transition: .3s
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	position: absolute
+	padding: .5em 1em
+	white-space: nowrap
+
+#ws-container a:hover
+	.add-button
+		opacity: 1
+	img, strong, span
+		opacity: .5
 
 #showalllink
 	cursor:pointer

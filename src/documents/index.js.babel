@@ -11,6 +11,12 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+if(!String.prototype.includes){
+	String.prototype.includes = function(a){
+		return this.indexOf(a) != -1;
+	}
+}
+
 var mapObject=(o,ƒ)=>{
 	var n = {}
 	Object.keys(o)
@@ -39,7 +45,7 @@ var addMethods = (a, b) => {
 
 var range = function(start, stop) {
 
-	var length = stop - start;
+	var length = stop - start + 1;
 	var range = Array(length);
 	var i=0;
 
@@ -82,7 +88,7 @@ var  imagePath = "http://signshop.s3-website-us-east-1.amazonaws.com/"
 				,dom("span",{itemprop:"price",content:"24.95"},"24.95")
 				,dom("span",{itemprop:"lowPrice",content:"24.95"},"24.95")
 			)
-			,dom("div",{class:"price-tag"},"24.95$")
+			//,dom("div",{class:"price-tag"},"24.95$")
 			,dom("div",{class:"add-button"},"Add to Cart")
 		)
 
@@ -114,13 +120,13 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
-["6c98920b","Ford F‑150","regular‑cab 8ft box\n2017‑uptodate","pickup F‑250 f150 f250",79,"00721"],
+["6c98920b","Ford F‑150","regular‑cab 8ft box\n2017‑uptodate","pickup F‑250",79,"00721"],
 ["afc16699","Kia Niro","2017‑uptodate","suv",77,"00720"],
 ["d846d7a3","Nissan Altima","2019‑uptodate","car sedan",71,"00719"],
 ["a01e38dd","Kia Soul","2017‑uptodate","suv van",91,"00718"],
 ["3ea3e539","Toyota Corolla","hatchback 2018‑uptodate","car",78,"00717"],
 ["fb369bf5","Volkswagen Atlas","2018‑uptodate","suv",85,"00716"],
-["b94ec783","Kia Rio","5‑doors hatchback 2018‑uptodate","car",75,"00715"],
+["b94ec783","Kia Rio","5‑doors hatchback 2018‑uptodate","car 5 doors",75,"00715"],
 ["5b388ec5","Chevrolet Cruze","2016‑uptodate","car",76,"00714"],
 ["84bf8a25","International LT625","A26 2017","truck",143,"00713"],
 ["cc56b5a6","Nissan Qashqai / Rogue Sport","2017‑uptodate","suv",82,"00712"],
@@ -134,7 +140,7 @@ WS.data=[
 ["5f0a8c63","Hyundai Veloster","2019‑uptodate","car",77,"00704"],
 ["a9e2aa0e","Land Rover Range Rover","2012‑uptodate","suv",77,"00703"],
 ["43515fc4","Land Rover Range Rover","Velar 2018‑uptodate","suv",76,"00702"],
-["0cfdc30d","Volkswagen Transporter","Kombi long high‑roof\n2017‑uptodate","van caravelle",110,"00701"],
+["0cfdc30d","Volkswagen Transporter","Kombi long high‑roof\n2017‑uptodate","van caravelle high roof",110,"00701"],
 ["ec0df7d1","Lexus RX","2016‑uptodate","suv",77,"00700"],
 ["8049bfaf","Nissan Titan","regular‑cab long‑bed\n2016‑uptodate","pickup",74,"00699"],
 ["4ae8be53","Jeep Compass","2018‑uptodate","suv",79,"00698"],
@@ -155,10 +161,10 @@ WS.data=[
 ["38fe3cb4","Chevrolet Trax","2018‑uptodate","suv",87,"00683"],
 ["83c1b9a0","Hyundai Santa‑Fe","2019‑uptodate","suv",77,"00682"],
 ["3374d488","Nissan Kicks","2019‑uptodate","suv",80,"00681"],
-["f8662f27","Dodge Ram 1500","crew‑cab 6'4 long‑bed 2019‑uptodate","pickup",74,"00680"],
+["f8662f27","Dodge Ram 1500 / 2500","crew‑cab 6'4 long‑bed 2019‑uptodate","pickup",74,"00680"],
 ["4e585343","Toyota C‑HR","2018‑uptodate","suv",77,"00679"],
 ["81a6c30a","Toyota Camry","2018‑uptodate","car",66,"00678"],
-["3ad7f978","Dodge Ram 1500","crew‑cab 5'7 short‑bed\n2019‑uptodate","pickup",74,"00677"],
+["3ad7f978","Dodge Ram 1500 / 2500","crew‑cab 5'7 short‑bed\n2019‑uptodate","pickup",74,"00677"],
 ["5928a354","Volvo VNL 760","hwy\n2018‑uptodate","truck",137,"00676"],
 ["d2241b12","Volvo VNR 640","2018‑uptodate","truck",132,"00675"],
 ["09c99415","Volvo VNL 860","hwy\n2018‑uptodate","truck",138,"00674"],
@@ -397,11 +403,11 @@ WS.data=[
 ["29aa4653","Dodge Ram","3500 quad‑cab\n2003‑2008","pickup",75,"00149"],
 ["1b64fd5c","Dodge Ram","3500 resistol\n2008","pickup",75,"00150"],
 ["c92e0f1e","Dodge Ram","mega‑cab\n2007‑2008","pickup",78,"00151"],
-["2040805b","Dodge Ram 1500 2500","crew‑cab\n2009‑2018","pickup",78,"00152"],
-["2f20e08c","Dodge Ram 1500 2500","crew‑cab toolbox\n2009‑2018","pickup",80,"00153"],
-["c3d3db45","Dodge Ram 1500 2500","quad‑cab\n2009‑2018","pickup",78,"00154"],
-["2eed8942","Dodge Ram 1500 2500","regular long\n2009‑2018","pickup",79,"00155"],
-["e1d77223","Dodge Ram 1500 2500","regular short\n2009‑2018","pickup",80,"00156"],
+["2040805b","Dodge Ram 1500 / 2500","crew‑cab\n2009‑2018","pickup",78,"00152"],
+["2f20e08c","Dodge Ram 1500 / 2500","crew‑cab toolbox\n2009‑2018","pickup",80,"00153"],
+["c3d3db45","Dodge Ram 1500 / 2500","quad‑cab\n2009‑2018","pickup",78,"00154"],
+["2eed8942","Dodge Ram 1500 / 2500","regular long\n2009‑2018","pickup",79,"00155"],
+["e1d77223","Dodge Ram 1500 / 2500","regular short\n2009‑2018","pickup",80,"00156"],
 ["7c2aec25","Dodge Grand Caravan","2003‑2007","van ram",81,"00158"],
 ["ed3df3ca","Dodge Caravan","regular\n2003‑2006","van ram",87,"00159"],
 ["cbc482b3","Dodge Grand Caravan","2008‑uptodate","van ram",80,"00160"],
@@ -839,14 +845,21 @@ var prettify = text=>{
 }
 
 var getSearchString = text=>{
-	var  searchText = text.replace("\n", " ")
-	var  noSpace = searchText.replace(/‑/g, "" )
-		,space   = searchText.replace(/‑/g, " ")
-		,dash    = searchText.replace(/‑/g, "-")
-		,chevy   = searchText.replace("Chevrolet", "Chevy")
-		,range   = searchText.replace(/20\d\d‑20\d\d/,expandRange)
+	var words = text.split(/\s/);
 
-	return `${searchText} ${noSpace} ${space} ${dash} ${chevy} ${range} `
+	if(words.includes("Chevrolet"))
+		words.push("Chevy")
+
+	words = words.map(word=>{
+		if(word.includes("‑")){
+			word = word.replace(/20\d\d‑20\d\d/,expandRange)
+			word = word.replace(/‑/g, "-")
+			word += " " + word.replace(/-/g, "" ) + " " + word.replace(/-/g, " ")
+		}
+		return word;
+	});
+
+	return words.join(" ");
 }
 
 WS.data.forEach(item=>{
@@ -862,7 +875,7 @@ WS.data.forEach(item=>{
 		item.imageURL = imagePath + sku + ".jpg"
 	}
 	item.imageLoaded = false
-	item.searchText  = getSearchString(item.prettyText+"\n"+item.prettyDesc) + tags
+	item.searchText  = getSearchString(item.prettyText+"\n"+item.prettyDesc) + " " + tags
 
 })
 
@@ -873,64 +886,32 @@ WS.data.forEach(item=>{
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //defered images
-dom.query("[for=toggle-info]").on("click",e=>{
-	dom.queryAll("[data-src]")
-		.forEach(i=>{
-			i.src = imagePath + i.getAttribute("data-src")
-		})
-})
+dom.query("[for=toggle-info]").on("click", e=>{
+	dom.queryAll("[data-src]").forEach(i=>{ i.src = imagePath + i.getAttribute("data-src") })
+});
 
 //faq cover
-
-var cover=dom(
-	 "div"
-	,{"class":"cover"}
-	,dom("iframe",{src:"faq"})
-)
-	.on("click",e=>{
-		e.preventDefault()
-		cover.remove()
-	})
-
-dom.query("#faq")
-	.on("click",e=>{
-		e.preventDefault()
-		dom.body.append(cover)
-	})
+var cover = dom("div", {"class":"cover"}, dom("iframe", {src:"faq"}));
+dom.query("#faq").on("click", e=>{ dom.body.append(cover); e.preventDefault() });
+cover.on("click", cover.remove);
 
 //hide info on text input
-var infoBlockElement = dom.query("#toggle-info");
-WS.inputElement
-	.on("input",function(){
-		if(infoBlockElement.checked !== false)
-			infoBlockElement.checked = false;
-	})
-
+var info = dom.query("#toggle-info");
+WS.inputElement.on("input", e=>{ info.checked = false });
 
 //hardlinking
+inputFormElement.on("submit", e=>{
+	history.pushState("", "", "?search=" + WS.inputElement.value);
+	e.preventDefault();
+});
+WS.inputElement.value = getQueryVariable("search");
 
-inputFormElement
-	.on("submit",e=>{
-		history.pushState("","","?search="+WS.inputElement.value);
-		e.preventDefault()
-	})
-
-
-WS.inputElement.value = getQueryVariable("search")
-
-;(raf=>{
-	raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame || (a=>a()) ;
-	raf( WS.search )
-})()
-
+//render results on page paint (or immediately if raf is unavailable)
+var raf = window.requestAnimationFrame || (a=>a()) ;
+raf( WS.search );
 
 //clicked indicator
-
-
-WS.containerElement.on("click",event=>{
-	if(event.target.href)
-		event.target.classList.add("clicked")
-})
+WS.containerElement.on("click", e=>{ if(e.target.href) e.target.classList.add("clicked") })
 
 
 //stylesheet load
