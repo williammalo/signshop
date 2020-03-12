@@ -120,7 +120,10 @@ WS.search.on("fragmentpopulated",(fragment,array)=>{
 //include data
 WS.data=[
 //["","","","",,""],
-//["","","","",,""],
+["d1070ec0","Hyundai Elantra GT","2018‑uptodate","car",78,"00743"],
+["fc7b6fb7","Mack Anthem","70in sleeper","tractor",123,"00742"],
+["40f0e47e","Toyota Highlander","2020‑uptodate","suv",76,"00741"],
+["2a5a5f5d","Kia Soul","2019‑uptodate","suv",85,"00740"],
 ["ff666edd","Mercedes Sprinter","cargo 144 high roof window\n2019‑uptodate","van",101,"00739"],
 ["4409660b","Chevrolet Corvette Stingray ZR1","2020‑uptodate","car",63,"00738"],
 ["3705d8e5","Mercedes GLS","2020‑uptodate","suv",85,"00737"],
